@@ -1,0 +1,6 @@
+{
+  "packageName": "client",
+  "packageVersion": "0.0.1",
+  "isGoSubmodule": true,
+  "enumClassPrefix": true
+}
