@@ -21,7 +21,7 @@ var _ MappedNullable = &APIError{}
 
 // APIError struct for APIError
 type APIError struct {
-	Status ImportedAPIStatusFAILED `json:"status"`
+	Status APIStatus `json:"status"`
 	Reason string `json:"reason"`
 	Code string `json:"code"`
 	SecondaryCode *string `json:"secondaryCode,omitempty"`
@@ -37,7 +37,7 @@ type _APIError APIError
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIError(status ImportedAPIStatusFAILED, reason string, code string) *APIError {
+func NewAPIError(status APIStatus, reason string, code string) *APIError {
 	this := APIError{}
 	this.Status = status
 	this.Reason = reason
@@ -54,9 +54,9 @@ func NewAPIErrorWithDefaults() *APIError {
 }
 
 // GetStatus returns the Status field value
-func (o *APIError) GetStatus() ImportedAPIStatusFAILED {
+func (o *APIError) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusFAILED
+		var ret APIStatus
 		return ret
 	}
 
@@ -65,7 +65,7 @@ func (o *APIError) GetStatus() ImportedAPIStatusFAILED {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *APIError) GetStatusOk() (*ImportedAPIStatusFAILED, bool) {
+func (o *APIError) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *APIError) GetStatusOk() (*ImportedAPIStatusFAILED, bool) {
 }
 
 // SetStatus sets field value
-func (o *APIError) SetStatus(v ImportedAPIStatusFAILED) {
+func (o *APIError) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

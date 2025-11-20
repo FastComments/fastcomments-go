@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Reason** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
+**CommentsUpdated** | Pointer to **int64** |  | [optional] 
 **Page** | Pointer to [**APIPage**](APIPage.md) |  | [optional] 
 **Status** | **string** |  | 
 
@@ -77,6 +78,31 @@ SetCode sets Code field to given value.
 `func (o *PatchPageAPIResponse) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
+
+### GetCommentsUpdated
+
+`func (o *PatchPageAPIResponse) GetCommentsUpdated() int64`
+
+GetCommentsUpdated returns the CommentsUpdated field if non-nil, zero value otherwise.
+
+### GetCommentsUpdatedOk
+
+`func (o *PatchPageAPIResponse) GetCommentsUpdatedOk() (*int64, bool)`
+
+GetCommentsUpdatedOk returns a tuple with the CommentsUpdated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCommentsUpdated
+
+`func (o *PatchPageAPIResponse) SetCommentsUpdated(v int64)`
+
+SetCommentsUpdated sets CommentsUpdated field to given value.
+
+### HasCommentsUpdated
+
+`func (o *PatchPageAPIResponse) HasCommentsUpdated() bool`
+
+HasCommentsUpdated returns a boolean if a field has been set.
 
 ### GetPage
 

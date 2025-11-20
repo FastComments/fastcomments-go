@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Code** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewResetUserNotificationsResponse
 
-`func NewResetUserNotificationsResponse(status ImportedAPIStatusSUCCESS, ) *ResetUserNotificationsResponse`
+`func NewResetUserNotificationsResponse(status APIStatus, ) *ResetUserNotificationsResponse`
 
 NewResetUserNotificationsResponse instantiates a new ResetUserNotificationsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *ResetUserNotificationsResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *ResetUserNotificationsResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ResetUserNotificationsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *ResetUserNotificationsResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ResetUserNotificationsResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *ResetUserNotificationsResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &HeaderState{}
 
 // HeaderState struct for HeaderState
 type HeaderState struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	NotificationType map[string]interface{} `json:"NotificationType"`
 	UserId string `json:"userId"`
 	UserIdWS string `json:"userIdWS"`
@@ -34,7 +34,7 @@ type _HeaderState HeaderState
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeaderState(status ImportedAPIStatusSUCCESS, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount) *HeaderState {
+func NewHeaderState(status APIStatus, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount) *HeaderState {
 	this := HeaderState{}
 	this.Status = status
 	this.NotificationType = notificationType
@@ -53,9 +53,9 @@ func NewHeaderStateWithDefaults() *HeaderState {
 }
 
 // GetStatus returns the Status field value
-func (o *HeaderState) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *HeaderState) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -64,7 +64,7 @@ func (o *HeaderState) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *HeaderState) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *HeaderState) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,7 +72,7 @@ func (o *HeaderState) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *HeaderState) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *HeaderState) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

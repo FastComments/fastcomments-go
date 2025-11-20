@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Data** | [**QuestionResultAggregationOverall**](QuestionResultAggregationOverall.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewAggregateQuestionResults200Response
 
-`func NewAggregateQuestionResults200Response(status ImportedAPIStatusFAILED, data QuestionResultAggregationOverall, reason string, code string, ) *AggregateQuestionResults200Response`
+`func NewAggregateQuestionResults200Response(status APIStatus, data QuestionResultAggregationOverall, reason string, code string, ) *AggregateQuestionResults200Response`
 
 NewAggregateQuestionResults200Response instantiates a new AggregateQuestionResults200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *AggregateQuestionResults200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *AggregateQuestionResults200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *AggregateQuestionResults200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *AggregateQuestionResults200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *AggregateQuestionResults200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *AggregateQuestionResults200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewAPIError
 
-`func NewAPIError(status ImportedAPIStatusFAILED, reason string, code string, ) *APIError`
+`func NewAPIError(status APIStatus, reason string, code string, ) *APIError`
 
 NewAPIError instantiates a new APIError object
 This constructor will assign default values to properties that have it defined,
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *APIError) GetStatus() ImportedAPIStatusFAILED`
+`func (o *APIError) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *APIError) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *APIError) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *APIError) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *APIError) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

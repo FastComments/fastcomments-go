@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Comment** | [**PublicComment**](PublicComment.md) |  | 
 **User** | [**NullableUserSessionInfo**](UserSessionInfo.md) |  | 
 **ModuleData** | Pointer to **map[string]interface{}** | Construct a type with a set of properties K of type T | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewSaveCommentResponseOptimized
 
-`func NewSaveCommentResponseOptimized(status ImportedAPIStatusSUCCESS, comment PublicComment, user NullableUserSessionInfo, ) *SaveCommentResponseOptimized`
+`func NewSaveCommentResponseOptimized(status APIStatus, comment PublicComment, user NullableUserSessionInfo, ) *SaveCommentResponseOptimized`
 
 NewSaveCommentResponseOptimized instantiates a new SaveCommentResponseOptimized object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *SaveCommentResponseOptimized) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *SaveCommentResponseOptimized) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *SaveCommentResponseOptimized) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *SaveCommentResponseOptimized) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *SaveCommentResponseOptimized) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *SaveCommentResponseOptimized) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

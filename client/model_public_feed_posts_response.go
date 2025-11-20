@@ -21,7 +21,7 @@ var _ MappedNullable = &PublicFeedPostsResponse{}
 
 // PublicFeedPostsResponse struct for PublicFeedPostsResponse
 type PublicFeedPostsResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	FeedPosts []FeedPost `json:"feedPosts"`
 	User NullableUserSessionInfo `json:"user,omitempty"`
 	UrlIdWS *string `json:"urlIdWS,omitempty"`
@@ -36,7 +36,7 @@ type _PublicFeedPostsResponse PublicFeedPostsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicFeedPostsResponse(status ImportedAPIStatusSUCCESS, feedPosts []FeedPost) *PublicFeedPostsResponse {
+func NewPublicFeedPostsResponse(status APIStatus, feedPosts []FeedPost) *PublicFeedPostsResponse {
 	this := PublicFeedPostsResponse{}
 	this.Status = status
 	this.FeedPosts = feedPosts
@@ -52,9 +52,9 @@ func NewPublicFeedPostsResponseWithDefaults() *PublicFeedPostsResponse {
 }
 
 // GetStatus returns the Status field value
-func (o *PublicFeedPostsResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *PublicFeedPostsResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *PublicFeedPostsResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PublicFeedPostsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *PublicFeedPostsResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *PublicFeedPostsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool
 }
 
 // SetStatus sets field value
-func (o *PublicFeedPostsResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *PublicFeedPostsResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | [**APIStatus**](APIStatus.md) |  | 
-**AuditLogs** | [**[]PickTenantAuditLogTenantAuditLogKeys**](PickTenantAuditLogTenantAuditLogKeys.md) |  | 
+**AuditLogs** | [**[]APIAuditLog**](APIAuditLog.md) |  | 
 
 ## Methods
 
 ### NewGetAuditLogsResponse
 
-`func NewGetAuditLogsResponse(status APIStatus, auditLogs []PickTenantAuditLogTenantAuditLogKeys, ) *GetAuditLogsResponse`
+`func NewGetAuditLogsResponse(status APIStatus, auditLogs []APIAuditLog, ) *GetAuditLogsResponse`
 
 NewGetAuditLogsResponse instantiates a new GetAuditLogsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetStatus sets Status field to given value.
 
 ### GetAuditLogs
 
-`func (o *GetAuditLogsResponse) GetAuditLogs() []PickTenantAuditLogTenantAuditLogKeys`
+`func (o *GetAuditLogsResponse) GetAuditLogs() []APIAuditLog`
 
 GetAuditLogs returns the AuditLogs field if non-nil, zero value otherwise.
 
 ### GetAuditLogsOk
 
-`func (o *GetAuditLogsResponse) GetAuditLogsOk() (*[]PickTenantAuditLogTenantAuditLogKeys, bool)`
+`func (o *GetAuditLogsResponse) GetAuditLogsOk() (*[]APIAuditLog, bool)`
 
 GetAuditLogsOk returns a tuple with the AuditLogs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuditLogs
 
-`func (o *GetAuditLogsResponse) SetAuditLogs(v []PickTenantAuditLogTenantAuditLogKeys)`
+`func (o *GetAuditLogsResponse) SetAuditLogs(v []APIAuditLog)`
 
 SetAuditLogs sets AuditLogs field to given value.
 

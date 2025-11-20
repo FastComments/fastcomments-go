@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **UserBadgeProgresses** | [**[]UserBadgeProgress**](UserBadgeProgress.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetUserBadgeProgressList200Response
 
-`func NewGetUserBadgeProgressList200Response(status ImportedAPIStatusFAILED, userBadgeProgresses []UserBadgeProgress, reason string, code string, ) *GetUserBadgeProgressList200Response`
+`func NewGetUserBadgeProgressList200Response(status APIStatus, userBadgeProgresses []UserBadgeProgress, reason string, code string, ) *GetUserBadgeProgressList200Response`
 
 NewGetUserBadgeProgressList200Response instantiates a new GetUserBadgeProgressList200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetUserBadgeProgressList200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetUserBadgeProgressList200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetUserBadgeProgressList200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetUserBadgeProgressList200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetUserBadgeProgressList200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetUserBadgeProgressList200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

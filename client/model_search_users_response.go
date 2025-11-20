@@ -21,7 +21,7 @@ var _ MappedNullable = &SearchUsersResponse{}
 
 // SearchUsersResponse struct for SearchUsersResponse
 type SearchUsersResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	Users []UserSearchResult `json:"users"`
 }
 
@@ -31,7 +31,7 @@ type _SearchUsersResponse SearchUsersResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchUsersResponse(status ImportedAPIStatusSUCCESS, users []UserSearchResult) *SearchUsersResponse {
+func NewSearchUsersResponse(status APIStatus, users []UserSearchResult) *SearchUsersResponse {
 	this := SearchUsersResponse{}
 	this.Status = status
 	this.Users = users
@@ -47,9 +47,9 @@ func NewSearchUsersResponseWithDefaults() *SearchUsersResponse {
 }
 
 // GetStatus returns the Status field value
-func (o *SearchUsersResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *SearchUsersResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -58,7 +58,7 @@ func (o *SearchUsersResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *SearchUsersResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *SearchUsersResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *SearchUsersResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *SearchUsersResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *SearchUsersResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

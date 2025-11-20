@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
-**AuditLogs** | [**[]PickTenantAuditLogTenantAuditLogKeys**](PickTenantAuditLogTenantAuditLogKeys.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
+**AuditLogs** | [**[]APIAuditLog**](APIAuditLog.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetAuditLogs200Response
 
-`func NewGetAuditLogs200Response(status ImportedAPIStatusFAILED, auditLogs []PickTenantAuditLogTenantAuditLogKeys, reason string, code string, ) *GetAuditLogs200Response`
+`func NewGetAuditLogs200Response(status APIStatus, auditLogs []APIAuditLog, reason string, code string, ) *GetAuditLogs200Response`
 
 NewGetAuditLogs200Response instantiates a new GetAuditLogs200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,40 +35,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetAuditLogs200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetAuditLogs200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetAuditLogs200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetAuditLogs200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetAuditLogs200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetAuditLogs200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 
 
 ### GetAuditLogs
 
-`func (o *GetAuditLogs200Response) GetAuditLogs() []PickTenantAuditLogTenantAuditLogKeys`
+`func (o *GetAuditLogs200Response) GetAuditLogs() []APIAuditLog`
 
 GetAuditLogs returns the AuditLogs field if non-nil, zero value otherwise.
 
 ### GetAuditLogsOk
 
-`func (o *GetAuditLogs200Response) GetAuditLogsOk() (*[]PickTenantAuditLogTenantAuditLogKeys, bool)`
+`func (o *GetAuditLogs200Response) GetAuditLogsOk() (*[]APIAuditLog, bool)`
 
 GetAuditLogsOk returns a tuple with the AuditLogs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuditLogs
 
-`func (o *GetAuditLogs200Response) SetAuditLogs(v []PickTenantAuditLogTenantAuditLogKeys)`
+`func (o *GetAuditLogs200Response) SetAuditLogs(v []APIAuditLog)`
 
 SetAuditLogs sets AuditLogs field to given value.
 

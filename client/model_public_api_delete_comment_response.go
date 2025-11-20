@@ -21,9 +21,9 @@ var _ MappedNullable = &PublicAPIDeleteCommentResponse{}
 
 // PublicAPIDeleteCommentResponse struct for PublicAPIDeleteCommentResponse
 type PublicAPIDeleteCommentResponse struct {
-	Comment *PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId `json:"comment,omitempty"`
+	Comment *DeletedCommentResultComment `json:"comment,omitempty"`
 	HardRemoved bool `json:"hardRemoved"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _PublicAPIDeleteCommentResponse PublicAPIDeleteCommentResponse
@@ -32,7 +32,7 @@ type _PublicAPIDeleteCommentResponse PublicAPIDeleteCommentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicAPIDeleteCommentResponse(hardRemoved bool, status ImportedAPIStatusSUCCESS) *PublicAPIDeleteCommentResponse {
+func NewPublicAPIDeleteCommentResponse(hardRemoved bool, status APIStatus) *PublicAPIDeleteCommentResponse {
 	this := PublicAPIDeleteCommentResponse{}
 	this.HardRemoved = hardRemoved
 	this.Status = status
@@ -48,9 +48,9 @@ func NewPublicAPIDeleteCommentResponseWithDefaults() *PublicAPIDeleteCommentResp
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise.
-func (o *PublicAPIDeleteCommentResponse) GetComment() PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
+func (o *PublicAPIDeleteCommentResponse) GetComment() DeletedCommentResultComment {
 	if o == nil || IsNil(o.Comment) {
-		var ret PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId
+		var ret DeletedCommentResultComment
 		return ret
 	}
 	return *o.Comment
@@ -58,7 +58,7 @@ func (o *PublicAPIDeleteCommentResponse) GetComment() PickFCommentIsDeletedOrCom
 
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PublicAPIDeleteCommentResponse) GetCommentOk() (*PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId, bool) {
+func (o *PublicAPIDeleteCommentResponse) GetCommentOk() (*DeletedCommentResultComment, bool) {
 	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
@@ -74,8 +74,8 @@ func (o *PublicAPIDeleteCommentResponse) HasComment() bool {
 	return false
 }
 
-// SetComment gets a reference to the given PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId and assigns it to the Comment field.
-func (o *PublicAPIDeleteCommentResponse) SetComment(v PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId) {
+// SetComment gets a reference to the given DeletedCommentResultComment and assigns it to the Comment field.
+func (o *PublicAPIDeleteCommentResponse) SetComment(v DeletedCommentResultComment) {
 	o.Comment = &v
 }
 
@@ -104,9 +104,9 @@ func (o *PublicAPIDeleteCommentResponse) SetHardRemoved(v bool) {
 }
 
 // GetStatus returns the Status field value
-func (o *PublicAPIDeleteCommentResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *PublicAPIDeleteCommentResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -115,7 +115,7 @@ func (o *PublicAPIDeleteCommentResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PublicAPIDeleteCommentResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *PublicAPIDeleteCommentResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -123,7 +123,7 @@ func (o *PublicAPIDeleteCommentResponse) GetStatusOk() (*ImportedAPIStatusSUCCES
 }
 
 // SetStatus sets field value
-func (o *PublicAPIDeleteCommentResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *PublicAPIDeleteCommentResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

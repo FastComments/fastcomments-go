@@ -21,7 +21,7 @@ var _ MappedNullable = &APIEmptyResponse{}
 
 // APIEmptyResponse struct for APIEmptyResponse
 type APIEmptyResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _APIEmptyResponse APIEmptyResponse
@@ -30,7 +30,7 @@ type _APIEmptyResponse APIEmptyResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIEmptyResponse(status ImportedAPIStatusSUCCESS) *APIEmptyResponse {
+func NewAPIEmptyResponse(status APIStatus) *APIEmptyResponse {
 	this := APIEmptyResponse{}
 	this.Status = status
 	return &this
@@ -45,9 +45,9 @@ func NewAPIEmptyResponseWithDefaults() *APIEmptyResponse {
 }
 
 // GetStatus returns the Status field value
-func (o *APIEmptyResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *APIEmptyResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *APIEmptyResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *APIEmptyResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *APIEmptyResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *APIEmptyResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *APIEmptyResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *APIEmptyResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &SaveCommentResponseOptimized{}
 
 // SaveCommentResponseOptimized struct for SaveCommentResponseOptimized
 type SaveCommentResponseOptimized struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	Comment PublicComment `json:"comment"`
 	User NullableUserSessionInfo `json:"user"`
 	// Construct a type with a set of properties K of type T
@@ -34,7 +34,7 @@ type _SaveCommentResponseOptimized SaveCommentResponseOptimized
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSaveCommentResponseOptimized(status ImportedAPIStatusSUCCESS, comment PublicComment, user NullableUserSessionInfo) *SaveCommentResponseOptimized {
+func NewSaveCommentResponseOptimized(status APIStatus, comment PublicComment, user NullableUserSessionInfo) *SaveCommentResponseOptimized {
 	this := SaveCommentResponseOptimized{}
 	this.Status = status
 	this.Comment = comment
@@ -51,9 +51,9 @@ func NewSaveCommentResponseOptimizedWithDefaults() *SaveCommentResponseOptimized
 }
 
 // GetStatus returns the Status field value
-func (o *SaveCommentResponseOptimized) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *SaveCommentResponseOptimized) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -62,7 +62,7 @@ func (o *SaveCommentResponseOptimized) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *SaveCommentResponseOptimized) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *SaveCommentResponseOptimized) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,7 +70,7 @@ func (o *SaveCommentResponseOptimized) GetStatusOk() (*ImportedAPIStatusSUCCESS,
 }
 
 // SetStatus sets field value
-func (o *SaveCommentResponseOptimized) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *SaveCommentResponseOptimized) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

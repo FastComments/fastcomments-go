@@ -88,7 +88,7 @@ type FComment struct {
 	AutoplayJobId *string `json:"autoplayJobId,omitempty"`
 	AutoplayDelayMS *int64 `json:"autoplayDelayMS,omitempty"`
 	FeedbackIds []string `json:"feedbackIds,omitempty"`
-	Logs [][]interface{} `json:"logs,omitempty"`
+	Logs []CommentLogEntry `json:"logs,omitempty"`
 	GroupIds []string `json:"groupIds,omitempty"`
 	ViewCount NullableInt64 `json:"viewCount,omitempty"`
 	RequiresVerification *bool `json:"requiresVerification,omitempty"`
@@ -2416,9 +2416,9 @@ func (o *FComment) SetFeedbackIds(v []string) {
 }
 
 // GetLogs returns the Logs field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FComment) GetLogs() [][]interface{} {
+func (o *FComment) GetLogs() []CommentLogEntry {
 	if o == nil {
-		var ret [][]interface{}
+		var ret []CommentLogEntry
 		return ret
 	}
 	return o.Logs
@@ -2427,7 +2427,7 @@ func (o *FComment) GetLogs() [][]interface{} {
 // GetLogsOk returns a tuple with the Logs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FComment) GetLogsOk() ([][]interface{}, bool) {
+func (o *FComment) GetLogsOk() ([]CommentLogEntry, bool) {
 	if o == nil || IsNil(o.Logs) {
 		return nil, false
 	}
@@ -2443,8 +2443,8 @@ func (o *FComment) HasLogs() bool {
 	return false
 }
 
-// SetLogs gets a reference to the given [][]interface{} and assigns it to the Logs field.
-func (o *FComment) SetLogs(v [][]interface{}) {
+// SetLogs gets a reference to the given []CommentLogEntry and assigns it to the Logs field.
+func (o *FComment) SetLogs(v []CommentLogEntry) {
 	o.Logs = v
 }
 

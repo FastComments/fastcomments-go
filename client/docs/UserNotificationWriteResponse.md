@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **MatchedCount** | **int64** |  | 
 **ModifiedCount** | **int64** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewUserNotificationWriteResponse
 
-`func NewUserNotificationWriteResponse(status ImportedAPIStatusSUCCESS, matchedCount int64, modifiedCount int64, ) *UserNotificationWriteResponse`
+`func NewUserNotificationWriteResponse(status APIStatus, matchedCount int64, modifiedCount int64, ) *UserNotificationWriteResponse`
 
 NewUserNotificationWriteResponse instantiates a new UserNotificationWriteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *UserNotificationWriteResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *UserNotificationWriteResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *UserNotificationWriteResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *UserNotificationWriteResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *UserNotificationWriteResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *UserNotificationWriteResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

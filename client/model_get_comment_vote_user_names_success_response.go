@@ -21,7 +21,7 @@ var _ MappedNullable = &GetCommentVoteUserNamesSuccessResponse{}
 
 // GetCommentVoteUserNamesSuccessResponse struct for GetCommentVoteUserNamesSuccessResponse
 type GetCommentVoteUserNamesSuccessResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	VoteUserNames []string `json:"voteUserNames"`
 	HasMore bool `json:"hasMore"`
 }
@@ -32,7 +32,7 @@ type _GetCommentVoteUserNamesSuccessResponse GetCommentVoteUserNamesSuccessRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetCommentVoteUserNamesSuccessResponse(status ImportedAPIStatusSUCCESS, voteUserNames []string, hasMore bool) *GetCommentVoteUserNamesSuccessResponse {
+func NewGetCommentVoteUserNamesSuccessResponse(status APIStatus, voteUserNames []string, hasMore bool) *GetCommentVoteUserNamesSuccessResponse {
 	this := GetCommentVoteUserNamesSuccessResponse{}
 	this.Status = status
 	this.VoteUserNames = voteUserNames
@@ -49,9 +49,9 @@ func NewGetCommentVoteUserNamesSuccessResponseWithDefaults() *GetCommentVoteUser
 }
 
 // GetStatus returns the Status field value
-func (o *GetCommentVoteUserNamesSuccessResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *GetCommentVoteUserNamesSuccessResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *GetCommentVoteUserNamesSuccessResponse) GetStatus() ImportedAPIStatusSU
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *GetCommentVoteUserNamesSuccessResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *GetCommentVoteUserNamesSuccessResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *GetCommentVoteUserNamesSuccessResponse) GetStatusOk() (*ImportedAPIStat
 }
 
 // SetStatus sets field value
-func (o *GetCommentVoteUserNamesSuccessResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *GetCommentVoteUserNamesSuccessResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewLockComment200Response
 
-`func NewLockComment200Response(status ImportedAPIStatusSUCCESS, reason string, code string, ) *LockComment200Response`
+`func NewLockComment200Response(status APIStatus, reason string, code string, ) *LockComment200Response`
 
 NewLockComment200Response instantiates a new LockComment200Response object
 This constructor will assign default values to properties that have it defined,
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *LockComment200Response) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *LockComment200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *LockComment200Response) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *LockComment200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *LockComment200Response) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *LockComment200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

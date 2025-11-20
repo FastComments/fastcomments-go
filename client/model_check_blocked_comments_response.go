@@ -23,7 +23,7 @@ var _ MappedNullable = &CheckBlockedCommentsResponse{}
 type CheckBlockedCommentsResponse struct {
 	// Construct a type with a set of properties K of type T
 	CommentStatuses map[string]bool `json:"commentStatuses"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _CheckBlockedCommentsResponse CheckBlockedCommentsResponse
@@ -32,7 +32,7 @@ type _CheckBlockedCommentsResponse CheckBlockedCommentsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCheckBlockedCommentsResponse(commentStatuses map[string]bool, status ImportedAPIStatusSUCCESS) *CheckBlockedCommentsResponse {
+func NewCheckBlockedCommentsResponse(commentStatuses map[string]bool, status APIStatus) *CheckBlockedCommentsResponse {
 	this := CheckBlockedCommentsResponse{}
 	this.CommentStatuses = commentStatuses
 	this.Status = status
@@ -72,9 +72,9 @@ func (o *CheckBlockedCommentsResponse) SetCommentStatuses(v map[string]bool) {
 }
 
 // GetStatus returns the Status field value
-func (o *CheckBlockedCommentsResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *CheckBlockedCommentsResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *CheckBlockedCommentsResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *CheckBlockedCommentsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *CheckBlockedCommentsResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *CheckBlockedCommentsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS,
 }
 
 // SetStatus sets field value
-func (o *CheckBlockedCommentsResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *CheckBlockedCommentsResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

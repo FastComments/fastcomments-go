@@ -21,7 +21,7 @@ var _ MappedNullable = &PublicAPIGetCommentTextResponse{}
 
 // PublicAPIGetCommentTextResponse struct for PublicAPIGetCommentTextResponse
 type PublicAPIGetCommentTextResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	CommentText string `json:"commentText"`
 	SanitizedCommentText string `json:"sanitizedCommentText"`
 }
@@ -32,7 +32,7 @@ type _PublicAPIGetCommentTextResponse PublicAPIGetCommentTextResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicAPIGetCommentTextResponse(status ImportedAPIStatusSUCCESS, commentText string, sanitizedCommentText string) *PublicAPIGetCommentTextResponse {
+func NewPublicAPIGetCommentTextResponse(status APIStatus, commentText string, sanitizedCommentText string) *PublicAPIGetCommentTextResponse {
 	this := PublicAPIGetCommentTextResponse{}
 	this.Status = status
 	this.CommentText = commentText
@@ -49,9 +49,9 @@ func NewPublicAPIGetCommentTextResponseWithDefaults() *PublicAPIGetCommentTextRe
 }
 
 // GetStatus returns the Status field value
-func (o *PublicAPIGetCommentTextResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *PublicAPIGetCommentTextResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PublicAPIGetCommentTextResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PublicAPIGetCommentTextResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *PublicAPIGetCommentTextResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PublicAPIGetCommentTextResponse) GetStatusOk() (*ImportedAPIStatusSUCCE
 }
 
 // SetStatus sets field value
-func (o *PublicAPIGetCommentTextResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *PublicAPIGetCommentTextResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **IsSubscribed** | **bool** |  | 
 **HasMore** | **bool** |  | 
 **Notifications** | [**[]RenderableUserNotification**](RenderableUserNotification.md) |  | 
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Methods
 
 ### NewGetMyNotificationsResponse
 
-`func NewGetMyNotificationsResponse(isSubscribed bool, hasMore bool, notifications []RenderableUserNotification, status ImportedAPIStatusSUCCESS, ) *GetMyNotificationsResponse`
+`func NewGetMyNotificationsResponse(isSubscribed bool, hasMore bool, notifications []RenderableUserNotification, status APIStatus, ) *GetMyNotificationsResponse`
 
 NewGetMyNotificationsResponse instantiates a new GetMyNotificationsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -116,20 +116,20 @@ SetNotifications sets Notifications field to given value.
 
 ### GetStatus
 
-`func (o *GetMyNotificationsResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *GetMyNotificationsResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetMyNotificationsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *GetMyNotificationsResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetMyNotificationsResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *GetMyNotificationsResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

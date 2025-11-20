@@ -22,34 +22,35 @@ var _ MappedNullable = &PublicComment{}
 
 // PublicComment struct for PublicComment
 type PublicComment struct {
-	Date time.Time `json:"date"`
 	Id string `json:"_id"`
-	UserId *string `json:"userId,omitempty"`
-	AnonUserId *string `json:"anonUserId,omitempty"`
+	UserId NullableString `json:"userId,omitempty"`
 	CommenterName string `json:"commenterName"`
-	CommenterLink *string `json:"commenterLink,omitempty"`
+	CommenterLink NullableString `json:"commenterLink,omitempty"`
 	CommentHTML string `json:"commentHTML"`
-	ParentId *string `json:"parentId,omitempty"`
-	Votes *int32 `json:"votes,omitempty"`
-	VotesUp *int32 `json:"votesUp,omitempty"`
-	VotesDown *int32 `json:"votesDown,omitempty"`
+	ParentId NullableString `json:"parentId,omitempty"`
+	Date NullableTime `json:"date"`
+	Votes NullableInt32 `json:"votes,omitempty"`
+	VotesUp NullableInt32 `json:"votesUp,omitempty"`
+	VotesDown NullableInt32 `json:"votesDown,omitempty"`
 	Verified bool `json:"verified"`
-	AvatarSrc *string `json:"avatarSrc,omitempty"`
-	IsSpam *bool `json:"isSpam,omitempty"`
+	AvatarSrc NullableString `json:"avatarSrc,omitempty"`
 	HasImages *bool `json:"hasImages,omitempty"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
-	IsDeletedUser *bool `json:"isDeletedUser,omitempty"`
 	IsByAdmin *bool `json:"isByAdmin,omitempty"`
 	IsByModerator *bool `json:"isByModerator,omitempty"`
-	IsPinned *bool `json:"isPinned,omitempty"`
-	IsLocked *bool `json:"isLocked,omitempty"`
-	Rating *float64 `json:"rating,omitempty"`
-	DisplayLabel *string `json:"displayLabel,omitempty"`
+	IsPinned NullableBool `json:"isPinned,omitempty"`
+	IsLocked NullableBool `json:"isLocked,omitempty"`
+	DisplayLabel NullableString `json:"displayLabel,omitempty"`
+	Rating NullableFloat64 `json:"rating,omitempty"`
 	Badges []CommentUserBadgeInfo `json:"badges,omitempty"`
+	ViewCount NullableInt64 `json:"viewCount,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeletedUser *bool `json:"isDeletedUser,omitempty"`
+	IsSpam *bool `json:"isSpam,omitempty"`
+	AnonUserId NullableString `json:"anonUserId,omitempty"`
 	FeedbackIds []string `json:"feedbackIds,omitempty"`
-	ViewCount *int64 `json:"viewCount,omitempty"`
 	RequiresVerification *bool `json:"requiresVerification,omitempty"`
 	EditKey *string `json:"editKey,omitempty"`
+	Approved *bool `json:"approved,omitempty"`
 	IsUnread *bool `json:"isUnread,omitempty"`
 	MyVoteId *string `json:"myVoteId,omitempty"`
 	IsVotedDown *bool `json:"isVotedDown,omitempty"`
@@ -71,12 +72,12 @@ type _PublicComment PublicComment
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicComment(date time.Time, id string, commenterName string, commentHTML string, verified bool) *PublicComment {
+func NewPublicComment(id string, commenterName string, commentHTML string, date NullableTime, verified bool) *PublicComment {
 	this := PublicComment{}
-	this.Date = date
 	this.Id = id
 	this.CommenterName = commenterName
 	this.CommentHTML = commentHTML
+	this.Date = date
 	this.Verified = verified
 	return &this
 }
@@ -87,30 +88,6 @@ func NewPublicComment(date time.Time, id string, commenterName string, commentHT
 func NewPublicCommentWithDefaults() *PublicComment {
 	this := PublicComment{}
 	return &this
-}
-
-// GetDate returns the Date field value
-func (o *PublicComment) GetDate() time.Time {
-	if o == nil {
-		var ret time.Time
-		return ret
-	}
-
-	return o.Date
-}
-
-// GetDateOk returns a tuple with the Date field value
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Date, true
-}
-
-// SetDate sets field value
-func (o *PublicComment) SetDate(v time.Time) {
-	o.Date = v
 }
 
 // GetId returns the Id field value
@@ -137,68 +114,46 @@ func (o *PublicComment) SetId(v string) {
 	o.Id = v
 }
 
-// GetUserId returns the UserId field value if set, zero value otherwise.
+// GetUserId returns the UserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetUserId() string {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil || IsNil(o.UserId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UserId
+	return *o.UserId.Get()
 }
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetUserIdOk() (*string, bool) {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserId, true
+	return o.UserId.Get(), o.UserId.IsSet()
 }
 
 // HasUserId returns a boolean if a field has been set.
 func (o *PublicComment) HasUserId() bool {
-	if o != nil && !IsNil(o.UserId) {
+	if o != nil && o.UserId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUserId gets a reference to the given string and assigns it to the UserId field.
+// SetUserId gets a reference to the given NullableString and assigns it to the UserId field.
 func (o *PublicComment) SetUserId(v string) {
-	o.UserId = &v
+	o.UserId.Set(&v)
+}
+// SetUserIdNil sets the value for UserId to be an explicit nil
+func (o *PublicComment) SetUserIdNil() {
+	o.UserId.Set(nil)
 }
 
-// GetAnonUserId returns the AnonUserId field value if set, zero value otherwise.
-func (o *PublicComment) GetAnonUserId() string {
-	if o == nil || IsNil(o.AnonUserId) {
-		var ret string
-		return ret
-	}
-	return *o.AnonUserId
-}
-
-// GetAnonUserIdOk returns a tuple with the AnonUserId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetAnonUserIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AnonUserId) {
-		return nil, false
-	}
-	return o.AnonUserId, true
-}
-
-// HasAnonUserId returns a boolean if a field has been set.
-func (o *PublicComment) HasAnonUserId() bool {
-	if o != nil && !IsNil(o.AnonUserId) {
-		return true
-	}
-
-	return false
-}
-
-// SetAnonUserId gets a reference to the given string and assigns it to the AnonUserId field.
-func (o *PublicComment) SetAnonUserId(v string) {
-	o.AnonUserId = &v
+// UnsetUserId ensures that no value is present for UserId, not even an explicit nil
+func (o *PublicComment) UnsetUserId() {
+	o.UserId.Unset()
 }
 
 // GetCommenterName returns the CommenterName field value
@@ -225,36 +180,46 @@ func (o *PublicComment) SetCommenterName(v string) {
 	o.CommenterName = v
 }
 
-// GetCommenterLink returns the CommenterLink field value if set, zero value otherwise.
+// GetCommenterLink returns the CommenterLink field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetCommenterLink() string {
-	if o == nil || IsNil(o.CommenterLink) {
+	if o == nil || IsNil(o.CommenterLink.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommenterLink
+	return *o.CommenterLink.Get()
 }
 
 // GetCommenterLinkOk returns a tuple with the CommenterLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetCommenterLinkOk() (*string, bool) {
-	if o == nil || IsNil(o.CommenterLink) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommenterLink, true
+	return o.CommenterLink.Get(), o.CommenterLink.IsSet()
 }
 
 // HasCommenterLink returns a boolean if a field has been set.
 func (o *PublicComment) HasCommenterLink() bool {
-	if o != nil && !IsNil(o.CommenterLink) {
+	if o != nil && o.CommenterLink.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCommenterLink gets a reference to the given string and assigns it to the CommenterLink field.
+// SetCommenterLink gets a reference to the given NullableString and assigns it to the CommenterLink field.
 func (o *PublicComment) SetCommenterLink(v string) {
-	o.CommenterLink = &v
+	o.CommenterLink.Set(&v)
+}
+// SetCommenterLinkNil sets the value for CommenterLink to be an explicit nil
+func (o *PublicComment) SetCommenterLinkNil() {
+	o.CommenterLink.Set(nil)
+}
+
+// UnsetCommenterLink ensures that no value is present for CommenterLink, not even an explicit nil
+func (o *PublicComment) UnsetCommenterLink() {
+	o.CommenterLink.Unset()
 }
 
 // GetCommentHTML returns the CommentHTML field value
@@ -281,132 +246,198 @@ func (o *PublicComment) SetCommentHTML(v string) {
 	o.CommentHTML = v
 }
 
-// GetParentId returns the ParentId field value if set, zero value otherwise.
+// GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetParentId() string {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil || IsNil(o.ParentId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ParentId
+	return *o.ParentId.Get()
 }
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetParentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ParentId, true
+	return o.ParentId.Get(), o.ParentId.IsSet()
 }
 
 // HasParentId returns a boolean if a field has been set.
 func (o *PublicComment) HasParentId() bool {
-	if o != nil && !IsNil(o.ParentId) {
+	if o != nil && o.ParentId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetParentId gets a reference to the given string and assigns it to the ParentId field.
+// SetParentId gets a reference to the given NullableString and assigns it to the ParentId field.
 func (o *PublicComment) SetParentId(v string) {
-	o.ParentId = &v
+	o.ParentId.Set(&v)
+}
+// SetParentIdNil sets the value for ParentId to be an explicit nil
+func (o *PublicComment) SetParentIdNil() {
+	o.ParentId.Set(nil)
 }
 
-// GetVotes returns the Votes field value if set, zero value otherwise.
+// UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+func (o *PublicComment) UnsetParentId() {
+	o.ParentId.Unset()
+}
+
+// GetDate returns the Date field value
+// If the value is explicit nil, the zero value for time.Time will be returned
+func (o *PublicComment) GetDate() time.Time {
+	if o == nil || o.Date.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return *o.Date.Get()
+}
+
+// GetDateOk returns a tuple with the Date field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PublicComment) GetDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Date.Get(), o.Date.IsSet()
+}
+
+// SetDate sets field value
+func (o *PublicComment) SetDate(v time.Time) {
+	o.Date.Set(&v)
+}
+
+// GetVotes returns the Votes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetVotes() int32 {
-	if o == nil || IsNil(o.Votes) {
+	if o == nil || IsNil(o.Votes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Votes
+	return *o.Votes.Get()
 }
 
 // GetVotesOk returns a tuple with the Votes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetVotesOk() (*int32, bool) {
-	if o == nil || IsNil(o.Votes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Votes, true
+	return o.Votes.Get(), o.Votes.IsSet()
 }
 
 // HasVotes returns a boolean if a field has been set.
 func (o *PublicComment) HasVotes() bool {
-	if o != nil && !IsNil(o.Votes) {
+	if o != nil && o.Votes.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVotes gets a reference to the given int32 and assigns it to the Votes field.
+// SetVotes gets a reference to the given NullableInt32 and assigns it to the Votes field.
 func (o *PublicComment) SetVotes(v int32) {
-	o.Votes = &v
+	o.Votes.Set(&v)
+}
+// SetVotesNil sets the value for Votes to be an explicit nil
+func (o *PublicComment) SetVotesNil() {
+	o.Votes.Set(nil)
 }
 
-// GetVotesUp returns the VotesUp field value if set, zero value otherwise.
+// UnsetVotes ensures that no value is present for Votes, not even an explicit nil
+func (o *PublicComment) UnsetVotes() {
+	o.Votes.Unset()
+}
+
+// GetVotesUp returns the VotesUp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetVotesUp() int32 {
-	if o == nil || IsNil(o.VotesUp) {
+	if o == nil || IsNil(o.VotesUp.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.VotesUp
+	return *o.VotesUp.Get()
 }
 
 // GetVotesUpOk returns a tuple with the VotesUp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetVotesUpOk() (*int32, bool) {
-	if o == nil || IsNil(o.VotesUp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VotesUp, true
+	return o.VotesUp.Get(), o.VotesUp.IsSet()
 }
 
 // HasVotesUp returns a boolean if a field has been set.
 func (o *PublicComment) HasVotesUp() bool {
-	if o != nil && !IsNil(o.VotesUp) {
+	if o != nil && o.VotesUp.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVotesUp gets a reference to the given int32 and assigns it to the VotesUp field.
+// SetVotesUp gets a reference to the given NullableInt32 and assigns it to the VotesUp field.
 func (o *PublicComment) SetVotesUp(v int32) {
-	o.VotesUp = &v
+	o.VotesUp.Set(&v)
+}
+// SetVotesUpNil sets the value for VotesUp to be an explicit nil
+func (o *PublicComment) SetVotesUpNil() {
+	o.VotesUp.Set(nil)
 }
 
-// GetVotesDown returns the VotesDown field value if set, zero value otherwise.
+// UnsetVotesUp ensures that no value is present for VotesUp, not even an explicit nil
+func (o *PublicComment) UnsetVotesUp() {
+	o.VotesUp.Unset()
+}
+
+// GetVotesDown returns the VotesDown field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetVotesDown() int32 {
-	if o == nil || IsNil(o.VotesDown) {
+	if o == nil || IsNil(o.VotesDown.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.VotesDown
+	return *o.VotesDown.Get()
 }
 
 // GetVotesDownOk returns a tuple with the VotesDown field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetVotesDownOk() (*int32, bool) {
-	if o == nil || IsNil(o.VotesDown) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VotesDown, true
+	return o.VotesDown.Get(), o.VotesDown.IsSet()
 }
 
 // HasVotesDown returns a boolean if a field has been set.
 func (o *PublicComment) HasVotesDown() bool {
-	if o != nil && !IsNil(o.VotesDown) {
+	if o != nil && o.VotesDown.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVotesDown gets a reference to the given int32 and assigns it to the VotesDown field.
+// SetVotesDown gets a reference to the given NullableInt32 and assigns it to the VotesDown field.
 func (o *PublicComment) SetVotesDown(v int32) {
-	o.VotesDown = &v
+	o.VotesDown.Set(&v)
+}
+// SetVotesDownNil sets the value for VotesDown to be an explicit nil
+func (o *PublicComment) SetVotesDownNil() {
+	o.VotesDown.Set(nil)
+}
+
+// UnsetVotesDown ensures that no value is present for VotesDown, not even an explicit nil
+func (o *PublicComment) UnsetVotesDown() {
+	o.VotesDown.Unset()
 }
 
 // GetVerified returns the Verified field value
@@ -433,68 +464,46 @@ func (o *PublicComment) SetVerified(v bool) {
 	o.Verified = v
 }
 
-// GetAvatarSrc returns the AvatarSrc field value if set, zero value otherwise.
+// GetAvatarSrc returns the AvatarSrc field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetAvatarSrc() string {
-	if o == nil || IsNil(o.AvatarSrc) {
+	if o == nil || IsNil(o.AvatarSrc.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AvatarSrc
+	return *o.AvatarSrc.Get()
 }
 
 // GetAvatarSrcOk returns a tuple with the AvatarSrc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetAvatarSrcOk() (*string, bool) {
-	if o == nil || IsNil(o.AvatarSrc) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AvatarSrc, true
+	return o.AvatarSrc.Get(), o.AvatarSrc.IsSet()
 }
 
 // HasAvatarSrc returns a boolean if a field has been set.
 func (o *PublicComment) HasAvatarSrc() bool {
-	if o != nil && !IsNil(o.AvatarSrc) {
+	if o != nil && o.AvatarSrc.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAvatarSrc gets a reference to the given string and assigns it to the AvatarSrc field.
+// SetAvatarSrc gets a reference to the given NullableString and assigns it to the AvatarSrc field.
 func (o *PublicComment) SetAvatarSrc(v string) {
-	o.AvatarSrc = &v
+	o.AvatarSrc.Set(&v)
+}
+// SetAvatarSrcNil sets the value for AvatarSrc to be an explicit nil
+func (o *PublicComment) SetAvatarSrcNil() {
+	o.AvatarSrc.Set(nil)
 }
 
-// GetIsSpam returns the IsSpam field value if set, zero value otherwise.
-func (o *PublicComment) GetIsSpam() bool {
-	if o == nil || IsNil(o.IsSpam) {
-		var ret bool
-		return ret
-	}
-	return *o.IsSpam
-}
-
-// GetIsSpamOk returns a tuple with the IsSpam field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetIsSpamOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsSpam) {
-		return nil, false
-	}
-	return o.IsSpam, true
-}
-
-// HasIsSpam returns a boolean if a field has been set.
-func (o *PublicComment) HasIsSpam() bool {
-	if o != nil && !IsNil(o.IsSpam) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsSpam gets a reference to the given bool and assigns it to the IsSpam field.
-func (o *PublicComment) SetIsSpam(v bool) {
-	o.IsSpam = &v
+// UnsetAvatarSrc ensures that no value is present for AvatarSrc, not even an explicit nil
+func (o *PublicComment) UnsetAvatarSrc() {
+	o.AvatarSrc.Unset()
 }
 
 // GetHasImages returns the HasImages field value if set, zero value otherwise.
@@ -527,70 +536,6 @@ func (o *PublicComment) HasHasImages() bool {
 // SetHasImages gets a reference to the given bool and assigns it to the HasImages field.
 func (o *PublicComment) SetHasImages(v bool) {
 	o.HasImages = &v
-}
-
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
-func (o *PublicComment) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
-		var ret bool
-		return ret
-	}
-	return *o.IsDeleted
-}
-
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
-		return nil, false
-	}
-	return o.IsDeleted, true
-}
-
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *PublicComment) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
-func (o *PublicComment) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
-}
-
-// GetIsDeletedUser returns the IsDeletedUser field value if set, zero value otherwise.
-func (o *PublicComment) GetIsDeletedUser() bool {
-	if o == nil || IsNil(o.IsDeletedUser) {
-		var ret bool
-		return ret
-	}
-	return *o.IsDeletedUser
-}
-
-// GetIsDeletedUserOk returns a tuple with the IsDeletedUser field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetIsDeletedUserOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeletedUser) {
-		return nil, false
-	}
-	return o.IsDeletedUser, true
-}
-
-// HasIsDeletedUser returns a boolean if a field has been set.
-func (o *PublicComment) HasIsDeletedUser() bool {
-	if o != nil && !IsNil(o.IsDeletedUser) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeletedUser gets a reference to the given bool and assigns it to the IsDeletedUser field.
-func (o *PublicComment) SetIsDeletedUser(v bool) {
-	o.IsDeletedUser = &v
 }
 
 // GetIsByAdmin returns the IsByAdmin field value if set, zero value otherwise.
@@ -657,137 +602,177 @@ func (o *PublicComment) SetIsByModerator(v bool) {
 	o.IsByModerator = &v
 }
 
-// GetIsPinned returns the IsPinned field value if set, zero value otherwise.
+// GetIsPinned returns the IsPinned field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetIsPinned() bool {
-	if o == nil || IsNil(o.IsPinned) {
+	if o == nil || IsNil(o.IsPinned.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsPinned
+	return *o.IsPinned.Get()
 }
 
 // GetIsPinnedOk returns a tuple with the IsPinned field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetIsPinnedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsPinned) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsPinned, true
+	return o.IsPinned.Get(), o.IsPinned.IsSet()
 }
 
 // HasIsPinned returns a boolean if a field has been set.
 func (o *PublicComment) HasIsPinned() bool {
-	if o != nil && !IsNil(o.IsPinned) {
+	if o != nil && o.IsPinned.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIsPinned gets a reference to the given bool and assigns it to the IsPinned field.
+// SetIsPinned gets a reference to the given NullableBool and assigns it to the IsPinned field.
 func (o *PublicComment) SetIsPinned(v bool) {
-	o.IsPinned = &v
+	o.IsPinned.Set(&v)
+}
+// SetIsPinnedNil sets the value for IsPinned to be an explicit nil
+func (o *PublicComment) SetIsPinnedNil() {
+	o.IsPinned.Set(nil)
 }
 
-// GetIsLocked returns the IsLocked field value if set, zero value otherwise.
+// UnsetIsPinned ensures that no value is present for IsPinned, not even an explicit nil
+func (o *PublicComment) UnsetIsPinned() {
+	o.IsPinned.Unset()
+}
+
+// GetIsLocked returns the IsLocked field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetIsLocked() bool {
-	if o == nil || IsNil(o.IsLocked) {
+	if o == nil || IsNil(o.IsLocked.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsLocked
+	return *o.IsLocked.Get()
 }
 
 // GetIsLockedOk returns a tuple with the IsLocked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetIsLockedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsLocked) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsLocked, true
+	return o.IsLocked.Get(), o.IsLocked.IsSet()
 }
 
 // HasIsLocked returns a boolean if a field has been set.
 func (o *PublicComment) HasIsLocked() bool {
-	if o != nil && !IsNil(o.IsLocked) {
+	if o != nil && o.IsLocked.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIsLocked gets a reference to the given bool and assigns it to the IsLocked field.
+// SetIsLocked gets a reference to the given NullableBool and assigns it to the IsLocked field.
 func (o *PublicComment) SetIsLocked(v bool) {
-	o.IsLocked = &v
+	o.IsLocked.Set(&v)
+}
+// SetIsLockedNil sets the value for IsLocked to be an explicit nil
+func (o *PublicComment) SetIsLockedNil() {
+	o.IsLocked.Set(nil)
 }
 
-// GetRating returns the Rating field value if set, zero value otherwise.
-func (o *PublicComment) GetRating() float64 {
-	if o == nil || IsNil(o.Rating) {
-		var ret float64
-		return ret
-	}
-	return *o.Rating
+// UnsetIsLocked ensures that no value is present for IsLocked, not even an explicit nil
+func (o *PublicComment) UnsetIsLocked() {
+	o.IsLocked.Unset()
 }
 
-// GetRatingOk returns a tuple with the Rating field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetRatingOk() (*float64, bool) {
-	if o == nil || IsNil(o.Rating) {
-		return nil, false
-	}
-	return o.Rating, true
-}
-
-// HasRating returns a boolean if a field has been set.
-func (o *PublicComment) HasRating() bool {
-	if o != nil && !IsNil(o.Rating) {
-		return true
-	}
-
-	return false
-}
-
-// SetRating gets a reference to the given float64 and assigns it to the Rating field.
-func (o *PublicComment) SetRating(v float64) {
-	o.Rating = &v
-}
-
-// GetDisplayLabel returns the DisplayLabel field value if set, zero value otherwise.
+// GetDisplayLabel returns the DisplayLabel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetDisplayLabel() string {
-	if o == nil || IsNil(o.DisplayLabel) {
+	if o == nil || IsNil(o.DisplayLabel.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayLabel
+	return *o.DisplayLabel.Get()
 }
 
 // GetDisplayLabelOk returns a tuple with the DisplayLabel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetDisplayLabelOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayLabel) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayLabel, true
+	return o.DisplayLabel.Get(), o.DisplayLabel.IsSet()
 }
 
 // HasDisplayLabel returns a boolean if a field has been set.
 func (o *PublicComment) HasDisplayLabel() bool {
-	if o != nil && !IsNil(o.DisplayLabel) {
+	if o != nil && o.DisplayLabel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayLabel gets a reference to the given string and assigns it to the DisplayLabel field.
+// SetDisplayLabel gets a reference to the given NullableString and assigns it to the DisplayLabel field.
 func (o *PublicComment) SetDisplayLabel(v string) {
-	o.DisplayLabel = &v
+	o.DisplayLabel.Set(&v)
+}
+// SetDisplayLabelNil sets the value for DisplayLabel to be an explicit nil
+func (o *PublicComment) SetDisplayLabelNil() {
+	o.DisplayLabel.Set(nil)
 }
 
-// GetBadges returns the Badges field value if set, zero value otherwise.
+// UnsetDisplayLabel ensures that no value is present for DisplayLabel, not even an explicit nil
+func (o *PublicComment) UnsetDisplayLabel() {
+	o.DisplayLabel.Unset()
+}
+
+// GetRating returns the Rating field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PublicComment) GetRating() float64 {
+	if o == nil || IsNil(o.Rating.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.Rating.Get()
+}
+
+// GetRatingOk returns a tuple with the Rating field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PublicComment) GetRatingOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Rating.Get(), o.Rating.IsSet()
+}
+
+// HasRating returns a boolean if a field has been set.
+func (o *PublicComment) HasRating() bool {
+	if o != nil && o.Rating.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRating gets a reference to the given NullableFloat64 and assigns it to the Rating field.
+func (o *PublicComment) SetRating(v float64) {
+	o.Rating.Set(&v)
+}
+// SetRatingNil sets the value for Rating to be an explicit nil
+func (o *PublicComment) SetRatingNil() {
+	o.Rating.Set(nil)
+}
+
+// UnsetRating ensures that no value is present for Rating, not even an explicit nil
+func (o *PublicComment) UnsetRating() {
+	o.Rating.Unset()
+}
+
+// GetBadges returns the Badges field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicComment) GetBadges() []CommentUserBadgeInfo {
-	if o == nil || IsNil(o.Badges) {
+	if o == nil {
 		var ret []CommentUserBadgeInfo
 		return ret
 	}
@@ -796,6 +781,7 @@ func (o *PublicComment) GetBadges() []CommentUserBadgeInfo {
 
 // GetBadgesOk returns a tuple with the Badges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicComment) GetBadgesOk() ([]CommentUserBadgeInfo, bool) {
 	if o == nil || IsNil(o.Badges) {
 		return nil, false
@@ -815,6 +801,186 @@ func (o *PublicComment) HasBadges() bool {
 // SetBadges gets a reference to the given []CommentUserBadgeInfo and assigns it to the Badges field.
 func (o *PublicComment) SetBadges(v []CommentUserBadgeInfo) {
 	o.Badges = v
+}
+
+// GetViewCount returns the ViewCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PublicComment) GetViewCount() int64 {
+	if o == nil || IsNil(o.ViewCount.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.ViewCount.Get()
+}
+
+// GetViewCountOk returns a tuple with the ViewCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PublicComment) GetViewCountOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ViewCount.Get(), o.ViewCount.IsSet()
+}
+
+// HasViewCount returns a boolean if a field has been set.
+func (o *PublicComment) HasViewCount() bool {
+	if o != nil && o.ViewCount.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetViewCount gets a reference to the given NullableInt64 and assigns it to the ViewCount field.
+func (o *PublicComment) SetViewCount(v int64) {
+	o.ViewCount.Set(&v)
+}
+// SetViewCountNil sets the value for ViewCount to be an explicit nil
+func (o *PublicComment) SetViewCountNil() {
+	o.ViewCount.Set(nil)
+}
+
+// UnsetViewCount ensures that no value is present for ViewCount, not even an explicit nil
+func (o *PublicComment) UnsetViewCount() {
+	o.ViewCount.Unset()
+}
+
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *PublicComment) GetIsDeleted() bool {
+	if o == nil || IsNil(o.IsDeleted) {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicComment) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *PublicComment) HasIsDeleted() bool {
+	if o != nil && !IsNil(o.IsDeleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *PublicComment) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
+// GetIsDeletedUser returns the IsDeletedUser field value if set, zero value otherwise.
+func (o *PublicComment) GetIsDeletedUser() bool {
+	if o == nil || IsNil(o.IsDeletedUser) {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeletedUser
+}
+
+// GetIsDeletedUserOk returns a tuple with the IsDeletedUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicComment) GetIsDeletedUserOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsDeletedUser) {
+		return nil, false
+	}
+	return o.IsDeletedUser, true
+}
+
+// HasIsDeletedUser returns a boolean if a field has been set.
+func (o *PublicComment) HasIsDeletedUser() bool {
+	if o != nil && !IsNil(o.IsDeletedUser) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeletedUser gets a reference to the given bool and assigns it to the IsDeletedUser field.
+func (o *PublicComment) SetIsDeletedUser(v bool) {
+	o.IsDeletedUser = &v
+}
+
+// GetIsSpam returns the IsSpam field value if set, zero value otherwise.
+func (o *PublicComment) GetIsSpam() bool {
+	if o == nil || IsNil(o.IsSpam) {
+		var ret bool
+		return ret
+	}
+	return *o.IsSpam
+}
+
+// GetIsSpamOk returns a tuple with the IsSpam field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicComment) GetIsSpamOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsSpam) {
+		return nil, false
+	}
+	return o.IsSpam, true
+}
+
+// HasIsSpam returns a boolean if a field has been set.
+func (o *PublicComment) HasIsSpam() bool {
+	if o != nil && !IsNil(o.IsSpam) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsSpam gets a reference to the given bool and assigns it to the IsSpam field.
+func (o *PublicComment) SetIsSpam(v bool) {
+	o.IsSpam = &v
+}
+
+// GetAnonUserId returns the AnonUserId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PublicComment) GetAnonUserId() string {
+	if o == nil || IsNil(o.AnonUserId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AnonUserId.Get()
+}
+
+// GetAnonUserIdOk returns a tuple with the AnonUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PublicComment) GetAnonUserIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AnonUserId.Get(), o.AnonUserId.IsSet()
+}
+
+// HasAnonUserId returns a boolean if a field has been set.
+func (o *PublicComment) HasAnonUserId() bool {
+	if o != nil && o.AnonUserId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAnonUserId gets a reference to the given NullableString and assigns it to the AnonUserId field.
+func (o *PublicComment) SetAnonUserId(v string) {
+	o.AnonUserId.Set(&v)
+}
+// SetAnonUserIdNil sets the value for AnonUserId to be an explicit nil
+func (o *PublicComment) SetAnonUserIdNil() {
+	o.AnonUserId.Set(nil)
+}
+
+// UnsetAnonUserId ensures that no value is present for AnonUserId, not even an explicit nil
+func (o *PublicComment) UnsetAnonUserId() {
+	o.AnonUserId.Unset()
 }
 
 // GetFeedbackIds returns the FeedbackIds field value if set, zero value otherwise.
@@ -847,38 +1013,6 @@ func (o *PublicComment) HasFeedbackIds() bool {
 // SetFeedbackIds gets a reference to the given []string and assigns it to the FeedbackIds field.
 func (o *PublicComment) SetFeedbackIds(v []string) {
 	o.FeedbackIds = v
-}
-
-// GetViewCount returns the ViewCount field value if set, zero value otherwise.
-func (o *PublicComment) GetViewCount() int64 {
-	if o == nil || IsNil(o.ViewCount) {
-		var ret int64
-		return ret
-	}
-	return *o.ViewCount
-}
-
-// GetViewCountOk returns a tuple with the ViewCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PublicComment) GetViewCountOk() (*int64, bool) {
-	if o == nil || IsNil(o.ViewCount) {
-		return nil, false
-	}
-	return o.ViewCount, true
-}
-
-// HasViewCount returns a boolean if a field has been set.
-func (o *PublicComment) HasViewCount() bool {
-	if o != nil && !IsNil(o.ViewCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetViewCount gets a reference to the given int64 and assigns it to the ViewCount field.
-func (o *PublicComment) SetViewCount(v int64) {
-	o.ViewCount = &v
 }
 
 // GetRequiresVerification returns the RequiresVerification field value if set, zero value otherwise.
@@ -943,6 +1077,38 @@ func (o *PublicComment) HasEditKey() bool {
 // SetEditKey gets a reference to the given string and assigns it to the EditKey field.
 func (o *PublicComment) SetEditKey(v string) {
 	o.EditKey = &v
+}
+
+// GetApproved returns the Approved field value if set, zero value otherwise.
+func (o *PublicComment) GetApproved() bool {
+	if o == nil || IsNil(o.Approved) {
+		var ret bool
+		return ret
+	}
+	return *o.Approved
+}
+
+// GetApprovedOk returns a tuple with the Approved field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicComment) GetApprovedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Approved) {
+		return nil, false
+	}
+	return o.Approved, true
+}
+
+// HasApproved returns a boolean if a field has been set.
+func (o *PublicComment) HasApproved() bool {
+	if o != nil && !IsNil(o.Approved) {
+		return true
+	}
+
+	return false
+}
+
+// SetApproved gets a reference to the given bool and assigns it to the Approved field.
+func (o *PublicComment) SetApproved(v bool) {
+	o.Approved = &v
 }
 
 // GetIsUnread returns the IsUnread field value if set, zero value otherwise.
@@ -1275,46 +1441,34 @@ func (o PublicComment) MarshalJSON() ([]byte, error) {
 
 func (o PublicComment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["date"] = o.Date
 	toSerialize["_id"] = o.Id
-	if !IsNil(o.UserId) {
-		toSerialize["userId"] = o.UserId
-	}
-	if !IsNil(o.AnonUserId) {
-		toSerialize["anonUserId"] = o.AnonUserId
+	if o.UserId.IsSet() {
+		toSerialize["userId"] = o.UserId.Get()
 	}
 	toSerialize["commenterName"] = o.CommenterName
-	if !IsNil(o.CommenterLink) {
-		toSerialize["commenterLink"] = o.CommenterLink
+	if o.CommenterLink.IsSet() {
+		toSerialize["commenterLink"] = o.CommenterLink.Get()
 	}
 	toSerialize["commentHTML"] = o.CommentHTML
-	if !IsNil(o.ParentId) {
-		toSerialize["parentId"] = o.ParentId
+	if o.ParentId.IsSet() {
+		toSerialize["parentId"] = o.ParentId.Get()
 	}
-	if !IsNil(o.Votes) {
-		toSerialize["votes"] = o.Votes
+	toSerialize["date"] = o.Date.Get()
+	if o.Votes.IsSet() {
+		toSerialize["votes"] = o.Votes.Get()
 	}
-	if !IsNil(o.VotesUp) {
-		toSerialize["votesUp"] = o.VotesUp
+	if o.VotesUp.IsSet() {
+		toSerialize["votesUp"] = o.VotesUp.Get()
 	}
-	if !IsNil(o.VotesDown) {
-		toSerialize["votesDown"] = o.VotesDown
+	if o.VotesDown.IsSet() {
+		toSerialize["votesDown"] = o.VotesDown.Get()
 	}
 	toSerialize["verified"] = o.Verified
-	if !IsNil(o.AvatarSrc) {
-		toSerialize["avatarSrc"] = o.AvatarSrc
-	}
-	if !IsNil(o.IsSpam) {
-		toSerialize["isSpam"] = o.IsSpam
+	if o.AvatarSrc.IsSet() {
+		toSerialize["avatarSrc"] = o.AvatarSrc.Get()
 	}
 	if !IsNil(o.HasImages) {
 		toSerialize["hasImages"] = o.HasImages
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !IsNil(o.IsDeletedUser) {
-		toSerialize["isDeletedUser"] = o.IsDeletedUser
 	}
 	if !IsNil(o.IsByAdmin) {
 		toSerialize["isByAdmin"] = o.IsByAdmin
@@ -1322,32 +1476,47 @@ func (o PublicComment) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsByModerator) {
 		toSerialize["isByModerator"] = o.IsByModerator
 	}
-	if !IsNil(o.IsPinned) {
-		toSerialize["isPinned"] = o.IsPinned
+	if o.IsPinned.IsSet() {
+		toSerialize["isPinned"] = o.IsPinned.Get()
 	}
-	if !IsNil(o.IsLocked) {
-		toSerialize["isLocked"] = o.IsLocked
+	if o.IsLocked.IsSet() {
+		toSerialize["isLocked"] = o.IsLocked.Get()
 	}
-	if !IsNil(o.Rating) {
-		toSerialize["rating"] = o.Rating
+	if o.DisplayLabel.IsSet() {
+		toSerialize["displayLabel"] = o.DisplayLabel.Get()
 	}
-	if !IsNil(o.DisplayLabel) {
-		toSerialize["displayLabel"] = o.DisplayLabel
+	if o.Rating.IsSet() {
+		toSerialize["rating"] = o.Rating.Get()
 	}
-	if !IsNil(o.Badges) {
+	if o.Badges != nil {
 		toSerialize["badges"] = o.Badges
+	}
+	if o.ViewCount.IsSet() {
+		toSerialize["viewCount"] = o.ViewCount.Get()
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.IsDeletedUser) {
+		toSerialize["isDeletedUser"] = o.IsDeletedUser
+	}
+	if !IsNil(o.IsSpam) {
+		toSerialize["isSpam"] = o.IsSpam
+	}
+	if o.AnonUserId.IsSet() {
+		toSerialize["anonUserId"] = o.AnonUserId.Get()
 	}
 	if !IsNil(o.FeedbackIds) {
 		toSerialize["feedbackIds"] = o.FeedbackIds
-	}
-	if !IsNil(o.ViewCount) {
-		toSerialize["viewCount"] = o.ViewCount
 	}
 	if !IsNil(o.RequiresVerification) {
 		toSerialize["requiresVerification"] = o.RequiresVerification
 	}
 	if !IsNil(o.EditKey) {
 		toSerialize["editKey"] = o.EditKey
+	}
+	if !IsNil(o.Approved) {
+		toSerialize["approved"] = o.Approved
 	}
 	if !IsNil(o.IsUnread) {
 		toSerialize["isUnread"] = o.IsUnread
@@ -1387,10 +1556,10 @@ func (o *PublicComment) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"date",
 		"_id",
 		"commenterName",
 		"commentHTML",
+		"date",
 		"verified",
 	}
 

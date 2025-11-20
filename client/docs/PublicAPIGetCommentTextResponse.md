@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **CommentText** | **string** |  | 
 **SanitizedCommentText** | **string** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewPublicAPIGetCommentTextResponse
 
-`func NewPublicAPIGetCommentTextResponse(status ImportedAPIStatusSUCCESS, commentText string, sanitizedCommentText string, ) *PublicAPIGetCommentTextResponse`
+`func NewPublicAPIGetCommentTextResponse(status APIStatus, commentText string, sanitizedCommentText string, ) *PublicAPIGetCommentTextResponse`
 
 NewPublicAPIGetCommentTextResponse instantiates a new PublicAPIGetCommentTextResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *PublicAPIGetCommentTextResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *PublicAPIGetCommentTextResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PublicAPIGetCommentTextResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *PublicAPIGetCommentTextResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PublicAPIGetCommentTextResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *PublicAPIGetCommentTextResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

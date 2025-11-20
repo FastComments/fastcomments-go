@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
-**Comments** | [**[]PickFCommentAPICommentFieldsKeys**](PickFCommentAPICommentFieldsKeys.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
+**Comments** | [**[]APIComment**](APIComment.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetComments200Response
 
-`func NewGetComments200Response(status ImportedAPIStatusFAILED, comments []PickFCommentAPICommentFieldsKeys, reason string, code string, ) *GetComments200Response`
+`func NewGetComments200Response(status APIStatus, comments []APIComment, reason string, code string, ) *GetComments200Response`
 
 NewGetComments200Response instantiates a new GetComments200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,40 +35,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetComments200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetComments200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetComments200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetComments200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetComments200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetComments200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 
 
 ### GetComments
 
-`func (o *GetComments200Response) GetComments() []PickFCommentAPICommentFieldsKeys`
+`func (o *GetComments200Response) GetComments() []APIComment`
 
 GetComments returns the Comments field if non-nil, zero value otherwise.
 
 ### GetCommentsOk
 
-`func (o *GetComments200Response) GetCommentsOk() (*[]PickFCommentAPICommentFieldsKeys, bool)`
+`func (o *GetComments200Response) GetCommentsOk() (*[]APIComment, bool)`
 
 GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComments
 
-`func (o *GetComments200Response) SetComments(v []PickFCommentAPICommentFieldsKeys)`
+`func (o *GetComments200Response) SetComments(v []APIComment)`
 
 SetComments sets Comments field to given value.
 

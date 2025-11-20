@@ -23,7 +23,7 @@ var _ MappedNullable = &ChangeCommentPinStatusResponse{}
 type ChangeCommentPinStatusResponse struct {
 	// Construct a type with a set of properties K of type T
 	CommentPositions map[string]RecordStringBeforeStringOrNullAfterStringOrNullValue `json:"commentPositions"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _ChangeCommentPinStatusResponse ChangeCommentPinStatusResponse
@@ -32,7 +32,7 @@ type _ChangeCommentPinStatusResponse ChangeCommentPinStatusResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChangeCommentPinStatusResponse(commentPositions map[string]RecordStringBeforeStringOrNullAfterStringOrNullValue, status ImportedAPIStatusSUCCESS) *ChangeCommentPinStatusResponse {
+func NewChangeCommentPinStatusResponse(commentPositions map[string]RecordStringBeforeStringOrNullAfterStringOrNullValue, status APIStatus) *ChangeCommentPinStatusResponse {
 	this := ChangeCommentPinStatusResponse{}
 	this.CommentPositions = commentPositions
 	this.Status = status
@@ -72,9 +72,9 @@ func (o *ChangeCommentPinStatusResponse) SetCommentPositions(v map[string]Record
 }
 
 // GetStatus returns the Status field value
-func (o *ChangeCommentPinStatusResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *ChangeCommentPinStatusResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *ChangeCommentPinStatusResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *ChangeCommentPinStatusResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *ChangeCommentPinStatusResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *ChangeCommentPinStatusResponse) GetStatusOk() (*ImportedAPIStatusSUCCES
 }
 
 // SetStatus sets field value
-func (o *ChangeCommentPinStatusResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *ChangeCommentPinStatusResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

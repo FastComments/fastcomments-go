@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | [**APIStatus**](APIStatus.md) |  | 
-**Comment** | [**PickFCommentAPICommentFieldsKeys**](PickFCommentAPICommentFieldsKeys.md) |  | 
+**Comment** | [**APIComment**](APIComment.md) |  | 
 
 ## Methods
 
 ### NewAPIGetCommentResponse
 
-`func NewAPIGetCommentResponse(status APIStatus, comment PickFCommentAPICommentFieldsKeys, ) *APIGetCommentResponse`
+`func NewAPIGetCommentResponse(status APIStatus, comment APIComment, ) *APIGetCommentResponse`
 
 NewAPIGetCommentResponse instantiates a new APIGetCommentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetStatus sets Status field to given value.
 
 ### GetComment
 
-`func (o *APIGetCommentResponse) GetComment() PickFCommentAPICommentFieldsKeys`
+`func (o *APIGetCommentResponse) GetComment() APIComment`
 
 GetComment returns the Comment field if non-nil, zero value otherwise.
 
 ### GetCommentOk
 
-`func (o *APIGetCommentResponse) GetCommentOk() (*PickFCommentAPICommentFieldsKeys, bool)`
+`func (o *APIGetCommentResponse) GetCommentOk() (*APIComment, bool)`
 
 GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComment
 
-`func (o *APIGetCommentResponse) SetComment(v PickFCommentAPICommentFieldsKeys)`
+`func (o *APIGetCommentResponse) SetComment(v APIComment)`
 
 SetComment sets Comment field to given value.
 

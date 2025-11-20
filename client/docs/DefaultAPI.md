@@ -3200,7 +3200,7 @@ Name | Type | Description  | Notes
 
 ## UpdateComment
 
-> FlagCommentPublic200Response UpdateComment(ctx, id).TenantId(tenantId).Body(body).ContextUserId(contextUserId).DoSpamCheck(doSpamCheck).IsLive(isLive).Execute()
+> FlagCommentPublic200Response UpdateComment(ctx, id).TenantId(tenantId).UpdatableCommentParams(updatableCommentParams).ContextUserId(contextUserId).DoSpamCheck(doSpamCheck).IsLive(isLive).Execute()
 
 
 
@@ -3219,14 +3219,14 @@ import (
 func main() {
 	tenantId := "tenantId_example" // string | 
 	id := "id_example" // string | 
-	body := PickAPICommentUpdatableCommentFields(987) // PickAPICommentUpdatableCommentFields | 
+	updatableCommentParams := *openapiclient.NewUpdatableCommentParams() // UpdatableCommentParams | 
 	contextUserId := "contextUserId_example" // string |  (optional)
 	doSpamCheck := true // bool |  (optional)
 	isLive := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.UpdateComment(context.Background(), id).TenantId(tenantId).Body(body).ContextUserId(contextUserId).DoSpamCheck(doSpamCheck).IsLive(isLive).Execute()
+	resp, r, err := apiClient.DefaultAPI.UpdateComment(context.Background(), id).TenantId(tenantId).UpdatableCommentParams(updatableCommentParams).ContextUserId(contextUserId).DoSpamCheck(doSpamCheck).IsLive(isLive).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3253,7 +3253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
 
- **body** | **PickAPICommentUpdatableCommentFields** |  | 
+ **updatableCommentParams** | [**UpdatableCommentParams**](UpdatableCommentParams.md) |  | 
  **contextUserId** | **string** |  | 
  **doSpamCheck** | **bool** |  | 
  **isLive** | **bool** |  | 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **NotificationType** | **map[string]interface{}** |  | 
 **UserId** | **string** |  | 
 **UserIdWS** | **string** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewHeaderState
 
-`func NewHeaderState(status ImportedAPIStatusSUCCESS, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount, ) *HeaderState`
+`func NewHeaderState(status APIStatus, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount, ) *HeaderState`
 
 NewHeaderState instantiates a new HeaderState object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *HeaderState) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *HeaderState) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *HeaderState) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *HeaderState) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *HeaderState) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *HeaderState) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

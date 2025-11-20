@@ -22,7 +22,7 @@ var _ MappedNullable = &APIGetCommentResponse{}
 // APIGetCommentResponse struct for APIGetCommentResponse
 type APIGetCommentResponse struct {
 	Status APIStatus `json:"status"`
-	Comment PickFCommentAPICommentFieldsKeys `json:"comment"`
+	Comment APIComment `json:"comment"`
 }
 
 type _APIGetCommentResponse APIGetCommentResponse
@@ -31,7 +31,7 @@ type _APIGetCommentResponse APIGetCommentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIGetCommentResponse(status APIStatus, comment PickFCommentAPICommentFieldsKeys) *APIGetCommentResponse {
+func NewAPIGetCommentResponse(status APIStatus, comment APIComment) *APIGetCommentResponse {
 	this := APIGetCommentResponse{}
 	this.Status = status
 	this.Comment = comment
@@ -71,9 +71,9 @@ func (o *APIGetCommentResponse) SetStatus(v APIStatus) {
 }
 
 // GetComment returns the Comment field value
-func (o *APIGetCommentResponse) GetComment() PickFCommentAPICommentFieldsKeys {
+func (o *APIGetCommentResponse) GetComment() APIComment {
 	if o == nil {
-		var ret PickFCommentAPICommentFieldsKeys
+		var ret APIComment
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *APIGetCommentResponse) GetComment() PickFCommentAPICommentFieldsKeys {
 
 // GetCommentOk returns a tuple with the Comment field value
 // and a boolean to check if the value has been set.
-func (o *APIGetCommentResponse) GetCommentOk() (*PickFCommentAPICommentFieldsKeys, bool) {
+func (o *APIGetCommentResponse) GetCommentOk() (*APIComment, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *APIGetCommentResponse) GetCommentOk() (*PickFCommentAPICommentFieldsKey
 }
 
 // SetComment sets field value
-func (o *APIGetCommentResponse) SetComment(v PickFCommentAPICommentFieldsKeys) {
+func (o *APIGetCommentResponse) SetComment(v APIComment) {
 	o.Comment = v
 }
 

@@ -21,8 +21,8 @@ var _ MappedNullable = &PublicAPISetCommentTextResponse{}
 
 // PublicAPISetCommentTextResponse struct for PublicAPISetCommentTextResponse
 type PublicAPISetCommentTextResponse struct {
-	Comment PickFCommentApprovedOrCommentHTML `json:"comment"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Comment SetCommentTextResult `json:"comment"`
+	Status APIStatus `json:"status"`
 }
 
 type _PublicAPISetCommentTextResponse PublicAPISetCommentTextResponse
@@ -31,7 +31,7 @@ type _PublicAPISetCommentTextResponse PublicAPISetCommentTextResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicAPISetCommentTextResponse(comment PickFCommentApprovedOrCommentHTML, status ImportedAPIStatusSUCCESS) *PublicAPISetCommentTextResponse {
+func NewPublicAPISetCommentTextResponse(comment SetCommentTextResult, status APIStatus) *PublicAPISetCommentTextResponse {
 	this := PublicAPISetCommentTextResponse{}
 	this.Comment = comment
 	this.Status = status
@@ -47,9 +47,9 @@ func NewPublicAPISetCommentTextResponseWithDefaults() *PublicAPISetCommentTextRe
 }
 
 // GetComment returns the Comment field value
-func (o *PublicAPISetCommentTextResponse) GetComment() PickFCommentApprovedOrCommentHTML {
+func (o *PublicAPISetCommentTextResponse) GetComment() SetCommentTextResult {
 	if o == nil {
-		var ret PickFCommentApprovedOrCommentHTML
+		var ret SetCommentTextResult
 		return ret
 	}
 
@@ -58,7 +58,7 @@ func (o *PublicAPISetCommentTextResponse) GetComment() PickFCommentApprovedOrCom
 
 // GetCommentOk returns a tuple with the Comment field value
 // and a boolean to check if the value has been set.
-func (o *PublicAPISetCommentTextResponse) GetCommentOk() (*PickFCommentApprovedOrCommentHTML, bool) {
+func (o *PublicAPISetCommentTextResponse) GetCommentOk() (*SetCommentTextResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,14 +66,14 @@ func (o *PublicAPISetCommentTextResponse) GetCommentOk() (*PickFCommentApprovedO
 }
 
 // SetComment sets field value
-func (o *PublicAPISetCommentTextResponse) SetComment(v PickFCommentApprovedOrCommentHTML) {
+func (o *PublicAPISetCommentTextResponse) SetComment(v SetCommentTextResult) {
 	o.Comment = v
 }
 
 // GetStatus returns the Status field value
-func (o *PublicAPISetCommentTextResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *PublicAPISetCommentTextResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *PublicAPISetCommentTextResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PublicAPISetCommentTextResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *PublicAPISetCommentTextResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *PublicAPISetCommentTextResponse) GetStatusOk() (*ImportedAPIStatusSUCCE
 }
 
 // SetStatus sets field value
-func (o *PublicAPISetCommentTextResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *PublicAPISetCommentTextResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

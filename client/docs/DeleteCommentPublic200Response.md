@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | Pointer to [**PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId**](PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.md) |  | [optional] 
+**Comment** | Pointer to [**DeletedCommentResultComment**](DeletedCommentResultComment.md) |  | [optional] 
 **HardRemoved** | **bool** |  | 
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewDeleteCommentPublic200Response
 
-`func NewDeleteCommentPublic200Response(hardRemoved bool, status ImportedAPIStatusFAILED, reason string, code string, ) *DeleteCommentPublic200Response`
+`func NewDeleteCommentPublic200Response(hardRemoved bool, status APIStatus, reason string, code string, ) *DeleteCommentPublic200Response`
 
 NewDeleteCommentPublic200Response instantiates a new DeleteCommentPublic200Response object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetComment
 
-`func (o *DeleteCommentPublic200Response) GetComment() PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId`
+`func (o *DeleteCommentPublic200Response) GetComment() DeletedCommentResultComment`
 
 GetComment returns the Comment field if non-nil, zero value otherwise.
 
 ### GetCommentOk
 
-`func (o *DeleteCommentPublic200Response) GetCommentOk() (*PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId, bool)`
+`func (o *DeleteCommentPublic200Response) GetCommentOk() (*DeletedCommentResultComment, bool)`
 
 GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComment
 
-`func (o *DeleteCommentPublic200Response) SetComment(v PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId)`
+`func (o *DeleteCommentPublic200Response) SetComment(v DeletedCommentResultComment)`
 
 SetComment sets Comment field to given value.
 
@@ -81,20 +81,20 @@ SetHardRemoved sets HardRemoved field to given value.
 
 ### GetStatus
 
-`func (o *DeleteCommentPublic200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *DeleteCommentPublic200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *DeleteCommentPublic200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *DeleteCommentPublic200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *DeleteCommentPublic200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *DeleteCommentPublic200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Data** | [**map[string]QuestionResultAggregationOverall**](QuestionResultAggregationOverall.md) | Construct a type with a set of properties K of type T | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewBulkAggregateQuestionResults200Response
 
-`func NewBulkAggregateQuestionResults200Response(status ImportedAPIStatusFAILED, data map[string]QuestionResultAggregationOverall, reason string, code string, ) *BulkAggregateQuestionResults200Response`
+`func NewBulkAggregateQuestionResults200Response(status APIStatus, data map[string]QuestionResultAggregationOverall, reason string, code string, ) *BulkAggregateQuestionResults200Response`
 
 NewBulkAggregateQuestionResults200Response instantiates a new BulkAggregateQuestionResults200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *BulkAggregateQuestionResults200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *BulkAggregateQuestionResults200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *BulkAggregateQuestionResults200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *BulkAggregateQuestionResults200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *BulkAggregateQuestionResults200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *BulkAggregateQuestionResults200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

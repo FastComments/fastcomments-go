@@ -22,7 +22,7 @@ var _ MappedNullable = &APIGetCommentsResponse{}
 // APIGetCommentsResponse struct for APIGetCommentsResponse
 type APIGetCommentsResponse struct {
 	Status APIStatus `json:"status"`
-	Comments []PickFCommentAPICommentFieldsKeys `json:"comments"`
+	Comments []APIComment `json:"comments"`
 }
 
 type _APIGetCommentsResponse APIGetCommentsResponse
@@ -31,7 +31,7 @@ type _APIGetCommentsResponse APIGetCommentsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIGetCommentsResponse(status APIStatus, comments []PickFCommentAPICommentFieldsKeys) *APIGetCommentsResponse {
+func NewAPIGetCommentsResponse(status APIStatus, comments []APIComment) *APIGetCommentsResponse {
 	this := APIGetCommentsResponse{}
 	this.Status = status
 	this.Comments = comments
@@ -71,9 +71,9 @@ func (o *APIGetCommentsResponse) SetStatus(v APIStatus) {
 }
 
 // GetComments returns the Comments field value
-func (o *APIGetCommentsResponse) GetComments() []PickFCommentAPICommentFieldsKeys {
+func (o *APIGetCommentsResponse) GetComments() []APIComment {
 	if o == nil {
-		var ret []PickFCommentAPICommentFieldsKeys
+		var ret []APIComment
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *APIGetCommentsResponse) GetComments() []PickFCommentAPICommentFieldsKey
 
 // GetCommentsOk returns a tuple with the Comments field value
 // and a boolean to check if the value has been set.
-func (o *APIGetCommentsResponse) GetCommentsOk() ([]PickFCommentAPICommentFieldsKeys, bool) {
+func (o *APIGetCommentsResponse) GetCommentsOk() ([]APIComment, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *APIGetCommentsResponse) GetCommentsOk() ([]PickFCommentAPICommentFields
 }
 
 // SetComments sets field value
-func (o *APIGetCommentsResponse) SetComments(v []PickFCommentAPICommentFieldsKeys) {
+func (o *APIGetCommentsResponse) SetComments(v []APIComment) {
 	o.Comments = v
 }
 

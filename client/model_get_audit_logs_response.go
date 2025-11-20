@@ -22,7 +22,7 @@ var _ MappedNullable = &GetAuditLogsResponse{}
 // GetAuditLogsResponse struct for GetAuditLogsResponse
 type GetAuditLogsResponse struct {
 	Status APIStatus `json:"status"`
-	AuditLogs []PickTenantAuditLogTenantAuditLogKeys `json:"auditLogs"`
+	AuditLogs []APIAuditLog `json:"auditLogs"`
 }
 
 type _GetAuditLogsResponse GetAuditLogsResponse
@@ -31,7 +31,7 @@ type _GetAuditLogsResponse GetAuditLogsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAuditLogsResponse(status APIStatus, auditLogs []PickTenantAuditLogTenantAuditLogKeys) *GetAuditLogsResponse {
+func NewGetAuditLogsResponse(status APIStatus, auditLogs []APIAuditLog) *GetAuditLogsResponse {
 	this := GetAuditLogsResponse{}
 	this.Status = status
 	this.AuditLogs = auditLogs
@@ -71,9 +71,9 @@ func (o *GetAuditLogsResponse) SetStatus(v APIStatus) {
 }
 
 // GetAuditLogs returns the AuditLogs field value
-func (o *GetAuditLogsResponse) GetAuditLogs() []PickTenantAuditLogTenantAuditLogKeys {
+func (o *GetAuditLogsResponse) GetAuditLogs() []APIAuditLog {
 	if o == nil {
-		var ret []PickTenantAuditLogTenantAuditLogKeys
+		var ret []APIAuditLog
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *GetAuditLogsResponse) GetAuditLogs() []PickTenantAuditLogTenantAuditLog
 
 // GetAuditLogsOk returns a tuple with the AuditLogs field value
 // and a boolean to check if the value has been set.
-func (o *GetAuditLogsResponse) GetAuditLogsOk() ([]PickTenantAuditLogTenantAuditLogKeys, bool) {
+func (o *GetAuditLogsResponse) GetAuditLogsOk() ([]APIAuditLog, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *GetAuditLogsResponse) GetAuditLogsOk() ([]PickTenantAuditLogTenantAudit
 }
 
 // SetAuditLogs sets field value
-func (o *GetAuditLogsResponse) SetAuditLogs(v []PickTenantAuditLogTenantAuditLogKeys) {
+func (o *GetAuditLogsResponse) SetAuditLogs(v []APIAuditLog) {
 	o.AuditLogs = v
 }
 

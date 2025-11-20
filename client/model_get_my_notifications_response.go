@@ -26,7 +26,7 @@ type GetMyNotificationsResponse struct {
 	IsSubscribed bool `json:"isSubscribed"`
 	HasMore bool `json:"hasMore"`
 	Notifications []RenderableUserNotification `json:"notifications"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _GetMyNotificationsResponse GetMyNotificationsResponse
@@ -35,7 +35,7 @@ type _GetMyNotificationsResponse GetMyNotificationsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetMyNotificationsResponse(isSubscribed bool, hasMore bool, notifications []RenderableUserNotification, status ImportedAPIStatusSUCCESS) *GetMyNotificationsResponse {
+func NewGetMyNotificationsResponse(isSubscribed bool, hasMore bool, notifications []RenderableUserNotification, status APIStatus) *GetMyNotificationsResponse {
 	this := GetMyNotificationsResponse{}
 	this.IsSubscribed = isSubscribed
 	this.HasMore = hasMore
@@ -157,9 +157,9 @@ func (o *GetMyNotificationsResponse) SetNotifications(v []RenderableUserNotifica
 }
 
 // GetStatus returns the Status field value
-func (o *GetMyNotificationsResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *GetMyNotificationsResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -168,7 +168,7 @@ func (o *GetMyNotificationsResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *GetMyNotificationsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *GetMyNotificationsResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -176,7 +176,7 @@ func (o *GetMyNotificationsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, b
 }
 
 // SetStatus sets field value
-func (o *GetMyNotificationsResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *GetMyNotificationsResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

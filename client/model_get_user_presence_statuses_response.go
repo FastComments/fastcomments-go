@@ -21,7 +21,7 @@ var _ MappedNullable = &GetUserPresenceStatusesResponse{}
 
 // GetUserPresenceStatusesResponse struct for GetUserPresenceStatusesResponse
 type GetUserPresenceStatusesResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	// Construct a type with a set of properties K of type T
 	UserIdsOnline map[string]bool `json:"userIdsOnline"`
 }
@@ -32,7 +32,7 @@ type _GetUserPresenceStatusesResponse GetUserPresenceStatusesResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetUserPresenceStatusesResponse(status ImportedAPIStatusSUCCESS, userIdsOnline map[string]bool) *GetUserPresenceStatusesResponse {
+func NewGetUserPresenceStatusesResponse(status APIStatus, userIdsOnline map[string]bool) *GetUserPresenceStatusesResponse {
 	this := GetUserPresenceStatusesResponse{}
 	this.Status = status
 	this.UserIdsOnline = userIdsOnline
@@ -48,9 +48,9 @@ func NewGetUserPresenceStatusesResponseWithDefaults() *GetUserPresenceStatusesRe
 }
 
 // GetStatus returns the Status field value
-func (o *GetUserPresenceStatusesResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *GetUserPresenceStatusesResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *GetUserPresenceStatusesResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *GetUserPresenceStatusesResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *GetUserPresenceStatusesResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *GetUserPresenceStatusesResponse) GetStatusOk() (*ImportedAPIStatusSUCCE
 }
 
 // SetStatus sets field value
-func (o *GetUserPresenceStatusesResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *GetUserPresenceStatusesResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

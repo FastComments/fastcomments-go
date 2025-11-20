@@ -21,7 +21,7 @@ var _ MappedNullable = &GetUserNotificationCountResponse{}
 
 // GetUserNotificationCountResponse struct for GetUserNotificationCountResponse
 type GetUserNotificationCountResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	Count int64 `json:"count"`
 }
 
@@ -31,7 +31,7 @@ type _GetUserNotificationCountResponse GetUserNotificationCountResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetUserNotificationCountResponse(status ImportedAPIStatusSUCCESS, count int64) *GetUserNotificationCountResponse {
+func NewGetUserNotificationCountResponse(status APIStatus, count int64) *GetUserNotificationCountResponse {
 	this := GetUserNotificationCountResponse{}
 	this.Status = status
 	this.Count = count
@@ -47,9 +47,9 @@ func NewGetUserNotificationCountResponseWithDefaults() *GetUserNotificationCount
 }
 
 // GetStatus returns the Status field value
-func (o *GetUserNotificationCountResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *GetUserNotificationCountResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -58,7 +58,7 @@ func (o *GetUserNotificationCountResponse) GetStatus() ImportedAPIStatusSUCCESS 
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *GetUserNotificationCountResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *GetUserNotificationCountResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *GetUserNotificationCountResponse) GetStatusOk() (*ImportedAPIStatusSUCC
 }
 
 // SetStatus sets field value
-func (o *GetUserNotificationCountResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *GetUserNotificationCountResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 
