@@ -18,38 +18,24 @@ import (
 
 // VoteResponseStatus struct for VoteResponseStatus
 type VoteResponseStatus struct {
-	ImportedAPIStatusFAILED *ImportedAPIStatusFAILED
-	ImportedAPIStatusSUCCESS *ImportedAPIStatusSUCCESS
+	APIStatus *APIStatus
 	String *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *VoteResponseStatus) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into ImportedAPIStatusFAILED
-	err = json.Unmarshal(data, &dst.ImportedAPIStatusFAILED);
+	// try to unmarshal JSON data into APIStatus
+	err = json.Unmarshal(data, &dst.APIStatus);
 	if err == nil {
-		jsonImportedAPIStatusFAILED, _ := json.Marshal(dst.ImportedAPIStatusFAILED)
-		if string(jsonImportedAPIStatusFAILED) == "{}" { // empty struct
-			dst.ImportedAPIStatusFAILED = nil
+		jsonAPIStatus, _ := json.Marshal(dst.APIStatus)
+		if string(jsonAPIStatus) == "{}" { // empty struct
+			dst.APIStatus = nil
 		} else {
-			return nil // data stored in dst.ImportedAPIStatusFAILED, return on the first match
+			return nil // data stored in dst.APIStatus, return on the first match
 		}
 	} else {
-		dst.ImportedAPIStatusFAILED = nil
-	}
-
-	// try to unmarshal JSON data into ImportedAPIStatusSUCCESS
-	err = json.Unmarshal(data, &dst.ImportedAPIStatusSUCCESS);
-	if err == nil {
-		jsonImportedAPIStatusSUCCESS, _ := json.Marshal(dst.ImportedAPIStatusSUCCESS)
-		if string(jsonImportedAPIStatusSUCCESS) == "{}" { // empty struct
-			dst.ImportedAPIStatusSUCCESS = nil
-		} else {
-			return nil // data stored in dst.ImportedAPIStatusSUCCESS, return on the first match
-		}
-	} else {
-		dst.ImportedAPIStatusSUCCESS = nil
+		dst.APIStatus = nil
 	}
 
 	// try to unmarshal JSON data into String
@@ -70,12 +56,8 @@ func (dst *VoteResponseStatus) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src VoteResponseStatus) MarshalJSON() ([]byte, error) {
-	if src.ImportedAPIStatusFAILED != nil {
-		return json.Marshal(&src.ImportedAPIStatusFAILED)
-	}
-
-	if src.ImportedAPIStatusSUCCESS != nil {
-		return json.Marshal(&src.ImportedAPIStatusSUCCESS)
+	if src.APIStatus != nil {
+		return json.Marshal(&src.APIStatus)
 	}
 
 	if src.String != nil {

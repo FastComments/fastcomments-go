@@ -56,6 +56,7 @@ Name | Type | Description | Notes
 **NoStyles** | Pointer to **bool** |  | [optional] 
 **PageSize** | Pointer to **NullableInt32** |  | [optional] 
 **Readonly** | Pointer to **bool** |  | [optional] 
+**NoNewRootComments** | Pointer to **bool** |  | [optional] 
 **RequireSSO** | Pointer to **bool** |  | [optional] 
 **EnableResizeHandle** | Pointer to **bool** |  | [optional] 
 **RestrictedLinkDomains** | Pointer to **[]string** |  | [optional] 
@@ -1535,6 +1536,31 @@ SetReadonly sets Readonly field to given value.
 `func (o *CustomConfigParameters) HasReadonly() bool`
 
 HasReadonly returns a boolean if a field has been set.
+
+### GetNoNewRootComments
+
+`func (o *CustomConfigParameters) GetNoNewRootComments() bool`
+
+GetNoNewRootComments returns the NoNewRootComments field if non-nil, zero value otherwise.
+
+### GetNoNewRootCommentsOk
+
+`func (o *CustomConfigParameters) GetNoNewRootCommentsOk() (*bool, bool)`
+
+GetNoNewRootCommentsOk returns a tuple with the NoNewRootComments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNoNewRootComments
+
+`func (o *CustomConfigParameters) SetNoNewRootComments(v bool)`
+
+SetNoNewRootComments sets NoNewRootComments field to given value.
+
+### HasNoNewRootComments
+
+`func (o *CustomConfigParameters) HasNoNewRootComments() bool`
+
+HasNoNewRootComments returns a boolean if a field has been set.
 
 ### GetRequireSSO
 

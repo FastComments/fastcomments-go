@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Stats** | [**map[string]FeedPostStats**](FeedPostStats.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetFeedPostsStats200Response
 
-`func NewGetFeedPostsStats200Response(status ImportedAPIStatusFAILED, stats map[string]FeedPostStats, reason string, code string, ) *GetFeedPostsStats200Response`
+`func NewGetFeedPostsStats200Response(status APIStatus, stats map[string]FeedPostStats, reason string, code string, ) *GetFeedPostsStats200Response`
 
 NewGetFeedPostsStats200Response instantiates a new GetFeedPostsStats200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetFeedPostsStats200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetFeedPostsStats200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetFeedPostsStats200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetFeedPostsStats200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetFeedPostsStats200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetFeedPostsStats200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

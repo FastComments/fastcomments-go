@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Comment** | [**PublicComment**](PublicComment.md) |  | 
 **User** | [**NullableUserSessionInfo**](UserSessionInfo.md) |  | 
 **ModuleData** | Pointer to **map[string]map[string]interface{}** | Construct a type with a set of properties K of type T | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewCreateCommentPublic200Response
 
-`func NewCreateCommentPublic200Response(status ImportedAPIStatusFAILED, comment PublicComment, user NullableUserSessionInfo, reason string, code string, ) *CreateCommentPublic200Response`
+`func NewCreateCommentPublic200Response(status APIStatus, comment PublicComment, user NullableUserSessionInfo, reason string, code string, ) *CreateCommentPublic200Response`
 
 NewCreateCommentPublic200Response instantiates a new CreateCommentPublic200Response object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *CreateCommentPublic200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *CreateCommentPublic200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *CreateCommentPublic200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *CreateCommentPublic200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *CreateCommentPublic200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *CreateCommentPublic200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

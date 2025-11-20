@@ -21,7 +21,7 @@ var _ MappedNullable = &GetPublicFeedPostsResponse{}
 
 // GetPublicFeedPostsResponse struct for GetPublicFeedPostsResponse
 type GetPublicFeedPostsResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	FeedPosts []FeedPost `json:"feedPosts"`
 	User NullableUserSessionInfo `json:"user,omitempty"`
 }
@@ -32,7 +32,7 @@ type _GetPublicFeedPostsResponse GetPublicFeedPostsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetPublicFeedPostsResponse(status ImportedAPIStatusSUCCESS, feedPosts []FeedPost) *GetPublicFeedPostsResponse {
+func NewGetPublicFeedPostsResponse(status APIStatus, feedPosts []FeedPost) *GetPublicFeedPostsResponse {
 	this := GetPublicFeedPostsResponse{}
 	this.Status = status
 	this.FeedPosts = feedPosts
@@ -48,9 +48,9 @@ func NewGetPublicFeedPostsResponseWithDefaults() *GetPublicFeedPostsResponse {
 }
 
 // GetStatus returns the Status field value
-func (o *GetPublicFeedPostsResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *GetPublicFeedPostsResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *GetPublicFeedPostsResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *GetPublicFeedPostsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *GetPublicFeedPostsResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *GetPublicFeedPostsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, b
 }
 
 // SetStatus sets field value
-func (o *GetPublicFeedPostsResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *GetPublicFeedPostsResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

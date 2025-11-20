@@ -23,6 +23,7 @@ var _ MappedNullable = &PatchPageAPIResponse{}
 type PatchPageAPIResponse struct {
 	Reason *string `json:"reason,omitempty"`
 	Code *string `json:"code,omitempty"`
+	CommentsUpdated *int64 `json:"commentsUpdated,omitempty"`
 	Page *APIPage `json:"page,omitempty"`
 	Status string `json:"status"`
 }
@@ -111,6 +112,38 @@ func (o *PatchPageAPIResponse) SetCode(v string) {
 	o.Code = &v
 }
 
+// GetCommentsUpdated returns the CommentsUpdated field value if set, zero value otherwise.
+func (o *PatchPageAPIResponse) GetCommentsUpdated() int64 {
+	if o == nil || IsNil(o.CommentsUpdated) {
+		var ret int64
+		return ret
+	}
+	return *o.CommentsUpdated
+}
+
+// GetCommentsUpdatedOk returns a tuple with the CommentsUpdated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PatchPageAPIResponse) GetCommentsUpdatedOk() (*int64, bool) {
+	if o == nil || IsNil(o.CommentsUpdated) {
+		return nil, false
+	}
+	return o.CommentsUpdated, true
+}
+
+// HasCommentsUpdated returns a boolean if a field has been set.
+func (o *PatchPageAPIResponse) HasCommentsUpdated() bool {
+	if o != nil && !IsNil(o.CommentsUpdated) {
+		return true
+	}
+
+	return false
+}
+
+// SetCommentsUpdated gets a reference to the given int64 and assigns it to the CommentsUpdated field.
+func (o *PatchPageAPIResponse) SetCommentsUpdated(v int64) {
+	o.CommentsUpdated = &v
+}
+
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *PatchPageAPIResponse) GetPage() APIPage {
 	if o == nil || IsNil(o.Page) {
@@ -182,6 +215,9 @@ func (o PatchPageAPIResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.CommentsUpdated) {
+		toSerialize["commentsUpdated"] = o.CommentsUpdated
 	}
 	if !IsNil(o.Page) {
 		toSerialize["page"] = o.Page

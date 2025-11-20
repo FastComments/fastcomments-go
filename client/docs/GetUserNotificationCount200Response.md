@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Count** | **int64** |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetUserNotificationCount200Response
 
-`func NewGetUserNotificationCount200Response(status ImportedAPIStatusFAILED, count int64, reason string, code string, ) *GetUserNotificationCount200Response`
+`func NewGetUserNotificationCount200Response(status APIStatus, count int64, reason string, code string, ) *GetUserNotificationCount200Response`
 
 NewGetUserNotificationCount200Response instantiates a new GetUserNotificationCount200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetUserNotificationCount200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetUserNotificationCount200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetUserNotificationCount200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetUserNotificationCount200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetUserNotificationCount200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetUserNotificationCount200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -17,19 +17,19 @@ import (
 	"fmt"
 )
 
-// checks if the PickTenantAuditLogTenantAuditLogKeys type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PickTenantAuditLogTenantAuditLogKeys{}
+// checks if the APIAuditLog type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &APIAuditLog{}
 
-// PickTenantAuditLogTenantAuditLogKeys From T, pick a set of properties whose keys are in the union K
-type PickTenantAuditLogTenantAuditLogKeys struct {
+// APIAuditLog struct for APIAuditLog
+type APIAuditLog struct {
 	Id string `json:"_id"`
-	Url *string `json:"url,omitempty"`
 	UserId *string `json:"userId,omitempty"`
 	Username *string `json:"username,omitempty"`
 	ResourceName string `json:"resourceName"`
 	CrudType string `json:"crudType"`
 	From *string `json:"from,omitempty"`
-	Ip *string `json:"ip,omitempty"`
+	Url NullableString `json:"url,omitempty"`
+	Ip NullableString `json:"ip,omitempty"`
 	When *time.Time `json:"when,omitempty"`
 	Description *string `json:"description,omitempty"`
 	ServerStartDate *time.Time `json:"serverStartDate,omitempty"`
@@ -37,30 +37,30 @@ type PickTenantAuditLogTenantAuditLogKeys struct {
 	ObjectDetails map[string]interface{} `json:"objectDetails,omitempty"`
 }
 
-type _PickTenantAuditLogTenantAuditLogKeys PickTenantAuditLogTenantAuditLogKeys
+type _APIAuditLog APIAuditLog
 
-// NewPickTenantAuditLogTenantAuditLogKeys instantiates a new PickTenantAuditLogTenantAuditLogKeys object
+// NewAPIAuditLog instantiates a new APIAuditLog object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPickTenantAuditLogTenantAuditLogKeys(id string, resourceName string, crudType string) *PickTenantAuditLogTenantAuditLogKeys {
-	this := PickTenantAuditLogTenantAuditLogKeys{}
+func NewAPIAuditLog(id string, resourceName string, crudType string) *APIAuditLog {
+	this := APIAuditLog{}
 	this.Id = id
 	this.ResourceName = resourceName
 	this.CrudType = crudType
 	return &this
 }
 
-// NewPickTenantAuditLogTenantAuditLogKeysWithDefaults instantiates a new PickTenantAuditLogTenantAuditLogKeys object
+// NewAPIAuditLogWithDefaults instantiates a new APIAuditLog object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPickTenantAuditLogTenantAuditLogKeysWithDefaults() *PickTenantAuditLogTenantAuditLogKeys {
-	this := PickTenantAuditLogTenantAuditLogKeys{}
+func NewAPIAuditLogWithDefaults() *APIAuditLog {
+	this := APIAuditLog{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetId() string {
+func (o *APIAuditLog) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -71,7 +71,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetIdOk() (*string, bool) {
+func (o *APIAuditLog) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -79,44 +79,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetId(v string) {
+func (o *APIAuditLog) SetId(v string) {
 	o.Id = v
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
-		var ret string
-		return ret
-	}
-	return *o.Url
-}
-
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
-		return nil, false
-	}
-	return o.Url, true
-}
-
-// HasUrl returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetUrl(v string) {
-	o.Url = &v
-}
-
 // GetUserId returns the UserId field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetUserId() string {
+func (o *APIAuditLog) GetUserId() string {
 	if o == nil || IsNil(o.UserId) {
 		var ret string
 		return ret
@@ -126,7 +94,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetUserId() string {
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetUserIdOk() (*string, bool) {
+func (o *APIAuditLog) GetUserIdOk() (*string, bool) {
 	if o == nil || IsNil(o.UserId) {
 		return nil, false
 	}
@@ -134,7 +102,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetUserIdOk() (*string, bool) {
 }
 
 // HasUserId returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasUserId() bool {
+func (o *APIAuditLog) HasUserId() bool {
 	if o != nil && !IsNil(o.UserId) {
 		return true
 	}
@@ -143,12 +111,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasUserId() bool {
 }
 
 // SetUserId gets a reference to the given string and assigns it to the UserId field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetUserId(v string) {
+func (o *APIAuditLog) SetUserId(v string) {
 	o.UserId = &v
 }
 
 // GetUsername returns the Username field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetUsername() string {
+func (o *APIAuditLog) GetUsername() string {
 	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
@@ -158,7 +126,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetUsername() string {
 
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetUsernameOk() (*string, bool) {
+func (o *APIAuditLog) GetUsernameOk() (*string, bool) {
 	if o == nil || IsNil(o.Username) {
 		return nil, false
 	}
@@ -166,7 +134,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetUsernameOk() (*string, bool) {
 }
 
 // HasUsername returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasUsername() bool {
+func (o *APIAuditLog) HasUsername() bool {
 	if o != nil && !IsNil(o.Username) {
 		return true
 	}
@@ -175,12 +143,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasUsername() bool {
 }
 
 // SetUsername gets a reference to the given string and assigns it to the Username field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetUsername(v string) {
+func (o *APIAuditLog) SetUsername(v string) {
 	o.Username = &v
 }
 
 // GetResourceName returns the ResourceName field value
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetResourceName() string {
+func (o *APIAuditLog) GetResourceName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -191,7 +159,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetResourceName() string {
 
 // GetResourceNameOk returns a tuple with the ResourceName field value
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetResourceNameOk() (*string, bool) {
+func (o *APIAuditLog) GetResourceNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -199,12 +167,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetResourceNameOk() (*string, boo
 }
 
 // SetResourceName sets field value
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetResourceName(v string) {
+func (o *APIAuditLog) SetResourceName(v string) {
 	o.ResourceName = v
 }
 
 // GetCrudType returns the CrudType field value
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetCrudType() string {
+func (o *APIAuditLog) GetCrudType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -215,7 +183,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetCrudType() string {
 
 // GetCrudTypeOk returns a tuple with the CrudType field value
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetCrudTypeOk() (*string, bool) {
+func (o *APIAuditLog) GetCrudTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -223,12 +191,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetCrudTypeOk() (*string, bool) {
 }
 
 // SetCrudType sets field value
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetCrudType(v string) {
+func (o *APIAuditLog) SetCrudType(v string) {
 	o.CrudType = v
 }
 
 // GetFrom returns the From field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetFrom() string {
+func (o *APIAuditLog) GetFrom() string {
 	if o == nil || IsNil(o.From) {
 		var ret string
 		return ret
@@ -238,7 +206,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetFrom() string {
 
 // GetFromOk returns a tuple with the From field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetFromOk() (*string, bool) {
+func (o *APIAuditLog) GetFromOk() (*string, bool) {
 	if o == nil || IsNil(o.From) {
 		return nil, false
 	}
@@ -246,7 +214,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetFromOk() (*string, bool) {
 }
 
 // HasFrom returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasFrom() bool {
+func (o *APIAuditLog) HasFrom() bool {
 	if o != nil && !IsNil(o.From) {
 		return true
 	}
@@ -255,44 +223,96 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasFrom() bool {
 }
 
 // SetFrom gets a reference to the given string and assigns it to the From field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetFrom(v string) {
+func (o *APIAuditLog) SetFrom(v string) {
 	o.From = &v
 }
 
-// GetIp returns the Ip field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetIp() string {
-	if o == nil || IsNil(o.Ip) {
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *APIAuditLog) GetUrl() string {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Ip
+	return *o.Url.Get()
 }
 
-// GetIpOk returns a tuple with the Ip field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetIpOk() (*string, bool) {
-	if o == nil || IsNil(o.Ip) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *APIAuditLog) GetUrlOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Ip, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// HasIp returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasIp() bool {
-	if o != nil && !IsNil(o.Ip) {
+// HasUrl returns a boolean if a field has been set.
+func (o *APIAuditLog) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIp gets a reference to the given string and assigns it to the Ip field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetIp(v string) {
-	o.Ip = &v
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+func (o *APIAuditLog) SetUrl(v string) {
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *APIAuditLog) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *APIAuditLog) UnsetUrl() {
+	o.Url.Unset()
+}
+
+// GetIp returns the Ip field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *APIAuditLog) GetIp() string {
+	if o == nil || IsNil(o.Ip.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Ip.Get()
+}
+
+// GetIpOk returns a tuple with the Ip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *APIAuditLog) GetIpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Ip.Get(), o.Ip.IsSet()
+}
+
+// HasIp returns a boolean if a field has been set.
+func (o *APIAuditLog) HasIp() bool {
+	if o != nil && o.Ip.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIp gets a reference to the given NullableString and assigns it to the Ip field.
+func (o *APIAuditLog) SetIp(v string) {
+	o.Ip.Set(&v)
+}
+// SetIpNil sets the value for Ip to be an explicit nil
+func (o *APIAuditLog) SetIpNil() {
+	o.Ip.Set(nil)
+}
+
+// UnsetIp ensures that no value is present for Ip, not even an explicit nil
+func (o *APIAuditLog) UnsetIp() {
+	o.Ip.Unset()
 }
 
 // GetWhen returns the When field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetWhen() time.Time {
+func (o *APIAuditLog) GetWhen() time.Time {
 	if o == nil || IsNil(o.When) {
 		var ret time.Time
 		return ret
@@ -302,7 +322,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetWhen() time.Time {
 
 // GetWhenOk returns a tuple with the When field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetWhenOk() (*time.Time, bool) {
+func (o *APIAuditLog) GetWhenOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.When) {
 		return nil, false
 	}
@@ -310,7 +330,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetWhenOk() (*time.Time, bool) {
 }
 
 // HasWhen returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasWhen() bool {
+func (o *APIAuditLog) HasWhen() bool {
 	if o != nil && !IsNil(o.When) {
 		return true
 	}
@@ -319,12 +339,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasWhen() bool {
 }
 
 // SetWhen gets a reference to the given time.Time and assigns it to the When field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetWhen(v time.Time) {
+func (o *APIAuditLog) SetWhen(v time.Time) {
 	o.When = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetDescription() string {
+func (o *APIAuditLog) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
@@ -334,7 +354,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetDescription() string {
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetDescriptionOk() (*string, bool) {
+func (o *APIAuditLog) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
@@ -342,7 +362,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetDescriptionOk() (*string, bool
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasDescription() bool {
+func (o *APIAuditLog) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -351,12 +371,12 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetDescription(v string) {
+func (o *APIAuditLog) SetDescription(v string) {
 	o.Description = &v
 }
 
 // GetServerStartDate returns the ServerStartDate field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetServerStartDate() time.Time {
+func (o *APIAuditLog) GetServerStartDate() time.Time {
 	if o == nil || IsNil(o.ServerStartDate) {
 		var ret time.Time
 		return ret
@@ -366,7 +386,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetServerStartDate() time.Time {
 
 // GetServerStartDateOk returns a tuple with the ServerStartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetServerStartDateOk() (*time.Time, bool) {
+func (o *APIAuditLog) GetServerStartDateOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.ServerStartDate) {
 		return nil, false
 	}
@@ -374,7 +394,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetServerStartDateOk() (*time.Tim
 }
 
 // HasServerStartDate returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasServerStartDate() bool {
+func (o *APIAuditLog) HasServerStartDate() bool {
 	if o != nil && !IsNil(o.ServerStartDate) {
 		return true
 	}
@@ -383,13 +403,13 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasServerStartDate() bool {
 }
 
 // SetServerStartDate gets a reference to the given time.Time and assigns it to the ServerStartDate field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetServerStartDate(v time.Time) {
+func (o *APIAuditLog) SetServerStartDate(v time.Time) {
 	o.ServerStartDate = &v
 }
 
-// GetObjectDetails returns the ObjectDetails field value if set, zero value otherwise.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetObjectDetails() map[string]interface{} {
-	if o == nil || IsNil(o.ObjectDetails) {
+// GetObjectDetails returns the ObjectDetails field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *APIAuditLog) GetObjectDetails() map[string]interface{} {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -398,7 +418,8 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetObjectDetails() map[string]int
 
 // GetObjectDetailsOk returns a tuple with the ObjectDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) GetObjectDetailsOk() (map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *APIAuditLog) GetObjectDetailsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ObjectDetails) {
 		return map[string]interface{}{}, false
 	}
@@ -406,7 +427,7 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) GetObjectDetailsOk() (map[string]
 }
 
 // HasObjectDetails returns a boolean if a field has been set.
-func (o *PickTenantAuditLogTenantAuditLogKeys) HasObjectDetails() bool {
+func (o *APIAuditLog) HasObjectDetails() bool {
 	if o != nil && !IsNil(o.ObjectDetails) {
 		return true
 	}
@@ -415,11 +436,11 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) HasObjectDetails() bool {
 }
 
 // SetObjectDetails gets a reference to the given map[string]interface{} and assigns it to the ObjectDetails field.
-func (o *PickTenantAuditLogTenantAuditLogKeys) SetObjectDetails(v map[string]interface{}) {
+func (o *APIAuditLog) SetObjectDetails(v map[string]interface{}) {
 	o.ObjectDetails = v
 }
 
-func (o PickTenantAuditLogTenantAuditLogKeys) MarshalJSON() ([]byte, error) {
+func (o APIAuditLog) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -427,12 +448,9 @@ func (o PickTenantAuditLogTenantAuditLogKeys) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PickTenantAuditLogTenantAuditLogKeys) ToMap() (map[string]interface{}, error) {
+func (o APIAuditLog) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["_id"] = o.Id
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
 	}
@@ -444,8 +462,11 @@ func (o PickTenantAuditLogTenantAuditLogKeys) ToMap() (map[string]interface{}, e
 	if !IsNil(o.From) {
 		toSerialize["from"] = o.From
 	}
-	if !IsNil(o.Ip) {
-		toSerialize["ip"] = o.Ip
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
+	if o.Ip.IsSet() {
+		toSerialize["ip"] = o.Ip.Get()
 	}
 	if !IsNil(o.When) {
 		toSerialize["when"] = o.When
@@ -456,13 +477,13 @@ func (o PickTenantAuditLogTenantAuditLogKeys) ToMap() (map[string]interface{}, e
 	if !IsNil(o.ServerStartDate) {
 		toSerialize["serverStartDate"] = o.ServerStartDate
 	}
-	if !IsNil(o.ObjectDetails) {
+	if o.ObjectDetails != nil {
 		toSerialize["objectDetails"] = o.ObjectDetails
 	}
 	return toSerialize, nil
 }
 
-func (o *PickTenantAuditLogTenantAuditLogKeys) UnmarshalJSON(data []byte) (err error) {
+func (o *APIAuditLog) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -486,53 +507,53 @@ func (o *PickTenantAuditLogTenantAuditLogKeys) UnmarshalJSON(data []byte) (err e
 		}
 	}
 
-	varPickTenantAuditLogTenantAuditLogKeys := _PickTenantAuditLogTenantAuditLogKeys{}
+	varAPIAuditLog := _APIAuditLog{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPickTenantAuditLogTenantAuditLogKeys)
+	err = decoder.Decode(&varAPIAuditLog)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PickTenantAuditLogTenantAuditLogKeys(varPickTenantAuditLogTenantAuditLogKeys)
+	*o = APIAuditLog(varAPIAuditLog)
 
 	return err
 }
 
-type NullablePickTenantAuditLogTenantAuditLogKeys struct {
-	value *PickTenantAuditLogTenantAuditLogKeys
+type NullableAPIAuditLog struct {
+	value *APIAuditLog
 	isSet bool
 }
 
-func (v NullablePickTenantAuditLogTenantAuditLogKeys) Get() *PickTenantAuditLogTenantAuditLogKeys {
+func (v NullableAPIAuditLog) Get() *APIAuditLog {
 	return v.value
 }
 
-func (v *NullablePickTenantAuditLogTenantAuditLogKeys) Set(val *PickTenantAuditLogTenantAuditLogKeys) {
+func (v *NullableAPIAuditLog) Set(val *APIAuditLog) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePickTenantAuditLogTenantAuditLogKeys) IsSet() bool {
+func (v NullableAPIAuditLog) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePickTenantAuditLogTenantAuditLogKeys) Unset() {
+func (v *NullableAPIAuditLog) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePickTenantAuditLogTenantAuditLogKeys(val *PickTenantAuditLogTenantAuditLogKeys) *NullablePickTenantAuditLogTenantAuditLogKeys {
-	return &NullablePickTenantAuditLogTenantAuditLogKeys{value: val, isSet: true}
+func NewNullableAPIAuditLog(val *APIAuditLog) *NullableAPIAuditLog {
+	return &NullableAPIAuditLog{value: val, isSet: true}
 }
 
-func (v NullablePickTenantAuditLogTenantAuditLogKeys) MarshalJSON() ([]byte, error) {
+func (v NullableAPIAuditLog) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePickTenantAuditLogTenantAuditLogKeys) UnmarshalJSON(src []byte) error {
+func (v *NullableAPIAuditLog) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

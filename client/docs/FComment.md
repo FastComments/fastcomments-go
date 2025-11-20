@@ -70,7 +70,7 @@ Name | Type | Description | Notes
 **AutoplayJobId** | Pointer to **string** |  | [optional] 
 **AutoplayDelayMS** | Pointer to **int64** |  | [optional] 
 **FeedbackIds** | Pointer to **[]string** |  | [optional] 
-**Logs** | Pointer to **[][]interface{}** |  | [optional] 
+**Logs** | Pointer to [**[]CommentLogEntry**](CommentLogEntry.md) |  | [optional] 
 **GroupIds** | Pointer to **[]string** |  | [optional] 
 **ViewCount** | Pointer to **NullableInt64** |  | [optional] 
 **RequiresVerification** | Pointer to **bool** |  | [optional] 
@@ -1992,20 +1992,20 @@ HasFeedbackIds returns a boolean if a field has been set.
 
 ### GetLogs
 
-`func (o *FComment) GetLogs() [][]interface{}`
+`func (o *FComment) GetLogs() []CommentLogEntry`
 
 GetLogs returns the Logs field if non-nil, zero value otherwise.
 
 ### GetLogsOk
 
-`func (o *FComment) GetLogsOk() (*[][]interface{}, bool)`
+`func (o *FComment) GetLogsOk() (*[]CommentLogEntry, bool)`
 
 GetLogsOk returns a tuple with the Logs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLogs
 
-`func (o *FComment) SetLogs(v [][]interface{})`
+`func (o *FComment) SetLogs(v []CommentLogEntry)`
 
 SetLogs sets Logs field to given value.
 

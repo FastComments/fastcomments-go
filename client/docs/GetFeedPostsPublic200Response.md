@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MyReacts** | Pointer to **map[string]map[string]bool** |  | [optional] 
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **FeedPosts** | [**[]FeedPost**](FeedPost.md) |  | 
 **User** | Pointer to [**NullableUserSessionInfo**](UserSessionInfo.md) |  | [optional] 
 **UrlIdWS** | Pointer to **string** |  | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewGetFeedPostsPublic200Response
 
-`func NewGetFeedPostsPublic200Response(status ImportedAPIStatusFAILED, feedPosts []FeedPost, reason string, code string, ) *GetFeedPostsPublic200Response`
+`func NewGetFeedPostsPublic200Response(status APIStatus, feedPosts []FeedPost, reason string, code string, ) *GetFeedPostsPublic200Response`
 
 NewGetFeedPostsPublic200Response instantiates a new GetFeedPostsPublic200Response object
 This constructor will assign default values to properties that have it defined,
@@ -65,20 +65,20 @@ HasMyReacts returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *GetFeedPostsPublic200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetFeedPostsPublic200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetFeedPostsPublic200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetFeedPostsPublic200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetFeedPostsPublic200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetFeedPostsPublic200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

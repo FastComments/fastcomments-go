@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | [**DeleteCommentAction**](DeleteCommentAction.md) |  | 
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Methods
 
 ### NewDeleteCommentResult
 
-`func NewDeleteCommentResult(action DeleteCommentAction, status ImportedAPIStatusSUCCESS, ) *DeleteCommentResult`
+`func NewDeleteCommentResult(action DeleteCommentAction, status APIStatus, ) *DeleteCommentResult`
 
 NewDeleteCommentResult instantiates a new DeleteCommentResult object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetAction sets Action field to given value.
 
 ### GetStatus
 
-`func (o *DeleteCommentResult) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *DeleteCommentResult) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *DeleteCommentResult) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *DeleteCommentResult) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *DeleteCommentResult) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *DeleteCommentResult) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

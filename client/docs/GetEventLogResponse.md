@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Events** | [**[]EventLogEntry**](EventLogEntry.md) |  | 
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Methods
 
 ### NewGetEventLogResponse
 
-`func NewGetEventLogResponse(events []EventLogEntry, status ImportedAPIStatusSUCCESS, ) *GetEventLogResponse`
+`func NewGetEventLogResponse(events []EventLogEntry, status APIStatus, ) *GetEventLogResponse`
 
 NewGetEventLogResponse instantiates a new GetEventLogResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetEvents sets Events field to given value.
 
 ### GetStatus
 
-`func (o *GetEventLogResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *GetEventLogResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetEventLogResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *GetEventLogResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetEventLogResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *GetEventLogResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

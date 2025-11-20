@@ -6364,7 +6364,7 @@ type ApiUpdateCommentRequest struct {
 	ApiService *DefaultAPIService
 	tenantId *string
 	id string
-	body *PickAPICommentUpdatableCommentFields
+	updatableCommentParams *UpdatableCommentParams
 	contextUserId *string
 	doSpamCheck *bool
 	isLive *bool
@@ -6375,8 +6375,8 @@ func (r ApiUpdateCommentRequest) TenantId(tenantId string) ApiUpdateCommentReque
 	return r
 }
 
-func (r ApiUpdateCommentRequest) Body(body PickAPICommentUpdatableCommentFields) ApiUpdateCommentRequest {
-	r.body = &body
+func (r ApiUpdateCommentRequest) UpdatableCommentParams(updatableCommentParams UpdatableCommentParams) ApiUpdateCommentRequest {
+	r.updatableCommentParams = &updatableCommentParams
 	return r
 }
 
@@ -6438,8 +6438,8 @@ func (a *DefaultAPIService) UpdateCommentExecute(r ApiUpdateCommentRequest) (*Fl
 	if r.tenantId == nil {
 		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
-	if r.body == nil {
-		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	if r.updatableCommentParams == nil {
+		return localVarReturnValue, nil, reportError("updatableCommentParams is required and must be specified")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
@@ -6470,7 +6470,7 @@ func (a *DefaultAPIService) UpdateCommentExecute(r ApiUpdateCommentRequest) (*Fl
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updatableCommentParams
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

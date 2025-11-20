@@ -21,7 +21,7 @@ var _ MappedNullable = &ResetUserNotificationsResponse{}
 
 // ResetUserNotificationsResponse struct for ResetUserNotificationsResponse
 type ResetUserNotificationsResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	Code *string `json:"code,omitempty"`
 }
 
@@ -31,7 +31,7 @@ type _ResetUserNotificationsResponse ResetUserNotificationsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResetUserNotificationsResponse(status ImportedAPIStatusSUCCESS) *ResetUserNotificationsResponse {
+func NewResetUserNotificationsResponse(status APIStatus) *ResetUserNotificationsResponse {
 	this := ResetUserNotificationsResponse{}
 	this.Status = status
 	return &this
@@ -46,9 +46,9 @@ func NewResetUserNotificationsResponseWithDefaults() *ResetUserNotificationsResp
 }
 
 // GetStatus returns the Status field value
-func (o *ResetUserNotificationsResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *ResetUserNotificationsResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *ResetUserNotificationsResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *ResetUserNotificationsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *ResetUserNotificationsResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ResetUserNotificationsResponse) GetStatusOk() (*ImportedAPIStatusSUCCES
 }
 
 // SetStatus sets field value
-func (o *ResetUserNotificationsResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *ResetUserNotificationsResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

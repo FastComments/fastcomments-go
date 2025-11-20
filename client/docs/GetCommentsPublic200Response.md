@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StatusCode** | Pointer to **int32** |  | [optional] 
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Code** | **string** |  | 
 **Reason** | **string** |  | 
 **TranslatedWarning** | Pointer to **string** |  | [optional] 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewGetCommentsPublic200Response
 
-`func NewGetCommentsPublic200Response(status ImportedAPIStatusFAILED, code string, reason string, comments []PublicComment, user NullableUserSessionInfo, pageNumber int32, ) *GetCommentsPublic200Response`
+`func NewGetCommentsPublic200Response(status APIStatus, code string, reason string, comments []PublicComment, user NullableUserSessionInfo, pageNumber int32, ) *GetCommentsPublic200Response`
 
 NewGetCommentsPublic200Response instantiates a new GetCommentsPublic200Response object
 This constructor will assign default values to properties that have it defined,
@@ -82,20 +82,20 @@ HasStatusCode returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *GetCommentsPublic200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetCommentsPublic200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetCommentsPublic200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetCommentsPublic200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetCommentsPublic200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetCommentsPublic200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

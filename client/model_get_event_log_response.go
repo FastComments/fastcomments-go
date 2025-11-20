@@ -22,7 +22,7 @@ var _ MappedNullable = &GetEventLogResponse{}
 // GetEventLogResponse struct for GetEventLogResponse
 type GetEventLogResponse struct {
 	Events []EventLogEntry `json:"events"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _GetEventLogResponse GetEventLogResponse
@@ -31,7 +31,7 @@ type _GetEventLogResponse GetEventLogResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetEventLogResponse(events []EventLogEntry, status ImportedAPIStatusSUCCESS) *GetEventLogResponse {
+func NewGetEventLogResponse(events []EventLogEntry, status APIStatus) *GetEventLogResponse {
 	this := GetEventLogResponse{}
 	this.Events = events
 	this.Status = status
@@ -71,9 +71,9 @@ func (o *GetEventLogResponse) SetEvents(v []EventLogEntry) {
 }
 
 // GetStatus returns the Status field value
-func (o *GetEventLogResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *GetEventLogResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *GetEventLogResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *GetEventLogResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *GetEventLogResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *GetEventLogResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *GetEventLogResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *GetEventLogResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

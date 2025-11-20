@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommentStatuses** | **map[string]bool** | Construct a type with a set of properties K of type T | 
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Methods
 
 ### NewCheckBlockedCommentsResponse
 
-`func NewCheckBlockedCommentsResponse(commentStatuses map[string]bool, status ImportedAPIStatusSUCCESS, ) *CheckBlockedCommentsResponse`
+`func NewCheckBlockedCommentsResponse(commentStatuses map[string]bool, status APIStatus, ) *CheckBlockedCommentsResponse`
 
 NewCheckBlockedCommentsResponse instantiates a new CheckBlockedCommentsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetCommentStatuses sets CommentStatuses field to given value.
 
 ### GetStatus
 
-`func (o *CheckBlockedCommentsResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *CheckBlockedCommentsResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *CheckBlockedCommentsResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *CheckBlockedCommentsResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *CheckBlockedCommentsResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *CheckBlockedCommentsResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

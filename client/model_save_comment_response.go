@@ -21,7 +21,7 @@ var _ MappedNullable = &SaveCommentResponse{}
 
 // SaveCommentResponse struct for SaveCommentResponse
 type SaveCommentResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	Comment FComment `json:"comment"`
 	User NullableUserSessionInfo `json:"user"`
 	// Construct a type with a set of properties K of type T
@@ -34,7 +34,7 @@ type _SaveCommentResponse SaveCommentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSaveCommentResponse(status ImportedAPIStatusSUCCESS, comment FComment, user NullableUserSessionInfo) *SaveCommentResponse {
+func NewSaveCommentResponse(status APIStatus, comment FComment, user NullableUserSessionInfo) *SaveCommentResponse {
 	this := SaveCommentResponse{}
 	this.Status = status
 	this.Comment = comment
@@ -51,9 +51,9 @@ func NewSaveCommentResponseWithDefaults() *SaveCommentResponse {
 }
 
 // GetStatus returns the Status field value
-func (o *SaveCommentResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *SaveCommentResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -62,7 +62,7 @@ func (o *SaveCommentResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *SaveCommentResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *SaveCommentResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,7 +70,7 @@ func (o *SaveCommentResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *SaveCommentResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *SaveCommentResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

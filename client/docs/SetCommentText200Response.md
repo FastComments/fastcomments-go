@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | [**PickFCommentApprovedOrCommentHTML**](PickFCommentApprovedOrCommentHTML.md) |  | 
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Comment** | [**SetCommentTextResult**](SetCommentTextResult.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewSetCommentText200Response
 
-`func NewSetCommentText200Response(comment PickFCommentApprovedOrCommentHTML, status ImportedAPIStatusFAILED, reason string, code string, ) *SetCommentText200Response`
+`func NewSetCommentText200Response(comment SetCommentTextResult, status APIStatus, reason string, code string, ) *SetCommentText200Response`
 
 NewSetCommentText200Response instantiates a new SetCommentText200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,40 +35,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetComment
 
-`func (o *SetCommentText200Response) GetComment() PickFCommentApprovedOrCommentHTML`
+`func (o *SetCommentText200Response) GetComment() SetCommentTextResult`
 
 GetComment returns the Comment field if non-nil, zero value otherwise.
 
 ### GetCommentOk
 
-`func (o *SetCommentText200Response) GetCommentOk() (*PickFCommentApprovedOrCommentHTML, bool)`
+`func (o *SetCommentText200Response) GetCommentOk() (*SetCommentTextResult, bool)`
 
 GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComment
 
-`func (o *SetCommentText200Response) SetComment(v PickFCommentApprovedOrCommentHTML)`
+`func (o *SetCommentText200Response) SetComment(v SetCommentTextResult)`
 
 SetComment sets Comment field to given value.
 
 
 ### GetStatus
 
-`func (o *SetCommentText200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *SetCommentText200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *SetCommentText200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *SetCommentText200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *SetCommentText200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *SetCommentText200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

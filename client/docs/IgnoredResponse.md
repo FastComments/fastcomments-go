@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Note** | **string** |  | 
 
 ## Methods
 
 ### NewIgnoredResponse
 
-`func NewIgnoredResponse(status ImportedAPIStatusSUCCESS, note string, ) *IgnoredResponse`
+`func NewIgnoredResponse(status APIStatus, note string, ) *IgnoredResponse`
 
 NewIgnoredResponse instantiates a new IgnoredResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *IgnoredResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *IgnoredResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *IgnoredResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *IgnoredResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *IgnoredResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *IgnoredResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

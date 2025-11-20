@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewDeleteFeedPostPublic200Response
 
-`func NewDeleteFeedPostPublic200Response(status ImportedAPIStatusFAILED, reason string, code string, ) *DeleteFeedPostPublic200Response`
+`func NewDeleteFeedPostPublic200Response(status APIStatus, reason string, code string, ) *DeleteFeedPostPublic200Response`
 
 NewDeleteFeedPostPublic200Response instantiates a new DeleteFeedPostPublic200Response object
 This constructor will assign default values to properties that have it defined,
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *DeleteFeedPostPublic200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *DeleteFeedPostPublic200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *DeleteFeedPostPublic200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *DeleteFeedPostPublic200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *DeleteFeedPostPublic200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *DeleteFeedPostPublic200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

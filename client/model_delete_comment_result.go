@@ -22,7 +22,7 @@ var _ MappedNullable = &DeleteCommentResult{}
 // DeleteCommentResult struct for DeleteCommentResult
 type DeleteCommentResult struct {
 	Action DeleteCommentAction `json:"action"`
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 }
 
 type _DeleteCommentResult DeleteCommentResult
@@ -31,7 +31,7 @@ type _DeleteCommentResult DeleteCommentResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeleteCommentResult(action DeleteCommentAction, status ImportedAPIStatusSUCCESS) *DeleteCommentResult {
+func NewDeleteCommentResult(action DeleteCommentAction, status APIStatus) *DeleteCommentResult {
 	this := DeleteCommentResult{}
 	this.Action = action
 	this.Status = status
@@ -71,9 +71,9 @@ func (o *DeleteCommentResult) SetAction(v DeleteCommentAction) {
 }
 
 // GetStatus returns the Status field value
-func (o *DeleteCommentResult) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *DeleteCommentResult) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *DeleteCommentResult) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *DeleteCommentResult) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *DeleteCommentResult) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *DeleteCommentResult) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *DeleteCommentResult) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *DeleteCommentResult) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

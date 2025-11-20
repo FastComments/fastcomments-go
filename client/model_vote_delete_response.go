@@ -21,7 +21,7 @@ var _ MappedNullable = &VoteDeleteResponse{}
 
 // VoteDeleteResponse struct for VoteDeleteResponse
 type VoteDeleteResponse struct {
-	Status VoteDeleteResponseStatus `json:"status"`
+	Status APIStatus `json:"status"`
 	WasPendingVote *bool `json:"wasPendingVote,omitempty"`
 }
 
@@ -31,7 +31,7 @@ type _VoteDeleteResponse VoteDeleteResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVoteDeleteResponse(status VoteDeleteResponseStatus) *VoteDeleteResponse {
+func NewVoteDeleteResponse(status APIStatus) *VoteDeleteResponse {
 	this := VoteDeleteResponse{}
 	this.Status = status
 	return &this
@@ -46,9 +46,9 @@ func NewVoteDeleteResponseWithDefaults() *VoteDeleteResponse {
 }
 
 // GetStatus returns the Status field value
-func (o *VoteDeleteResponse) GetStatus() VoteDeleteResponseStatus {
+func (o *VoteDeleteResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret VoteDeleteResponseStatus
+		var ret APIStatus
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *VoteDeleteResponse) GetStatus() VoteDeleteResponseStatus {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *VoteDeleteResponse) GetStatusOk() (*VoteDeleteResponseStatus, bool) {
+func (o *VoteDeleteResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *VoteDeleteResponse) GetStatusOk() (*VoteDeleteResponseStatus, bool) {
 }
 
 // SetStatus sets field value
-func (o *VoteDeleteResponse) SetStatus(v VoteDeleteResponseStatus) {
+func (o *VoteDeleteResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

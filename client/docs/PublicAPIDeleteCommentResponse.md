@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | Pointer to [**PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId**](PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.md) |  | [optional] 
+**Comment** | Pointer to [**DeletedCommentResultComment**](DeletedCommentResultComment.md) |  | [optional] 
 **HardRemoved** | **bool** |  | 
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Methods
 
 ### NewPublicAPIDeleteCommentResponse
 
-`func NewPublicAPIDeleteCommentResponse(hardRemoved bool, status ImportedAPIStatusSUCCESS, ) *PublicAPIDeleteCommentResponse`
+`func NewPublicAPIDeleteCommentResponse(hardRemoved bool, status APIStatus, ) *PublicAPIDeleteCommentResponse`
 
 NewPublicAPIDeleteCommentResponse instantiates a new PublicAPIDeleteCommentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetComment
 
-`func (o *PublicAPIDeleteCommentResponse) GetComment() PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId`
+`func (o *PublicAPIDeleteCommentResponse) GetComment() DeletedCommentResultComment`
 
 GetComment returns the Comment field if non-nil, zero value otherwise.
 
 ### GetCommentOk
 
-`func (o *PublicAPIDeleteCommentResponse) GetCommentOk() (*PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId, bool)`
+`func (o *PublicAPIDeleteCommentResponse) GetCommentOk() (*DeletedCommentResultComment, bool)`
 
 GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComment
 
-`func (o *PublicAPIDeleteCommentResponse) SetComment(v PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId)`
+`func (o *PublicAPIDeleteCommentResponse) SetComment(v DeletedCommentResultComment)`
 
 SetComment sets Comment field to given value.
 
@@ -74,20 +74,20 @@ SetHardRemoved sets HardRemoved field to given value.
 
 ### GetStatus
 
-`func (o *PublicAPIDeleteCommentResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *PublicAPIDeleteCommentResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PublicAPIDeleteCommentResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *PublicAPIDeleteCommentResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PublicAPIDeleteCommentResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *PublicAPIDeleteCommentResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

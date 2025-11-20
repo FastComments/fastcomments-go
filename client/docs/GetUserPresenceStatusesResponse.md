@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **UserIdsOnline** | **map[string]bool** | Construct a type with a set of properties K of type T | 
 
 ## Methods
 
 ### NewGetUserPresenceStatusesResponse
 
-`func NewGetUserPresenceStatusesResponse(status ImportedAPIStatusSUCCESS, userIdsOnline map[string]bool, ) *GetUserPresenceStatusesResponse`
+`func NewGetUserPresenceStatusesResponse(status APIStatus, userIdsOnline map[string]bool, ) *GetUserPresenceStatusesResponse`
 
 NewGetUserPresenceStatusesResponse instantiates a new GetUserPresenceStatusesResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetUserPresenceStatusesResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *GetUserPresenceStatusesResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetUserPresenceStatusesResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *GetUserPresenceStatusesResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetUserPresenceStatusesResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *GetUserPresenceStatusesResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

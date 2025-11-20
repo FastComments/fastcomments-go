@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **VoteUserNames** | **[]string** |  | 
 **HasMore** | **bool** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewGetCommentVoteUserNamesSuccessResponse
 
-`func NewGetCommentVoteUserNamesSuccessResponse(status ImportedAPIStatusSUCCESS, voteUserNames []string, hasMore bool, ) *GetCommentVoteUserNamesSuccessResponse`
+`func NewGetCommentVoteUserNamesSuccessResponse(status APIStatus, voteUserNames []string, hasMore bool, ) *GetCommentVoteUserNamesSuccessResponse`
 
 NewGetCommentVoteUserNamesSuccessResponse instantiates a new GetCommentVoteUserNamesSuccessResponse object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetCommentVoteUserNamesSuccessResponse) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *GetCommentVoteUserNamesSuccessResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetCommentVoteUserNamesSuccessResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *GetCommentVoteUserNamesSuccessResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetCommentVoteUserNamesSuccessResponse) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *GetCommentVoteUserNamesSuccessResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

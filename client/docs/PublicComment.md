@@ -4,34 +4,35 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **time.Time** |  | 
 **Id** | **string** |  | 
-**UserId** | Pointer to **string** |  | [optional] 
-**AnonUserId** | Pointer to **string** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 **CommenterName** | **string** |  | 
-**CommenterLink** | Pointer to **string** |  | [optional] 
+**CommenterLink** | Pointer to **NullableString** |  | [optional] 
 **CommentHTML** | **string** |  | 
-**ParentId** | Pointer to **string** |  | [optional] 
-**Votes** | Pointer to **int32** |  | [optional] 
-**VotesUp** | Pointer to **int32** |  | [optional] 
-**VotesDown** | Pointer to **int32** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
+**Date** | **NullableTime** |  | 
+**Votes** | Pointer to **NullableInt32** |  | [optional] 
+**VotesUp** | Pointer to **NullableInt32** |  | [optional] 
+**VotesDown** | Pointer to **NullableInt32** |  | [optional] 
 **Verified** | **bool** |  | 
-**AvatarSrc** | Pointer to **string** |  | [optional] 
-**IsSpam** | Pointer to **bool** |  | [optional] 
+**AvatarSrc** | Pointer to **NullableString** |  | [optional] 
 **HasImages** | Pointer to **bool** |  | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
-**IsDeletedUser** | Pointer to **bool** |  | [optional] 
 **IsByAdmin** | Pointer to **bool** |  | [optional] 
 **IsByModerator** | Pointer to **bool** |  | [optional] 
-**IsPinned** | Pointer to **bool** |  | [optional] 
-**IsLocked** | Pointer to **bool** |  | [optional] 
-**Rating** | Pointer to **float64** |  | [optional] 
-**DisplayLabel** | Pointer to **string** |  | [optional] 
+**IsPinned** | Pointer to **NullableBool** |  | [optional] 
+**IsLocked** | Pointer to **NullableBool** |  | [optional] 
+**DisplayLabel** | Pointer to **NullableString** |  | [optional] 
+**Rating** | Pointer to **NullableFloat64** |  | [optional] 
 **Badges** | Pointer to [**[]CommentUserBadgeInfo**](CommentUserBadgeInfo.md) |  | [optional] 
+**ViewCount** | Pointer to **NullableInt64** |  | [optional] 
+**IsDeleted** | Pointer to **bool** |  | [optional] 
+**IsDeletedUser** | Pointer to **bool** |  | [optional] 
+**IsSpam** | Pointer to **bool** |  | [optional] 
+**AnonUserId** | Pointer to **NullableString** |  | [optional] 
 **FeedbackIds** | Pointer to **[]string** |  | [optional] 
-**ViewCount** | Pointer to **int64** |  | [optional] 
 **RequiresVerification** | Pointer to **bool** |  | [optional] 
 **EditKey** | Pointer to **string** |  | [optional] 
+**Approved** | Pointer to **bool** |  | [optional] 
 **IsUnread** | Pointer to **bool** |  | [optional] 
 **MyVoteId** | Pointer to **string** |  | [optional] 
 **IsVotedDown** | Pointer to **bool** |  | [optional] 
@@ -47,7 +48,7 @@ Name | Type | Description | Notes
 
 ### NewPublicComment
 
-`func NewPublicComment(date time.Time, id string, commenterName string, commentHTML string, verified bool, ) *PublicComment`
+`func NewPublicComment(id string, commenterName string, commentHTML string, date NullableTime, verified bool, ) *PublicComment`
 
 NewPublicComment instantiates a new PublicComment object
 This constructor will assign default values to properties that have it defined,
@@ -61,26 +62,6 @@ will change when the set of required properties is changed
 NewPublicCommentWithDefaults instantiates a new PublicComment object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDate
-
-`func (o *PublicComment) GetDate() time.Time`
-
-GetDate returns the Date field if non-nil, zero value otherwise.
-
-### GetDateOk
-
-`func (o *PublicComment) GetDateOk() (*time.Time, bool)`
-
-GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDate
-
-`func (o *PublicComment) SetDate(v time.Time)`
-
-SetDate sets Date field to given value.
-
 
 ### GetId
 
@@ -127,31 +108,16 @@ SetUserId sets UserId field to given value.
 
 HasUserId returns a boolean if a field has been set.
 
-### GetAnonUserId
+### SetUserIdNil
 
-`func (o *PublicComment) GetAnonUserId() string`
+`func (o *PublicComment) SetUserIdNil(b bool)`
 
-GetAnonUserId returns the AnonUserId field if non-nil, zero value otherwise.
+ SetUserIdNil sets the value for UserId to be an explicit nil
 
-### GetAnonUserIdOk
+### UnsetUserId
+`func (o *PublicComment) UnsetUserId()`
 
-`func (o *PublicComment) GetAnonUserIdOk() (*string, bool)`
-
-GetAnonUserIdOk returns a tuple with the AnonUserId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAnonUserId
-
-`func (o *PublicComment) SetAnonUserId(v string)`
-
-SetAnonUserId sets AnonUserId field to given value.
-
-### HasAnonUserId
-
-`func (o *PublicComment) HasAnonUserId() bool`
-
-HasAnonUserId returns a boolean if a field has been set.
-
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetCommenterName
 
 `func (o *PublicComment) GetCommenterName() string`
@@ -197,6 +163,16 @@ SetCommenterLink sets CommenterLink field to given value.
 
 HasCommenterLink returns a boolean if a field has been set.
 
+### SetCommenterLinkNil
+
+`func (o *PublicComment) SetCommenterLinkNil(b bool)`
+
+ SetCommenterLinkNil sets the value for CommenterLink to be an explicit nil
+
+### UnsetCommenterLink
+`func (o *PublicComment) UnsetCommenterLink()`
+
+UnsetCommenterLink ensures that no value is present for CommenterLink, not even an explicit nil
 ### GetCommentHTML
 
 `func (o *PublicComment) GetCommentHTML() string`
@@ -242,6 +218,46 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
+### SetParentIdNil
+
+`func (o *PublicComment) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *PublicComment) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+### GetDate
+
+`func (o *PublicComment) GetDate() time.Time`
+
+GetDate returns the Date field if non-nil, zero value otherwise.
+
+### GetDateOk
+
+`func (o *PublicComment) GetDateOk() (*time.Time, bool)`
+
+GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDate
+
+`func (o *PublicComment) SetDate(v time.Time)`
+
+SetDate sets Date field to given value.
+
+
+### SetDateNil
+
+`func (o *PublicComment) SetDateNil(b bool)`
+
+ SetDateNil sets the value for Date to be an explicit nil
+
+### UnsetDate
+`func (o *PublicComment) UnsetDate()`
+
+UnsetDate ensures that no value is present for Date, not even an explicit nil
 ### GetVotes
 
 `func (o *PublicComment) GetVotes() int32`
@@ -267,6 +283,16 @@ SetVotes sets Votes field to given value.
 
 HasVotes returns a boolean if a field has been set.
 
+### SetVotesNil
+
+`func (o *PublicComment) SetVotesNil(b bool)`
+
+ SetVotesNil sets the value for Votes to be an explicit nil
+
+### UnsetVotes
+`func (o *PublicComment) UnsetVotes()`
+
+UnsetVotes ensures that no value is present for Votes, not even an explicit nil
 ### GetVotesUp
 
 `func (o *PublicComment) GetVotesUp() int32`
@@ -292,6 +318,16 @@ SetVotesUp sets VotesUp field to given value.
 
 HasVotesUp returns a boolean if a field has been set.
 
+### SetVotesUpNil
+
+`func (o *PublicComment) SetVotesUpNil(b bool)`
+
+ SetVotesUpNil sets the value for VotesUp to be an explicit nil
+
+### UnsetVotesUp
+`func (o *PublicComment) UnsetVotesUp()`
+
+UnsetVotesUp ensures that no value is present for VotesUp, not even an explicit nil
 ### GetVotesDown
 
 `func (o *PublicComment) GetVotesDown() int32`
@@ -317,6 +353,16 @@ SetVotesDown sets VotesDown field to given value.
 
 HasVotesDown returns a boolean if a field has been set.
 
+### SetVotesDownNil
+
+`func (o *PublicComment) SetVotesDownNil(b bool)`
+
+ SetVotesDownNil sets the value for VotesDown to be an explicit nil
+
+### UnsetVotesDown
+`func (o *PublicComment) UnsetVotesDown()`
+
+UnsetVotesDown ensures that no value is present for VotesDown, not even an explicit nil
 ### GetVerified
 
 `func (o *PublicComment) GetVerified() bool`
@@ -362,31 +408,16 @@ SetAvatarSrc sets AvatarSrc field to given value.
 
 HasAvatarSrc returns a boolean if a field has been set.
 
-### GetIsSpam
+### SetAvatarSrcNil
 
-`func (o *PublicComment) GetIsSpam() bool`
+`func (o *PublicComment) SetAvatarSrcNil(b bool)`
 
-GetIsSpam returns the IsSpam field if non-nil, zero value otherwise.
+ SetAvatarSrcNil sets the value for AvatarSrc to be an explicit nil
 
-### GetIsSpamOk
+### UnsetAvatarSrc
+`func (o *PublicComment) UnsetAvatarSrc()`
 
-`func (o *PublicComment) GetIsSpamOk() (*bool, bool)`
-
-GetIsSpamOk returns a tuple with the IsSpam field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsSpam
-
-`func (o *PublicComment) SetIsSpam(v bool)`
-
-SetIsSpam sets IsSpam field to given value.
-
-### HasIsSpam
-
-`func (o *PublicComment) HasIsSpam() bool`
-
-HasIsSpam returns a boolean if a field has been set.
-
+UnsetAvatarSrc ensures that no value is present for AvatarSrc, not even an explicit nil
 ### GetHasImages
 
 `func (o *PublicComment) GetHasImages() bool`
@@ -411,56 +442,6 @@ SetHasImages sets HasImages field to given value.
 `func (o *PublicComment) HasHasImages() bool`
 
 HasHasImages returns a boolean if a field has been set.
-
-### GetIsDeleted
-
-`func (o *PublicComment) GetIsDeleted() bool`
-
-GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
-
-### GetIsDeletedOk
-
-`func (o *PublicComment) GetIsDeletedOk() (*bool, bool)`
-
-GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsDeleted
-
-`func (o *PublicComment) SetIsDeleted(v bool)`
-
-SetIsDeleted sets IsDeleted field to given value.
-
-### HasIsDeleted
-
-`func (o *PublicComment) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
-
-### GetIsDeletedUser
-
-`func (o *PublicComment) GetIsDeletedUser() bool`
-
-GetIsDeletedUser returns the IsDeletedUser field if non-nil, zero value otherwise.
-
-### GetIsDeletedUserOk
-
-`func (o *PublicComment) GetIsDeletedUserOk() (*bool, bool)`
-
-GetIsDeletedUserOk returns a tuple with the IsDeletedUser field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsDeletedUser
-
-`func (o *PublicComment) SetIsDeletedUser(v bool)`
-
-SetIsDeletedUser sets IsDeletedUser field to given value.
-
-### HasIsDeletedUser
-
-`func (o *PublicComment) HasIsDeletedUser() bool`
-
-HasIsDeletedUser returns a boolean if a field has been set.
 
 ### GetIsByAdmin
 
@@ -537,6 +518,16 @@ SetIsPinned sets IsPinned field to given value.
 
 HasIsPinned returns a boolean if a field has been set.
 
+### SetIsPinnedNil
+
+`func (o *PublicComment) SetIsPinnedNil(b bool)`
+
+ SetIsPinnedNil sets the value for IsPinned to be an explicit nil
+
+### UnsetIsPinned
+`func (o *PublicComment) UnsetIsPinned()`
+
+UnsetIsPinned ensures that no value is present for IsPinned, not even an explicit nil
 ### GetIsLocked
 
 `func (o *PublicComment) GetIsLocked() bool`
@@ -562,31 +553,16 @@ SetIsLocked sets IsLocked field to given value.
 
 HasIsLocked returns a boolean if a field has been set.
 
-### GetRating
+### SetIsLockedNil
 
-`func (o *PublicComment) GetRating() float64`
+`func (o *PublicComment) SetIsLockedNil(b bool)`
 
-GetRating returns the Rating field if non-nil, zero value otherwise.
+ SetIsLockedNil sets the value for IsLocked to be an explicit nil
 
-### GetRatingOk
+### UnsetIsLocked
+`func (o *PublicComment) UnsetIsLocked()`
 
-`func (o *PublicComment) GetRatingOk() (*float64, bool)`
-
-GetRatingOk returns a tuple with the Rating field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRating
-
-`func (o *PublicComment) SetRating(v float64)`
-
-SetRating sets Rating field to given value.
-
-### HasRating
-
-`func (o *PublicComment) HasRating() bool`
-
-HasRating returns a boolean if a field has been set.
-
+UnsetIsLocked ensures that no value is present for IsLocked, not even an explicit nil
 ### GetDisplayLabel
 
 `func (o *PublicComment) GetDisplayLabel() string`
@@ -612,6 +588,51 @@ SetDisplayLabel sets DisplayLabel field to given value.
 
 HasDisplayLabel returns a boolean if a field has been set.
 
+### SetDisplayLabelNil
+
+`func (o *PublicComment) SetDisplayLabelNil(b bool)`
+
+ SetDisplayLabelNil sets the value for DisplayLabel to be an explicit nil
+
+### UnsetDisplayLabel
+`func (o *PublicComment) UnsetDisplayLabel()`
+
+UnsetDisplayLabel ensures that no value is present for DisplayLabel, not even an explicit nil
+### GetRating
+
+`func (o *PublicComment) GetRating() float64`
+
+GetRating returns the Rating field if non-nil, zero value otherwise.
+
+### GetRatingOk
+
+`func (o *PublicComment) GetRatingOk() (*float64, bool)`
+
+GetRatingOk returns a tuple with the Rating field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRating
+
+`func (o *PublicComment) SetRating(v float64)`
+
+SetRating sets Rating field to given value.
+
+### HasRating
+
+`func (o *PublicComment) HasRating() bool`
+
+HasRating returns a boolean if a field has been set.
+
+### SetRatingNil
+
+`func (o *PublicComment) SetRatingNil(b bool)`
+
+ SetRatingNil sets the value for Rating to be an explicit nil
+
+### UnsetRating
+`func (o *PublicComment) UnsetRating()`
+
+UnsetRating ensures that no value is present for Rating, not even an explicit nil
 ### GetBadges
 
 `func (o *PublicComment) GetBadges() []CommentUserBadgeInfo`
@@ -637,31 +658,16 @@ SetBadges sets Badges field to given value.
 
 HasBadges returns a boolean if a field has been set.
 
-### GetFeedbackIds
+### SetBadgesNil
 
-`func (o *PublicComment) GetFeedbackIds() []string`
+`func (o *PublicComment) SetBadgesNil(b bool)`
 
-GetFeedbackIds returns the FeedbackIds field if non-nil, zero value otherwise.
+ SetBadgesNil sets the value for Badges to be an explicit nil
 
-### GetFeedbackIdsOk
+### UnsetBadges
+`func (o *PublicComment) UnsetBadges()`
 
-`func (o *PublicComment) GetFeedbackIdsOk() (*[]string, bool)`
-
-GetFeedbackIdsOk returns a tuple with the FeedbackIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFeedbackIds
-
-`func (o *PublicComment) SetFeedbackIds(v []string)`
-
-SetFeedbackIds sets FeedbackIds field to given value.
-
-### HasFeedbackIds
-
-`func (o *PublicComment) HasFeedbackIds() bool`
-
-HasFeedbackIds returns a boolean if a field has been set.
-
+UnsetBadges ensures that no value is present for Badges, not even an explicit nil
 ### GetViewCount
 
 `func (o *PublicComment) GetViewCount() int64`
@@ -686,6 +692,151 @@ SetViewCount sets ViewCount field to given value.
 `func (o *PublicComment) HasViewCount() bool`
 
 HasViewCount returns a boolean if a field has been set.
+
+### SetViewCountNil
+
+`func (o *PublicComment) SetViewCountNil(b bool)`
+
+ SetViewCountNil sets the value for ViewCount to be an explicit nil
+
+### UnsetViewCount
+`func (o *PublicComment) UnsetViewCount()`
+
+UnsetViewCount ensures that no value is present for ViewCount, not even an explicit nil
+### GetIsDeleted
+
+`func (o *PublicComment) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *PublicComment) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *PublicComment) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
+
+### HasIsDeleted
+
+`func (o *PublicComment) HasIsDeleted() bool`
+
+HasIsDeleted returns a boolean if a field has been set.
+
+### GetIsDeletedUser
+
+`func (o *PublicComment) GetIsDeletedUser() bool`
+
+GetIsDeletedUser returns the IsDeletedUser field if non-nil, zero value otherwise.
+
+### GetIsDeletedUserOk
+
+`func (o *PublicComment) GetIsDeletedUserOk() (*bool, bool)`
+
+GetIsDeletedUserOk returns a tuple with the IsDeletedUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeletedUser
+
+`func (o *PublicComment) SetIsDeletedUser(v bool)`
+
+SetIsDeletedUser sets IsDeletedUser field to given value.
+
+### HasIsDeletedUser
+
+`func (o *PublicComment) HasIsDeletedUser() bool`
+
+HasIsDeletedUser returns a boolean if a field has been set.
+
+### GetIsSpam
+
+`func (o *PublicComment) GetIsSpam() bool`
+
+GetIsSpam returns the IsSpam field if non-nil, zero value otherwise.
+
+### GetIsSpamOk
+
+`func (o *PublicComment) GetIsSpamOk() (*bool, bool)`
+
+GetIsSpamOk returns a tuple with the IsSpam field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSpam
+
+`func (o *PublicComment) SetIsSpam(v bool)`
+
+SetIsSpam sets IsSpam field to given value.
+
+### HasIsSpam
+
+`func (o *PublicComment) HasIsSpam() bool`
+
+HasIsSpam returns a boolean if a field has been set.
+
+### GetAnonUserId
+
+`func (o *PublicComment) GetAnonUserId() string`
+
+GetAnonUserId returns the AnonUserId field if non-nil, zero value otherwise.
+
+### GetAnonUserIdOk
+
+`func (o *PublicComment) GetAnonUserIdOk() (*string, bool)`
+
+GetAnonUserIdOk returns a tuple with the AnonUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAnonUserId
+
+`func (o *PublicComment) SetAnonUserId(v string)`
+
+SetAnonUserId sets AnonUserId field to given value.
+
+### HasAnonUserId
+
+`func (o *PublicComment) HasAnonUserId() bool`
+
+HasAnonUserId returns a boolean if a field has been set.
+
+### SetAnonUserIdNil
+
+`func (o *PublicComment) SetAnonUserIdNil(b bool)`
+
+ SetAnonUserIdNil sets the value for AnonUserId to be an explicit nil
+
+### UnsetAnonUserId
+`func (o *PublicComment) UnsetAnonUserId()`
+
+UnsetAnonUserId ensures that no value is present for AnonUserId, not even an explicit nil
+### GetFeedbackIds
+
+`func (o *PublicComment) GetFeedbackIds() []string`
+
+GetFeedbackIds returns the FeedbackIds field if non-nil, zero value otherwise.
+
+### GetFeedbackIdsOk
+
+`func (o *PublicComment) GetFeedbackIdsOk() (*[]string, bool)`
+
+GetFeedbackIdsOk returns a tuple with the FeedbackIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeedbackIds
+
+`func (o *PublicComment) SetFeedbackIds(v []string)`
+
+SetFeedbackIds sets FeedbackIds field to given value.
+
+### HasFeedbackIds
+
+`func (o *PublicComment) HasFeedbackIds() bool`
+
+HasFeedbackIds returns a boolean if a field has been set.
 
 ### GetRequiresVerification
 
@@ -736,6 +887,31 @@ SetEditKey sets EditKey field to given value.
 `func (o *PublicComment) HasEditKey() bool`
 
 HasEditKey returns a boolean if a field has been set.
+
+### GetApproved
+
+`func (o *PublicComment) GetApproved() bool`
+
+GetApproved returns the Approved field if non-nil, zero value otherwise.
+
+### GetApprovedOk
+
+`func (o *PublicComment) GetApprovedOk() (*bool, bool)`
+
+GetApprovedOk returns a tuple with the Approved field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApproved
+
+`func (o *PublicComment) SetApproved(v bool)`
+
+SetApproved sets Approved field to given value.
+
+### HasApproved
+
+`func (o *PublicComment) HasApproved() bool`
+
+HasApproved returns a boolean if a field has been set.
 
 ### GetIsUnread
 

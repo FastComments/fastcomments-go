@@ -21,7 +21,7 @@ var _ MappedNullable = &UserNotificationWriteResponse{}
 
 // UserNotificationWriteResponse struct for UserNotificationWriteResponse
 type UserNotificationWriteResponse struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	MatchedCount int64 `json:"matchedCount"`
 	ModifiedCount int64 `json:"modifiedCount"`
 }
@@ -32,7 +32,7 @@ type _UserNotificationWriteResponse UserNotificationWriteResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserNotificationWriteResponse(status ImportedAPIStatusSUCCESS, matchedCount int64, modifiedCount int64) *UserNotificationWriteResponse {
+func NewUserNotificationWriteResponse(status APIStatus, matchedCount int64, modifiedCount int64) *UserNotificationWriteResponse {
 	this := UserNotificationWriteResponse{}
 	this.Status = status
 	this.MatchedCount = matchedCount
@@ -49,9 +49,9 @@ func NewUserNotificationWriteResponseWithDefaults() *UserNotificationWriteRespon
 }
 
 // GetStatus returns the Status field value
-func (o *UserNotificationWriteResponse) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *UserNotificationWriteResponse) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *UserNotificationWriteResponse) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *UserNotificationWriteResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *UserNotificationWriteResponse) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *UserNotificationWriteResponse) GetStatusOk() (*ImportedAPIStatusSUCCESS
 }
 
 // SetStatus sets field value
-func (o *UserNotificationWriteResponse) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *UserNotificationWriteResponse) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

@@ -23,6 +23,7 @@ var _ MappedNullable = &APICreateUserBadgeResponse{}
 type APICreateUserBadgeResponse struct {
 	Status APIStatus `json:"status"`
 	UserBadge UserBadge `json:"userBadge"`
+	Notes []string `json:"notes,omitempty"`
 }
 
 type _APICreateUserBadgeResponse APICreateUserBadgeResponse
@@ -94,6 +95,38 @@ func (o *APICreateUserBadgeResponse) SetUserBadge(v UserBadge) {
 	o.UserBadge = v
 }
 
+// GetNotes returns the Notes field value if set, zero value otherwise.
+func (o *APICreateUserBadgeResponse) GetNotes() []string {
+	if o == nil || IsNil(o.Notes) {
+		var ret []string
+		return ret
+	}
+	return o.Notes
+}
+
+// GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *APICreateUserBadgeResponse) GetNotesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Notes) {
+		return nil, false
+	}
+	return o.Notes, true
+}
+
+// HasNotes returns a boolean if a field has been set.
+func (o *APICreateUserBadgeResponse) HasNotes() bool {
+	if o != nil && !IsNil(o.Notes) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotes gets a reference to the given []string and assigns it to the Notes field.
+func (o *APICreateUserBadgeResponse) SetNotes(v []string) {
+	o.Notes = v
+}
+
 func (o APICreateUserBadgeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -106,6 +139,9 @@ func (o APICreateUserBadgeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["status"] = o.Status
 	toSerialize["userBadge"] = o.UserBadge
+	if !IsNil(o.Notes) {
+		toSerialize["notes"] = o.Notes
+	}
 	return toSerialize, nil
 }
 

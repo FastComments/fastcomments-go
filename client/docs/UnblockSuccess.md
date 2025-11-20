@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **CommentStatuses** | **map[string]bool** | Construct a type with a set of properties K of type T | 
 
 ## Methods
 
 ### NewUnblockSuccess
 
-`func NewUnblockSuccess(status ImportedAPIStatusSUCCESS, commentStatuses map[string]bool, ) *UnblockSuccess`
+`func NewUnblockSuccess(status APIStatus, commentStatuses map[string]bool, ) *UnblockSuccess`
 
 NewUnblockSuccess instantiates a new UnblockSuccess object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *UnblockSuccess) GetStatus() ImportedAPIStatusSUCCESS`
+`func (o *UnblockSuccess) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *UnblockSuccess) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool)`
+`func (o *UnblockSuccess) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *UnblockSuccess) SetStatus(v ImportedAPIStatusSUCCESS)`
+`func (o *UnblockSuccess) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -71,6 +71,7 @@ type CustomConfigParameters struct {
 	NoStyles *bool `json:"noStyles,omitempty"`
 	PageSize NullableInt32 `json:"pageSize,omitempty"`
 	Readonly *bool `json:"readonly,omitempty"`
+	NoNewRootComments *bool `json:"noNewRootComments,omitempty"`
 	RequireSSO *bool `json:"requireSSO,omitempty"`
 	EnableResizeHandle *bool `json:"enableResizeHandle,omitempty"`
 	RestrictedLinkDomains []string `json:"restrictedLinkDomains,omitempty"`
@@ -1906,6 +1907,38 @@ func (o *CustomConfigParameters) SetReadonly(v bool) {
 	o.Readonly = &v
 }
 
+// GetNoNewRootComments returns the NoNewRootComments field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetNoNewRootComments() bool {
+	if o == nil || IsNil(o.NoNewRootComments) {
+		var ret bool
+		return ret
+	}
+	return *o.NoNewRootComments
+}
+
+// GetNoNewRootCommentsOk returns a tuple with the NoNewRootComments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetNoNewRootCommentsOk() (*bool, bool) {
+	if o == nil || IsNil(o.NoNewRootComments) {
+		return nil, false
+	}
+	return o.NoNewRootComments, true
+}
+
+// HasNoNewRootComments returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasNoNewRootComments() bool {
+	if o != nil && !IsNil(o.NoNewRootComments) {
+		return true
+	}
+
+	return false
+}
+
+// SetNoNewRootComments gets a reference to the given bool and assigns it to the NoNewRootComments field.
+func (o *CustomConfigParameters) SetNoNewRootComments(v bool) {
+	o.NoNewRootComments = &v
+}
+
 // GetRequireSSO returns the RequireSSO field value if set, zero value otherwise.
 func (o *CustomConfigParameters) GetRequireSSO() bool {
 	if o == nil || IsNil(o.RequireSSO) {
@@ -2713,6 +2746,9 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Readonly) {
 		toSerialize["readonly"] = o.Readonly
+	}
+	if !IsNil(o.NoNewRootComments) {
+		toSerialize["noNewRootComments"] = o.NoNewRootComments
 	}
 	if !IsNil(o.RequireSSO) {
 		toSerialize["requireSSO"] = o.RequireSSO

@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **UserBadge** | [**UserBadge**](UserBadge.md) |  | 
+**Notes** | Pointer to **[]string** |  | [optional] 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewCreateUserBadge200Response
 
-`func NewCreateUserBadge200Response(status ImportedAPIStatusFAILED, userBadge UserBadge, reason string, code string, ) *CreateUserBadge200Response`
+`func NewCreateUserBadge200Response(status APIStatus, userBadge UserBadge, reason string, code string, ) *CreateUserBadge200Response`
 
 NewCreateUserBadge200Response instantiates a new CreateUserBadge200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *CreateUserBadge200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *CreateUserBadge200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *CreateUserBadge200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *CreateUserBadge200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *CreateUserBadge200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *CreateUserBadge200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -72,6 +73,31 @@ and a boolean to check if the value has been set.
 
 SetUserBadge sets UserBadge field to given value.
 
+
+### GetNotes
+
+`func (o *CreateUserBadge200Response) GetNotes() []string`
+
+GetNotes returns the Notes field if non-nil, zero value otherwise.
+
+### GetNotesOk
+
+`func (o *CreateUserBadge200Response) GetNotesOk() (*[]string, bool)`
+
+GetNotesOk returns a tuple with the Notes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotes
+
+`func (o *CreateUserBadge200Response) SetNotes(v []string)`
+
+SetNotes sets Notes field to given value.
+
+### HasNotes
+
+`func (o *CreateUserBadge200Response) HasNotes() bool`
+
+HasNotes returns a boolean if a field has been set.
 
 ### GetReason
 

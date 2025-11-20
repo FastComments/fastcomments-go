@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reacts** | **map[string]map[string]bool** |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetUserReactsPublic200Response
 
-`func NewGetUserReactsPublic200Response(status ImportedAPIStatusFAILED, reacts map[string]map[string]bool, reason string, code string, ) *GetUserReactsPublic200Response`
+`func NewGetUserReactsPublic200Response(status APIStatus, reacts map[string]map[string]bool, reason string, code string, ) *GetUserReactsPublic200Response`
 
 NewGetUserReactsPublic200Response instantiates a new GetUserReactsPublic200Response object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *GetUserReactsPublic200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetUserReactsPublic200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetUserReactsPublic200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetUserReactsPublic200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetUserReactsPublic200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetUserReactsPublic200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**VoteDeleteResponseStatus**](VoteDeleteResponseStatus.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **WasPendingVote** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewVoteDeleteResponse
 
-`func NewVoteDeleteResponse(status VoteDeleteResponseStatus, ) *VoteDeleteResponse`
+`func NewVoteDeleteResponse(status APIStatus, ) *VoteDeleteResponse`
 
 NewVoteDeleteResponse instantiates a new VoteDeleteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *VoteDeleteResponse) GetStatus() VoteDeleteResponseStatus`
+`func (o *VoteDeleteResponse) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *VoteDeleteResponse) GetStatusOk() (*VoteDeleteResponseStatus, bool)`
+`func (o *VoteDeleteResponse) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *VoteDeleteResponse) SetStatus(v VoteDeleteResponseStatus)`
+`func (o *VoteDeleteResponse) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

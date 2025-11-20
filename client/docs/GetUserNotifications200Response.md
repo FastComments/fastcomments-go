@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **IsSubscribed** | **bool** |  | 
 **HasMore** | **bool** |  | 
 **Notifications** | [**[]RenderableUserNotification**](RenderableUserNotification.md) |  | 
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewGetUserNotifications200Response
 
-`func NewGetUserNotifications200Response(isSubscribed bool, hasMore bool, notifications []RenderableUserNotification, status ImportedAPIStatusFAILED, reason string, code string, ) *GetUserNotifications200Response`
+`func NewGetUserNotifications200Response(isSubscribed bool, hasMore bool, notifications []RenderableUserNotification, status APIStatus, reason string, code string, ) *GetUserNotifications200Response`
 
 NewGetUserNotifications200Response instantiates a new GetUserNotifications200Response object
 This constructor will assign default values to properties that have it defined,
@@ -123,20 +123,20 @@ SetNotifications sets Notifications field to given value.
 
 ### GetStatus
 
-`func (o *GetUserNotifications200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *GetUserNotifications200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *GetUserNotifications200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *GetUserNotifications200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *GetUserNotifications200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *GetUserNotifications200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommentPositions** | [**map[string]RecordStringBeforeStringOrNullAfterStringOrNullValue**](RecordStringBeforeStringOrNullAfterStringOrNullValue.md) | Construct a type with a set of properties K of type T | 
-**Status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**Status** | [**APIStatus**](APIStatus.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
 **SecondaryCode** | Pointer to **string** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewPinComment200Response
 
-`func NewPinComment200Response(commentPositions map[string]RecordStringBeforeStringOrNullAfterStringOrNullValue, status ImportedAPIStatusFAILED, reason string, code string, ) *PinComment200Response`
+`func NewPinComment200Response(commentPositions map[string]RecordStringBeforeStringOrNullAfterStringOrNullValue, status APIStatus, reason string, code string, ) *PinComment200Response`
 
 NewPinComment200Response instantiates a new PinComment200Response object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetCommentPositions sets CommentPositions field to given value.
 
 ### GetStatus
 
-`func (o *PinComment200Response) GetStatus() ImportedAPIStatusFAILED`
+`func (o *PinComment200Response) GetStatus() APIStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PinComment200Response) GetStatusOk() (*ImportedAPIStatusFAILED, bool)`
+`func (o *PinComment200Response) GetStatusOk() (*APIStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PinComment200Response) SetStatus(v ImportedAPIStatusFAILED)`
+`func (o *PinComment200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
 

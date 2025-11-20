@@ -21,7 +21,7 @@ var _ MappedNullable = &SaveCommentsResponseWithPresence{}
 
 // SaveCommentsResponseWithPresence struct for SaveCommentsResponseWithPresence
 type SaveCommentsResponseWithPresence struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	Comment PublicComment `json:"comment"`
 	User NullableUserSessionInfo `json:"user"`
 	// Construct a type with a set of properties K of type T
@@ -35,7 +35,7 @@ type _SaveCommentsResponseWithPresence SaveCommentsResponseWithPresence
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSaveCommentsResponseWithPresence(status ImportedAPIStatusSUCCESS, comment PublicComment, user NullableUserSessionInfo) *SaveCommentsResponseWithPresence {
+func NewSaveCommentsResponseWithPresence(status APIStatus, comment PublicComment, user NullableUserSessionInfo) *SaveCommentsResponseWithPresence {
 	this := SaveCommentsResponseWithPresence{}
 	this.Status = status
 	this.Comment = comment
@@ -52,9 +52,9 @@ func NewSaveCommentsResponseWithPresenceWithDefaults() *SaveCommentsResponseWith
 }
 
 // GetStatus returns the Status field value
-func (o *SaveCommentsResponseWithPresence) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *SaveCommentsResponseWithPresence) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *SaveCommentsResponseWithPresence) GetStatus() ImportedAPIStatusSUCCESS 
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *SaveCommentsResponseWithPresence) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *SaveCommentsResponseWithPresence) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *SaveCommentsResponseWithPresence) GetStatusOk() (*ImportedAPIStatusSUCC
 }
 
 // SetStatus sets field value
-func (o *SaveCommentsResponseWithPresence) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *SaveCommentsResponseWithPresence) SetStatus(v APIStatus) {
 	o.Status = v
 }
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &BlockSuccess{}
 
 // BlockSuccess struct for BlockSuccess
 type BlockSuccess struct {
-	Status ImportedAPIStatusSUCCESS `json:"status"`
+	Status APIStatus `json:"status"`
 	// Construct a type with a set of properties K of type T
 	CommentStatuses map[string]bool `json:"commentStatuses"`
 }
@@ -32,7 +32,7 @@ type _BlockSuccess BlockSuccess
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBlockSuccess(status ImportedAPIStatusSUCCESS, commentStatuses map[string]bool) *BlockSuccess {
+func NewBlockSuccess(status APIStatus, commentStatuses map[string]bool) *BlockSuccess {
 	this := BlockSuccess{}
 	this.Status = status
 	this.CommentStatuses = commentStatuses
@@ -48,9 +48,9 @@ func NewBlockSuccessWithDefaults() *BlockSuccess {
 }
 
 // GetStatus returns the Status field value
-func (o *BlockSuccess) GetStatus() ImportedAPIStatusSUCCESS {
+func (o *BlockSuccess) GetStatus() APIStatus {
 	if o == nil {
-		var ret ImportedAPIStatusSUCCESS
+		var ret APIStatus
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *BlockSuccess) GetStatus() ImportedAPIStatusSUCCESS {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *BlockSuccess) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
+func (o *BlockSuccess) GetStatusOk() (*APIStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *BlockSuccess) GetStatusOk() (*ImportedAPIStatusSUCCESS, bool) {
 }
 
 // SetStatus sets field value
-func (o *BlockSuccess) SetStatus(v ImportedAPIStatusSUCCESS) {
+func (o *BlockSuccess) SetStatus(v APIStatus) {
 	o.Status = v
 }
 
