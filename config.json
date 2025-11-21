@@ -2,5 +2,7 @@
   "packageName": "client",
   "packageVersion": "1.0.0",
   "isGoSubmodule": true,
-  "enumClassPrefix": true
+  "enumClassPrefix": true,
+  "gitUserId": "fastcomments",
+  "gitRepoId": "fastcomments-go"
 }
