@@ -75,6 +75,7 @@ const (
 	COMMENTLOGTYPE__52 CommentLogType = 52
 	COMMENTLOGTYPE__53 CommentLogType = 53
 	COMMENTLOGTYPE__54 CommentLogType = 54
+	COMMENTLOGTYPE__55 CommentLogType = 55
 )
 
 // All allowed values of CommentLogType enum
@@ -134,6 +135,7 @@ var AllowedCommentLogTypeEnumValues = []CommentLogType{
 	52,
 	53,
 	54,
+	55,
 }
 
 func (v *CommentLogType) UnmarshalJSON(src []byte) error {

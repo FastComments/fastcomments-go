@@ -1908,7 +1908,7 @@ import (
 func main() {
 	tenantId := "tenantId_example" // string | 
 	urlId := "urlId_example" // string | 
-	usernameStartsWith := "usernameStartsWith_example" // string | 
+	usernameStartsWith := "usernameStartsWith_example" // string |  (optional)
 	mentionGroupIds := []string{"Inner_example"} // []string |  (optional)
 	sso := "sso_example" // string |  (optional)
 

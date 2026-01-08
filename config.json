@@ -1,6 +1,6 @@
 {
   "packageName": "client",
-  "packageVersion": "1.0.0",
+  "packageVersion": "1.1.0",
   "isGoSubmodule": true,
   "enumClassPrefix": true,
   "gitUserId": "fastcomments",
