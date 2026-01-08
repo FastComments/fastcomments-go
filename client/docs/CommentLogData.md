@@ -47,6 +47,9 @@ Name | Type | Description | Notes
 **TrustFactorBefore** | Pointer to **float64** |  | [optional] 
 **TrustFactorAfter** | Pointer to **float64** |  | [optional] 
 **ReferencedCommentId** | Pointer to **string** |  | [optional] 
+**InvalidLocale** | Pointer to **string** |  | [optional] 
+**DetectedLocale** | Pointer to **string** |  | [optional] 
+**DetectedLanguage** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -1241,6 +1244,81 @@ SetReferencedCommentId sets ReferencedCommentId field to given value.
 `func (o *CommentLogData) HasReferencedCommentId() bool`
 
 HasReferencedCommentId returns a boolean if a field has been set.
+
+### GetInvalidLocale
+
+`func (o *CommentLogData) GetInvalidLocale() string`
+
+GetInvalidLocale returns the InvalidLocale field if non-nil, zero value otherwise.
+
+### GetInvalidLocaleOk
+
+`func (o *CommentLogData) GetInvalidLocaleOk() (*string, bool)`
+
+GetInvalidLocaleOk returns a tuple with the InvalidLocale field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInvalidLocale
+
+`func (o *CommentLogData) SetInvalidLocale(v string)`
+
+SetInvalidLocale sets InvalidLocale field to given value.
+
+### HasInvalidLocale
+
+`func (o *CommentLogData) HasInvalidLocale() bool`
+
+HasInvalidLocale returns a boolean if a field has been set.
+
+### GetDetectedLocale
+
+`func (o *CommentLogData) GetDetectedLocale() string`
+
+GetDetectedLocale returns the DetectedLocale field if non-nil, zero value otherwise.
+
+### GetDetectedLocaleOk
+
+`func (o *CommentLogData) GetDetectedLocaleOk() (*string, bool)`
+
+GetDetectedLocaleOk returns a tuple with the DetectedLocale field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDetectedLocale
+
+`func (o *CommentLogData) SetDetectedLocale(v string)`
+
+SetDetectedLocale sets DetectedLocale field to given value.
+
+### HasDetectedLocale
+
+`func (o *CommentLogData) HasDetectedLocale() bool`
+
+HasDetectedLocale returns a boolean if a field has been set.
+
+### GetDetectedLanguage
+
+`func (o *CommentLogData) GetDetectedLanguage() string`
+
+GetDetectedLanguage returns the DetectedLanguage field if non-nil, zero value otherwise.
+
+### GetDetectedLanguageOk
+
+`func (o *CommentLogData) GetDetectedLanguageOk() (*string, bool)`
+
+GetDetectedLanguageOk returns a tuple with the DetectedLanguage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDetectedLanguage
+
+`func (o *CommentLogData) SetDetectedLanguage(v string)`
+
+SetDetectedLanguage sets DetectedLanguage field to given value.
+
+### HasDetectedLanguage
+
+`func (o *CommentLogData) HasDetectedLanguage() bool`
+
+HasDetectedLanguage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

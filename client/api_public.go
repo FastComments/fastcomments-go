@@ -3602,12 +3602,11 @@ func (a *PublicAPIService) SearchUsersExecute(r ApiSearchUsersRequest) (*SearchU
 	if r.urlId == nil {
 		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
 	}
-	if r.usernameStartsWith == nil {
-		return localVarReturnValue, nil, reportError("usernameStartsWith is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "usernameStartsWith", r.usernameStartsWith, "form", "")
+	if r.usernameStartsWith != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "usernameStartsWith", r.usernameStartsWith, "form", "")
+	}
 	if r.mentionGroupIds != nil {
 		t := *r.mentionGroupIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {

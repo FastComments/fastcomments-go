@@ -63,6 +63,9 @@ type CommentLogData struct {
 	TrustFactorBefore *float64 `json:"trustFactorBefore,omitempty"`
 	TrustFactorAfter *float64 `json:"trustFactorAfter,omitempty"`
 	ReferencedCommentId *string `json:"referencedCommentId,omitempty"`
+	InvalidLocale *string `json:"invalidLocale,omitempty"`
+	DetectedLocale *string `json:"detectedLocale,omitempty"`
+	DetectedLanguage *string `json:"detectedLanguage,omitempty"`
 }
 
 // NewCommentLogData instantiates a new CommentLogData object
@@ -1549,6 +1552,102 @@ func (o *CommentLogData) SetReferencedCommentId(v string) {
 	o.ReferencedCommentId = &v
 }
 
+// GetInvalidLocale returns the InvalidLocale field value if set, zero value otherwise.
+func (o *CommentLogData) GetInvalidLocale() string {
+	if o == nil || IsNil(o.InvalidLocale) {
+		var ret string
+		return ret
+	}
+	return *o.InvalidLocale
+}
+
+// GetInvalidLocaleOk returns a tuple with the InvalidLocale field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommentLogData) GetInvalidLocaleOk() (*string, bool) {
+	if o == nil || IsNil(o.InvalidLocale) {
+		return nil, false
+	}
+	return o.InvalidLocale, true
+}
+
+// HasInvalidLocale returns a boolean if a field has been set.
+func (o *CommentLogData) HasInvalidLocale() bool {
+	if o != nil && !IsNil(o.InvalidLocale) {
+		return true
+	}
+
+	return false
+}
+
+// SetInvalidLocale gets a reference to the given string and assigns it to the InvalidLocale field.
+func (o *CommentLogData) SetInvalidLocale(v string) {
+	o.InvalidLocale = &v
+}
+
+// GetDetectedLocale returns the DetectedLocale field value if set, zero value otherwise.
+func (o *CommentLogData) GetDetectedLocale() string {
+	if o == nil || IsNil(o.DetectedLocale) {
+		var ret string
+		return ret
+	}
+	return *o.DetectedLocale
+}
+
+// GetDetectedLocaleOk returns a tuple with the DetectedLocale field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommentLogData) GetDetectedLocaleOk() (*string, bool) {
+	if o == nil || IsNil(o.DetectedLocale) {
+		return nil, false
+	}
+	return o.DetectedLocale, true
+}
+
+// HasDetectedLocale returns a boolean if a field has been set.
+func (o *CommentLogData) HasDetectedLocale() bool {
+	if o != nil && !IsNil(o.DetectedLocale) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetectedLocale gets a reference to the given string and assigns it to the DetectedLocale field.
+func (o *CommentLogData) SetDetectedLocale(v string) {
+	o.DetectedLocale = &v
+}
+
+// GetDetectedLanguage returns the DetectedLanguage field value if set, zero value otherwise.
+func (o *CommentLogData) GetDetectedLanguage() string {
+	if o == nil || IsNil(o.DetectedLanguage) {
+		var ret string
+		return ret
+	}
+	return *o.DetectedLanguage
+}
+
+// GetDetectedLanguageOk returns a tuple with the DetectedLanguage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommentLogData) GetDetectedLanguageOk() (*string, bool) {
+	if o == nil || IsNil(o.DetectedLanguage) {
+		return nil, false
+	}
+	return o.DetectedLanguage, true
+}
+
+// HasDetectedLanguage returns a boolean if a field has been set.
+func (o *CommentLogData) HasDetectedLanguage() bool {
+	if o != nil && !IsNil(o.DetectedLanguage) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetectedLanguage gets a reference to the given string and assigns it to the DetectedLanguage field.
+func (o *CommentLogData) SetDetectedLanguage(v string) {
+	o.DetectedLanguage = &v
+}
+
 func (o CommentLogData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1687,6 +1786,15 @@ func (o CommentLogData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ReferencedCommentId) {
 		toSerialize["referencedCommentId"] = o.ReferencedCommentId
+	}
+	if !IsNil(o.InvalidLocale) {
+		toSerialize["invalidLocale"] = o.InvalidLocale
+	}
+	if !IsNil(o.DetectedLocale) {
+		toSerialize["detectedLocale"] = o.DetectedLocale
+	}
+	if !IsNil(o.DetectedLanguage) {
+		toSerialize["detectedLanguage"] = o.DetectedLanguage
 	}
 	return toSerialize, nil
 }
