@@ -1491,7 +1491,7 @@ Name | Type | Description  | Notes
 
 ## CreateVote
 
-> CreateVote200Response CreateVote(ctx).TenantId(tenantId).CommentId(commentId).Direction(direction).UserId(userId).AnonUserId(anonUserId).Execute()
+> VoteComment200Response CreateVote(ctx).TenantId(tenantId).CommentId(commentId).Direction(direction).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -1521,7 +1521,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateVote`: CreateVote200Response
+	// response from `CreateVote`: VoteComment200Response
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateVote`: %v\n", resp)
 }
 ```
@@ -1545,7 +1545,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateVote200Response**](CreateVote200Response.md)
+[**VoteComment200Response**](VoteComment200Response.md)
 
 ### Authorization
 
@@ -2776,7 +2776,7 @@ Name | Type | Description  | Notes
 
 ## DeleteVote
 
-> DeleteVote200Response DeleteVote(ctx, id).TenantId(tenantId).EditKey(editKey).Execute()
+> DeleteCommentVote200Response DeleteVote(ctx, id).TenantId(tenantId).EditKey(editKey).Execute()
 
 
 
@@ -2804,7 +2804,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteVote`: DeleteVote200Response
+	// response from `DeleteVote`: DeleteCommentVote200Response
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteVote`: %v\n", resp)
 }
 ```
@@ -2830,7 +2830,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteVote200Response**](DeleteVote200Response.md)
+[**DeleteCommentVote200Response**](DeleteCommentVote200Response.md)
 
 ### Authorization
 
