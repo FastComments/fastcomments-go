@@ -2900,7 +2900,7 @@ func (r ApiCreateVoteRequest) AnonUserId(anonUserId string) ApiCreateVoteRequest
 	return r
 }
 
-func (r ApiCreateVoteRequest) Execute() (*CreateVote200Response, *http.Response, error) {
+func (r ApiCreateVoteRequest) Execute() (*VoteComment200Response, *http.Response, error) {
 	return r.ApiService.CreateVoteExecute(r)
 }
 
@@ -2918,13 +2918,13 @@ func (a *DefaultAPIService) CreateVote(ctx context.Context) ApiCreateVoteRequest
 }
 
 // Execute executes the request
-//  @return CreateVote200Response
-func (a *DefaultAPIService) CreateVoteExecute(r ApiCreateVoteRequest) (*CreateVote200Response, *http.Response, error) {
+//  @return VoteComment200Response
+func (a *DefaultAPIService) CreateVoteExecute(r ApiCreateVoteRequest) (*VoteComment200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateVote200Response
+		localVarReturnValue  *VoteComment200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateVote")
@@ -5259,7 +5259,7 @@ func (r ApiDeleteVoteRequest) EditKey(editKey string) ApiDeleteVoteRequest {
 	return r
 }
 
-func (r ApiDeleteVoteRequest) Execute() (*DeleteVote200Response, *http.Response, error) {
+func (r ApiDeleteVoteRequest) Execute() (*DeleteCommentVote200Response, *http.Response, error) {
 	return r.ApiService.DeleteVoteExecute(r)
 }
 
@@ -5279,13 +5279,13 @@ func (a *DefaultAPIService) DeleteVote(ctx context.Context, id string) ApiDelete
 }
 
 // Execute executes the request
-//  @return DeleteVote200Response
-func (a *DefaultAPIService) DeleteVoteExecute(r ApiDeleteVoteRequest) (*DeleteVote200Response, *http.Response, error) {
+//  @return DeleteCommentVote200Response
+func (a *DefaultAPIService) DeleteVoteExecute(r ApiDeleteVoteRequest) (*DeleteCommentVote200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteVote200Response
+		localVarReturnValue  *DeleteCommentVote200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteVote")
