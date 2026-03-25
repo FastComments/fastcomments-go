@@ -16,7 +16,7 @@ import (
 )
 
 // QuestionRenderingType the model 'QuestionRenderingType'
-type QuestionRenderingType float32
+type QuestionRenderingType int32
 
 // List of QuestionRenderingType
 const (
@@ -31,7 +31,7 @@ var AllowedQuestionRenderingTypeEnumValues = []QuestionRenderingType{
 }
 
 func (v *QuestionRenderingType) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *QuestionRenderingType) UnmarshalJSON(src []byte) error {
 
 // NewQuestionRenderingTypeFromValue returns a pointer to a valid QuestionRenderingType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewQuestionRenderingTypeFromValue(v float32) (*QuestionRenderingType, error) {
+func NewQuestionRenderingTypeFromValue(v int32) (*QuestionRenderingType, error) {
 	ev := QuestionRenderingType(v)
 	if ev.IsValid() {
 		return &ev, nil

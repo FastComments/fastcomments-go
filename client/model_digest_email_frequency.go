@@ -16,7 +16,7 @@ import (
 )
 
 // DigestEmailFrequency the model 'DigestEmailFrequency'
-type DigestEmailFrequency float32
+type DigestEmailFrequency int32
 
 // List of DigestEmailFrequency
 const (
@@ -35,7 +35,7 @@ var AllowedDigestEmailFrequencyEnumValues = []DigestEmailFrequency{
 }
 
 func (v *DigestEmailFrequency) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -53,7 +53,7 @@ func (v *DigestEmailFrequency) UnmarshalJSON(src []byte) error {
 
 // NewDigestEmailFrequencyFromValue returns a pointer to a valid DigestEmailFrequency
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewDigestEmailFrequencyFromValue(v float32) (*DigestEmailFrequency, error) {
+func NewDigestEmailFrequencyFromValue(v int32) (*DigestEmailFrequency, error) {
 	ev := DigestEmailFrequency(v)
 	if ev.IsValid() {
 		return &ev, nil

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **VerificationId** | **NullableString** |  | 
 **CreatedAt** | **time.Time** |  | 
 **ModerationGroupIds** | **[]string** |  | 
+**IsEmailSuppressed** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -452,6 +453,31 @@ SetModerationGroupIds sets ModerationGroupIds field to given value.
 `func (o *Moderator) UnsetModerationGroupIds()`
 
 UnsetModerationGroupIds ensures that no value is present for ModerationGroupIds, not even an explicit nil
+### GetIsEmailSuppressed
+
+`func (o *Moderator) GetIsEmailSuppressed() bool`
+
+GetIsEmailSuppressed returns the IsEmailSuppressed field if non-nil, zero value otherwise.
+
+### GetIsEmailSuppressedOk
+
+`func (o *Moderator) GetIsEmailSuppressedOk() (*bool, bool)`
+
+GetIsEmailSuppressedOk returns a tuple with the IsEmailSuppressed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsEmailSuppressed
+
+`func (o *Moderator) SetIsEmailSuppressed(v bool)`
+
+SetIsEmailSuppressed sets IsEmailSuppressed field to given value.
+
+### HasIsEmailSuppressed
+
+`func (o *Moderator) HasIsEmailSuppressed() bool`
+
+HasIsEmailSuppressed returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

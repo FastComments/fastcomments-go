@@ -40,6 +40,7 @@ type Moderator struct {
 	VerificationId NullableString `json:"verificationId"`
 	CreatedAt time.Time `json:"createdAt"`
 	ModerationGroupIds []string `json:"moderationGroupIds"`
+	IsEmailSuppressed *bool `json:"isEmailSuppressed,omitempty"`
 }
 
 type _Moderator Moderator
@@ -521,6 +522,38 @@ func (o *Moderator) SetModerationGroupIds(v []string) {
 	o.ModerationGroupIds = v
 }
 
+// GetIsEmailSuppressed returns the IsEmailSuppressed field value if set, zero value otherwise.
+func (o *Moderator) GetIsEmailSuppressed() bool {
+	if o == nil || IsNil(o.IsEmailSuppressed) {
+		var ret bool
+		return ret
+	}
+	return *o.IsEmailSuppressed
+}
+
+// GetIsEmailSuppressedOk returns a tuple with the IsEmailSuppressed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Moderator) GetIsEmailSuppressedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsEmailSuppressed) {
+		return nil, false
+	}
+	return o.IsEmailSuppressed, true
+}
+
+// HasIsEmailSuppressed returns a boolean if a field has been set.
+func (o *Moderator) HasIsEmailSuppressed() bool {
+	if o != nil && !IsNil(o.IsEmailSuppressed) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsEmailSuppressed gets a reference to the given bool and assigns it to the IsEmailSuppressed field.
+func (o *Moderator) SetIsEmailSuppressed(v bool) {
+	o.IsEmailSuppressed = &v
+}
+
 func (o Moderator) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -550,6 +583,9 @@ func (o Moderator) ToMap() (map[string]interface{}, error) {
 	toSerialize["createdAt"] = o.CreatedAt
 	if o.ModerationGroupIds != nil {
 		toSerialize["moderationGroupIds"] = o.ModerationGroupIds
+	}
+	if !IsNil(o.IsEmailSuppressed) {
+		toSerialize["isEmailSuppressed"] = o.IsEmailSuppressed
 	}
 	return toSerialize, nil
 }

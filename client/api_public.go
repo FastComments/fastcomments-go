@@ -3537,6 +3537,7 @@ type ApiSearchUsersRequest struct {
 	usernameStartsWith *string
 	mentionGroupIds *[]string
 	sso *string
+	searchSection *string
 }
 
 func (r ApiSearchUsersRequest) UrlId(urlId string) ApiSearchUsersRequest {
@@ -3556,6 +3557,11 @@ func (r ApiSearchUsersRequest) MentionGroupIds(mentionGroupIds []string) ApiSear
 
 func (r ApiSearchUsersRequest) Sso(sso string) ApiSearchUsersRequest {
 	r.sso = &sso
+	return r
+}
+
+func (r ApiSearchUsersRequest) SearchSection(searchSection string) ApiSearchUsersRequest {
+	r.searchSection = &searchSection
 	return r
 }
 
@@ -3620,6 +3626,9 @@ func (a *PublicAPIService) SearchUsersExecute(r ApiSearchUsersRequest) (*SearchU
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
+	}
+	if r.searchSection != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "searchSection", r.searchSection, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

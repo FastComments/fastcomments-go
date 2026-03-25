@@ -16,7 +16,7 @@ import (
 )
 
 // NotificationObjectType the model 'NotificationObjectType'
-type NotificationObjectType float32
+type NotificationObjectType int32
 
 // List of NotificationObjectType
 const (
@@ -33,7 +33,7 @@ var AllowedNotificationObjectTypeEnumValues = []NotificationObjectType{
 }
 
 func (v *NotificationObjectType) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -51,7 +51,7 @@ func (v *NotificationObjectType) UnmarshalJSON(src []byte) error {
 
 // NewNotificationObjectTypeFromValue returns a pointer to a valid NotificationObjectType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewNotificationObjectTypeFromValue(v float32) (*NotificationObjectType, error) {
+func NewNotificationObjectTypeFromValue(v int32) (*NotificationObjectType, error) {
 	ev := NotificationObjectType(v)
 	if ev.IsValid() {
 		return &ev, nil

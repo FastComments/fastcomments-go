@@ -22,6 +22,7 @@ var _ MappedNullable = &APIUserSubscription{}
 
 // APIUserSubscription struct for APIUserSubscription
 type APIUserSubscription struct {
+	NotificationFrequency *float64 `json:"notificationFrequency,omitempty"`
 	CreatedAt time.Time `json:"createdAt"`
 	PageTitle *string `json:"pageTitle,omitempty"`
 	Url *string `json:"url,omitempty"`
@@ -51,6 +52,38 @@ func NewAPIUserSubscription(createdAt time.Time, urlId string, id string) *APIUs
 func NewAPIUserSubscriptionWithDefaults() *APIUserSubscription {
 	this := APIUserSubscription{}
 	return &this
+}
+
+// GetNotificationFrequency returns the NotificationFrequency field value if set, zero value otherwise.
+func (o *APIUserSubscription) GetNotificationFrequency() float64 {
+	if o == nil || IsNil(o.NotificationFrequency) {
+		var ret float64
+		return ret
+	}
+	return *o.NotificationFrequency
+}
+
+// GetNotificationFrequencyOk returns a tuple with the NotificationFrequency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *APIUserSubscription) GetNotificationFrequencyOk() (*float64, bool) {
+	if o == nil || IsNil(o.NotificationFrequency) {
+		return nil, false
+	}
+	return o.NotificationFrequency, true
+}
+
+// HasNotificationFrequency returns a boolean if a field has been set.
+func (o *APIUserSubscription) HasNotificationFrequency() bool {
+	if o != nil && !IsNil(o.NotificationFrequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotificationFrequency gets a reference to the given float64 and assigns it to the NotificationFrequency field.
+func (o *APIUserSubscription) SetNotificationFrequency(v float64) {
+	o.NotificationFrequency = &v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -263,6 +296,9 @@ func (o APIUserSubscription) MarshalJSON() ([]byte, error) {
 
 func (o APIUserSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NotificationFrequency) {
+		toSerialize["notificationFrequency"] = o.NotificationFrequency
+	}
 	toSerialize["createdAt"] = o.CreatedAt
 	if !IsNil(o.PageTitle) {
 		toSerialize["pageTitle"] = o.PageTitle

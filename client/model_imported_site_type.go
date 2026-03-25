@@ -16,7 +16,7 @@ import (
 )
 
 // ImportedSiteType the model 'ImportedSiteType'
-type ImportedSiteType float32
+type ImportedSiteType int32
 
 // List of ImportedSiteType
 const (
@@ -31,7 +31,7 @@ var AllowedImportedSiteTypeEnumValues = []ImportedSiteType{
 }
 
 func (v *ImportedSiteType) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *ImportedSiteType) UnmarshalJSON(src []byte) error {
 
 // NewImportedSiteTypeFromValue returns a pointer to a valid ImportedSiteType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewImportedSiteTypeFromValue(v float32) (*ImportedSiteType, error) {
+func NewImportedSiteTypeFromValue(v int32) (*ImportedSiteType, error) {
 	ev := ImportedSiteType(v)
 	if ev.IsValid() {
 		return &ev, nil

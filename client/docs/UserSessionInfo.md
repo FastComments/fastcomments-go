@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **GroupIds** | Pointer to **[]string** |  | [optional] 
 **HasBlockedUsers** | Pointer to **bool** |  | [optional] 
 **IsAnonSession** | Pointer to **bool** |  | [optional] 
+**NeedsTOS** | Pointer to **bool** |  | [optional] 
 **SessionId** | Pointer to **NullableString** |  | [optional] 
 **Username** | Pointer to **string** |  | [optional] 
 **WebsiteUrl** | Pointer to **string** |  | [optional] 
@@ -306,6 +307,31 @@ SetIsAnonSession sets IsAnonSession field to given value.
 `func (o *UserSessionInfo) HasIsAnonSession() bool`
 
 HasIsAnonSession returns a boolean if a field has been set.
+
+### GetNeedsTOS
+
+`func (o *UserSessionInfo) GetNeedsTOS() bool`
+
+GetNeedsTOS returns the NeedsTOS field if non-nil, zero value otherwise.
+
+### GetNeedsTOSOk
+
+`func (o *UserSessionInfo) GetNeedsTOSOk() (*bool, bool)`
+
+GetNeedsTOSOk returns a tuple with the NeedsTOS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeedsTOS
+
+`func (o *UserSessionInfo) SetNeedsTOS(v bool)`
+
+SetNeedsTOS sets NeedsTOS field to given value.
+
+### HasNeedsTOS
+
+`func (o *UserSessionInfo) HasNeedsTOS() bool`
+
+HasNeedsTOS returns a boolean if a field has been set.
 
 ### GetSessionId
 

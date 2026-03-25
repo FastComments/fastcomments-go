@@ -46,6 +46,7 @@ type CreateCommentParams struct {
 	FeedbackIds []string `json:"feedbackIds,omitempty"`
 	// Construct a type with a set of properties K of type T
 	QuestionValues map[string]RecordStringStringOrNumberValue `json:"questionValues,omitempty"`
+	Tos *bool `json:"tos,omitempty"`
 	Approved *bool `json:"approved,omitempty"`
 	Domain *string `json:"domain,omitempty"`
 	Ip *string `json:"ip,omitempty"`
@@ -869,6 +870,38 @@ func (o *CreateCommentParams) SetQuestionValues(v map[string]RecordStringStringO
 	o.QuestionValues = v
 }
 
+// GetTos returns the Tos field value if set, zero value otherwise.
+func (o *CreateCommentParams) GetTos() bool {
+	if o == nil || IsNil(o.Tos) {
+		var ret bool
+		return ret
+	}
+	return *o.Tos
+}
+
+// GetTosOk returns a tuple with the Tos field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCommentParams) GetTosOk() (*bool, bool) {
+	if o == nil || IsNil(o.Tos) {
+		return nil, false
+	}
+	return o.Tos, true
+}
+
+// HasTos returns a boolean if a field has been set.
+func (o *CreateCommentParams) HasTos() bool {
+	if o != nil && !IsNil(o.Tos) {
+		return true
+	}
+
+	return false
+}
+
+// SetTos gets a reference to the given bool and assigns it to the Tos field.
+func (o *CreateCommentParams) SetTos(v bool) {
+	o.Tos = &v
+}
+
 // GetApproved returns the Approved field value if set, zero value otherwise.
 func (o *CreateCommentParams) GetApproved() bool {
 	if o == nil || IsNil(o.Approved) {
@@ -1254,6 +1287,9 @@ func (o CreateCommentParams) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.QuestionValues) {
 		toSerialize["questionValues"] = o.QuestionValues
+	}
+	if !IsNil(o.Tos) {
+		toSerialize["tos"] = o.Tos
 	}
 	if !IsNil(o.Approved) {
 		toSerialize["approved"] = o.Approved

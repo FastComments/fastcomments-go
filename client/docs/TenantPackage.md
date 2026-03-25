@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **MaxDomains** | **float64** |  | 
 **MaxWhiteLabeledTenants** | **float64** |  | 
 **MaxMonthlyEventLogRequests** | **float64** |  | 
+**MaxCustomCollectionSize** | **float64** |  | 
 **HasWhiteLabeling** | **bool** |  | 
 **HasDebranding** | **bool** |  | 
 **HasLLMSpamDetection** | **bool** |  | 
@@ -31,6 +32,7 @@ Name | Type | Description | Notes
 **HasAuditing** | **bool** |  | 
 **HasFlexPricing** | **bool** |  | 
 **EnableSAML** | Pointer to **bool** |  | [optional] 
+**EnableCanvasLTI** | Pointer to **bool** |  | [optional] 
 **FlexPageLoadCostCents** | Pointer to **float64** |  | [optional] 
 **FlexPageLoadUnit** | Pointer to **float64** |  | [optional] 
 **FlexCommentCostCents** | Pointer to **float64** |  | [optional] 
@@ -61,7 +63,7 @@ Name | Type | Description | Notes
 
 ### NewTenantPackage
 
-`func NewTenantPackage(id string, name string, tenantId string, createdAt time.Time, monthlyCostUSD NullableFloat64, yearlyCostUSD NullableFloat64, monthlyStripePlanId NullableString, yearlyStripePlanId NullableString, maxMonthlyPageLoads float64, maxMonthlyAPICredits float64, maxMonthlySmallWidgetsCredits float64, maxMonthlyComments float64, maxConcurrentUsers float64, maxTenantUsers float64, maxSSOUsers float64, maxModerators float64, maxDomains float64, maxWhiteLabeledTenants float64, maxMonthlyEventLogRequests float64, hasWhiteLabeling bool, hasDebranding bool, hasLLMSpamDetection bool, forWhoText string, featureTaglines []string, hasAuditing bool, hasFlexPricing bool, ) *TenantPackage`
+`func NewTenantPackage(id string, name string, tenantId string, createdAt time.Time, monthlyCostUSD NullableFloat64, yearlyCostUSD NullableFloat64, monthlyStripePlanId NullableString, yearlyStripePlanId NullableString, maxMonthlyPageLoads float64, maxMonthlyAPICredits float64, maxMonthlySmallWidgetsCredits float64, maxMonthlyComments float64, maxConcurrentUsers float64, maxTenantUsers float64, maxSSOUsers float64, maxModerators float64, maxDomains float64, maxWhiteLabeledTenants float64, maxMonthlyEventLogRequests float64, maxCustomCollectionSize float64, hasWhiteLabeling bool, hasDebranding bool, hasLLMSpamDetection bool, forWhoText string, featureTaglines []string, hasAuditing bool, hasFlexPricing bool, ) *TenantPackage`
 
 NewTenantPackage instantiates a new TenantPackage object
 This constructor will assign default values to properties that have it defined,
@@ -496,6 +498,26 @@ and a boolean to check if the value has been set.
 SetMaxMonthlyEventLogRequests sets MaxMonthlyEventLogRequests field to given value.
 
 
+### GetMaxCustomCollectionSize
+
+`func (o *TenantPackage) GetMaxCustomCollectionSize() float64`
+
+GetMaxCustomCollectionSize returns the MaxCustomCollectionSize field if non-nil, zero value otherwise.
+
+### GetMaxCustomCollectionSizeOk
+
+`func (o *TenantPackage) GetMaxCustomCollectionSizeOk() (*float64, bool)`
+
+GetMaxCustomCollectionSizeOk returns a tuple with the MaxCustomCollectionSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxCustomCollectionSize
+
+`func (o *TenantPackage) SetMaxCustomCollectionSize(v float64)`
+
+SetMaxCustomCollectionSize sets MaxCustomCollectionSize field to given value.
+
+
 ### GetHasWhiteLabeling
 
 `func (o *TenantPackage) GetHasWhiteLabeling() bool`
@@ -660,6 +682,31 @@ SetEnableSAML sets EnableSAML field to given value.
 `func (o *TenantPackage) HasEnableSAML() bool`
 
 HasEnableSAML returns a boolean if a field has been set.
+
+### GetEnableCanvasLTI
+
+`func (o *TenantPackage) GetEnableCanvasLTI() bool`
+
+GetEnableCanvasLTI returns the EnableCanvasLTI field if non-nil, zero value otherwise.
+
+### GetEnableCanvasLTIOk
+
+`func (o *TenantPackage) GetEnableCanvasLTIOk() (*bool, bool)`
+
+GetEnableCanvasLTIOk returns a tuple with the EnableCanvasLTI field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableCanvasLTI
+
+`func (o *TenantPackage) SetEnableCanvasLTI(v bool)`
+
+SetEnableCanvasLTI sets EnableCanvasLTI field to given value.
+
+### HasEnableCanvasLTI
+
+`func (o *TenantPackage) HasEnableCanvasLTI() bool`
+
+HasEnableCanvasLTI returns a boolean if a field has been set.
 
 ### GetFlexPageLoadCostCents
 

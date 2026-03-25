@@ -16,7 +16,7 @@ import (
 )
 
 // RepeatCommentHandlingAction the model 'RepeatCommentHandlingAction'
-type RepeatCommentHandlingAction float32
+type RepeatCommentHandlingAction int32
 
 // List of RepeatCommentHandlingAction
 const (
@@ -33,7 +33,7 @@ var AllowedRepeatCommentHandlingActionEnumValues = []RepeatCommentHandlingAction
 }
 
 func (v *RepeatCommentHandlingAction) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -51,7 +51,7 @@ func (v *RepeatCommentHandlingAction) UnmarshalJSON(src []byte) error {
 
 // NewRepeatCommentHandlingActionFromValue returns a pointer to a valid RepeatCommentHandlingAction
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewRepeatCommentHandlingActionFromValue(v float32) (*RepeatCommentHandlingAction, error) {
+func NewRepeatCommentHandlingActionFromValue(v int32) (*RepeatCommentHandlingAction, error) {
 	ev := RepeatCommentHandlingAction(v)
 	if ev.IsValid() {
 		return &ev, nil

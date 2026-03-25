@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **IsLocked** | Pointer to **NullableBool** |  | [optional] 
 **FlagCount** | Pointer to **NullableInt32** |  | [optional] 
 **DisplayLabel** | Pointer to **NullableString** |  | [optional] 
-**Meta** | Pointer to [**NullableFCommentMeta**](FCommentMeta.md) |  | [optional] 
+**Meta** | Pointer to [**NullableAPICommentBaseMeta**](APICommentBaseMeta.md) |  | [optional] 
 **ModerationGroupIds** | Pointer to **[]string** |  | [optional] 
 **FeedbackIds** | Pointer to **[]string** |  | [optional] 
 
@@ -1155,20 +1155,20 @@ HasDisplayLabel returns a boolean if a field has been set.
 UnsetDisplayLabel ensures that no value is present for DisplayLabel, not even an explicit nil
 ### GetMeta
 
-`func (o *UpdatableCommentParams) GetMeta() FCommentMeta`
+`func (o *UpdatableCommentParams) GetMeta() APICommentBaseMeta`
 
 GetMeta returns the Meta field if non-nil, zero value otherwise.
 
 ### GetMetaOk
 
-`func (o *UpdatableCommentParams) GetMetaOk() (*FCommentMeta, bool)`
+`func (o *UpdatableCommentParams) GetMetaOk() (*APICommentBaseMeta, bool)`
 
 GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeta
 
-`func (o *UpdatableCommentParams) SetMeta(v FCommentMeta)`
+`func (o *UpdatableCommentParams) SetMeta(v APICommentBaseMeta)`
 
 SetMeta sets Meta field to given value.
 

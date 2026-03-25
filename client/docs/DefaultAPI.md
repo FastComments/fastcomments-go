@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**AggregateQuestionResults**](DefaultAPI.md#AggregateQuestionResults) | **Get** /api/v1/question-results-aggregation | 
 [**BlockUserFromComment**](DefaultAPI.md#BlockUserFromComment) | **Post** /api/v1/comments/{id}/block | 
 [**BulkAggregateQuestionResults**](DefaultAPI.md#BulkAggregateQuestionResults) | **Post** /api/v1/question-results-aggregation/bulk | 
+[**ChangeTicketState**](DefaultAPI.md#ChangeTicketState) | **Patch** /api/v1/tickets/{id}/state | 
 [**CombineCommentsWithQuestionResults**](DefaultAPI.md#CombineCommentsWithQuestionResults) | **Get** /api/v1/question-results-aggregation/combine/comments | 
 [**CreateEmailTemplate**](DefaultAPI.md#CreateEmailTemplate) | **Post** /api/v1/email-templates | 
 [**CreateFeedPost**](DefaultAPI.md#CreateFeedPost) | **Post** /api/v1/feed-posts | 
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**CreateTenant**](DefaultAPI.md#CreateTenant) | **Post** /api/v1/tenants | 
 [**CreateTenantPackage**](DefaultAPI.md#CreateTenantPackage) | **Post** /api/v1/tenant-packages | 
 [**CreateTenantUser**](DefaultAPI.md#CreateTenantUser) | **Post** /api/v1/tenant-users | 
+[**CreateTicket**](DefaultAPI.md#CreateTicket) | **Post** /api/v1/tickets | 
 [**CreateUserBadge**](DefaultAPI.md#CreateUserBadge) | **Post** /api/v1/user-badges | 
 [**CreateVote**](DefaultAPI.md#CreateVote) | **Post** /api/v1/votes | 
 [**DeleteComment**](DefaultAPI.md#DeleteComment) | **Delete** /api/v1/comments/{id} | 
@@ -79,6 +81,8 @@ Method | HTTP request | Description
 [**GetTenantUser**](DefaultAPI.md#GetTenantUser) | **Get** /api/v1/tenant-users/{id} | 
 [**GetTenantUsers**](DefaultAPI.md#GetTenantUsers) | **Get** /api/v1/tenant-users | 
 [**GetTenants**](DefaultAPI.md#GetTenants) | **Get** /api/v1/tenants | 
+[**GetTicket**](DefaultAPI.md#GetTicket) | **Get** /api/v1/tickets/{id} | 
+[**GetTickets**](DefaultAPI.md#GetTickets) | **Get** /api/v1/tickets | 
 [**GetUser**](DefaultAPI.md#GetUser) | **Get** /api/v1/users/{id} | 
 [**GetUserBadge**](DefaultAPI.md#GetUserBadge) | **Get** /api/v1/user-badges/{id} | 
 [**GetUserBadgeProgressById**](DefaultAPI.md#GetUserBadgeProgressById) | **Get** /api/v1/user-badge-progress/{id} | 
@@ -109,6 +113,7 @@ Method | HTTP request | Description
 [**UpdateNotification**](DefaultAPI.md#UpdateNotification) | **Patch** /api/v1/notifications/{id} | 
 [**UpdateQuestionConfig**](DefaultAPI.md#UpdateQuestionConfig) | **Patch** /api/v1/question-configs/{id} | 
 [**UpdateQuestionResult**](DefaultAPI.md#UpdateQuestionResult) | **Patch** /api/v1/question-results/{id} | 
+[**UpdateSubscription**](DefaultAPI.md#UpdateSubscription) | **Patch** /api/v1/subscriptions/{id} | 
 [**UpdateTenant**](DefaultAPI.md#UpdateTenant) | **Patch** /api/v1/tenants/{id} | 
 [**UpdateTenantPackage**](DefaultAPI.md#UpdateTenantPackage) | **Patch** /api/v1/tenant-packages/{id} | 
 [**UpdateTenantUser**](DefaultAPI.md#UpdateTenantUser) | **Patch** /api/v1/tenant-users/{id} | 
@@ -724,6 +729,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BulkAggregateQuestionResults200Response**](BulkAggregateQuestionResults200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ChangeTicketState
+
+> ChangeTicketState200Response ChangeTicketState(ctx, id).TenantId(tenantId).UserId(userId).ChangeTicketStateBody(changeTicketStateBody).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	userId := "userId_example" // string | 
+	id := "id_example" // string | 
+	changeTicketStateBody := *openapiclient.NewChangeTicketStateBody(int32(123)) // ChangeTicketStateBody | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.ChangeTicketState(context.Background(), id).TenantId(tenantId).UserId(userId).ChangeTicketStateBody(changeTicketStateBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ChangeTicketState``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ChangeTicketState`: ChangeTicketState200Response
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ChangeTicketState`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiChangeTicketStateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **userId** | **string** |  | 
+
+ **changeTicketStateBody** | [**ChangeTicketStateBody**](ChangeTicketStateBody.md) |  | 
+
+### Return type
+
+[**ChangeTicketState200Response**](ChangeTicketState200Response.md)
 
 ### Authorization
 
@@ -1408,6 +1487,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateTenantUser200Response**](CreateTenantUser200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateTicket
+
+> CreateTicket200Response CreateTicket(ctx).TenantId(tenantId).UserId(userId).CreateTicketBody(createTicketBody).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	userId := "userId_example" // string | 
+	createTicketBody := *openapiclient.NewCreateTicketBody("Subject_example") // CreateTicketBody | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateTicket(context.Background()).TenantId(tenantId).UserId(userId).CreateTicketBody(createTicketBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTicket``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateTicket`: CreateTicket200Response
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateTicket`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateTicketRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **userId** | **string** |  | 
+ **createTicketBody** | [**CreateTicketBody**](CreateTicketBody.md) |  | 
+
+### Return type
+
+[**CreateTicket200Response**](CreateTicket200Response.md)
 
 ### Authorization
 
@@ -5376,6 +5523,150 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetTicket
+
+> GetTicket200Response GetTicket(ctx, id).TenantId(tenantId).UserId(userId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	id := "id_example" // string | 
+	userId := "userId_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetTicket(context.Background(), id).TenantId(tenantId).UserId(userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTicket``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTicket`: GetTicket200Response
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTicket`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTicketRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **userId** | **string** |  | 
+
+### Return type
+
+[**GetTicket200Response**](GetTicket200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickets
+
+> GetTickets200Response GetTickets(ctx).TenantId(tenantId).UserId(userId).State(state).Skip(skip).Limit(limit).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	userId := "userId_example" // string |  (optional)
+	state := float64(1.2) // float64 |  (optional)
+	skip := float64(1.2) // float64 |  (optional)
+	limit := float64(1.2) // float64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetTickets(context.Background()).TenantId(tenantId).UserId(userId).State(state).Skip(skip).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTickets``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickets`: GetTickets200Response
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTickets`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTicketsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+ **userId** | **string** |  | 
+ **state** | **float64** |  | 
+ **skip** | **float64** |  | 
+ **limit** | **float64** |  | 
+
+### Return type
+
+[**GetTickets200Response**](GetTickets200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetUser
 
 > GetUser200Response GetUser(ctx, id).TenantId(tenantId).Execute()
@@ -7528,6 +7819,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FlagCommentPublic200Response**](FlagCommentPublic200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateSubscription
+
+> UpdateSubscriptionAPIResponse UpdateSubscription(ctx, id).TenantId(tenantId).UpdateAPIUserSubscriptionData(updateAPIUserSubscriptionData).UserId(userId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	id := "id_example" // string | 
+	updateAPIUserSubscriptionData := *openapiclient.NewUpdateAPIUserSubscriptionData() // UpdateAPIUserSubscriptionData | 
+	userId := "userId_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.UpdateSubscription(context.Background(), id).TenantId(tenantId).UpdateAPIUserSubscriptionData(updateAPIUserSubscriptionData).UserId(userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateSubscription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateSubscription`: UpdateSubscriptionAPIResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateSubscription`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateSubscriptionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
+
+ **updateAPIUserSubscriptionData** | [**UpdateAPIUserSubscriptionData**](UpdateAPIUserSubscriptionData.md) |  | 
+ **userId** | **string** |  | 
+
+### Return type
+
+[**UpdateSubscriptionAPIResponse**](UpdateSubscriptionAPIResponse.md)
 
 ### Authorization
 

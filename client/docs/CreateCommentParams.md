@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **AutoplayDelayMS** | Pointer to **int64** |  | [optional] 
 **FeedbackIds** | Pointer to **[]string** |  | [optional] 
 **QuestionValues** | Pointer to [**map[string]RecordStringStringOrNumberValue**](RecordStringStringOrNumberValue.md) | Construct a type with a set of properties K of type T | [optional] 
+**Tos** | Pointer to **bool** |  | [optional] 
 **Approved** | Pointer to **bool** |  | [optional] 
 **Domain** | Pointer to **string** |  | [optional] 
 **Ip** | Pointer to **string** |  | [optional] 
@@ -687,6 +688,31 @@ SetQuestionValues sets QuestionValues field to given value.
 `func (o *CreateCommentParams) HasQuestionValues() bool`
 
 HasQuestionValues returns a boolean if a field has been set.
+
+### GetTos
+
+`func (o *CreateCommentParams) GetTos() bool`
+
+GetTos returns the Tos field if non-nil, zero value otherwise.
+
+### GetTosOk
+
+`func (o *CreateCommentParams) GetTosOk() (*bool, bool)`
+
+GetTosOk returns a tuple with the Tos field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTos
+
+`func (o *CreateCommentParams) SetTos(v bool)`
+
+SetTos sets Tos field to given value.
+
+### HasTos
+
+`func (o *CreateCommentParams) HasTos() bool`
+
+HasTos returns a boolean if a field has been set.
 
 ### GetApproved
 

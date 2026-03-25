@@ -41,6 +41,7 @@ type TenantPackage struct {
 	MaxDomains float64 `json:"maxDomains"`
 	MaxWhiteLabeledTenants float64 `json:"maxWhiteLabeledTenants"`
 	MaxMonthlyEventLogRequests float64 `json:"maxMonthlyEventLogRequests"`
+	MaxCustomCollectionSize float64 `json:"maxCustomCollectionSize"`
 	HasWhiteLabeling bool `json:"hasWhiteLabeling"`
 	HasDebranding bool `json:"hasDebranding"`
 	HasLLMSpamDetection bool `json:"hasLLMSpamDetection"`
@@ -49,6 +50,7 @@ type TenantPackage struct {
 	HasAuditing bool `json:"hasAuditing"`
 	HasFlexPricing bool `json:"hasFlexPricing"`
 	EnableSAML *bool `json:"enableSAML,omitempty"`
+	EnableCanvasLTI *bool `json:"enableCanvasLTI,omitempty"`
 	FlexPageLoadCostCents *float64 `json:"flexPageLoadCostCents,omitempty"`
 	FlexPageLoadUnit *float64 `json:"flexPageLoadUnit,omitempty"`
 	FlexCommentCostCents *float64 `json:"flexCommentCostCents,omitempty"`
@@ -82,7 +84,7 @@ type _TenantPackage TenantPackage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTenantPackage(id string, name string, tenantId string, createdAt time.Time, monthlyCostUSD NullableFloat64, yearlyCostUSD NullableFloat64, monthlyStripePlanId NullableString, yearlyStripePlanId NullableString, maxMonthlyPageLoads float64, maxMonthlyAPICredits float64, maxMonthlySmallWidgetsCredits float64, maxMonthlyComments float64, maxConcurrentUsers float64, maxTenantUsers float64, maxSSOUsers float64, maxModerators float64, maxDomains float64, maxWhiteLabeledTenants float64, maxMonthlyEventLogRequests float64, hasWhiteLabeling bool, hasDebranding bool, hasLLMSpamDetection bool, forWhoText string, featureTaglines []string, hasAuditing bool, hasFlexPricing bool) *TenantPackage {
+func NewTenantPackage(id string, name string, tenantId string, createdAt time.Time, monthlyCostUSD NullableFloat64, yearlyCostUSD NullableFloat64, monthlyStripePlanId NullableString, yearlyStripePlanId NullableString, maxMonthlyPageLoads float64, maxMonthlyAPICredits float64, maxMonthlySmallWidgetsCredits float64, maxMonthlyComments float64, maxConcurrentUsers float64, maxTenantUsers float64, maxSSOUsers float64, maxModerators float64, maxDomains float64, maxWhiteLabeledTenants float64, maxMonthlyEventLogRequests float64, maxCustomCollectionSize float64, hasWhiteLabeling bool, hasDebranding bool, hasLLMSpamDetection bool, forWhoText string, featureTaglines []string, hasAuditing bool, hasFlexPricing bool) *TenantPackage {
 	this := TenantPackage{}
 	this.Id = id
 	this.Name = name
@@ -103,6 +105,7 @@ func NewTenantPackage(id string, name string, tenantId string, createdAt time.Ti
 	this.MaxDomains = maxDomains
 	this.MaxWhiteLabeledTenants = maxWhiteLabeledTenants
 	this.MaxMonthlyEventLogRequests = maxMonthlyEventLogRequests
+	this.MaxCustomCollectionSize = maxCustomCollectionSize
 	this.HasWhiteLabeling = hasWhiteLabeling
 	this.HasDebranding = hasDebranding
 	this.HasLLMSpamDetection = hasLLMSpamDetection
@@ -585,6 +588,30 @@ func (o *TenantPackage) SetMaxMonthlyEventLogRequests(v float64) {
 	o.MaxMonthlyEventLogRequests = v
 }
 
+// GetMaxCustomCollectionSize returns the MaxCustomCollectionSize field value
+func (o *TenantPackage) GetMaxCustomCollectionSize() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.MaxCustomCollectionSize
+}
+
+// GetMaxCustomCollectionSizeOk returns a tuple with the MaxCustomCollectionSize field value
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetMaxCustomCollectionSizeOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MaxCustomCollectionSize, true
+}
+
+// SetMaxCustomCollectionSize sets field value
+func (o *TenantPackage) SetMaxCustomCollectionSize(v float64) {
+	o.MaxCustomCollectionSize = v
+}
+
 // GetHasWhiteLabeling returns the HasWhiteLabeling field value
 func (o *TenantPackage) GetHasWhiteLabeling() bool {
 	if o == nil {
@@ -783,6 +810,38 @@ func (o *TenantPackage) HasEnableSAML() bool {
 // SetEnableSAML gets a reference to the given bool and assigns it to the EnableSAML field.
 func (o *TenantPackage) SetEnableSAML(v bool) {
 	o.EnableSAML = &v
+}
+
+// GetEnableCanvasLTI returns the EnableCanvasLTI field value if set, zero value otherwise.
+func (o *TenantPackage) GetEnableCanvasLTI() bool {
+	if o == nil || IsNil(o.EnableCanvasLTI) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableCanvasLTI
+}
+
+// GetEnableCanvasLTIOk returns a tuple with the EnableCanvasLTI field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetEnableCanvasLTIOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableCanvasLTI) {
+		return nil, false
+	}
+	return o.EnableCanvasLTI, true
+}
+
+// HasEnableCanvasLTI returns a boolean if a field has been set.
+func (o *TenantPackage) HasEnableCanvasLTI() bool {
+	if o != nil && !IsNil(o.EnableCanvasLTI) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnableCanvasLTI gets a reference to the given bool and assigns it to the EnableCanvasLTI field.
+func (o *TenantPackage) SetEnableCanvasLTI(v bool) {
+	o.EnableCanvasLTI = &v
 }
 
 // GetFlexPageLoadCostCents returns the FlexPageLoadCostCents field value if set, zero value otherwise.
@@ -1614,6 +1673,7 @@ func (o TenantPackage) ToMap() (map[string]interface{}, error) {
 	toSerialize["maxDomains"] = o.MaxDomains
 	toSerialize["maxWhiteLabeledTenants"] = o.MaxWhiteLabeledTenants
 	toSerialize["maxMonthlyEventLogRequests"] = o.MaxMonthlyEventLogRequests
+	toSerialize["maxCustomCollectionSize"] = o.MaxCustomCollectionSize
 	toSerialize["hasWhiteLabeling"] = o.HasWhiteLabeling
 	toSerialize["hasDebranding"] = o.HasDebranding
 	toSerialize["hasLLMSpamDetection"] = o.HasLLMSpamDetection
@@ -1623,6 +1683,9 @@ func (o TenantPackage) ToMap() (map[string]interface{}, error) {
 	toSerialize["hasFlexPricing"] = o.HasFlexPricing
 	if !IsNil(o.EnableSAML) {
 		toSerialize["enableSAML"] = o.EnableSAML
+	}
+	if !IsNil(o.EnableCanvasLTI) {
+		toSerialize["enableCanvasLTI"] = o.EnableCanvasLTI
 	}
 	if !IsNil(o.FlexPageLoadCostCents) {
 		toSerialize["flexPageLoadCostCents"] = o.FlexPageLoadCostCents
@@ -1726,6 +1789,7 @@ func (o *TenantPackage) UnmarshalJSON(data []byte) (err error) {
 		"maxDomains",
 		"maxWhiteLabeledTenants",
 		"maxMonthlyEventLogRequests",
+		"maxCustomCollectionSize",
 		"hasWhiteLabeling",
 		"hasDebranding",
 		"hasLLMSpamDetection",

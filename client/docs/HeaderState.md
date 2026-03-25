@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **UserId** | **string** |  | 
 **UserIdWS** | **string** |  | 
 **NotificationCounts** | [**[]NotificationAndCount**](NotificationAndCount.md) |  | 
+**AccountNotifications** | [**[]HeaderAccountNotification**](HeaderAccountNotification.md) |  | 
 
 ## Methods
 
 ### NewHeaderState
 
-`func NewHeaderState(status APIStatus, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount, ) *HeaderState`
+`func NewHeaderState(status APIStatus, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount, accountNotifications []HeaderAccountNotification, ) *HeaderState`
 
 NewHeaderState instantiates a new HeaderState object
 This constructor will assign default values to properties that have it defined,
@@ -127,6 +128,26 @@ and a boolean to check if the value has been set.
 `func (o *HeaderState) SetNotificationCounts(v []NotificationAndCount)`
 
 SetNotificationCounts sets NotificationCounts field to given value.
+
+
+### GetAccountNotifications
+
+`func (o *HeaderState) GetAccountNotifications() []HeaderAccountNotification`
+
+GetAccountNotifications returns the AccountNotifications field if non-nil, zero value otherwise.
+
+### GetAccountNotificationsOk
+
+`func (o *HeaderState) GetAccountNotificationsOk() (*[]HeaderAccountNotification, bool)`
+
+GetAccountNotificationsOk returns a tuple with the AccountNotifications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountNotifications
+
+`func (o *HeaderState) SetAccountNotifications(v []HeaderAccountNotification)`
+
+SetAccountNotifications sets AccountNotifications field to given value.
 
 
 

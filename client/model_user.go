@@ -29,6 +29,8 @@ type User struct {
 	WebsiteUrl NullableString `json:"websiteUrl,omitempty"`
 	Email NullableString `json:"email"`
 	PendingEmail *string `json:"pendingEmail,omitempty"`
+	BackupEmail *string `json:"backupEmail,omitempty"`
+	PendingBackupEmail *string `json:"pendingBackupEmail,omitempty"`
 	SignUpDate int64 `json:"signUpDate"`
 	CreatedFromUrlId NullableString `json:"createdFromUrlId,omitempty"`
 	CreatedFromTenantId NullableString `json:"createdFromTenantId"`
@@ -51,11 +53,16 @@ type User struct {
 	IsManageDataAdmin *bool `json:"isManageDataAdmin,omitempty"`
 	IsCommentModeratorAdmin *bool `json:"isCommentModeratorAdmin,omitempty"`
 	IsAPIAdmin *bool `json:"isAPIAdmin,omitempty"`
+	IsSiteAdmin *bool `json:"isSiteAdmin,omitempty"`
 	ModeratorIds []string `json:"moderatorIds,omitempty"`
 	IsImpersonator *bool `json:"isImpersonator,omitempty"`
 	IsCouponManager *bool `json:"isCouponManager,omitempty"`
 	Locale *string `json:"locale,omitempty"`
 	DigestEmailFrequency *DigestEmailFrequency `json:"digestEmailFrequency,omitempty"`
+	NotificationFrequency *float64 `json:"notificationFrequency,omitempty"`
+	AdminNotificationFrequency *float64 `json:"adminNotificationFrequency,omitempty"`
+	LastTenantNotificationSentDate *time.Time `json:"lastTenantNotificationSentDate,omitempty"`
+	LastReplyNotificationSentDate *time.Time `json:"lastReplyNotificationSentDate,omitempty"`
 	IgnoredAddToMySiteMessages *bool `json:"ignoredAddToMySiteMessages,omitempty"`
 	LastLoginDate *time.Time `json:"lastLoginDate,omitempty"`
 	DisplayLabel *string `json:"displayLabel,omitempty"`
@@ -73,6 +80,7 @@ type User struct {
 	CountryFlag *string `json:"countryFlag,omitempty"`
 	SocialLinks []string `json:"socialLinks,omitempty"`
 	HasTwoFactor *bool `json:"hasTwoFactor,omitempty"`
+	IsEmailSuppressed *bool `json:"isEmailSuppressed,omitempty"`
 }
 
 type _User User
@@ -323,6 +331,70 @@ func (o *User) HasPendingEmail() bool {
 // SetPendingEmail gets a reference to the given string and assigns it to the PendingEmail field.
 func (o *User) SetPendingEmail(v string) {
 	o.PendingEmail = &v
+}
+
+// GetBackupEmail returns the BackupEmail field value if set, zero value otherwise.
+func (o *User) GetBackupEmail() string {
+	if o == nil || IsNil(o.BackupEmail) {
+		var ret string
+		return ret
+	}
+	return *o.BackupEmail
+}
+
+// GetBackupEmailOk returns a tuple with the BackupEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetBackupEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.BackupEmail) {
+		return nil, false
+	}
+	return o.BackupEmail, true
+}
+
+// HasBackupEmail returns a boolean if a field has been set.
+func (o *User) HasBackupEmail() bool {
+	if o != nil && !IsNil(o.BackupEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetBackupEmail gets a reference to the given string and assigns it to the BackupEmail field.
+func (o *User) SetBackupEmail(v string) {
+	o.BackupEmail = &v
+}
+
+// GetPendingBackupEmail returns the PendingBackupEmail field value if set, zero value otherwise.
+func (o *User) GetPendingBackupEmail() string {
+	if o == nil || IsNil(o.PendingBackupEmail) {
+		var ret string
+		return ret
+	}
+	return *o.PendingBackupEmail
+}
+
+// GetPendingBackupEmailOk returns a tuple with the PendingBackupEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetPendingBackupEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.PendingBackupEmail) {
+		return nil, false
+	}
+	return o.PendingBackupEmail, true
+}
+
+// HasPendingBackupEmail returns a boolean if a field has been set.
+func (o *User) HasPendingBackupEmail() bool {
+	if o != nil && !IsNil(o.PendingBackupEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetPendingBackupEmail gets a reference to the given string and assigns it to the PendingBackupEmail field.
+func (o *User) SetPendingBackupEmail(v string) {
+	o.PendingBackupEmail = &v
 }
 
 // GetSignUpDate returns the SignUpDate field value
@@ -1003,6 +1075,38 @@ func (o *User) SetIsAPIAdmin(v bool) {
 	o.IsAPIAdmin = &v
 }
 
+// GetIsSiteAdmin returns the IsSiteAdmin field value if set, zero value otherwise.
+func (o *User) GetIsSiteAdmin() bool {
+	if o == nil || IsNil(o.IsSiteAdmin) {
+		var ret bool
+		return ret
+	}
+	return *o.IsSiteAdmin
+}
+
+// GetIsSiteAdminOk returns a tuple with the IsSiteAdmin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetIsSiteAdminOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsSiteAdmin) {
+		return nil, false
+	}
+	return o.IsSiteAdmin, true
+}
+
+// HasIsSiteAdmin returns a boolean if a field has been set.
+func (o *User) HasIsSiteAdmin() bool {
+	if o != nil && !IsNil(o.IsSiteAdmin) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsSiteAdmin gets a reference to the given bool and assigns it to the IsSiteAdmin field.
+func (o *User) SetIsSiteAdmin(v bool) {
+	o.IsSiteAdmin = &v
+}
+
 // GetModeratorIds returns the ModeratorIds field value if set, zero value otherwise.
 func (o *User) GetModeratorIds() []string {
 	if o == nil || IsNil(o.ModeratorIds) {
@@ -1161,6 +1265,134 @@ func (o *User) HasDigestEmailFrequency() bool {
 // SetDigestEmailFrequency gets a reference to the given DigestEmailFrequency and assigns it to the DigestEmailFrequency field.
 func (o *User) SetDigestEmailFrequency(v DigestEmailFrequency) {
 	o.DigestEmailFrequency = &v
+}
+
+// GetNotificationFrequency returns the NotificationFrequency field value if set, zero value otherwise.
+func (o *User) GetNotificationFrequency() float64 {
+	if o == nil || IsNil(o.NotificationFrequency) {
+		var ret float64
+		return ret
+	}
+	return *o.NotificationFrequency
+}
+
+// GetNotificationFrequencyOk returns a tuple with the NotificationFrequency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetNotificationFrequencyOk() (*float64, bool) {
+	if o == nil || IsNil(o.NotificationFrequency) {
+		return nil, false
+	}
+	return o.NotificationFrequency, true
+}
+
+// HasNotificationFrequency returns a boolean if a field has been set.
+func (o *User) HasNotificationFrequency() bool {
+	if o != nil && !IsNil(o.NotificationFrequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotificationFrequency gets a reference to the given float64 and assigns it to the NotificationFrequency field.
+func (o *User) SetNotificationFrequency(v float64) {
+	o.NotificationFrequency = &v
+}
+
+// GetAdminNotificationFrequency returns the AdminNotificationFrequency field value if set, zero value otherwise.
+func (o *User) GetAdminNotificationFrequency() float64 {
+	if o == nil || IsNil(o.AdminNotificationFrequency) {
+		var ret float64
+		return ret
+	}
+	return *o.AdminNotificationFrequency
+}
+
+// GetAdminNotificationFrequencyOk returns a tuple with the AdminNotificationFrequency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetAdminNotificationFrequencyOk() (*float64, bool) {
+	if o == nil || IsNil(o.AdminNotificationFrequency) {
+		return nil, false
+	}
+	return o.AdminNotificationFrequency, true
+}
+
+// HasAdminNotificationFrequency returns a boolean if a field has been set.
+func (o *User) HasAdminNotificationFrequency() bool {
+	if o != nil && !IsNil(o.AdminNotificationFrequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdminNotificationFrequency gets a reference to the given float64 and assigns it to the AdminNotificationFrequency field.
+func (o *User) SetAdminNotificationFrequency(v float64) {
+	o.AdminNotificationFrequency = &v
+}
+
+// GetLastTenantNotificationSentDate returns the LastTenantNotificationSentDate field value if set, zero value otherwise.
+func (o *User) GetLastTenantNotificationSentDate() time.Time {
+	if o == nil || IsNil(o.LastTenantNotificationSentDate) {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastTenantNotificationSentDate
+}
+
+// GetLastTenantNotificationSentDateOk returns a tuple with the LastTenantNotificationSentDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetLastTenantNotificationSentDateOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.LastTenantNotificationSentDate) {
+		return nil, false
+	}
+	return o.LastTenantNotificationSentDate, true
+}
+
+// HasLastTenantNotificationSentDate returns a boolean if a field has been set.
+func (o *User) HasLastTenantNotificationSentDate() bool {
+	if o != nil && !IsNil(o.LastTenantNotificationSentDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastTenantNotificationSentDate gets a reference to the given time.Time and assigns it to the LastTenantNotificationSentDate field.
+func (o *User) SetLastTenantNotificationSentDate(v time.Time) {
+	o.LastTenantNotificationSentDate = &v
+}
+
+// GetLastReplyNotificationSentDate returns the LastReplyNotificationSentDate field value if set, zero value otherwise.
+func (o *User) GetLastReplyNotificationSentDate() time.Time {
+	if o == nil || IsNil(o.LastReplyNotificationSentDate) {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastReplyNotificationSentDate
+}
+
+// GetLastReplyNotificationSentDateOk returns a tuple with the LastReplyNotificationSentDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetLastReplyNotificationSentDateOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.LastReplyNotificationSentDate) {
+		return nil, false
+	}
+	return o.LastReplyNotificationSentDate, true
+}
+
+// HasLastReplyNotificationSentDate returns a boolean if a field has been set.
+func (o *User) HasLastReplyNotificationSentDate() bool {
+	if o != nil && !IsNil(o.LastReplyNotificationSentDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastReplyNotificationSentDate gets a reference to the given time.Time and assigns it to the LastReplyNotificationSentDate field.
+func (o *User) SetLastReplyNotificationSentDate(v time.Time) {
+	o.LastReplyNotificationSentDate = &v
 }
 
 // GetIgnoredAddToMySiteMessages returns the IgnoredAddToMySiteMessages field value if set, zero value otherwise.
@@ -1717,6 +1949,38 @@ func (o *User) SetHasTwoFactor(v bool) {
 	o.HasTwoFactor = &v
 }
 
+// GetIsEmailSuppressed returns the IsEmailSuppressed field value if set, zero value otherwise.
+func (o *User) GetIsEmailSuppressed() bool {
+	if o == nil || IsNil(o.IsEmailSuppressed) {
+		var ret bool
+		return ret
+	}
+	return *o.IsEmailSuppressed
+}
+
+// GetIsEmailSuppressedOk returns a tuple with the IsEmailSuppressed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetIsEmailSuppressedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsEmailSuppressed) {
+		return nil, false
+	}
+	return o.IsEmailSuppressed, true
+}
+
+// HasIsEmailSuppressed returns a boolean if a field has been set.
+func (o *User) HasIsEmailSuppressed() bool {
+	if o != nil && !IsNil(o.IsEmailSuppressed) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsEmailSuppressed gets a reference to the given bool and assigns it to the IsEmailSuppressed field.
+func (o *User) SetIsEmailSuppressed(v bool) {
+	o.IsEmailSuppressed = &v
+}
+
 func (o User) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1741,6 +2005,12 @@ func (o User) ToMap() (map[string]interface{}, error) {
 	toSerialize["email"] = o.Email.Get()
 	if !IsNil(o.PendingEmail) {
 		toSerialize["pendingEmail"] = o.PendingEmail
+	}
+	if !IsNil(o.BackupEmail) {
+		toSerialize["backupEmail"] = o.BackupEmail
+	}
+	if !IsNil(o.PendingBackupEmail) {
+		toSerialize["pendingBackupEmail"] = o.PendingBackupEmail
 	}
 	toSerialize["signUpDate"] = o.SignUpDate
 	if o.CreatedFromUrlId.IsSet() {
@@ -1796,6 +2066,9 @@ func (o User) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsAPIAdmin) {
 		toSerialize["isAPIAdmin"] = o.IsAPIAdmin
 	}
+	if !IsNil(o.IsSiteAdmin) {
+		toSerialize["isSiteAdmin"] = o.IsSiteAdmin
+	}
 	if !IsNil(o.ModeratorIds) {
 		toSerialize["moderatorIds"] = o.ModeratorIds
 	}
@@ -1810,6 +2083,18 @@ func (o User) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DigestEmailFrequency) {
 		toSerialize["digestEmailFrequency"] = o.DigestEmailFrequency
+	}
+	if !IsNil(o.NotificationFrequency) {
+		toSerialize["notificationFrequency"] = o.NotificationFrequency
+	}
+	if !IsNil(o.AdminNotificationFrequency) {
+		toSerialize["adminNotificationFrequency"] = o.AdminNotificationFrequency
+	}
+	if !IsNil(o.LastTenantNotificationSentDate) {
+		toSerialize["lastTenantNotificationSentDate"] = o.LastTenantNotificationSentDate
+	}
+	if !IsNil(o.LastReplyNotificationSentDate) {
+		toSerialize["lastReplyNotificationSentDate"] = o.LastReplyNotificationSentDate
 	}
 	if !IsNil(o.IgnoredAddToMySiteMessages) {
 		toSerialize["ignoredAddToMySiteMessages"] = o.IgnoredAddToMySiteMessages
@@ -1861,6 +2146,9 @@ func (o User) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HasTwoFactor) {
 		toSerialize["hasTwoFactor"] = o.HasTwoFactor
+	}
+	if !IsNil(o.IsEmailSuppressed) {
+		toSerialize["isEmailSuppressed"] = o.IsEmailSuppressed
 	}
 	return toSerialize, nil
 }

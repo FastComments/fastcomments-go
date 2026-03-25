@@ -56,7 +56,7 @@ type UpdatableCommentParams struct {
 	IsLocked NullableBool `json:"isLocked,omitempty"`
 	FlagCount NullableInt32 `json:"flagCount,omitempty"`
 	DisplayLabel NullableString `json:"displayLabel,omitempty"`
-	Meta NullableFCommentMeta `json:"meta,omitempty"`
+	Meta NullableAPICommentBaseMeta `json:"meta,omitempty"`
 	ModerationGroupIds []string `json:"moderationGroupIds,omitempty"`
 	FeedbackIds []string `json:"feedbackIds,omitempty"`
 }
@@ -1421,9 +1421,9 @@ func (o *UpdatableCommentParams) UnsetDisplayLabel() {
 }
 
 // GetMeta returns the Meta field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdatableCommentParams) GetMeta() FCommentMeta {
+func (o *UpdatableCommentParams) GetMeta() APICommentBaseMeta {
 	if o == nil || IsNil(o.Meta.Get()) {
-		var ret FCommentMeta
+		var ret APICommentBaseMeta
 		return ret
 	}
 	return *o.Meta.Get()
@@ -1432,7 +1432,7 @@ func (o *UpdatableCommentParams) GetMeta() FCommentMeta {
 // GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdatableCommentParams) GetMetaOk() (*FCommentMeta, bool) {
+func (o *UpdatableCommentParams) GetMetaOk() (*APICommentBaseMeta, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1448,8 +1448,8 @@ func (o *UpdatableCommentParams) HasMeta() bool {
 	return false
 }
 
-// SetMeta gets a reference to the given NullableFCommentMeta and assigns it to the Meta field.
-func (o *UpdatableCommentParams) SetMeta(v FCommentMeta) {
+// SetMeta gets a reference to the given NullableAPICommentBaseMeta and assigns it to the Meta field.
+func (o *UpdatableCommentParams) SetMeta(v APICommentBaseMeta) {
 	o.Meta.Set(&v)
 }
 // SetMetaNil sets the value for Meta to be an explicit nil

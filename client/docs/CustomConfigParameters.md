@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **DisableEmailInputs** | Pointer to **bool** |  | [optional] 
 **DisableLiveCommenting** | Pointer to **bool** |  | [optional] 
 **DisableNotificationBell** | Pointer to **bool** |  | [optional] 
+**DisableProfileComments** | Pointer to **bool** |  | [optional] 
+**DisableProfileDirectMessages** | Pointer to **bool** |  | [optional] 
 **DisableProfiles** | Pointer to **bool** |  | [optional] 
 **DisableSuccessMessage** | Pointer to **bool** |  | [optional] 
 **DisableToolbar** | Pointer to **bool** |  | [optional] 
@@ -52,6 +54,7 @@ Name | Type | Description | Notes
 **MaxCommentCharacterLength** | Pointer to **NullableInt32** |  | [optional] 
 **MaxCommentCreatedCountPUPM** | Pointer to **NullableInt32** |  | [optional] 
 **NoCustomConfig** | Pointer to **bool** |  | [optional] 
+**MentionAutoCompleteMode** | Pointer to [**NullableMentionAutoCompleteMode**](MentionAutoCompleteMode.md) |  | [optional] 
 **NoImageUploads** | Pointer to **bool** |  | [optional] 
 **NoStyles** | Pointer to **bool** |  | [optional] 
 **PageSize** | Pointer to **NullableInt32** |  | [optional] 
@@ -72,11 +75,18 @@ Name | Type | Description | Notes
 **VoteStyle** | Pointer to [**VoteStyle**](VoteStyle.md) |  | [optional] 
 **WidgetQuestionId** | Pointer to **string** |  | [optional] 
 **WidgetQuestionResultsStyle** | Pointer to [**CommentQuestionResultsRenderingType**](CommentQuestionResultsRenderingType.md) |  | [optional] 
+**WidgetQuestionShowBreakdown** | Pointer to **bool** |  | [optional] 
 **WidgetQuestionStyle** | Pointer to [**QuestionRenderingType**](QuestionRenderingType.md) |  | [optional] 
 **WidgetQuestionWhenToSave** | Pointer to [**QuestionWhenSave**](QuestionWhenSave.md) |  | [optional] 
 **WidgetQuestionsRequired** | Pointer to [**CommentQuestionsRequired**](CommentQuestionsRequired.md) |  | [optional] 
 **WidgetSubQuestionVisibility** | Pointer to [**QuestionSubQuestionVisibility**](QuestionSubQuestionVisibility.md) |  | [optional] 
 **Wrap** | Pointer to **bool** |  | [optional] 
+**TicketBaseUrl** | Pointer to **string** |  | [optional] 
+**TicketKBSearchEndpoint** | Pointer to **string** |  | [optional] 
+**TicketFileUploadsEnabled** | Pointer to **bool** |  | [optional] 
+**TicketMaxFileSize** | Pointer to **int32** |  | [optional] 
+**TicketAutoAssignUserIds** | Pointer to **[]string** |  | [optional] 
+**Tos** | Pointer to [**TOSConfig**](TOSConfig.md) |  | [optional] 
 
 ## Methods
 
@@ -777,6 +787,56 @@ SetDisableNotificationBell sets DisableNotificationBell field to given value.
 
 HasDisableNotificationBell returns a boolean if a field has been set.
 
+### GetDisableProfileComments
+
+`func (o *CustomConfigParameters) GetDisableProfileComments() bool`
+
+GetDisableProfileComments returns the DisableProfileComments field if non-nil, zero value otherwise.
+
+### GetDisableProfileCommentsOk
+
+`func (o *CustomConfigParameters) GetDisableProfileCommentsOk() (*bool, bool)`
+
+GetDisableProfileCommentsOk returns a tuple with the DisableProfileComments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableProfileComments
+
+`func (o *CustomConfigParameters) SetDisableProfileComments(v bool)`
+
+SetDisableProfileComments sets DisableProfileComments field to given value.
+
+### HasDisableProfileComments
+
+`func (o *CustomConfigParameters) HasDisableProfileComments() bool`
+
+HasDisableProfileComments returns a boolean if a field has been set.
+
+### GetDisableProfileDirectMessages
+
+`func (o *CustomConfigParameters) GetDisableProfileDirectMessages() bool`
+
+GetDisableProfileDirectMessages returns the DisableProfileDirectMessages field if non-nil, zero value otherwise.
+
+### GetDisableProfileDirectMessagesOk
+
+`func (o *CustomConfigParameters) GetDisableProfileDirectMessagesOk() (*bool, bool)`
+
+GetDisableProfileDirectMessagesOk returns a tuple with the DisableProfileDirectMessages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableProfileDirectMessages
+
+`func (o *CustomConfigParameters) SetDisableProfileDirectMessages(v bool)`
+
+SetDisableProfileDirectMessages sets DisableProfileDirectMessages field to given value.
+
+### HasDisableProfileDirectMessages
+
+`func (o *CustomConfigParameters) HasDisableProfileDirectMessages() bool`
+
+HasDisableProfileDirectMessages returns a boolean if a field has been set.
+
 ### GetDisableProfiles
 
 `func (o *CustomConfigParameters) GetDisableProfiles() bool`
@@ -1427,6 +1487,41 @@ SetNoCustomConfig sets NoCustomConfig field to given value.
 
 HasNoCustomConfig returns a boolean if a field has been set.
 
+### GetMentionAutoCompleteMode
+
+`func (o *CustomConfigParameters) GetMentionAutoCompleteMode() MentionAutoCompleteMode`
+
+GetMentionAutoCompleteMode returns the MentionAutoCompleteMode field if non-nil, zero value otherwise.
+
+### GetMentionAutoCompleteModeOk
+
+`func (o *CustomConfigParameters) GetMentionAutoCompleteModeOk() (*MentionAutoCompleteMode, bool)`
+
+GetMentionAutoCompleteModeOk returns a tuple with the MentionAutoCompleteMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMentionAutoCompleteMode
+
+`func (o *CustomConfigParameters) SetMentionAutoCompleteMode(v MentionAutoCompleteMode)`
+
+SetMentionAutoCompleteMode sets MentionAutoCompleteMode field to given value.
+
+### HasMentionAutoCompleteMode
+
+`func (o *CustomConfigParameters) HasMentionAutoCompleteMode() bool`
+
+HasMentionAutoCompleteMode returns a boolean if a field has been set.
+
+### SetMentionAutoCompleteModeNil
+
+`func (o *CustomConfigParameters) SetMentionAutoCompleteModeNil(b bool)`
+
+ SetMentionAutoCompleteModeNil sets the value for MentionAutoCompleteMode to be an explicit nil
+
+### UnsetMentionAutoCompleteMode
+`func (o *CustomConfigParameters) UnsetMentionAutoCompleteMode()`
+
+UnsetMentionAutoCompleteMode ensures that no value is present for MentionAutoCompleteMode, not even an explicit nil
 ### GetNoImageUploads
 
 `func (o *CustomConfigParameters) GetNoImageUploads() bool`
@@ -1957,6 +2052,31 @@ SetWidgetQuestionResultsStyle sets WidgetQuestionResultsStyle field to given val
 
 HasWidgetQuestionResultsStyle returns a boolean if a field has been set.
 
+### GetWidgetQuestionShowBreakdown
+
+`func (o *CustomConfigParameters) GetWidgetQuestionShowBreakdown() bool`
+
+GetWidgetQuestionShowBreakdown returns the WidgetQuestionShowBreakdown field if non-nil, zero value otherwise.
+
+### GetWidgetQuestionShowBreakdownOk
+
+`func (o *CustomConfigParameters) GetWidgetQuestionShowBreakdownOk() (*bool, bool)`
+
+GetWidgetQuestionShowBreakdownOk returns a tuple with the WidgetQuestionShowBreakdown field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWidgetQuestionShowBreakdown
+
+`func (o *CustomConfigParameters) SetWidgetQuestionShowBreakdown(v bool)`
+
+SetWidgetQuestionShowBreakdown sets WidgetQuestionShowBreakdown field to given value.
+
+### HasWidgetQuestionShowBreakdown
+
+`func (o *CustomConfigParameters) HasWidgetQuestionShowBreakdown() bool`
+
+HasWidgetQuestionShowBreakdown returns a boolean if a field has been set.
+
 ### GetWidgetQuestionStyle
 
 `func (o *CustomConfigParameters) GetWidgetQuestionStyle() QuestionRenderingType`
@@ -2081,6 +2201,156 @@ SetWrap sets Wrap field to given value.
 `func (o *CustomConfigParameters) HasWrap() bool`
 
 HasWrap returns a boolean if a field has been set.
+
+### GetTicketBaseUrl
+
+`func (o *CustomConfigParameters) GetTicketBaseUrl() string`
+
+GetTicketBaseUrl returns the TicketBaseUrl field if non-nil, zero value otherwise.
+
+### GetTicketBaseUrlOk
+
+`func (o *CustomConfigParameters) GetTicketBaseUrlOk() (*string, bool)`
+
+GetTicketBaseUrlOk returns a tuple with the TicketBaseUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTicketBaseUrl
+
+`func (o *CustomConfigParameters) SetTicketBaseUrl(v string)`
+
+SetTicketBaseUrl sets TicketBaseUrl field to given value.
+
+### HasTicketBaseUrl
+
+`func (o *CustomConfigParameters) HasTicketBaseUrl() bool`
+
+HasTicketBaseUrl returns a boolean if a field has been set.
+
+### GetTicketKBSearchEndpoint
+
+`func (o *CustomConfigParameters) GetTicketKBSearchEndpoint() string`
+
+GetTicketKBSearchEndpoint returns the TicketKBSearchEndpoint field if non-nil, zero value otherwise.
+
+### GetTicketKBSearchEndpointOk
+
+`func (o *CustomConfigParameters) GetTicketKBSearchEndpointOk() (*string, bool)`
+
+GetTicketKBSearchEndpointOk returns a tuple with the TicketKBSearchEndpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTicketKBSearchEndpoint
+
+`func (o *CustomConfigParameters) SetTicketKBSearchEndpoint(v string)`
+
+SetTicketKBSearchEndpoint sets TicketKBSearchEndpoint field to given value.
+
+### HasTicketKBSearchEndpoint
+
+`func (o *CustomConfigParameters) HasTicketKBSearchEndpoint() bool`
+
+HasTicketKBSearchEndpoint returns a boolean if a field has been set.
+
+### GetTicketFileUploadsEnabled
+
+`func (o *CustomConfigParameters) GetTicketFileUploadsEnabled() bool`
+
+GetTicketFileUploadsEnabled returns the TicketFileUploadsEnabled field if non-nil, zero value otherwise.
+
+### GetTicketFileUploadsEnabledOk
+
+`func (o *CustomConfigParameters) GetTicketFileUploadsEnabledOk() (*bool, bool)`
+
+GetTicketFileUploadsEnabledOk returns a tuple with the TicketFileUploadsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTicketFileUploadsEnabled
+
+`func (o *CustomConfigParameters) SetTicketFileUploadsEnabled(v bool)`
+
+SetTicketFileUploadsEnabled sets TicketFileUploadsEnabled field to given value.
+
+### HasTicketFileUploadsEnabled
+
+`func (o *CustomConfigParameters) HasTicketFileUploadsEnabled() bool`
+
+HasTicketFileUploadsEnabled returns a boolean if a field has been set.
+
+### GetTicketMaxFileSize
+
+`func (o *CustomConfigParameters) GetTicketMaxFileSize() int32`
+
+GetTicketMaxFileSize returns the TicketMaxFileSize field if non-nil, zero value otherwise.
+
+### GetTicketMaxFileSizeOk
+
+`func (o *CustomConfigParameters) GetTicketMaxFileSizeOk() (*int32, bool)`
+
+GetTicketMaxFileSizeOk returns a tuple with the TicketMaxFileSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTicketMaxFileSize
+
+`func (o *CustomConfigParameters) SetTicketMaxFileSize(v int32)`
+
+SetTicketMaxFileSize sets TicketMaxFileSize field to given value.
+
+### HasTicketMaxFileSize
+
+`func (o *CustomConfigParameters) HasTicketMaxFileSize() bool`
+
+HasTicketMaxFileSize returns a boolean if a field has been set.
+
+### GetTicketAutoAssignUserIds
+
+`func (o *CustomConfigParameters) GetTicketAutoAssignUserIds() []string`
+
+GetTicketAutoAssignUserIds returns the TicketAutoAssignUserIds field if non-nil, zero value otherwise.
+
+### GetTicketAutoAssignUserIdsOk
+
+`func (o *CustomConfigParameters) GetTicketAutoAssignUserIdsOk() (*[]string, bool)`
+
+GetTicketAutoAssignUserIdsOk returns a tuple with the TicketAutoAssignUserIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTicketAutoAssignUserIds
+
+`func (o *CustomConfigParameters) SetTicketAutoAssignUserIds(v []string)`
+
+SetTicketAutoAssignUserIds sets TicketAutoAssignUserIds field to given value.
+
+### HasTicketAutoAssignUserIds
+
+`func (o *CustomConfigParameters) HasTicketAutoAssignUserIds() bool`
+
+HasTicketAutoAssignUserIds returns a boolean if a field has been set.
+
+### GetTos
+
+`func (o *CustomConfigParameters) GetTos() TOSConfig`
+
+GetTos returns the Tos field if non-nil, zero value otherwise.
+
+### GetTosOk
+
+`func (o *CustomConfigParameters) GetTosOk() (*TOSConfig, bool)`
+
+GetTosOk returns a tuple with the Tos field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTos
+
+`func (o *CustomConfigParameters) SetTos(v TOSConfig)`
+
+SetTos sets Tos field to given value.
+
+### HasTos
+
+`func (o *CustomConfigParameters) HasTos() bool`
+
+HasTos returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

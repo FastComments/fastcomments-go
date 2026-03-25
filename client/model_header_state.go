@@ -26,6 +26,7 @@ type HeaderState struct {
 	UserId string `json:"userId"`
 	UserIdWS string `json:"userIdWS"`
 	NotificationCounts []NotificationAndCount `json:"notificationCounts"`
+	AccountNotifications []HeaderAccountNotification `json:"accountNotifications"`
 }
 
 type _HeaderState HeaderState
@@ -34,13 +35,14 @@ type _HeaderState HeaderState
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeaderState(status APIStatus, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount) *HeaderState {
+func NewHeaderState(status APIStatus, notificationType map[string]interface{}, userId string, userIdWS string, notificationCounts []NotificationAndCount, accountNotifications []HeaderAccountNotification) *HeaderState {
 	this := HeaderState{}
 	this.Status = status
 	this.NotificationType = notificationType
 	this.UserId = userId
 	this.UserIdWS = userIdWS
 	this.NotificationCounts = notificationCounts
+	this.AccountNotifications = accountNotifications
 	return &this
 }
 
@@ -172,6 +174,30 @@ func (o *HeaderState) SetNotificationCounts(v []NotificationAndCount) {
 	o.NotificationCounts = v
 }
 
+// GetAccountNotifications returns the AccountNotifications field value
+func (o *HeaderState) GetAccountNotifications() []HeaderAccountNotification {
+	if o == nil {
+		var ret []HeaderAccountNotification
+		return ret
+	}
+
+	return o.AccountNotifications
+}
+
+// GetAccountNotificationsOk returns a tuple with the AccountNotifications field value
+// and a boolean to check if the value has been set.
+func (o *HeaderState) GetAccountNotificationsOk() ([]HeaderAccountNotification, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AccountNotifications, true
+}
+
+// SetAccountNotifications sets field value
+func (o *HeaderState) SetAccountNotifications(v []HeaderAccountNotification) {
+	o.AccountNotifications = v
+}
+
 func (o HeaderState) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -187,6 +213,7 @@ func (o HeaderState) ToMap() (map[string]interface{}, error) {
 	toSerialize["userId"] = o.UserId
 	toSerialize["userIdWS"] = o.UserIdWS
 	toSerialize["notificationCounts"] = o.NotificationCounts
+	toSerialize["accountNotifications"] = o.AccountNotifications
 	return toSerialize, nil
 }
 
@@ -200,6 +227,7 @@ func (o *HeaderState) UnmarshalJSON(data []byte) (err error) {
 		"userId",
 		"userIdWS",
 		"notificationCounts",
+		"accountNotifications",
 	}
 
 	allProperties := make(map[string]interface{})

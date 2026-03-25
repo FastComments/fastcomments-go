@@ -16,7 +16,7 @@ import (
 )
 
 // CommentQuestionsRequired the model 'CommentQuestionsRequired'
-type CommentQuestionsRequired float32
+type CommentQuestionsRequired int32
 
 // List of CommentQuestionsRequired
 const (
@@ -31,7 +31,7 @@ var AllowedCommentQuestionsRequiredEnumValues = []CommentQuestionsRequired{
 }
 
 func (v *CommentQuestionsRequired) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *CommentQuestionsRequired) UnmarshalJSON(src []byte) error {
 
 // NewCommentQuestionsRequiredFromValue returns a pointer to a valid CommentQuestionsRequired
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCommentQuestionsRequiredFromValue(v float32) (*CommentQuestionsRequired, error) {
+func NewCommentQuestionsRequiredFromValue(v int32) (*CommentQuestionsRequired, error) {
 	ev := CommentQuestionsRequired(v)
 	if ev.IsValid() {
 		return &ev, nil

@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **WebsiteUrl** | Pointer to **NullableString** |  | [optional] 
 **Email** | **NullableString** |  | 
 **PendingEmail** | Pointer to **string** |  | [optional] 
+**BackupEmail** | Pointer to **string** |  | [optional] 
+**PendingBackupEmail** | Pointer to **string** |  | [optional] 
 **SignUpDate** | **int64** |  | 
 **CreatedFromUrlId** | Pointer to **NullableString** |  | [optional] 
 **CreatedFromTenantId** | **NullableString** |  | 
@@ -33,11 +35,16 @@ Name | Type | Description | Notes
 **IsManageDataAdmin** | Pointer to **bool** |  | [optional] 
 **IsCommentModeratorAdmin** | Pointer to **bool** |  | [optional] 
 **IsAPIAdmin** | Pointer to **bool** |  | [optional] 
+**IsSiteAdmin** | Pointer to **bool** |  | [optional] 
 **ModeratorIds** | Pointer to **[]string** |  | [optional] 
 **IsImpersonator** | Pointer to **bool** |  | [optional] 
 **IsCouponManager** | Pointer to **bool** |  | [optional] 
 **Locale** | Pointer to **string** |  | [optional] 
 **DigestEmailFrequency** | Pointer to [**DigestEmailFrequency**](DigestEmailFrequency.md) |  | [optional] 
+**NotificationFrequency** | Pointer to **float64** |  | [optional] 
+**AdminNotificationFrequency** | Pointer to **float64** |  | [optional] 
+**LastTenantNotificationSentDate** | Pointer to **time.Time** |  | [optional] 
+**LastReplyNotificationSentDate** | Pointer to **time.Time** |  | [optional] 
 **IgnoredAddToMySiteMessages** | Pointer to **bool** |  | [optional] 
 **LastLoginDate** | Pointer to **time.Time** |  | [optional] 
 **DisplayLabel** | Pointer to **string** |  | [optional] 
@@ -55,6 +62,7 @@ Name | Type | Description | Notes
 **CountryFlag** | Pointer to **string** |  | [optional] 
 **SocialLinks** | Pointer to **[]string** |  | [optional] 
 **HasTwoFactor** | Pointer to **bool** |  | [optional] 
+**IsEmailSuppressed** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -264,6 +272,56 @@ SetPendingEmail sets PendingEmail field to given value.
 `func (o *User) HasPendingEmail() bool`
 
 HasPendingEmail returns a boolean if a field has been set.
+
+### GetBackupEmail
+
+`func (o *User) GetBackupEmail() string`
+
+GetBackupEmail returns the BackupEmail field if non-nil, zero value otherwise.
+
+### GetBackupEmailOk
+
+`func (o *User) GetBackupEmailOk() (*string, bool)`
+
+GetBackupEmailOk returns a tuple with the BackupEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupEmail
+
+`func (o *User) SetBackupEmail(v string)`
+
+SetBackupEmail sets BackupEmail field to given value.
+
+### HasBackupEmail
+
+`func (o *User) HasBackupEmail() bool`
+
+HasBackupEmail returns a boolean if a field has been set.
+
+### GetPendingBackupEmail
+
+`func (o *User) GetPendingBackupEmail() string`
+
+GetPendingBackupEmail returns the PendingBackupEmail field if non-nil, zero value otherwise.
+
+### GetPendingBackupEmailOk
+
+`func (o *User) GetPendingBackupEmailOk() (*string, bool)`
+
+GetPendingBackupEmailOk returns a tuple with the PendingBackupEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPendingBackupEmail
+
+`func (o *User) SetPendingBackupEmail(v string)`
+
+SetPendingBackupEmail sets PendingBackupEmail field to given value.
+
+### HasPendingBackupEmail
+
+`func (o *User) HasPendingBackupEmail() bool`
+
+HasPendingBackupEmail returns a boolean if a field has been set.
 
 ### GetSignUpDate
 
@@ -815,6 +873,31 @@ SetIsAPIAdmin sets IsAPIAdmin field to given value.
 
 HasIsAPIAdmin returns a boolean if a field has been set.
 
+### GetIsSiteAdmin
+
+`func (o *User) GetIsSiteAdmin() bool`
+
+GetIsSiteAdmin returns the IsSiteAdmin field if non-nil, zero value otherwise.
+
+### GetIsSiteAdminOk
+
+`func (o *User) GetIsSiteAdminOk() (*bool, bool)`
+
+GetIsSiteAdminOk returns a tuple with the IsSiteAdmin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSiteAdmin
+
+`func (o *User) SetIsSiteAdmin(v bool)`
+
+SetIsSiteAdmin sets IsSiteAdmin field to given value.
+
+### HasIsSiteAdmin
+
+`func (o *User) HasIsSiteAdmin() bool`
+
+HasIsSiteAdmin returns a boolean if a field has been set.
+
 ### GetModeratorIds
 
 `func (o *User) GetModeratorIds() []string`
@@ -939,6 +1022,106 @@ SetDigestEmailFrequency sets DigestEmailFrequency field to given value.
 `func (o *User) HasDigestEmailFrequency() bool`
 
 HasDigestEmailFrequency returns a boolean if a field has been set.
+
+### GetNotificationFrequency
+
+`func (o *User) GetNotificationFrequency() float64`
+
+GetNotificationFrequency returns the NotificationFrequency field if non-nil, zero value otherwise.
+
+### GetNotificationFrequencyOk
+
+`func (o *User) GetNotificationFrequencyOk() (*float64, bool)`
+
+GetNotificationFrequencyOk returns a tuple with the NotificationFrequency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotificationFrequency
+
+`func (o *User) SetNotificationFrequency(v float64)`
+
+SetNotificationFrequency sets NotificationFrequency field to given value.
+
+### HasNotificationFrequency
+
+`func (o *User) HasNotificationFrequency() bool`
+
+HasNotificationFrequency returns a boolean if a field has been set.
+
+### GetAdminNotificationFrequency
+
+`func (o *User) GetAdminNotificationFrequency() float64`
+
+GetAdminNotificationFrequency returns the AdminNotificationFrequency field if non-nil, zero value otherwise.
+
+### GetAdminNotificationFrequencyOk
+
+`func (o *User) GetAdminNotificationFrequencyOk() (*float64, bool)`
+
+GetAdminNotificationFrequencyOk returns a tuple with the AdminNotificationFrequency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminNotificationFrequency
+
+`func (o *User) SetAdminNotificationFrequency(v float64)`
+
+SetAdminNotificationFrequency sets AdminNotificationFrequency field to given value.
+
+### HasAdminNotificationFrequency
+
+`func (o *User) HasAdminNotificationFrequency() bool`
+
+HasAdminNotificationFrequency returns a boolean if a field has been set.
+
+### GetLastTenantNotificationSentDate
+
+`func (o *User) GetLastTenantNotificationSentDate() time.Time`
+
+GetLastTenantNotificationSentDate returns the LastTenantNotificationSentDate field if non-nil, zero value otherwise.
+
+### GetLastTenantNotificationSentDateOk
+
+`func (o *User) GetLastTenantNotificationSentDateOk() (*time.Time, bool)`
+
+GetLastTenantNotificationSentDateOk returns a tuple with the LastTenantNotificationSentDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastTenantNotificationSentDate
+
+`func (o *User) SetLastTenantNotificationSentDate(v time.Time)`
+
+SetLastTenantNotificationSentDate sets LastTenantNotificationSentDate field to given value.
+
+### HasLastTenantNotificationSentDate
+
+`func (o *User) HasLastTenantNotificationSentDate() bool`
+
+HasLastTenantNotificationSentDate returns a boolean if a field has been set.
+
+### GetLastReplyNotificationSentDate
+
+`func (o *User) GetLastReplyNotificationSentDate() time.Time`
+
+GetLastReplyNotificationSentDate returns the LastReplyNotificationSentDate field if non-nil, zero value otherwise.
+
+### GetLastReplyNotificationSentDateOk
+
+`func (o *User) GetLastReplyNotificationSentDateOk() (*time.Time, bool)`
+
+GetLastReplyNotificationSentDateOk returns a tuple with the LastReplyNotificationSentDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastReplyNotificationSentDate
+
+`func (o *User) SetLastReplyNotificationSentDate(v time.Time)`
+
+SetLastReplyNotificationSentDate sets LastReplyNotificationSentDate field to given value.
+
+### HasLastReplyNotificationSentDate
+
+`func (o *User) HasLastReplyNotificationSentDate() bool`
+
+HasLastReplyNotificationSentDate returns a boolean if a field has been set.
 
 ### GetIgnoredAddToMySiteMessages
 
@@ -1374,6 +1557,31 @@ SetHasTwoFactor sets HasTwoFactor field to given value.
 `func (o *User) HasHasTwoFactor() bool`
 
 HasHasTwoFactor returns a boolean if a field has been set.
+
+### GetIsEmailSuppressed
+
+`func (o *User) GetIsEmailSuppressed() bool`
+
+GetIsEmailSuppressed returns the IsEmailSuppressed field if non-nil, zero value otherwise.
+
+### GetIsEmailSuppressedOk
+
+`func (o *User) GetIsEmailSuppressedOk() (*bool, bool)`
+
+GetIsEmailSuppressedOk returns a tuple with the IsEmailSuppressed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsEmailSuppressed
+
+`func (o *User) SetIsEmailSuppressed(v bool)`
+
+SetIsEmailSuppressed sets IsEmailSuppressed field to given value.
+
+### HasIsEmailSuppressed
+
+`func (o *User) HasIsEmailSuppressed() bool`
+
+HasIsEmailSuppressed returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

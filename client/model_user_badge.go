@@ -40,6 +40,7 @@ type UserBadge struct {
 	DisplayedOnComments bool `json:"displayedOnComments"`
 	ReceivedAt time.Time `json:"receivedAt"`
 	Order *int32 `json:"order,omitempty"`
+	UrlId NullableString `json:"urlId,omitempty"`
 }
 
 type _UserBadge UserBadge
@@ -603,6 +604,48 @@ func (o *UserBadge) SetOrder(v int32) {
 	o.Order = &v
 }
 
+// GetUrlId returns the UrlId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UserBadge) GetUrlId() string {
+	if o == nil || IsNil(o.UrlId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UrlId.Get()
+}
+
+// GetUrlIdOk returns a tuple with the UrlId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UserBadge) GetUrlIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UrlId.Get(), o.UrlId.IsSet()
+}
+
+// HasUrlId returns a boolean if a field has been set.
+func (o *UserBadge) HasUrlId() bool {
+	if o != nil && o.UrlId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrlId gets a reference to the given NullableString and assigns it to the UrlId field.
+func (o *UserBadge) SetUrlId(v string) {
+	o.UrlId.Set(&v)
+}
+// SetUrlIdNil sets the value for UrlId to be an explicit nil
+func (o *UserBadge) SetUrlIdNil() {
+	o.UrlId.Set(nil)
+}
+
+// UnsetUrlId ensures that no value is present for UrlId, not even an explicit nil
+func (o *UserBadge) UnsetUrlId() {
+	o.UrlId.Unset()
+}
+
 func (o UserBadge) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -642,6 +685,9 @@ func (o UserBadge) ToMap() (map[string]interface{}, error) {
 	toSerialize["receivedAt"] = o.ReceivedAt
 	if !IsNil(o.Order) {
 		toSerialize["order"] = o.Order
+	}
+	if o.UrlId.IsSet() {
+		toSerialize["urlId"] = o.UrlId.Get()
 	}
 	return toSerialize, nil
 }

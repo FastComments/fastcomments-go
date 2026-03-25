@@ -16,7 +16,7 @@ import (
 )
 
 // VoteStyle the model 'VoteStyle'
-type VoteStyle float32
+type VoteStyle int32
 
 // List of VoteStyle
 const (
@@ -31,7 +31,7 @@ var AllowedVoteStyleEnumValues = []VoteStyle{
 }
 
 func (v *VoteStyle) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *VoteStyle) UnmarshalJSON(src []byte) error {
 
 // NewVoteStyleFromValue returns a pointer to a valid VoteStyle
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewVoteStyleFromValue(v float32) (*VoteStyle, error) {
+func NewVoteStyleFromValue(v int32) (*VoteStyle, error) {
 	ev := VoteStyle(v)
 	if ev.IsValid() {
 		return &ev, nil

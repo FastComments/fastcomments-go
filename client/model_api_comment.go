@@ -57,7 +57,7 @@ type APIComment struct {
 	LocalDateString NullableString `json:"localDateString,omitempty"`
 	Locale NullableString `json:"locale"`
 	Mentions []CommentUserMentionInfo `json:"mentions,omitempty"`
-	Meta NullableFCommentMeta `json:"meta,omitempty"`
+	Meta NullableAPICommentBaseMeta `json:"meta,omitempty"`
 	ModerationGroupIds []string `json:"moderationGroupIds,omitempty"`
 	NotificationSentForParent *bool `json:"notificationSentForParent,omitempty"`
 	NotificationSentForParentTenant *bool `json:"notificationSentForParentTenant,omitempty"`
@@ -1307,9 +1307,9 @@ func (o *APIComment) SetMentions(v []CommentUserMentionInfo) {
 }
 
 // GetMeta returns the Meta field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *APIComment) GetMeta() FCommentMeta {
+func (o *APIComment) GetMeta() APICommentBaseMeta {
 	if o == nil || IsNil(o.Meta.Get()) {
-		var ret FCommentMeta
+		var ret APICommentBaseMeta
 		return ret
 	}
 	return *o.Meta.Get()
@@ -1318,7 +1318,7 @@ func (o *APIComment) GetMeta() FCommentMeta {
 // GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *APIComment) GetMetaOk() (*FCommentMeta, bool) {
+func (o *APIComment) GetMetaOk() (*APICommentBaseMeta, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1334,8 +1334,8 @@ func (o *APIComment) HasMeta() bool {
 	return false
 }
 
-// SetMeta gets a reference to the given NullableFCommentMeta and assigns it to the Meta field.
-func (o *APIComment) SetMeta(v FCommentMeta) {
+// SetMeta gets a reference to the given NullableAPICommentBaseMeta and assigns it to the Meta field.
+func (o *APIComment) SetMeta(v APICommentBaseMeta) {
 	o.Meta.Set(&v)
 }
 // SetMetaNil sets the value for Meta to be an explicit nil

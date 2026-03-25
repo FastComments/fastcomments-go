@@ -30,6 +30,7 @@ type UpdateTenantPackageBody struct {
 	MaxSSOUsers *float64 `json:"maxSSOUsers,omitempty"`
 	MaxModerators *float64 `json:"maxModerators,omitempty"`
 	MaxDomains *float64 `json:"maxDomains,omitempty"`
+	MaxCustomCollectionSize *float64 `json:"maxCustomCollectionSize,omitempty"`
 	HasDebranding *bool `json:"hasDebranding,omitempty"`
 	HasWhiteLabeling *bool `json:"hasWhiteLabeling,omitempty"`
 	ForWhoText *string `json:"forWhoText,omitempty"`
@@ -419,6 +420,38 @@ func (o *UpdateTenantPackageBody) HasMaxDomains() bool {
 // SetMaxDomains gets a reference to the given float64 and assigns it to the MaxDomains field.
 func (o *UpdateTenantPackageBody) SetMaxDomains(v float64) {
 	o.MaxDomains = &v
+}
+
+// GetMaxCustomCollectionSize returns the MaxCustomCollectionSize field value if set, zero value otherwise.
+func (o *UpdateTenantPackageBody) GetMaxCustomCollectionSize() float64 {
+	if o == nil || IsNil(o.MaxCustomCollectionSize) {
+		var ret float64
+		return ret
+	}
+	return *o.MaxCustomCollectionSize
+}
+
+// GetMaxCustomCollectionSizeOk returns a tuple with the MaxCustomCollectionSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateTenantPackageBody) GetMaxCustomCollectionSizeOk() (*float64, bool) {
+	if o == nil || IsNil(o.MaxCustomCollectionSize) {
+		return nil, false
+	}
+	return o.MaxCustomCollectionSize, true
+}
+
+// HasMaxCustomCollectionSize returns a boolean if a field has been set.
+func (o *UpdateTenantPackageBody) HasMaxCustomCollectionSize() bool {
+	if o != nil && !IsNil(o.MaxCustomCollectionSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxCustomCollectionSize gets a reference to the given float64 and assigns it to the MaxCustomCollectionSize field.
+func (o *UpdateTenantPackageBody) SetMaxCustomCollectionSize(v float64) {
+	o.MaxCustomCollectionSize = &v
 }
 
 // GetHasDebranding returns the HasDebranding field value if set, zero value otherwise.
@@ -1103,6 +1136,9 @@ func (o UpdateTenantPackageBody) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.MaxDomains) {
 		toSerialize["maxDomains"] = o.MaxDomains
+	}
+	if !IsNil(o.MaxCustomCollectionSize) {
+		toSerialize["maxCustomCollectionSize"] = o.MaxCustomCollectionSize
 	}
 	if !IsNil(o.HasDebranding) {
 		toSerialize["hasDebranding"] = o.HasDebranding

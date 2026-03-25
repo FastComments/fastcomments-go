@@ -16,7 +16,7 @@ import (
 )
 
 // CommenterNameFormats the model 'CommenterNameFormats'
-type CommenterNameFormats float32
+type CommenterNameFormats int32
 
 // List of CommenterNameFormats
 const (
@@ -37,7 +37,7 @@ var AllowedCommenterNameFormatsEnumValues = []CommenterNameFormats{
 }
 
 func (v *CommenterNameFormats) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -55,7 +55,7 @@ func (v *CommenterNameFormats) UnmarshalJSON(src []byte) error {
 
 // NewCommenterNameFormatsFromValue returns a pointer to a valid CommenterNameFormats
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCommenterNameFormatsFromValue(v float32) (*CommenterNameFormats, error) {
+func NewCommenterNameFormatsFromValue(v int32) (*CommenterNameFormats, error) {
 	ev := CommenterNameFormats(v)
 	if ev.IsValid() {
 		return &ev, nil

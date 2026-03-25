@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **DisplayedOnComments** | **bool** |  | 
 **ReceivedAt** | **time.Time** |  | 
 **Order** | Pointer to **int32** |  | [optional] 
+**UrlId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -482,6 +483,41 @@ SetOrder sets Order field to given value.
 
 HasOrder returns a boolean if a field has been set.
 
+### GetUrlId
+
+`func (o *UserBadge) GetUrlId() string`
+
+GetUrlId returns the UrlId field if non-nil, zero value otherwise.
+
+### GetUrlIdOk
+
+`func (o *UserBadge) GetUrlIdOk() (*string, bool)`
+
+GetUrlIdOk returns a tuple with the UrlId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrlId
+
+`func (o *UserBadge) SetUrlId(v string)`
+
+SetUrlId sets UrlId field to given value.
+
+### HasUrlId
+
+`func (o *UserBadge) HasUrlId() bool`
+
+HasUrlId returns a boolean if a field has been set.
+
+### SetUrlIdNil
+
+`func (o *UserBadge) SetUrlIdNil(b bool)`
+
+ SetUrlIdNil sets the value for UrlId to be an explicit nil
+
+### UnsetUrlId
+`func (o *UserBadge) UnsetUrlId()`
+
+UnsetUrlId ensures that no value is present for UrlId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

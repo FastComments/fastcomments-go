@@ -20,6 +20,7 @@ import (
 type SearchUsers200Response struct {
 	APIError *APIError
 	SearchUsersResponse *SearchUsersResponse
+	SearchUsersSectionedResponse *SearchUsersSectionedResponse
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -51,6 +52,19 @@ func (dst *SearchUsers200Response) UnmarshalJSON(data []byte) error {
 		dst.SearchUsersResponse = nil
 	}
 
+	// try to unmarshal JSON data into SearchUsersSectionedResponse
+	err = json.Unmarshal(data, &dst.SearchUsersSectionedResponse);
+	if err == nil {
+		jsonSearchUsersSectionedResponse, _ := json.Marshal(dst.SearchUsersSectionedResponse)
+		if string(jsonSearchUsersSectionedResponse) == "{}" { // empty struct
+			dst.SearchUsersSectionedResponse = nil
+		} else {
+			return nil // data stored in dst.SearchUsersSectionedResponse, return on the first match
+		}
+	} else {
+		dst.SearchUsersSectionedResponse = nil
+	}
+
 	return fmt.Errorf("data failed to match schemas in anyOf(SearchUsers200Response)")
 }
 
@@ -62,6 +76,10 @@ func (src SearchUsers200Response) MarshalJSON() ([]byte, error) {
 
 	if src.SearchUsersResponse != nil {
 		return json.Marshal(&src.SearchUsersResponse)
+	}
+
+	if src.SearchUsersSectionedResponse != nil {
+		return json.Marshal(&src.SearchUsersSectionedResponse)
 	}
 
 	return nil, nil // no data in anyOf schemas

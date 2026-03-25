@@ -16,7 +16,7 @@ import (
 )
 
 // RepeatCommentCheckIgnoredReason the model 'RepeatCommentCheckIgnoredReason'
-type RepeatCommentCheckIgnoredReason float32
+type RepeatCommentCheckIgnoredReason int32
 
 // List of RepeatCommentCheckIgnoredReason
 const (
@@ -41,7 +41,7 @@ var AllowedRepeatCommentCheckIgnoredReasonEnumValues = []RepeatCommentCheckIgnor
 }
 
 func (v *RepeatCommentCheckIgnoredReason) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -59,7 +59,7 @@ func (v *RepeatCommentCheckIgnoredReason) UnmarshalJSON(src []byte) error {
 
 // NewRepeatCommentCheckIgnoredReasonFromValue returns a pointer to a valid RepeatCommentCheckIgnoredReason
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewRepeatCommentCheckIgnoredReasonFromValue(v float32) (*RepeatCommentCheckIgnoredReason, error) {
+func NewRepeatCommentCheckIgnoredReasonFromValue(v int32) (*RepeatCommentCheckIgnoredReason, error) {
 	ev := RepeatCommentCheckIgnoredReason(v)
 	if ev.IsValid() {
 		return &ev, nil

@@ -43,6 +43,8 @@ type CustomConfigParameters struct {
 	DisableEmailInputs *bool `json:"disableEmailInputs,omitempty"`
 	DisableLiveCommenting *bool `json:"disableLiveCommenting,omitempty"`
 	DisableNotificationBell *bool `json:"disableNotificationBell,omitempty"`
+	DisableProfileComments *bool `json:"disableProfileComments,omitempty"`
+	DisableProfileDirectMessages *bool `json:"disableProfileDirectMessages,omitempty"`
 	DisableProfiles *bool `json:"disableProfiles,omitempty"`
 	DisableSuccessMessage *bool `json:"disableSuccessMessage,omitempty"`
 	DisableToolbar *bool `json:"disableToolbar,omitempty"`
@@ -67,6 +69,7 @@ type CustomConfigParameters struct {
 	MaxCommentCharacterLength NullableInt32 `json:"maxCommentCharacterLength,omitempty"`
 	MaxCommentCreatedCountPUPM NullableInt32 `json:"maxCommentCreatedCountPUPM,omitempty"`
 	NoCustomConfig *bool `json:"noCustomConfig,omitempty"`
+	MentionAutoCompleteMode NullableMentionAutoCompleteMode `json:"mentionAutoCompleteMode,omitempty"`
 	NoImageUploads *bool `json:"noImageUploads,omitempty"`
 	NoStyles *bool `json:"noStyles,omitempty"`
 	PageSize NullableInt32 `json:"pageSize,omitempty"`
@@ -88,11 +91,18 @@ type CustomConfigParameters struct {
 	VoteStyle *VoteStyle `json:"voteStyle,omitempty"`
 	WidgetQuestionId *string `json:"widgetQuestionId,omitempty"`
 	WidgetQuestionResultsStyle *CommentQuestionResultsRenderingType `json:"widgetQuestionResultsStyle,omitempty"`
+	WidgetQuestionShowBreakdown *bool `json:"widgetQuestionShowBreakdown,omitempty"`
 	WidgetQuestionStyle *QuestionRenderingType `json:"widgetQuestionStyle,omitempty"`
 	WidgetQuestionWhenToSave *QuestionWhenSave `json:"widgetQuestionWhenToSave,omitempty"`
 	WidgetQuestionsRequired *CommentQuestionsRequired `json:"widgetQuestionsRequired,omitempty"`
 	WidgetSubQuestionVisibility *QuestionSubQuestionVisibility `json:"widgetSubQuestionVisibility,omitempty"`
 	Wrap *bool `json:"wrap,omitempty"`
+	TicketBaseUrl *string `json:"ticketBaseUrl,omitempty"`
+	TicketKBSearchEndpoint *string `json:"ticketKBSearchEndpoint,omitempty"`
+	TicketFileUploadsEnabled *bool `json:"ticketFileUploadsEnabled,omitempty"`
+	TicketMaxFileSize *int32 `json:"ticketMaxFileSize,omitempty"`
+	TicketAutoAssignUserIds []string `json:"ticketAutoAssignUserIds,omitempty"`
+	Tos *TOSConfig `json:"tos,omitempty"`
 }
 
 // NewCustomConfigParameters instantiates a new CustomConfigParameters object
@@ -951,6 +961,70 @@ func (o *CustomConfigParameters) SetDisableNotificationBell(v bool) {
 	o.DisableNotificationBell = &v
 }
 
+// GetDisableProfileComments returns the DisableProfileComments field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetDisableProfileComments() bool {
+	if o == nil || IsNil(o.DisableProfileComments) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableProfileComments
+}
+
+// GetDisableProfileCommentsOk returns a tuple with the DisableProfileComments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetDisableProfileCommentsOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableProfileComments) {
+		return nil, false
+	}
+	return o.DisableProfileComments, true
+}
+
+// HasDisableProfileComments returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasDisableProfileComments() bool {
+	if o != nil && !IsNil(o.DisableProfileComments) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisableProfileComments gets a reference to the given bool and assigns it to the DisableProfileComments field.
+func (o *CustomConfigParameters) SetDisableProfileComments(v bool) {
+	o.DisableProfileComments = &v
+}
+
+// GetDisableProfileDirectMessages returns the DisableProfileDirectMessages field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetDisableProfileDirectMessages() bool {
+	if o == nil || IsNil(o.DisableProfileDirectMessages) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableProfileDirectMessages
+}
+
+// GetDisableProfileDirectMessagesOk returns a tuple with the DisableProfileDirectMessages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetDisableProfileDirectMessagesOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableProfileDirectMessages) {
+		return nil, false
+	}
+	return o.DisableProfileDirectMessages, true
+}
+
+// HasDisableProfileDirectMessages returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasDisableProfileDirectMessages() bool {
+	if o != nil && !IsNil(o.DisableProfileDirectMessages) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisableProfileDirectMessages gets a reference to the given bool and assigns it to the DisableProfileDirectMessages field.
+func (o *CustomConfigParameters) SetDisableProfileDirectMessages(v bool) {
+	o.DisableProfileDirectMessages = &v
+}
+
 // GetDisableProfiles returns the DisableProfiles field value if set, zero value otherwise.
 func (o *CustomConfigParameters) GetDisableProfiles() bool {
 	if o == nil || IsNil(o.DisableProfiles) {
@@ -1769,6 +1843,48 @@ func (o *CustomConfigParameters) SetNoCustomConfig(v bool) {
 	o.NoCustomConfig = &v
 }
 
+// GetMentionAutoCompleteMode returns the MentionAutoCompleteMode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomConfigParameters) GetMentionAutoCompleteMode() MentionAutoCompleteMode {
+	if o == nil || IsNil(o.MentionAutoCompleteMode.Get()) {
+		var ret MentionAutoCompleteMode
+		return ret
+	}
+	return *o.MentionAutoCompleteMode.Get()
+}
+
+// GetMentionAutoCompleteModeOk returns a tuple with the MentionAutoCompleteMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomConfigParameters) GetMentionAutoCompleteModeOk() (*MentionAutoCompleteMode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MentionAutoCompleteMode.Get(), o.MentionAutoCompleteMode.IsSet()
+}
+
+// HasMentionAutoCompleteMode returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasMentionAutoCompleteMode() bool {
+	if o != nil && o.MentionAutoCompleteMode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMentionAutoCompleteMode gets a reference to the given NullableMentionAutoCompleteMode and assigns it to the MentionAutoCompleteMode field.
+func (o *CustomConfigParameters) SetMentionAutoCompleteMode(v MentionAutoCompleteMode) {
+	o.MentionAutoCompleteMode.Set(&v)
+}
+// SetMentionAutoCompleteModeNil sets the value for MentionAutoCompleteMode to be an explicit nil
+func (o *CustomConfigParameters) SetMentionAutoCompleteModeNil() {
+	o.MentionAutoCompleteMode.Set(nil)
+}
+
+// UnsetMentionAutoCompleteMode ensures that no value is present for MentionAutoCompleteMode, not even an explicit nil
+func (o *CustomConfigParameters) UnsetMentionAutoCompleteMode() {
+	o.MentionAutoCompleteMode.Unset()
+}
+
 // GetNoImageUploads returns the NoImageUploads field value if set, zero value otherwise.
 func (o *CustomConfigParameters) GetNoImageUploads() bool {
 	if o == nil || IsNil(o.NoImageUploads) {
@@ -2421,6 +2537,38 @@ func (o *CustomConfigParameters) SetWidgetQuestionResultsStyle(v CommentQuestion
 	o.WidgetQuestionResultsStyle = &v
 }
 
+// GetWidgetQuestionShowBreakdown returns the WidgetQuestionShowBreakdown field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetWidgetQuestionShowBreakdown() bool {
+	if o == nil || IsNil(o.WidgetQuestionShowBreakdown) {
+		var ret bool
+		return ret
+	}
+	return *o.WidgetQuestionShowBreakdown
+}
+
+// GetWidgetQuestionShowBreakdownOk returns a tuple with the WidgetQuestionShowBreakdown field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetWidgetQuestionShowBreakdownOk() (*bool, bool) {
+	if o == nil || IsNil(o.WidgetQuestionShowBreakdown) {
+		return nil, false
+	}
+	return o.WidgetQuestionShowBreakdown, true
+}
+
+// HasWidgetQuestionShowBreakdown returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasWidgetQuestionShowBreakdown() bool {
+	if o != nil && !IsNil(o.WidgetQuestionShowBreakdown) {
+		return true
+	}
+
+	return false
+}
+
+// SetWidgetQuestionShowBreakdown gets a reference to the given bool and assigns it to the WidgetQuestionShowBreakdown field.
+func (o *CustomConfigParameters) SetWidgetQuestionShowBreakdown(v bool) {
+	o.WidgetQuestionShowBreakdown = &v
+}
+
 // GetWidgetQuestionStyle returns the WidgetQuestionStyle field value if set, zero value otherwise.
 func (o *CustomConfigParameters) GetWidgetQuestionStyle() QuestionRenderingType {
 	if o == nil || IsNil(o.WidgetQuestionStyle) {
@@ -2581,6 +2729,198 @@ func (o *CustomConfigParameters) SetWrap(v bool) {
 	o.Wrap = &v
 }
 
+// GetTicketBaseUrl returns the TicketBaseUrl field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetTicketBaseUrl() string {
+	if o == nil || IsNil(o.TicketBaseUrl) {
+		var ret string
+		return ret
+	}
+	return *o.TicketBaseUrl
+}
+
+// GetTicketBaseUrlOk returns a tuple with the TicketBaseUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetTicketBaseUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.TicketBaseUrl) {
+		return nil, false
+	}
+	return o.TicketBaseUrl, true
+}
+
+// HasTicketBaseUrl returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasTicketBaseUrl() bool {
+	if o != nil && !IsNil(o.TicketBaseUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetTicketBaseUrl gets a reference to the given string and assigns it to the TicketBaseUrl field.
+func (o *CustomConfigParameters) SetTicketBaseUrl(v string) {
+	o.TicketBaseUrl = &v
+}
+
+// GetTicketKBSearchEndpoint returns the TicketKBSearchEndpoint field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetTicketKBSearchEndpoint() string {
+	if o == nil || IsNil(o.TicketKBSearchEndpoint) {
+		var ret string
+		return ret
+	}
+	return *o.TicketKBSearchEndpoint
+}
+
+// GetTicketKBSearchEndpointOk returns a tuple with the TicketKBSearchEndpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetTicketKBSearchEndpointOk() (*string, bool) {
+	if o == nil || IsNil(o.TicketKBSearchEndpoint) {
+		return nil, false
+	}
+	return o.TicketKBSearchEndpoint, true
+}
+
+// HasTicketKBSearchEndpoint returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasTicketKBSearchEndpoint() bool {
+	if o != nil && !IsNil(o.TicketKBSearchEndpoint) {
+		return true
+	}
+
+	return false
+}
+
+// SetTicketKBSearchEndpoint gets a reference to the given string and assigns it to the TicketKBSearchEndpoint field.
+func (o *CustomConfigParameters) SetTicketKBSearchEndpoint(v string) {
+	o.TicketKBSearchEndpoint = &v
+}
+
+// GetTicketFileUploadsEnabled returns the TicketFileUploadsEnabled field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetTicketFileUploadsEnabled() bool {
+	if o == nil || IsNil(o.TicketFileUploadsEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.TicketFileUploadsEnabled
+}
+
+// GetTicketFileUploadsEnabledOk returns a tuple with the TicketFileUploadsEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetTicketFileUploadsEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.TicketFileUploadsEnabled) {
+		return nil, false
+	}
+	return o.TicketFileUploadsEnabled, true
+}
+
+// HasTicketFileUploadsEnabled returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasTicketFileUploadsEnabled() bool {
+	if o != nil && !IsNil(o.TicketFileUploadsEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetTicketFileUploadsEnabled gets a reference to the given bool and assigns it to the TicketFileUploadsEnabled field.
+func (o *CustomConfigParameters) SetTicketFileUploadsEnabled(v bool) {
+	o.TicketFileUploadsEnabled = &v
+}
+
+// GetTicketMaxFileSize returns the TicketMaxFileSize field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetTicketMaxFileSize() int32 {
+	if o == nil || IsNil(o.TicketMaxFileSize) {
+		var ret int32
+		return ret
+	}
+	return *o.TicketMaxFileSize
+}
+
+// GetTicketMaxFileSizeOk returns a tuple with the TicketMaxFileSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetTicketMaxFileSizeOk() (*int32, bool) {
+	if o == nil || IsNil(o.TicketMaxFileSize) {
+		return nil, false
+	}
+	return o.TicketMaxFileSize, true
+}
+
+// HasTicketMaxFileSize returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasTicketMaxFileSize() bool {
+	if o != nil && !IsNil(o.TicketMaxFileSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetTicketMaxFileSize gets a reference to the given int32 and assigns it to the TicketMaxFileSize field.
+func (o *CustomConfigParameters) SetTicketMaxFileSize(v int32) {
+	o.TicketMaxFileSize = &v
+}
+
+// GetTicketAutoAssignUserIds returns the TicketAutoAssignUserIds field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetTicketAutoAssignUserIds() []string {
+	if o == nil || IsNil(o.TicketAutoAssignUserIds) {
+		var ret []string
+		return ret
+	}
+	return o.TicketAutoAssignUserIds
+}
+
+// GetTicketAutoAssignUserIdsOk returns a tuple with the TicketAutoAssignUserIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetTicketAutoAssignUserIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.TicketAutoAssignUserIds) {
+		return nil, false
+	}
+	return o.TicketAutoAssignUserIds, true
+}
+
+// HasTicketAutoAssignUserIds returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasTicketAutoAssignUserIds() bool {
+	if o != nil && !IsNil(o.TicketAutoAssignUserIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetTicketAutoAssignUserIds gets a reference to the given []string and assigns it to the TicketAutoAssignUserIds field.
+func (o *CustomConfigParameters) SetTicketAutoAssignUserIds(v []string) {
+	o.TicketAutoAssignUserIds = v
+}
+
+// GetTos returns the Tos field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetTos() TOSConfig {
+	if o == nil || IsNil(o.Tos) {
+		var ret TOSConfig
+		return ret
+	}
+	return *o.Tos
+}
+
+// GetTosOk returns a tuple with the Tos field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetTosOk() (*TOSConfig, bool) {
+	if o == nil || IsNil(o.Tos) {
+		return nil, false
+	}
+	return o.Tos, true
+}
+
+// HasTos returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasTos() bool {
+	if o != nil && !IsNil(o.Tos) {
+		return true
+	}
+
+	return false
+}
+
+// SetTos gets a reference to the given TOSConfig and assigns it to the Tos field.
+func (o *CustomConfigParameters) SetTos(v TOSConfig) {
+	o.Tos = &v
+}
+
 func (o CustomConfigParameters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -2663,6 +3003,12 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DisableNotificationBell) {
 		toSerialize["disableNotificationBell"] = o.DisableNotificationBell
 	}
+	if !IsNil(o.DisableProfileComments) {
+		toSerialize["disableProfileComments"] = o.DisableProfileComments
+	}
+	if !IsNil(o.DisableProfileDirectMessages) {
+		toSerialize["disableProfileDirectMessages"] = o.DisableProfileDirectMessages
+	}
 	if !IsNil(o.DisableProfiles) {
 		toSerialize["disableProfiles"] = o.DisableProfiles
 	}
@@ -2735,6 +3081,9 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NoCustomConfig) {
 		toSerialize["noCustomConfig"] = o.NoCustomConfig
 	}
+	if o.MentionAutoCompleteMode.IsSet() {
+		toSerialize["mentionAutoCompleteMode"] = o.MentionAutoCompleteMode.Get()
+	}
 	if !IsNil(o.NoImageUploads) {
 		toSerialize["noImageUploads"] = o.NoImageUploads
 	}
@@ -2795,6 +3144,9 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WidgetQuestionResultsStyle) {
 		toSerialize["widgetQuestionResultsStyle"] = o.WidgetQuestionResultsStyle
 	}
+	if !IsNil(o.WidgetQuestionShowBreakdown) {
+		toSerialize["widgetQuestionShowBreakdown"] = o.WidgetQuestionShowBreakdown
+	}
 	if !IsNil(o.WidgetQuestionStyle) {
 		toSerialize["widgetQuestionStyle"] = o.WidgetQuestionStyle
 	}
@@ -2809,6 +3161,24 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Wrap) {
 		toSerialize["wrap"] = o.Wrap
+	}
+	if !IsNil(o.TicketBaseUrl) {
+		toSerialize["ticketBaseUrl"] = o.TicketBaseUrl
+	}
+	if !IsNil(o.TicketKBSearchEndpoint) {
+		toSerialize["ticketKBSearchEndpoint"] = o.TicketKBSearchEndpoint
+	}
+	if !IsNil(o.TicketFileUploadsEnabled) {
+		toSerialize["ticketFileUploadsEnabled"] = o.TicketFileUploadsEnabled
+	}
+	if !IsNil(o.TicketMaxFileSize) {
+		toSerialize["ticketMaxFileSize"] = o.TicketMaxFileSize
+	}
+	if !IsNil(o.TicketAutoAssignUserIds) {
+		toSerialize["ticketAutoAssignUserIds"] = o.TicketAutoAssignUserIds
+	}
+	if !IsNil(o.Tos) {
+		toSerialize["tos"] = o.Tos
 	}
 	return toSerialize, nil
 }

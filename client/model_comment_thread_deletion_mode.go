@@ -16,7 +16,7 @@ import (
 )
 
 // CommentThreadDeletionMode the model 'CommentThreadDeletionMode'
-type CommentThreadDeletionMode float32
+type CommentThreadDeletionMode int32
 
 // List of CommentThreadDeletionMode
 const (
@@ -35,7 +35,7 @@ var AllowedCommentThreadDeletionModeEnumValues = []CommentThreadDeletionMode{
 }
 
 func (v *CommentThreadDeletionMode) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -53,7 +53,7 @@ func (v *CommentThreadDeletionMode) UnmarshalJSON(src []byte) error {
 
 // NewCommentThreadDeletionModeFromValue returns a pointer to a valid CommentThreadDeletionMode
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCommentThreadDeletionModeFromValue(v float32) (*CommentThreadDeletionMode, error) {
+func NewCommentThreadDeletionModeFromValue(v int32) (*CommentThreadDeletionMode, error) {
 	ev := CommentThreadDeletionMode(v)
 	if ev.IsValid() {
 		return &ev, nil

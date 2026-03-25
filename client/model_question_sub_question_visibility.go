@@ -16,7 +16,7 @@ import (
 )
 
 // QuestionSubQuestionVisibility the model 'QuestionSubQuestionVisibility'
-type QuestionSubQuestionVisibility float32
+type QuestionSubQuestionVisibility int32
 
 // List of QuestionSubQuestionVisibility
 const (
@@ -31,7 +31,7 @@ var AllowedQuestionSubQuestionVisibilityEnumValues = []QuestionSubQuestionVisibi
 }
 
 func (v *QuestionSubQuestionVisibility) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *QuestionSubQuestionVisibility) UnmarshalJSON(src []byte) error {
 
 // NewQuestionSubQuestionVisibilityFromValue returns a pointer to a valid QuestionSubQuestionVisibility
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewQuestionSubQuestionVisibilityFromValue(v float32) (*QuestionSubQuestionVisibility, error) {
+func NewQuestionSubQuestionVisibilityFromValue(v int32) (*QuestionSubQuestionVisibility, error) {
 	ev := QuestionSubQuestionVisibility(v)
 	if ev.IsValid() {
 		return &ev, nil

@@ -93,6 +93,7 @@ type FComment struct {
 	ViewCount NullableInt64 `json:"viewCount,omitempty"`
 	RequiresVerification *bool `json:"requiresVerification,omitempty"`
 	EditKey *string `json:"editKey,omitempty"`
+	TosAcceptedAt *time.Time `json:"tosAcceptedAt,omitempty"`
 }
 
 type _FComment FComment
@@ -2587,6 +2588,38 @@ func (o *FComment) SetEditKey(v string) {
 	o.EditKey = &v
 }
 
+// GetTosAcceptedAt returns the TosAcceptedAt field value if set, zero value otherwise.
+func (o *FComment) GetTosAcceptedAt() time.Time {
+	if o == nil || IsNil(o.TosAcceptedAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.TosAcceptedAt
+}
+
+// GetTosAcceptedAtOk returns a tuple with the TosAcceptedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FComment) GetTosAcceptedAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.TosAcceptedAt) {
+		return nil, false
+	}
+	return o.TosAcceptedAt, true
+}
+
+// HasTosAcceptedAt returns a boolean if a field has been set.
+func (o *FComment) HasTosAcceptedAt() bool {
+	if o != nil && !IsNil(o.TosAcceptedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetTosAcceptedAt gets a reference to the given time.Time and assigns it to the TosAcceptedAt field.
+func (o *FComment) SetTosAcceptedAt(v time.Time) {
+	o.TosAcceptedAt = &v
+}
+
 func (o FComment) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -2787,6 +2820,9 @@ func (o FComment) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EditKey) {
 		toSerialize["editKey"] = o.EditKey
+	}
+	if !IsNil(o.TosAcceptedAt) {
+		toSerialize["tosAcceptedAt"] = o.TosAcceptedAt
 	}
 	return toSerialize, nil
 }

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **MaxSSOUsers** | Pointer to **float64** |  | [optional] 
 **MaxModerators** | Pointer to **float64** |  | [optional] 
 **MaxDomains** | Pointer to **float64** |  | [optional] 
+**MaxCustomCollectionSize** | Pointer to **float64** |  | [optional] 
 **HasDebranding** | Pointer to **bool** |  | [optional] 
 **HasWhiteLabeling** | Pointer to **bool** |  | [optional] 
 **ForWhoText** | Pointer to **string** |  | [optional] 
@@ -329,6 +330,31 @@ SetMaxDomains sets MaxDomains field to given value.
 `func (o *UpdateTenantPackageBody) HasMaxDomains() bool`
 
 HasMaxDomains returns a boolean if a field has been set.
+
+### GetMaxCustomCollectionSize
+
+`func (o *UpdateTenantPackageBody) GetMaxCustomCollectionSize() float64`
+
+GetMaxCustomCollectionSize returns the MaxCustomCollectionSize field if non-nil, zero value otherwise.
+
+### GetMaxCustomCollectionSizeOk
+
+`func (o *UpdateTenantPackageBody) GetMaxCustomCollectionSizeOk() (*float64, bool)`
+
+GetMaxCustomCollectionSizeOk returns a tuple with the MaxCustomCollectionSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxCustomCollectionSize
+
+`func (o *UpdateTenantPackageBody) SetMaxCustomCollectionSize(v float64)`
+
+SetMaxCustomCollectionSize sets MaxCustomCollectionSize field to given value.
+
+### HasMaxCustomCollectionSize
+
+`func (o *UpdateTenantPackageBody) HasMaxCustomCollectionSize() bool`
+
+HasMaxCustomCollectionSize returns a boolean if a field has been set.
 
 ### GetHasDebranding
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NotificationFrequency** | Pointer to **float64** |  | [optional] 
 **CreatedAt** | **time.Time** |  | 
 **PageTitle** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewAPIUserSubscriptionWithDefaults instantiates a new APIUserSubscription object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNotificationFrequency
+
+`func (o *APIUserSubscription) GetNotificationFrequency() float64`
+
+GetNotificationFrequency returns the NotificationFrequency field if non-nil, zero value otherwise.
+
+### GetNotificationFrequencyOk
+
+`func (o *APIUserSubscription) GetNotificationFrequencyOk() (*float64, bool)`
+
+GetNotificationFrequencyOk returns a tuple with the NotificationFrequency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotificationFrequency
+
+`func (o *APIUserSubscription) SetNotificationFrequency(v float64)`
+
+SetNotificationFrequency sets NotificationFrequency field to given value.
+
+### HasNotificationFrequency
+
+`func (o *APIUserSubscription) HasNotificationFrequency() bool`
+
+HasNotificationFrequency returns a boolean if a field has been set.
 
 ### GetCreatedAt
 

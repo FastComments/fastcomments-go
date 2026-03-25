@@ -16,7 +16,7 @@ import (
 )
 
 // CommentLogType the model 'CommentLogType'
-type CommentLogType float32
+type CommentLogType int32
 
 // List of CommentLogType
 const (
@@ -139,7 +139,7 @@ var AllowedCommentLogTypeEnumValues = []CommentLogType{
 }
 
 func (v *CommentLogType) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -157,7 +157,7 @@ func (v *CommentLogType) UnmarshalJSON(src []byte) error {
 
 // NewCommentLogTypeFromValue returns a pointer to a valid CommentLogType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCommentLogTypeFromValue(v float32) (*CommentLogType, error) {
+func NewCommentLogTypeFromValue(v int32) (*CommentLogType, error) {
 	ev := CommentLogType(v)
 	if ev.IsValid() {
 		return &ev, nil

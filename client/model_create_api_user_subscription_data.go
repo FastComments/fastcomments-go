@@ -21,6 +21,7 @@ var _ MappedNullable = &CreateAPIUserSubscriptionData{}
 
 // CreateAPIUserSubscriptionData struct for CreateAPIUserSubscriptionData
 type CreateAPIUserSubscriptionData struct {
+	NotificationFrequency *float64 `json:"notificationFrequency,omitempty"`
 	PageTitle *string `json:"pageTitle,omitempty"`
 	Url *string `json:"url,omitempty"`
 	UrlId string `json:"urlId"`
@@ -46,6 +47,38 @@ func NewCreateAPIUserSubscriptionData(urlId string) *CreateAPIUserSubscriptionDa
 func NewCreateAPIUserSubscriptionDataWithDefaults() *CreateAPIUserSubscriptionData {
 	this := CreateAPIUserSubscriptionData{}
 	return &this
+}
+
+// GetNotificationFrequency returns the NotificationFrequency field value if set, zero value otherwise.
+func (o *CreateAPIUserSubscriptionData) GetNotificationFrequency() float64 {
+	if o == nil || IsNil(o.NotificationFrequency) {
+		var ret float64
+		return ret
+	}
+	return *o.NotificationFrequency
+}
+
+// GetNotificationFrequencyOk returns a tuple with the NotificationFrequency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAPIUserSubscriptionData) GetNotificationFrequencyOk() (*float64, bool) {
+	if o == nil || IsNil(o.NotificationFrequency) {
+		return nil, false
+	}
+	return o.NotificationFrequency, true
+}
+
+// HasNotificationFrequency returns a boolean if a field has been set.
+func (o *CreateAPIUserSubscriptionData) HasNotificationFrequency() bool {
+	if o != nil && !IsNil(o.NotificationFrequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotificationFrequency gets a reference to the given float64 and assigns it to the NotificationFrequency field.
+func (o *CreateAPIUserSubscriptionData) SetNotificationFrequency(v float64) {
+	o.NotificationFrequency = &v
 }
 
 // GetPageTitle returns the PageTitle field value if set, zero value otherwise.
@@ -210,6 +243,9 @@ func (o CreateAPIUserSubscriptionData) MarshalJSON() ([]byte, error) {
 
 func (o CreateAPIUserSubscriptionData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NotificationFrequency) {
+		toSerialize["notificationFrequency"] = o.NotificationFrequency
+	}
 	if !IsNil(o.PageTitle) {
 		toSerialize["pageTitle"] = o.PageTitle
 	}

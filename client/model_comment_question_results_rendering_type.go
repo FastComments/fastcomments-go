@@ -16,7 +16,7 @@ import (
 )
 
 // CommentQuestionResultsRenderingType the model 'CommentQuestionResultsRenderingType'
-type CommentQuestionResultsRenderingType float32
+type CommentQuestionResultsRenderingType int32
 
 // List of CommentQuestionResultsRenderingType
 const (
@@ -33,7 +33,7 @@ var AllowedCommentQuestionResultsRenderingTypeEnumValues = []CommentQuestionResu
 }
 
 func (v *CommentQuestionResultsRenderingType) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -51,7 +51,7 @@ func (v *CommentQuestionResultsRenderingType) UnmarshalJSON(src []byte) error {
 
 // NewCommentQuestionResultsRenderingTypeFromValue returns a pointer to a valid CommentQuestionResultsRenderingType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCommentQuestionResultsRenderingTypeFromValue(v float32) (*CommentQuestionResultsRenderingType, error) {
+func NewCommentQuestionResultsRenderingTypeFromValue(v int32) (*CommentQuestionResultsRenderingType, error) {
 	ev := CommentQuestionResultsRenderingType(v)
 	if ev.IsValid() {
 		return &ev, nil

@@ -16,7 +16,7 @@ import (
 )
 
 // CommentHTMLRenderingMode the model 'CommentHTMLRenderingMode'
-type CommentHTMLRenderingMode float32
+type CommentHTMLRenderingMode int32
 
 // List of CommentHTMLRenderingMode
 const (
@@ -31,7 +31,7 @@ var AllowedCommentHTMLRenderingModeEnumValues = []CommentHTMLRenderingMode{
 }
 
 func (v *CommentHTMLRenderingMode) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *CommentHTMLRenderingMode) UnmarshalJSON(src []byte) error {
 
 // NewCommentHTMLRenderingModeFromValue returns a pointer to a valid CommentHTMLRenderingMode
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCommentHTMLRenderingModeFromValue(v float32) (*CommentHTMLRenderingMode, error) {
+func NewCommentHTMLRenderingModeFromValue(v int32) (*CommentHTMLRenderingMode, error) {
 	ev := CommentHTMLRenderingMode(v)
 	if ev.IsValid() {
 		return &ev, nil

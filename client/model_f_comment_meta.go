@@ -19,6 +19,7 @@ var _ MappedNullable = &FCommentMeta{}
 
 // FCommentMeta struct for FCommentMeta
 type FCommentMeta struct {
+	WpId *string `json:"wpId,omitempty"`
 	WpUserId *string `json:"wpUserId,omitempty"`
 	WpPostId *string `json:"wpPostId,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -41,6 +42,38 @@ func NewFCommentMeta() *FCommentMeta {
 func NewFCommentMetaWithDefaults() *FCommentMeta {
 	this := FCommentMeta{}
 	return &this
+}
+
+// GetWpId returns the WpId field value if set, zero value otherwise.
+func (o *FCommentMeta) GetWpId() string {
+	if o == nil || IsNil(o.WpId) {
+		var ret string
+		return ret
+	}
+	return *o.WpId
+}
+
+// GetWpIdOk returns a tuple with the WpId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FCommentMeta) GetWpIdOk() (*string, bool) {
+	if o == nil || IsNil(o.WpId) {
+		return nil, false
+	}
+	return o.WpId, true
+}
+
+// HasWpId returns a boolean if a field has been set.
+func (o *FCommentMeta) HasWpId() bool {
+	if o != nil && !IsNil(o.WpId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWpId gets a reference to the given string and assigns it to the WpId field.
+func (o *FCommentMeta) SetWpId(v string) {
+	o.WpId = &v
 }
 
 // GetWpUserId returns the WpUserId field value if set, zero value otherwise.
@@ -117,6 +150,9 @@ func (o FCommentMeta) MarshalJSON() ([]byte, error) {
 
 func (o FCommentMeta) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.WpId) {
+		toSerialize["wpId"] = o.WpId
+	}
 	if !IsNil(o.WpUserId) {
 		toSerialize["wpUserId"] = o.WpUserId
 	}
@@ -145,6 +181,7 @@ func (o *FCommentMeta) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "wpId")
 		delete(additionalProperties, "wpUserId")
 		delete(additionalProperties, "wpPostId")
 		o.AdditionalProperties = additionalProperties

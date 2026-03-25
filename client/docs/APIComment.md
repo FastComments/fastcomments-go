@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **LocalDateString** | Pointer to **NullableString** |  | [optional] 
 **Locale** | **NullableString** |  | 
 **Mentions** | Pointer to [**[]CommentUserMentionInfo**](CommentUserMentionInfo.md) |  | [optional] 
-**Meta** | Pointer to [**NullableFCommentMeta**](FCommentMeta.md) |  | [optional] 
+**Meta** | Pointer to [**NullableAPICommentBaseMeta**](APICommentBaseMeta.md) |  | [optional] 
 **ModerationGroupIds** | Pointer to **[]string** |  | [optional] 
 **NotificationSentForParent** | Pointer to **bool** |  | [optional] 
 **NotificationSentForParentTenant** | Pointer to **bool** |  | [optional] 
@@ -1079,20 +1079,20 @@ HasMentions returns a boolean if a field has been set.
 
 ### GetMeta
 
-`func (o *APIComment) GetMeta() FCommentMeta`
+`func (o *APIComment) GetMeta() APICommentBaseMeta`
 
 GetMeta returns the Meta field if non-nil, zero value otherwise.
 
 ### GetMetaOk
 
-`func (o *APIComment) GetMetaOk() (*FCommentMeta, bool)`
+`func (o *APIComment) GetMetaOk() (*APICommentBaseMeta, bool)`
 
 GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeta
 
-`func (o *APIComment) SetMeta(v FCommentMeta)`
+`func (o *APIComment) SetMeta(v APICommentBaseMeta)`
 
 SetMeta sets Meta field to given value.
 

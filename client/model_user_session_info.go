@@ -29,6 +29,7 @@ type UserSessionInfo struct {
 	GroupIds []string `json:"groupIds,omitempty"`
 	HasBlockedUsers *bool `json:"hasBlockedUsers,omitempty"`
 	IsAnonSession *bool `json:"isAnonSession,omitempty"`
+	NeedsTOS *bool `json:"needsTOS,omitempty"`
 	SessionId NullableString `json:"sessionId,omitempty"`
 	Username *string `json:"username,omitempty"`
 	WebsiteUrl *string `json:"websiteUrl,omitempty"`
@@ -391,6 +392,38 @@ func (o *UserSessionInfo) SetIsAnonSession(v bool) {
 	o.IsAnonSession = &v
 }
 
+// GetNeedsTOS returns the NeedsTOS field value if set, zero value otherwise.
+func (o *UserSessionInfo) GetNeedsTOS() bool {
+	if o == nil || IsNil(o.NeedsTOS) {
+		var ret bool
+		return ret
+	}
+	return *o.NeedsTOS
+}
+
+// GetNeedsTOSOk returns a tuple with the NeedsTOS field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserSessionInfo) GetNeedsTOSOk() (*bool, bool) {
+	if o == nil || IsNil(o.NeedsTOS) {
+		return nil, false
+	}
+	return o.NeedsTOS, true
+}
+
+// HasNeedsTOS returns a boolean if a field has been set.
+func (o *UserSessionInfo) HasNeedsTOS() bool {
+	if o != nil && !IsNil(o.NeedsTOS) {
+		return true
+	}
+
+	return false
+}
+
+// SetNeedsTOS gets a reference to the given bool and assigns it to the NeedsTOS field.
+func (o *UserSessionInfo) SetNeedsTOS(v bool) {
+	o.NeedsTOS = &v
+}
+
 // GetSessionId returns the SessionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSessionInfo) GetSessionId() string {
 	if o == nil || IsNil(o.SessionId.Get()) {
@@ -536,6 +569,9 @@ func (o UserSessionInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsAnonSession) {
 		toSerialize["isAnonSession"] = o.IsAnonSession
+	}
+	if !IsNil(o.NeedsTOS) {
+		toSerialize["needsTOS"] = o.NeedsTOS
 	}
 	if o.SessionId.IsSet() {
 		toSerialize["sessionId"] = o.SessionId.Get()

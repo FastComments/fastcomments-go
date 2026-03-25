@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AutoTrustFactor** | Pointer to **float64** |  | [optional] 
 **ManualTrustFactor** | Pointer to **float64** |  | [optional] 
 **Progress** | **map[string]float64** | Construct a type with a set of properties K of type T | 
+**TosAcceptedAt** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -201,6 +202,31 @@ and a boolean to check if the value has been set.
 
 SetProgress sets Progress field to given value.
 
+
+### GetTosAcceptedAt
+
+`func (o *UserBadgeProgress) GetTosAcceptedAt() time.Time`
+
+GetTosAcceptedAt returns the TosAcceptedAt field if non-nil, zero value otherwise.
+
+### GetTosAcceptedAtOk
+
+`func (o *UserBadgeProgress) GetTosAcceptedAtOk() (*time.Time, bool)`
+
+GetTosAcceptedAtOk returns a tuple with the TosAcceptedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTosAcceptedAt
+
+`func (o *UserBadgeProgress) SetTosAcceptedAt(v time.Time)`
+
+SetTosAcceptedAt sets TosAcceptedAt field to given value.
+
+### HasTosAcceptedAt
+
+`func (o *UserBadgeProgress) HasTosAcceptedAt() bool`
+
+HasTosAcceptedAt returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

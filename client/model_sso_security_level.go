@@ -16,7 +16,7 @@ import (
 )
 
 // SSOSecurityLevel the model 'SSOSecurityLevel'
-type SSOSecurityLevel float32
+type SSOSecurityLevel int32
 
 // List of SSOSecurityLevel
 const (
@@ -31,7 +31,7 @@ var AllowedSSOSecurityLevelEnumValues = []SSOSecurityLevel{
 }
 
 func (v *SSOSecurityLevel) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *SSOSecurityLevel) UnmarshalJSON(src []byte) error {
 
 // NewSSOSecurityLevelFromValue returns a pointer to a valid SSOSecurityLevel
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewSSOSecurityLevelFromValue(v float32) (*SSOSecurityLevel, error) {
+func NewSSOSecurityLevelFromValue(v int32) (*SSOSecurityLevel, error) {
 	ev := SSOSecurityLevel(v)
 	if ev.IsValid() {
 		return &ev, nil

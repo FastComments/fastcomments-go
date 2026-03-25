@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | [**APIStatus**](APIStatus.md) |  | 
+**Sections** | [**[]UserSearchSectionResult**](UserSearchSectionResult.md) |  | 
 **Users** | [**[]UserSearchResult**](UserSearchResult.md) |  | 
 **Reason** | **string** |  | 
 **Code** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewSearchUsers200Response
 
-`func NewSearchUsers200Response(status APIStatus, users []UserSearchResult, reason string, code string, ) *SearchUsers200Response`
+`func NewSearchUsers200Response(status APIStatus, sections []UserSearchSectionResult, users []UserSearchResult, reason string, code string, ) *SearchUsers200Response`
 
 NewSearchUsers200Response instantiates a new SearchUsers200Response object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +52,26 @@ and a boolean to check if the value has been set.
 `func (o *SearchUsers200Response) SetStatus(v APIStatus)`
 
 SetStatus sets Status field to given value.
+
+
+### GetSections
+
+`func (o *SearchUsers200Response) GetSections() []UserSearchSectionResult`
+
+GetSections returns the Sections field if non-nil, zero value otherwise.
+
+### GetSectionsOk
+
+`func (o *SearchUsers200Response) GetSectionsOk() (*[]UserSearchSectionResult, bool)`
+
+GetSectionsOk returns a tuple with the Sections field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSections
+
+`func (o *SearchUsers200Response) SetSections(v []UserSearchSectionResult)`
+
+SetSections sets Sections field to given value.
 
 
 ### GetUsers

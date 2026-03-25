@@ -46,6 +46,7 @@ type CommentData struct {
 	FeedbackIds []string `json:"feedbackIds,omitempty"`
 	// Construct a type with a set of properties K of type T
 	QuestionValues map[string]RecordStringStringOrNumberValue `json:"questionValues,omitempty"`
+	Tos *bool `json:"tos,omitempty"`
 }
 
 type _CommentData CommentData
@@ -857,6 +858,38 @@ func (o *CommentData) SetQuestionValues(v map[string]RecordStringStringOrNumberV
 	o.QuestionValues = v
 }
 
+// GetTos returns the Tos field value if set, zero value otherwise.
+func (o *CommentData) GetTos() bool {
+	if o == nil || IsNil(o.Tos) {
+		var ret bool
+		return ret
+	}
+	return *o.Tos
+}
+
+// GetTosOk returns a tuple with the Tos field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommentData) GetTosOk() (*bool, bool) {
+	if o == nil || IsNil(o.Tos) {
+		return nil, false
+	}
+	return o.Tos, true
+}
+
+// HasTos returns a boolean if a field has been set.
+func (o *CommentData) HasTos() bool {
+	if o != nil && !IsNil(o.Tos) {
+		return true
+	}
+
+	return false
+}
+
+// SetTos gets a reference to the given bool and assigns it to the Tos field.
+func (o *CommentData) SetTos(v bool) {
+	o.Tos = &v
+}
+
 func (o CommentData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -930,6 +963,9 @@ func (o CommentData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.QuestionValues) {
 		toSerialize["questionValues"] = o.QuestionValues
+	}
+	if !IsNil(o.Tos) {
+		toSerialize["tos"] = o.Tos
 	}
 	return toSerialize, nil
 }

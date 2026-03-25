@@ -37,6 +37,7 @@ type CreateTenantPackageBody struct {
 	MaxDomains float64 `json:"maxDomains"`
 	MaxWhiteLabeledTenants *float64 `json:"maxWhiteLabeledTenants,omitempty"`
 	MaxMonthlyEventLogRequests *float64 `json:"maxMonthlyEventLogRequests,omitempty"`
+	MaxCustomCollectionSize *float64 `json:"maxCustomCollectionSize,omitempty"`
 	HasWhiteLabeling *bool `json:"hasWhiteLabeling,omitempty"`
 	HasDebranding bool `json:"hasDebranding"`
 	HasLLMSpamDetection *bool `json:"hasLLMSpamDetection,omitempty"`
@@ -581,6 +582,38 @@ func (o *CreateTenantPackageBody) HasMaxMonthlyEventLogRequests() bool {
 // SetMaxMonthlyEventLogRequests gets a reference to the given float64 and assigns it to the MaxMonthlyEventLogRequests field.
 func (o *CreateTenantPackageBody) SetMaxMonthlyEventLogRequests(v float64) {
 	o.MaxMonthlyEventLogRequests = &v
+}
+
+// GetMaxCustomCollectionSize returns the MaxCustomCollectionSize field value if set, zero value otherwise.
+func (o *CreateTenantPackageBody) GetMaxCustomCollectionSize() float64 {
+	if o == nil || IsNil(o.MaxCustomCollectionSize) {
+		var ret float64
+		return ret
+	}
+	return *o.MaxCustomCollectionSize
+}
+
+// GetMaxCustomCollectionSizeOk returns a tuple with the MaxCustomCollectionSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateTenantPackageBody) GetMaxCustomCollectionSizeOk() (*float64, bool) {
+	if o == nil || IsNil(o.MaxCustomCollectionSize) {
+		return nil, false
+	}
+	return o.MaxCustomCollectionSize, true
+}
+
+// HasMaxCustomCollectionSize returns a boolean if a field has been set.
+func (o *CreateTenantPackageBody) HasMaxCustomCollectionSize() bool {
+	if o != nil && !IsNil(o.MaxCustomCollectionSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxCustomCollectionSize gets a reference to the given float64 and assigns it to the MaxCustomCollectionSize field.
+func (o *CreateTenantPackageBody) SetMaxCustomCollectionSize(v float64) {
+	o.MaxCustomCollectionSize = &v
 }
 
 // GetHasWhiteLabeling returns the HasWhiteLabeling field value if set, zero value otherwise.
@@ -1614,6 +1647,9 @@ func (o CreateTenantPackageBody) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.MaxMonthlyEventLogRequests) {
 		toSerialize["maxMonthlyEventLogRequests"] = o.MaxMonthlyEventLogRequests
+	}
+	if !IsNil(o.MaxCustomCollectionSize) {
+		toSerialize["maxCustomCollectionSize"] = o.MaxCustomCollectionSize
 	}
 	if !IsNil(o.HasWhiteLabeling) {
 		toSerialize["hasWhiteLabeling"] = o.HasWhiteLabeling

@@ -31,6 +31,7 @@ type UserBadgeProgress struct {
 	ManualTrustFactor *float64 `json:"manualTrustFactor,omitempty"`
 	// Construct a type with a set of properties K of type T
 	Progress map[string]float64 `json:"progress"`
+	TosAcceptedAt *time.Time `json:"tosAcceptedAt,omitempty"`
 }
 
 type _UserBadgeProgress UserBadgeProgress
@@ -266,6 +267,38 @@ func (o *UserBadgeProgress) SetProgress(v map[string]float64) {
 	o.Progress = v
 }
 
+// GetTosAcceptedAt returns the TosAcceptedAt field value if set, zero value otherwise.
+func (o *UserBadgeProgress) GetTosAcceptedAt() time.Time {
+	if o == nil || IsNil(o.TosAcceptedAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.TosAcceptedAt
+}
+
+// GetTosAcceptedAtOk returns a tuple with the TosAcceptedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserBadgeProgress) GetTosAcceptedAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.TosAcceptedAt) {
+		return nil, false
+	}
+	return o.TosAcceptedAt, true
+}
+
+// HasTosAcceptedAt returns a boolean if a field has been set.
+func (o *UserBadgeProgress) HasTosAcceptedAt() bool {
+	if o != nil && !IsNil(o.TosAcceptedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetTosAcceptedAt gets a reference to the given time.Time and assigns it to the TosAcceptedAt field.
+func (o *UserBadgeProgress) SetTosAcceptedAt(v time.Time) {
+	o.TosAcceptedAt = &v
+}
+
 func (o UserBadgeProgress) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -288,6 +321,9 @@ func (o UserBadgeProgress) ToMap() (map[string]interface{}, error) {
 		toSerialize["manualTrustFactor"] = o.ManualTrustFactor
 	}
 	toSerialize["progress"] = o.Progress
+	if !IsNil(o.TosAcceptedAt) {
+		toSerialize["tosAcceptedAt"] = o.TosAcceptedAt
+	}
 	return toSerialize, nil
 }
 

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **MaxDomains** | **float64** |  | 
 **MaxWhiteLabeledTenants** | Pointer to **float64** |  | [optional] 
 **MaxMonthlyEventLogRequests** | Pointer to **float64** |  | [optional] 
+**MaxCustomCollectionSize** | Pointer to **float64** |  | [optional] 
 **HasWhiteLabeling** | Pointer to **bool** |  | [optional] 
 **HasDebranding** | **bool** |  | 
 **HasLLMSpamDetection** | Pointer to **bool** |  | [optional] 
@@ -466,6 +467,31 @@ SetMaxMonthlyEventLogRequests sets MaxMonthlyEventLogRequests field to given val
 `func (o *CreateTenantPackageBody) HasMaxMonthlyEventLogRequests() bool`
 
 HasMaxMonthlyEventLogRequests returns a boolean if a field has been set.
+
+### GetMaxCustomCollectionSize
+
+`func (o *CreateTenantPackageBody) GetMaxCustomCollectionSize() float64`
+
+GetMaxCustomCollectionSize returns the MaxCustomCollectionSize field if non-nil, zero value otherwise.
+
+### GetMaxCustomCollectionSizeOk
+
+`func (o *CreateTenantPackageBody) GetMaxCustomCollectionSizeOk() (*float64, bool)`
+
+GetMaxCustomCollectionSizeOk returns a tuple with the MaxCustomCollectionSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxCustomCollectionSize
+
+`func (o *CreateTenantPackageBody) SetMaxCustomCollectionSize(v float64)`
+
+SetMaxCustomCollectionSize sets MaxCustomCollectionSize field to given value.
+
+### HasMaxCustomCollectionSize
+
+`func (o *CreateTenantPackageBody) HasMaxCustomCollectionSize() bool`
+
+HasMaxCustomCollectionSize returns a boolean if a field has been set.
 
 ### GetHasWhiteLabeling
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**WpId** | Pointer to **string** |  | [optional] 
 **WpUserId** | Pointer to **string** |  | [optional] 
 **WpPostId** | Pointer to **string** |  | [optional] 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewFCommentMetaWithDefaults instantiates a new FCommentMeta object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetWpId
+
+`func (o *FCommentMeta) GetWpId() string`
+
+GetWpId returns the WpId field if non-nil, zero value otherwise.
+
+### GetWpIdOk
+
+`func (o *FCommentMeta) GetWpIdOk() (*string, bool)`
+
+GetWpIdOk returns a tuple with the WpId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWpId
+
+`func (o *FCommentMeta) SetWpId(v string)`
+
+SetWpId sets WpId field to given value.
+
+### HasWpId
+
+`func (o *FCommentMeta) HasWpId() bool`
+
+HasWpId returns a boolean if a field has been set.
 
 ### GetWpUserId
 

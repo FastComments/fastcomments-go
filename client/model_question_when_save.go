@@ -16,7 +16,7 @@ import (
 )
 
 // QuestionWhenSave the model 'QuestionWhenSave'
-type QuestionWhenSave float32
+type QuestionWhenSave int32
 
 // List of QuestionWhenSave
 const (
@@ -31,7 +31,7 @@ var AllowedQuestionWhenSaveEnumValues = []QuestionWhenSave{
 }
 
 func (v *QuestionWhenSave) UnmarshalJSON(src []byte) error {
-	var value float32
+	var value int32
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *QuestionWhenSave) UnmarshalJSON(src []byte) error {
 
 // NewQuestionWhenSaveFromValue returns a pointer to a valid QuestionWhenSave
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewQuestionWhenSaveFromValue(v float32) (*QuestionWhenSave, error) {
+func NewQuestionWhenSaveFromValue(v int32) (*QuestionWhenSave, error) {
 	ev := QuestionWhenSave(v)
 	if ev.IsValid() {
 		return &ev, nil
