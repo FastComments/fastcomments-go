@@ -25,6 +25,8 @@ jobs:
       - name: Build SDK
         working-directory: client
         run: go build ./...
+      - name: Sync test module dependencies
+        run: go mod tidy
       - name: Run tests
         run: go test ./tests/... -v
         env:
