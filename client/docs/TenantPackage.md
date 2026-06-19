@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **TenantId** | **string** |  | 
 **CreatedAt** | **time.Time** |  | 
+**TemplateId** | Pointer to **string** |  | [optional] 
 **MonthlyCostUSD** | **NullableFloat64** |  | 
 **YearlyCostUSD** | **NullableFloat64** |  | 
 **MonthlyStripePlanId** | **NullableString** |  | 
@@ -51,6 +52,8 @@ Name | Type | Description | Notes
 **FlexDomainUnit** | Pointer to **float64** |  | [optional] 
 **FlexChatGPTCostCents** | Pointer to **float64** |  | [optional] 
 **FlexChatGPTUnit** | Pointer to **float64** |  | [optional] 
+**FlexLLMCostCents** | Pointer to **float64** |  | [optional] 
+**FlexLLMUnit** | Pointer to **float64** |  | [optional] 
 **FlexMinimumCostCents** | Pointer to **float64** |  | [optional] 
 **FlexManagedTenantCostCents** | Pointer to **float64** |  | [optional] 
 **FlexSSOAdminCostCents** | Pointer to **float64** |  | [optional] 
@@ -58,6 +61,10 @@ Name | Type | Description | Notes
 **FlexSSOModeratorCostCents** | Pointer to **float64** |  | [optional] 
 **FlexSSOModeratorUnit** | Pointer to **float64** |  | [optional] 
 **IsSSOBillingMonthlyActiveUsers** | Pointer to **bool** |  | [optional] 
+**HasAIAgents** | Pointer to **bool** |  | [optional] 
+**MaxAIAgents** | Pointer to **float64** |  | [optional] 
+**AiAgentDailyBudgetCents** | Pointer to **float64** |  | [optional] 
+**AiAgentMonthlyBudgetCents** | Pointer to **float64** |  | [optional] 
 
 ## Methods
 
@@ -157,6 +164,31 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+
+### GetTemplateId
+
+`func (o *TenantPackage) GetTemplateId() string`
+
+GetTemplateId returns the TemplateId field if non-nil, zero value otherwise.
+
+### GetTemplateIdOk
+
+`func (o *TenantPackage) GetTemplateIdOk() (*string, bool)`
+
+GetTemplateIdOk returns a tuple with the TemplateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateId
+
+`func (o *TenantPackage) SetTemplateId(v string)`
+
+SetTemplateId sets TemplateId field to given value.
+
+### HasTemplateId
+
+`func (o *TenantPackage) HasTemplateId() bool`
+
+HasTemplateId returns a boolean if a field has been set.
 
 ### GetMonthlyCostUSD
 
@@ -1158,6 +1190,56 @@ SetFlexChatGPTUnit sets FlexChatGPTUnit field to given value.
 
 HasFlexChatGPTUnit returns a boolean if a field has been set.
 
+### GetFlexLLMCostCents
+
+`func (o *TenantPackage) GetFlexLLMCostCents() float64`
+
+GetFlexLLMCostCents returns the FlexLLMCostCents field if non-nil, zero value otherwise.
+
+### GetFlexLLMCostCentsOk
+
+`func (o *TenantPackage) GetFlexLLMCostCentsOk() (*float64, bool)`
+
+GetFlexLLMCostCentsOk returns a tuple with the FlexLLMCostCents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlexLLMCostCents
+
+`func (o *TenantPackage) SetFlexLLMCostCents(v float64)`
+
+SetFlexLLMCostCents sets FlexLLMCostCents field to given value.
+
+### HasFlexLLMCostCents
+
+`func (o *TenantPackage) HasFlexLLMCostCents() bool`
+
+HasFlexLLMCostCents returns a boolean if a field has been set.
+
+### GetFlexLLMUnit
+
+`func (o *TenantPackage) GetFlexLLMUnit() float64`
+
+GetFlexLLMUnit returns the FlexLLMUnit field if non-nil, zero value otherwise.
+
+### GetFlexLLMUnitOk
+
+`func (o *TenantPackage) GetFlexLLMUnitOk() (*float64, bool)`
+
+GetFlexLLMUnitOk returns a tuple with the FlexLLMUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFlexLLMUnit
+
+`func (o *TenantPackage) SetFlexLLMUnit(v float64)`
+
+SetFlexLLMUnit sets FlexLLMUnit field to given value.
+
+### HasFlexLLMUnit
+
+`func (o *TenantPackage) HasFlexLLMUnit() bool`
+
+HasFlexLLMUnit returns a boolean if a field has been set.
+
 ### GetFlexMinimumCostCents
 
 `func (o *TenantPackage) GetFlexMinimumCostCents() float64`
@@ -1332,6 +1414,106 @@ SetIsSSOBillingMonthlyActiveUsers sets IsSSOBillingMonthlyActiveUsers field to g
 `func (o *TenantPackage) HasIsSSOBillingMonthlyActiveUsers() bool`
 
 HasIsSSOBillingMonthlyActiveUsers returns a boolean if a field has been set.
+
+### GetHasAIAgents
+
+`func (o *TenantPackage) GetHasAIAgents() bool`
+
+GetHasAIAgents returns the HasAIAgents field if non-nil, zero value otherwise.
+
+### GetHasAIAgentsOk
+
+`func (o *TenantPackage) GetHasAIAgentsOk() (*bool, bool)`
+
+GetHasAIAgentsOk returns a tuple with the HasAIAgents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasAIAgents
+
+`func (o *TenantPackage) SetHasAIAgents(v bool)`
+
+SetHasAIAgents sets HasAIAgents field to given value.
+
+### HasHasAIAgents
+
+`func (o *TenantPackage) HasHasAIAgents() bool`
+
+HasHasAIAgents returns a boolean if a field has been set.
+
+### GetMaxAIAgents
+
+`func (o *TenantPackage) GetMaxAIAgents() float64`
+
+GetMaxAIAgents returns the MaxAIAgents field if non-nil, zero value otherwise.
+
+### GetMaxAIAgentsOk
+
+`func (o *TenantPackage) GetMaxAIAgentsOk() (*float64, bool)`
+
+GetMaxAIAgentsOk returns a tuple with the MaxAIAgents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxAIAgents
+
+`func (o *TenantPackage) SetMaxAIAgents(v float64)`
+
+SetMaxAIAgents sets MaxAIAgents field to given value.
+
+### HasMaxAIAgents
+
+`func (o *TenantPackage) HasMaxAIAgents() bool`
+
+HasMaxAIAgents returns a boolean if a field has been set.
+
+### GetAiAgentDailyBudgetCents
+
+`func (o *TenantPackage) GetAiAgentDailyBudgetCents() float64`
+
+GetAiAgentDailyBudgetCents returns the AiAgentDailyBudgetCents field if non-nil, zero value otherwise.
+
+### GetAiAgentDailyBudgetCentsOk
+
+`func (o *TenantPackage) GetAiAgentDailyBudgetCentsOk() (*float64, bool)`
+
+GetAiAgentDailyBudgetCentsOk returns a tuple with the AiAgentDailyBudgetCents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAiAgentDailyBudgetCents
+
+`func (o *TenantPackage) SetAiAgentDailyBudgetCents(v float64)`
+
+SetAiAgentDailyBudgetCents sets AiAgentDailyBudgetCents field to given value.
+
+### HasAiAgentDailyBudgetCents
+
+`func (o *TenantPackage) HasAiAgentDailyBudgetCents() bool`
+
+HasAiAgentDailyBudgetCents returns a boolean if a field has been set.
+
+### GetAiAgentMonthlyBudgetCents
+
+`func (o *TenantPackage) GetAiAgentMonthlyBudgetCents() float64`
+
+GetAiAgentMonthlyBudgetCents returns the AiAgentMonthlyBudgetCents field if non-nil, zero value otherwise.
+
+### GetAiAgentMonthlyBudgetCentsOk
+
+`func (o *TenantPackage) GetAiAgentMonthlyBudgetCentsOk() (*float64, bool)`
+
+GetAiAgentMonthlyBudgetCentsOk returns a tuple with the AiAgentMonthlyBudgetCents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAiAgentMonthlyBudgetCents
+
+`func (o *TenantPackage) SetAiAgentMonthlyBudgetCents(v float64)`
+
+SetAiAgentMonthlyBudgetCents sets AiAgentMonthlyBudgetCents field to given value.
+
+### HasAiAgentMonthlyBudgetCents
+
+`func (o *TenantPackage) HasAiAgentMonthlyBudgetCents() bool`
+
+HasAiAgentMonthlyBudgetCents returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

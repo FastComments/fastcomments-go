@@ -45,8 +45,9 @@ type CreateCommentParams struct {
 	AutoplayDelayMS *int64 `json:"autoplayDelayMS,omitempty"`
 	FeedbackIds []string `json:"feedbackIds,omitempty"`
 	// Construct a type with a set of properties K of type T
-	QuestionValues map[string]RecordStringStringOrNumberValue `json:"questionValues,omitempty"`
+	QuestionValues map[string]GifSearchResponseImagesInnerInner `json:"questionValues,omitempty"`
 	Tos *bool `json:"tos,omitempty"`
+	BotId *string `json:"botId,omitempty"`
 	Approved *bool `json:"approved,omitempty"`
 	Domain *string `json:"domain,omitempty"`
 	Ip *string `json:"ip,omitempty"`
@@ -839,9 +840,9 @@ func (o *CreateCommentParams) SetFeedbackIds(v []string) {
 }
 
 // GetQuestionValues returns the QuestionValues field value if set, zero value otherwise.
-func (o *CreateCommentParams) GetQuestionValues() map[string]RecordStringStringOrNumberValue {
+func (o *CreateCommentParams) GetQuestionValues() map[string]GifSearchResponseImagesInnerInner {
 	if o == nil || IsNil(o.QuestionValues) {
-		var ret map[string]RecordStringStringOrNumberValue
+		var ret map[string]GifSearchResponseImagesInnerInner
 		return ret
 	}
 	return o.QuestionValues
@@ -849,9 +850,9 @@ func (o *CreateCommentParams) GetQuestionValues() map[string]RecordStringStringO
 
 // GetQuestionValuesOk returns a tuple with the QuestionValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateCommentParams) GetQuestionValuesOk() (map[string]RecordStringStringOrNumberValue, bool) {
+func (o *CreateCommentParams) GetQuestionValuesOk() (map[string]GifSearchResponseImagesInnerInner, bool) {
 	if o == nil || IsNil(o.QuestionValues) {
-		return map[string]RecordStringStringOrNumberValue{}, false
+		return map[string]GifSearchResponseImagesInnerInner{}, false
 	}
 	return o.QuestionValues, true
 }
@@ -865,8 +866,8 @@ func (o *CreateCommentParams) HasQuestionValues() bool {
 	return false
 }
 
-// SetQuestionValues gets a reference to the given map[string]RecordStringStringOrNumberValue and assigns it to the QuestionValues field.
-func (o *CreateCommentParams) SetQuestionValues(v map[string]RecordStringStringOrNumberValue) {
+// SetQuestionValues gets a reference to the given map[string]GifSearchResponseImagesInnerInner and assigns it to the QuestionValues field.
+func (o *CreateCommentParams) SetQuestionValues(v map[string]GifSearchResponseImagesInnerInner) {
 	o.QuestionValues = v
 }
 
@@ -900,6 +901,38 @@ func (o *CreateCommentParams) HasTos() bool {
 // SetTos gets a reference to the given bool and assigns it to the Tos field.
 func (o *CreateCommentParams) SetTos(v bool) {
 	o.Tos = &v
+}
+
+// GetBotId returns the BotId field value if set, zero value otherwise.
+func (o *CreateCommentParams) GetBotId() string {
+	if o == nil || IsNil(o.BotId) {
+		var ret string
+		return ret
+	}
+	return *o.BotId
+}
+
+// GetBotIdOk returns a tuple with the BotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCommentParams) GetBotIdOk() (*string, bool) {
+	if o == nil || IsNil(o.BotId) {
+		return nil, false
+	}
+	return o.BotId, true
+}
+
+// HasBotId returns a boolean if a field has been set.
+func (o *CreateCommentParams) HasBotId() bool {
+	if o != nil && !IsNil(o.BotId) {
+		return true
+	}
+
+	return false
+}
+
+// SetBotId gets a reference to the given string and assigns it to the BotId field.
+func (o *CreateCommentParams) SetBotId(v string) {
+	o.BotId = &v
 }
 
 // GetApproved returns the Approved field value if set, zero value otherwise.
@@ -1290,6 +1323,9 @@ func (o CreateCommentParams) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Tos) {
 		toSerialize["tos"] = o.Tos
+	}
+	if !IsNil(o.BotId) {
+		toSerialize["botId"] = o.BotId
 	}
 	if !IsNil(o.Approved) {
 		toSerialize["approved"] = o.Approved

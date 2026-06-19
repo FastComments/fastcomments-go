@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LinkUrl** | **NullableString** |  | 
 **LinkText** | **NullableString** |  | 
 **CreatedAt** | **time.Time** |  | 
+**Type** | Pointer to **NullableString** | Discriminator for notifications with a special layout/click handler (e.g. \&quot;feedback-offer\&quot;). | [optional] 
 
 ## Methods
 
@@ -253,6 +254,41 @@ and a boolean to check if the value has been set.
 SetCreatedAt sets CreatedAt field to given value.
 
 
+### GetType
+
+`func (o *HeaderAccountNotification) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *HeaderAccountNotification) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *HeaderAccountNotification) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *HeaderAccountNotification) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *HeaderAccountNotification) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *HeaderAccountNotification) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | [**APIStatus**](APIStatus.md) |  | 
-**Results** | [**[]AddHashTag200Response**](AddHashTag200Response.md) |  | 
+**Results** | [**[]BulkCreateHashTagsResponseResultsInner**](BulkCreateHashTagsResponseResultsInner.md) |  | 
 
 ## Methods
 
 ### NewBulkCreateHashTagsResponse
 
-`func NewBulkCreateHashTagsResponse(status APIStatus, results []AddHashTag200Response, ) *BulkCreateHashTagsResponse`
+`func NewBulkCreateHashTagsResponse(status APIStatus, results []BulkCreateHashTagsResponseResultsInner, ) *BulkCreateHashTagsResponse`
 
 NewBulkCreateHashTagsResponse instantiates a new BulkCreateHashTagsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetStatus sets Status field to given value.
 
 ### GetResults
 
-`func (o *BulkCreateHashTagsResponse) GetResults() []AddHashTag200Response`
+`func (o *BulkCreateHashTagsResponse) GetResults() []BulkCreateHashTagsResponseResultsInner`
 
 GetResults returns the Results field if non-nil, zero value otherwise.
 
 ### GetResultsOk
 
-`func (o *BulkCreateHashTagsResponse) GetResultsOk() (*[]AddHashTag200Response, bool)`
+`func (o *BulkCreateHashTagsResponse) GetResultsOk() (*[]BulkCreateHashTagsResponseResultsInner, bool)`
 
 GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResults
 
-`func (o *BulkCreateHashTagsResponse) SetResults(v []AddHashTag200Response)`
+`func (o *BulkCreateHashTagsResponse) SetResults(v []BulkCreateHashTagsResponseResultsInner)`
 
 SetResults sets Results field to given value.
 

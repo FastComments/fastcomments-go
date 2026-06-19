@@ -22,7 +22,7 @@ var _ MappedNullable = &BulkCreateHashTagsResponse{}
 // BulkCreateHashTagsResponse struct for BulkCreateHashTagsResponse
 type BulkCreateHashTagsResponse struct {
 	Status APIStatus `json:"status"`
-	Results []AddHashTag200Response `json:"results"`
+	Results []BulkCreateHashTagsResponseResultsInner `json:"results"`
 }
 
 type _BulkCreateHashTagsResponse BulkCreateHashTagsResponse
@@ -31,7 +31,7 @@ type _BulkCreateHashTagsResponse BulkCreateHashTagsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBulkCreateHashTagsResponse(status APIStatus, results []AddHashTag200Response) *BulkCreateHashTagsResponse {
+func NewBulkCreateHashTagsResponse(status APIStatus, results []BulkCreateHashTagsResponseResultsInner) *BulkCreateHashTagsResponse {
 	this := BulkCreateHashTagsResponse{}
 	this.Status = status
 	this.Results = results
@@ -71,9 +71,9 @@ func (o *BulkCreateHashTagsResponse) SetStatus(v APIStatus) {
 }
 
 // GetResults returns the Results field value
-func (o *BulkCreateHashTagsResponse) GetResults() []AddHashTag200Response {
+func (o *BulkCreateHashTagsResponse) GetResults() []BulkCreateHashTagsResponseResultsInner {
 	if o == nil {
-		var ret []AddHashTag200Response
+		var ret []BulkCreateHashTagsResponseResultsInner
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *BulkCreateHashTagsResponse) GetResults() []AddHashTag200Response {
 
 // GetResultsOk returns a tuple with the Results field value
 // and a boolean to check if the value has been set.
-func (o *BulkCreateHashTagsResponse) GetResultsOk() ([]AddHashTag200Response, bool) {
+func (o *BulkCreateHashTagsResponse) GetResultsOk() ([]BulkCreateHashTagsResponseResultsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *BulkCreateHashTagsResponse) GetResultsOk() ([]AddHashTag200Response, bo
 }
 
 // SetResults sets field value
-func (o *BulkCreateHashTagsResponse) SetResults(v []AddHashTag200Response) {
+func (o *BulkCreateHashTagsResponse) SetResults(v []BulkCreateHashTagsResponseResultsInner) {
 	o.Results = v
 }
 

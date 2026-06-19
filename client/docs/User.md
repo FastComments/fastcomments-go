@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **DigestEmailFrequency** | Pointer to [**DigestEmailFrequency**](DigestEmailFrequency.md) |  | [optional] 
 **NotificationFrequency** | Pointer to **float64** |  | [optional] 
 **AdminNotificationFrequency** | Pointer to **float64** |  | [optional] 
+**AgentApprovalNotificationFrequency** | Pointer to [**ImportedAgentApprovalNotificationFrequency**](ImportedAgentApprovalNotificationFrequency.md) |  | [optional] 
 **LastTenantNotificationSentDate** | Pointer to **time.Time** |  | [optional] 
 **LastReplyNotificationSentDate** | Pointer to **time.Time** |  | [optional] 
 **IgnoredAddToMySiteMessages** | Pointer to **bool** |  | [optional] 
@@ -1072,6 +1073,31 @@ SetAdminNotificationFrequency sets AdminNotificationFrequency field to given val
 `func (o *User) HasAdminNotificationFrequency() bool`
 
 HasAdminNotificationFrequency returns a boolean if a field has been set.
+
+### GetAgentApprovalNotificationFrequency
+
+`func (o *User) GetAgentApprovalNotificationFrequency() ImportedAgentApprovalNotificationFrequency`
+
+GetAgentApprovalNotificationFrequency returns the AgentApprovalNotificationFrequency field if non-nil, zero value otherwise.
+
+### GetAgentApprovalNotificationFrequencyOk
+
+`func (o *User) GetAgentApprovalNotificationFrequencyOk() (*ImportedAgentApprovalNotificationFrequency, bool)`
+
+GetAgentApprovalNotificationFrequencyOk returns a tuple with the AgentApprovalNotificationFrequency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentApprovalNotificationFrequency
+
+`func (o *User) SetAgentApprovalNotificationFrequency(v ImportedAgentApprovalNotificationFrequency)`
+
+SetAgentApprovalNotificationFrequency sets AgentApprovalNotificationFrequency field to given value.
+
+### HasAgentApprovalNotificationFrequency
+
+`func (o *User) HasAgentApprovalNotificationFrequency() bool`
+
+HasAgentApprovalNotificationFrequency returns a boolean if a field has been set.
 
 ### GetLastTenantNotificationSentDate
 

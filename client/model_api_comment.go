@@ -22,7 +22,7 @@ var _ MappedNullable = &APIComment{}
 
 // APIComment struct for APIComment
 type APIComment struct {
-	Id string `json:"_id"`
+	Id string `json:"id"`
 	AiDeterminedSpam *bool `json:"aiDeterminedSpam,omitempty"`
 	AnonUserId NullableString `json:"anonUserId,omitempty"`
 	Approved bool `json:"approved"`
@@ -1951,7 +1951,7 @@ func (o APIComment) MarshalJSON() ([]byte, error) {
 
 func (o APIComment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["_id"] = o.Id
+	toSerialize["id"] = o.Id
 	if !IsNil(o.AiDeterminedSpam) {
 		toSerialize["aiDeterminedSpam"] = o.AiDeterminedSpam
 	}
@@ -2096,7 +2096,7 @@ func (o *APIComment) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"_id",
+		"id",
 		"approved",
 		"comment",
 		"commentHTML",

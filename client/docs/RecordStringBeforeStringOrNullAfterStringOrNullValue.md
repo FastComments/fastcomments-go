@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**After** | **string** |  | 
-**Before** | **string** |  | 
+**After** | **NullableString** |  | 
+**Before** | **NullableString** |  | 
 
 ## Methods
 
 ### NewRecordStringBeforeStringOrNullAfterStringOrNullValue
 
-`func NewRecordStringBeforeStringOrNullAfterStringOrNullValue(after string, before string, ) *RecordStringBeforeStringOrNullAfterStringOrNullValue`
+`func NewRecordStringBeforeStringOrNullAfterStringOrNullValue(after NullableString, before NullableString, ) *RecordStringBeforeStringOrNullAfterStringOrNullValue`
 
 NewRecordStringBeforeStringOrNullAfterStringOrNullValue instantiates a new RecordStringBeforeStringOrNullAfterStringOrNullValue object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,16 @@ and a boolean to check if the value has been set.
 SetAfter sets After field to given value.
 
 
+### SetAfterNil
+
+`func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) SetAfterNil(b bool)`
+
+ SetAfterNil sets the value for After to be an explicit nil
+
+### UnsetAfter
+`func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) UnsetAfter()`
+
+UnsetAfter ensures that no value is present for After, not even an explicit nil
 ### GetBefore
 
 `func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) GetBefore() string`
@@ -66,6 +76,16 @@ and a boolean to check if the value has been set.
 SetBefore sets Before field to given value.
 
 
+### SetBeforeNil
+
+`func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) SetBeforeNil(b bool)`
+
+ SetBeforeNil sets the value for Before to be an explicit nil
+
+### UnsetBefore
+`func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) UnsetBefore()`
+
+UnsetBefore ensures that no value is present for Before, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

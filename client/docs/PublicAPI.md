@@ -8,22 +8,39 @@ Method | HTTP request | Description
 [**CheckedCommentsForBlocked**](PublicAPI.md#CheckedCommentsForBlocked) | **Get** /check-blocked-comments | 
 [**CreateCommentPublic**](PublicAPI.md#CreateCommentPublic) | **Post** /comments/{tenantId} | 
 [**CreateFeedPostPublic**](PublicAPI.md#CreateFeedPostPublic) | **Post** /feed-posts/{tenantId} | 
+[**CreateV1PageReact**](PublicAPI.md#CreateV1PageReact) | **Post** /page-reacts/v1/likes/{tenantId} | 
+[**CreateV2PageReact**](PublicAPI.md#CreateV2PageReact) | **Post** /page-reacts/v2/{tenantId} | 
 [**DeleteCommentPublic**](PublicAPI.md#DeleteCommentPublic) | **Delete** /comments/{tenantId}/{commentId} | 
 [**DeleteCommentVote**](PublicAPI.md#DeleteCommentVote) | **Delete** /comments/{tenantId}/{commentId}/vote/{voteId} | 
 [**DeleteFeedPostPublic**](PublicAPI.md#DeleteFeedPostPublic) | **Delete** /feed-posts/{tenantId}/{postId} | 
+[**DeleteV1PageReact**](PublicAPI.md#DeleteV1PageReact) | **Delete** /page-reacts/v1/likes/{tenantId} | 
+[**DeleteV2PageReact**](PublicAPI.md#DeleteV2PageReact) | **Delete** /page-reacts/v2/{tenantId} | 
 [**FlagCommentPublic**](PublicAPI.md#FlagCommentPublic) | **Post** /flag-comment/{commentId} | 
 [**GetCommentText**](PublicAPI.md#GetCommentText) | **Get** /comments/{tenantId}/{commentId}/text | 
 [**GetCommentVoteUserNames**](PublicAPI.md#GetCommentVoteUserNames) | **Get** /comments/{tenantId}/{commentId}/votes | 
+[**GetCommentsForUser**](PublicAPI.md#GetCommentsForUser) | **Get** /comments-for-user | 
 [**GetCommentsPublic**](PublicAPI.md#GetCommentsPublic) | **Get** /comments/{tenantId} | 
 [**GetEventLog**](PublicAPI.md#GetEventLog) | **Get** /event-log/{tenantId} | 
 [**GetFeedPostsPublic**](PublicAPI.md#GetFeedPostsPublic) | **Get** /feed-posts/{tenantId} | 
 [**GetFeedPostsStats**](PublicAPI.md#GetFeedPostsStats) | **Get** /feed-posts/{tenantId}/stats | 
+[**GetGifLarge**](PublicAPI.md#GetGifLarge) | **Get** /gifs/get-large/{tenantId} | 
+[**GetGifsSearch**](PublicAPI.md#GetGifsSearch) | **Get** /gifs/search/{tenantId} | 
+[**GetGifsTrending**](PublicAPI.md#GetGifsTrending) | **Get** /gifs/trending/{tenantId} | 
 [**GetGlobalEventLog**](PublicAPI.md#GetGlobalEventLog) | **Get** /event-log/global/{tenantId} | 
+[**GetOfflineUsers**](PublicAPI.md#GetOfflineUsers) | **Get** /pages/{tenantId}/users/offline | 
+[**GetOnlineUsers**](PublicAPI.md#GetOnlineUsers) | **Get** /pages/{tenantId}/users/online | 
+[**GetPagesPublic**](PublicAPI.md#GetPagesPublic) | **Get** /pages/{tenantId} | 
+[**GetTranslations**](PublicAPI.md#GetTranslations) | **Get** /translations/{namespace}/{component} | 
 [**GetUserNotificationCount**](PublicAPI.md#GetUserNotificationCount) | **Get** /user-notifications/get-count | 
 [**GetUserNotifications**](PublicAPI.md#GetUserNotifications) | **Get** /user-notifications | 
 [**GetUserPresenceStatuses**](PublicAPI.md#GetUserPresenceStatuses) | **Get** /user-presence-status | 
 [**GetUserReactsPublic**](PublicAPI.md#GetUserReactsPublic) | **Get** /feed-posts/{tenantId}/user-reacts | 
+[**GetUsersInfo**](PublicAPI.md#GetUsersInfo) | **Get** /pages/{tenantId}/users/info | 
+[**GetV1PageLikes**](PublicAPI.md#GetV1PageLikes) | **Get** /page-reacts/v1/likes/{tenantId} | 
+[**GetV2PageReactUsers**](PublicAPI.md#GetV2PageReactUsers) | **Get** /page-reacts/v2/{tenantId}/list | 
+[**GetV2PageReacts**](PublicAPI.md#GetV2PageReacts) | **Get** /page-reacts/v2/{tenantId} | 
 [**LockComment**](PublicAPI.md#LockComment) | **Post** /comments/{tenantId}/{commentId}/lock | 
+[**LogoutPublic**](PublicAPI.md#LogoutPublic) | **Put** /auth/logout | 
 [**PinComment**](PublicAPI.md#PinComment) | **Post** /comments/{tenantId}/{commentId}/pin | 
 [**ReactFeedPostPublic**](PublicAPI.md#ReactFeedPostPublic) | **Post** /feed-posts/{tenantId}/react/{postId} | 
 [**ResetUserNotificationCount**](PublicAPI.md#ResetUserNotificationCount) | **Post** /user-notifications/reset-count | 
@@ -44,7 +61,7 @@ Method | HTTP request | Description
 
 ## BlockFromCommentPublic
 
-> BlockFromCommentPublic200Response BlockFromCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
+> BlockSuccess BlockFromCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
 
 
 
@@ -73,7 +90,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.BlockFromCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BlockFromCommentPublic`: BlockFromCommentPublic200Response
+	// response from `BlockFromCommentPublic`: BlockSuccess
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.BlockFromCommentPublic`: %v\n", resp)
 }
 ```
@@ -100,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockFromCommentPublic200Response**](BlockFromCommentPublic200Response.md)
+[**BlockSuccess**](BlockSuccess.md)
 
 ### Authorization
 
@@ -118,7 +135,7 @@ No authorization required
 
 ## CheckedCommentsForBlocked
 
-> CheckedCommentsForBlocked200Response CheckedCommentsForBlocked(ctx).TenantId(tenantId).CommentIds(commentIds).Sso(sso).Execute()
+> CheckBlockedCommentsResponse CheckedCommentsForBlocked(ctx).TenantId(tenantId).CommentIds(commentIds).Sso(sso).Execute()
 
 
 
@@ -146,7 +163,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CheckedCommentsForBlocked``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CheckedCommentsForBlocked`: CheckedCommentsForBlocked200Response
+	// response from `CheckedCommentsForBlocked`: CheckBlockedCommentsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CheckedCommentsForBlocked`: %v\n", resp)
 }
 ```
@@ -168,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckedCommentsForBlocked200Response**](CheckedCommentsForBlocked200Response.md)
+[**CheckBlockedCommentsResponse**](CheckBlockedCommentsResponse.md)
 
 ### Authorization
 
@@ -186,7 +203,7 @@ No authorization required
 
 ## CreateCommentPublic
 
-> CreateCommentPublic200Response CreateCommentPublic(ctx, tenantId).UrlId(urlId).BroadcastId(broadcastId).CommentData(commentData).SessionId(sessionId).Sso(sso).Execute()
+> SaveCommentsResponseWithPresence CreateCommentPublic(ctx, tenantId).UrlId(urlId).BroadcastId(broadcastId).CommentData(commentData).SessionId(sessionId).Sso(sso).Execute()
 
 
 
@@ -217,7 +234,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateCommentPublic`: CreateCommentPublic200Response
+	// response from `CreateCommentPublic`: SaveCommentsResponseWithPresence
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateCommentPublic`: %v\n", resp)
 }
 ```
@@ -246,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCommentPublic200Response**](CreateCommentPublic200Response.md)
+[**SaveCommentsResponseWithPresence**](SaveCommentsResponseWithPresence.md)
 
 ### Authorization
 
@@ -264,7 +281,7 @@ No authorization required
 
 ## CreateFeedPostPublic
 
-> CreateFeedPostPublic200Response CreateFeedPostPublic(ctx, tenantId).CreateFeedPostParams(createFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
+> CreateFeedPostResponse CreateFeedPostPublic(ctx, tenantId).CreateFeedPostParams(createFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -293,7 +310,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateFeedPostPublic`: CreateFeedPostPublic200Response
+	// response from `CreateFeedPostPublic`: CreateFeedPostResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -320,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostPublic200Response**](CreateFeedPostPublic200Response.md)
+[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
 
 ### Authorization
 
@@ -336,9 +353,155 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## CreateV1PageReact
+
+> CreateV1PageReact CreateV1PageReact(ctx, tenantId).UrlId(urlId).Title(title).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+	title := "title_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.CreateV1PageReact(context.Background(), tenantId).UrlId(urlId).Title(title).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateV1PageReact``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateV1PageReact`: CreateV1PageReact
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateV1PageReact`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateV1PageReactRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+ **title** | **string** |  | 
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateV2PageReact
+
+> CreateV1PageReact CreateV2PageReact(ctx, tenantId).UrlId(urlId).Id(id).Title(title).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+	id := "id_example" // string | 
+	title := "title_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.CreateV2PageReact(context.Background(), tenantId).UrlId(urlId).Id(id).Title(title).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateV2PageReact``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateV2PageReact`: CreateV1PageReact
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateV2PageReact`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateV2PageReactRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+ **id** | **string** |  | 
+ **title** | **string** |  | 
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteCommentPublic
 
-> DeleteCommentPublic200Response DeleteCommentPublic(ctx, tenantId, commentId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
+> PublicAPIDeleteCommentResponse DeleteCommentPublic(ctx, tenantId, commentId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -368,7 +531,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteCommentPublic`: DeleteCommentPublic200Response
+	// response from `DeleteCommentPublic`: PublicAPIDeleteCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteCommentPublic`: %v\n", resp)
 }
 ```
@@ -397,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteCommentPublic200Response**](DeleteCommentPublic200Response.md)
+[**PublicAPIDeleteCommentResponse**](PublicAPIDeleteCommentResponse.md)
 
 ### Authorization
 
@@ -415,7 +578,7 @@ No authorization required
 
 ## DeleteCommentVote
 
-> DeleteCommentVote200Response DeleteCommentVote(ctx, tenantId, commentId, voteId).UrlId(urlId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
+> VoteDeleteResponse DeleteCommentVote(ctx, tenantId, commentId, voteId).UrlId(urlId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -447,7 +610,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteCommentVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteCommentVote`: DeleteCommentVote200Response
+	// response from `DeleteCommentVote`: VoteDeleteResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteCommentVote`: %v\n", resp)
 }
 ```
@@ -479,7 +642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteCommentVote200Response**](DeleteCommentVote200Response.md)
+[**VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -497,7 +660,7 @@ No authorization required
 
 ## DeleteFeedPostPublic
 
-> DeleteFeedPostPublic200Response DeleteFeedPostPublic(ctx, tenantId, postId).BroadcastId(broadcastId).Sso(sso).Execute()
+> DeleteFeedPostPublicResponse DeleteFeedPostPublic(ctx, tenantId, postId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -526,7 +689,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteFeedPostPublic`: DeleteFeedPostPublic200Response
+	// response from `DeleteFeedPostPublic`: DeleteFeedPostPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -554,7 +717,149 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteFeedPostPublic200Response**](DeleteFeedPostPublic200Response.md)
+[**DeleteFeedPostPublicResponse**](DeleteFeedPostPublicResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteV1PageReact
+
+> CreateV1PageReact DeleteV1PageReact(ctx, tenantId).UrlId(urlId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.DeleteV1PageReact(context.Background(), tenantId).UrlId(urlId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteV1PageReact``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteV1PageReact`: CreateV1PageReact
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteV1PageReact`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteV1PageReactRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteV2PageReact
+
+> CreateV1PageReact DeleteV2PageReact(ctx, tenantId).UrlId(urlId).Id(id).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+	id := "id_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.DeleteV2PageReact(context.Background(), tenantId).UrlId(urlId).Id(id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteV2PageReact``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteV2PageReact`: CreateV1PageReact
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteV2PageReact`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteV2PageReactRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+ **id** | **string** |  | 
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
 
 ### Authorization
 
@@ -572,7 +877,7 @@ No authorization required
 
 ## FlagCommentPublic
 
-> FlagCommentPublic200Response FlagCommentPublic(ctx, commentId).TenantId(tenantId).IsFlagged(isFlagged).Sso(sso).Execute()
+> APIEmptyResponse FlagCommentPublic(ctx, commentId).TenantId(tenantId).IsFlagged(isFlagged).Sso(sso).Execute()
 
 
 
@@ -601,7 +906,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.FlagCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FlagCommentPublic`: FlagCommentPublic200Response
+	// response from `FlagCommentPublic`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.FlagCommentPublic`: %v\n", resp)
 }
 ```
@@ -628,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlagCommentPublic200Response**](FlagCommentPublic200Response.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -646,7 +951,7 @@ No authorization required
 
 ## GetCommentText
 
-> GetCommentText200Response GetCommentText(ctx, tenantId, commentId).EditKey(editKey).Sso(sso).Execute()
+> PublicAPIGetCommentTextResponse GetCommentText(ctx, tenantId, commentId).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -675,7 +980,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentText`: GetCommentText200Response
+	// response from `GetCommentText`: PublicAPIGetCommentTextResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentText`: %v\n", resp)
 }
 ```
@@ -703,7 +1008,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentText200Response**](GetCommentText200Response.md)
+[**PublicAPIGetCommentTextResponse**](PublicAPIGetCommentTextResponse.md)
 
 ### Authorization
 
@@ -721,7 +1026,7 @@ No authorization required
 
 ## GetCommentVoteUserNames
 
-> GetCommentVoteUserNames200Response GetCommentVoteUserNames(ctx, tenantId, commentId).Dir(dir).Sso(sso).Execute()
+> GetCommentVoteUserNamesSuccessResponse GetCommentVoteUserNames(ctx, tenantId, commentId).Dir(dir).Sso(sso).Execute()
 
 
 
@@ -750,7 +1055,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentVoteUserNames``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentVoteUserNames`: GetCommentVoteUserNames200Response
+	// response from `GetCommentVoteUserNames`: GetCommentVoteUserNamesSuccessResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentVoteUserNames`: %v\n", resp)
 }
 ```
@@ -778,7 +1083,83 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentVoteUserNames200Response**](GetCommentVoteUserNames200Response.md)
+[**GetCommentVoteUserNamesSuccessResponse**](GetCommentVoteUserNamesSuccessResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCommentsForUser
+
+> GetCommentsForUserResponse GetCommentsForUser(ctx).UserId(userId).Direction(direction).RepliesToUserId(repliesToUserId).Page(page).Includei10n(includei10n).Locale(locale).IsCrawler(isCrawler).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	userId := "userId_example" // string |  (optional)
+	direction := openapiclient.SortDirections("OF") // SortDirections |  (optional)
+	repliesToUserId := "repliesToUserId_example" // string |  (optional)
+	page := float64(1.2) // float64 |  (optional)
+	includei10n := true // bool |  (optional)
+	locale := "locale_example" // string |  (optional)
+	isCrawler := true // bool |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetCommentsForUser(context.Background()).UserId(userId).Direction(direction).RepliesToUserId(repliesToUserId).Page(page).Includei10n(includei10n).Locale(locale).IsCrawler(isCrawler).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentsForUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCommentsForUser`: GetCommentsForUserResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentsForUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCommentsForUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string** |  | 
+ **direction** | [**SortDirections**](SortDirections.md) |  | 
+ **repliesToUserId** | **string** |  | 
+ **page** | **float64** |  | 
+ **includei10n** | **bool** |  | 
+ **locale** | **string** |  | 
+ **isCrawler** | **bool** |  | 
+
+### Return type
+
+[**GetCommentsForUserResponse**](GetCommentsForUserResponse.md)
 
 ### Authorization
 
@@ -796,7 +1177,7 @@ No authorization required
 
 ## GetCommentsPublic
 
-> GetCommentsPublic200Response GetCommentsPublic(ctx, tenantId).UrlId(urlId).Page(page).Direction(direction).Sso(sso).Skip(skip).SkipChildren(skipChildren).Limit(limit).LimitChildren(limitChildren).CountChildren(countChildren).FetchPageForCommentId(fetchPageForCommentId).IncludeConfig(includeConfig).CountAll(countAll).Includei10n(includei10n).Locale(locale).Modules(modules).IsCrawler(isCrawler).IncludeNotificationCount(includeNotificationCount).AsTree(asTree).MaxTreeDepth(maxTreeDepth).UseFullTranslationIds(useFullTranslationIds).ParentId(parentId).SearchText(searchText).HashTags(hashTags).UserId(userId).CustomConfigStr(customConfigStr).AfterCommentId(afterCommentId).BeforeCommentId(beforeCommentId).Execute()
+> GetCommentsResponseWithPresencePublicComment GetCommentsPublic(ctx, tenantId).UrlId(urlId).Page(page).Direction(direction).Sso(sso).Skip(skip).SkipChildren(skipChildren).Limit(limit).LimitChildren(limitChildren).CountChildren(countChildren).FetchPageForCommentId(fetchPageForCommentId).IncludeConfig(includeConfig).CountAll(countAll).Includei10n(includei10n).Locale(locale).Modules(modules).IsCrawler(isCrawler).IncludeNotificationCount(includeNotificationCount).AsTree(asTree).MaxTreeDepth(maxTreeDepth).UseFullTranslationIds(useFullTranslationIds).ParentId(parentId).SearchText(searchText).HashTags(hashTags).UserId(userId).CustomConfigStr(customConfigStr).AfterCommentId(afterCommentId).BeforeCommentId(beforeCommentId).Execute()
 
 
 
@@ -851,7 +1232,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentsPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentsPublic`: GetCommentsPublic200Response
+	// response from `GetCommentsPublic`: GetCommentsResponseWithPresencePublicComment
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentsPublic`: %v\n", resp)
 }
 ```
@@ -902,7 +1283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentsPublic200Response**](GetCommentsPublic200Response.md)
+[**GetCommentsResponseWithPresencePublicComment**](GetCommentsResponseWithPresencePublicComment.md)
 
 ### Authorization
 
@@ -920,7 +1301,7 @@ No authorization required
 
 ## GetEventLog
 
-> GetEventLog200Response GetEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
+> GetEventLogResponse GetEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
 
 
 
@@ -943,7 +1324,7 @@ func main() {
 	urlId := "urlId_example" // string | 
 	userIdWS := "userIdWS_example" // string | 
 	startTime := int64(789) // int64 | 
-	endTime := int64(789) // int64 | 
+	endTime := int64(789) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -952,7 +1333,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetEventLog``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEventLog`: GetEventLog200Response
+	// response from `GetEventLog`: GetEventLogResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetEventLog`: %v\n", resp)
 }
 ```
@@ -980,7 +1361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEventLog200Response**](GetEventLog200Response.md)
+[**GetEventLogResponse**](GetEventLogResponse.md)
 
 ### Authorization
 
@@ -998,7 +1379,7 @@ No authorization required
 
 ## GetFeedPostsPublic
 
-> GetFeedPostsPublic200Response GetFeedPostsPublic(ctx, tenantId).AfterId(afterId).Limit(limit).Tags(tags).Sso(sso).IsCrawler(isCrawler).IncludeUserInfo(includeUserInfo).Execute()
+> PublicFeedPostsResponse GetFeedPostsPublic(ctx, tenantId).AfterId(afterId).Limit(limit).Tags(tags).Sso(sso).IsCrawler(isCrawler).IncludeUserInfo(includeUserInfo).Execute()
 
 
 
@@ -1032,7 +1413,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetFeedPostsPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetFeedPostsPublic`: GetFeedPostsPublic200Response
+	// response from `GetFeedPostsPublic`: PublicFeedPostsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetFeedPostsPublic`: %v\n", resp)
 }
 ```
@@ -1062,7 +1443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeedPostsPublic200Response**](GetFeedPostsPublic200Response.md)
+[**PublicFeedPostsResponse**](PublicFeedPostsResponse.md)
 
 ### Authorization
 
@@ -1080,7 +1461,7 @@ No authorization required
 
 ## GetFeedPostsStats
 
-> GetFeedPostsStats200Response GetFeedPostsStats(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
+> FeedPostsStatsResponse GetFeedPostsStats(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
 
 
 
@@ -1108,7 +1489,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetFeedPostsStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetFeedPostsStats`: GetFeedPostsStats200Response
+	// response from `GetFeedPostsStats`: FeedPostsStatsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetFeedPostsStats`: %v\n", resp)
 }
 ```
@@ -1134,7 +1515,227 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeedPostsStats200Response**](GetFeedPostsStats200Response.md)
+[**FeedPostsStatsResponse**](FeedPostsStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGifLarge
+
+> GifGetLargeResponse GetGifLarge(ctx, tenantId).LargeInternalURLSanitized(largeInternalURLSanitized).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	largeInternalURLSanitized := "largeInternalURLSanitized_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetGifLarge(context.Background(), tenantId).LargeInternalURLSanitized(largeInternalURLSanitized).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetGifLarge``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGifLarge`: GifGetLargeResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetGifLarge`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGifLargeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **largeInternalURLSanitized** | **string** |  | 
+
+### Return type
+
+[**GifGetLargeResponse**](GifGetLargeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGifsSearch
+
+> GetGifsSearchResponse GetGifsSearch(ctx, tenantId).Search(search).Locale(locale).Rating(rating).Page(page).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	search := "search_example" // string | 
+	locale := "locale_example" // string |  (optional)
+	rating := "rating_example" // string |  (optional)
+	page := float64(1.2) // float64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetGifsSearch(context.Background(), tenantId).Search(search).Locale(locale).Rating(rating).Page(page).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetGifsSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGifsSearch`: GetGifsSearchResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetGifsSearch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGifsSearchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **search** | **string** |  | 
+ **locale** | **string** |  | 
+ **rating** | **string** |  | 
+ **page** | **float64** |  | 
+
+### Return type
+
+[**GetGifsSearchResponse**](GetGifsSearchResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGifsTrending
+
+> GetGifsTrendingResponse GetGifsTrending(ctx, tenantId).Locale(locale).Rating(rating).Page(page).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	locale := "locale_example" // string |  (optional)
+	rating := "rating_example" // string |  (optional)
+	page := float64(1.2) // float64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetGifsTrending(context.Background(), tenantId).Locale(locale).Rating(rating).Page(page).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetGifsTrending``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGifsTrending`: GetGifsTrendingResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetGifsTrending`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGifsTrendingRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **locale** | **string** |  | 
+ **rating** | **string** |  | 
+ **page** | **float64** |  | 
+
+### Return type
+
+[**GetGifsTrendingResponse**](GetGifsTrendingResponse.md)
 
 ### Authorization
 
@@ -1152,7 +1753,7 @@ No authorization required
 
 ## GetGlobalEventLog
 
-> GetEventLog200Response GetGlobalEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
+> GetEventLogResponse GetGlobalEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
 
 
 
@@ -1175,7 +1776,7 @@ func main() {
 	urlId := "urlId_example" // string | 
 	userIdWS := "userIdWS_example" // string | 
 	startTime := int64(789) // int64 | 
-	endTime := int64(789) // int64 | 
+	endTime := int64(789) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1184,7 +1785,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetGlobalEventLog``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetGlobalEventLog`: GetEventLog200Response
+	// response from `GetGlobalEventLog`: GetEventLogResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetGlobalEventLog`: %v\n", resp)
 }
 ```
@@ -1212,7 +1813,314 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEventLog200Response**](GetEventLog200Response.md)
+[**GetEventLogResponse**](GetEventLogResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOfflineUsers
+
+> PageUsersOfflineResponse GetOfflineUsers(ctx, tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | Page URL identifier (cleaned server-side).
+	afterName := "afterName_example" // string | Cursor: pass nextAfterName from the previous response. (optional)
+	afterUserId := "afterUserId_example" // string | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetOfflineUsers(context.Background(), tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetOfflineUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetOfflineUsers`: PageUsersOfflineResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetOfflineUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOfflineUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** | Page URL identifier (cleaned server-side). | 
+ **afterName** | **string** | Cursor: pass nextAfterName from the previous response. | 
+ **afterUserId** | **string** | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don&#39;t drop entries. | 
+
+### Return type
+
+[**PageUsersOfflineResponse**](PageUsersOfflineResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOnlineUsers
+
+> PageUsersOnlineResponse GetOnlineUsers(ctx, tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | Page URL identifier (cleaned server-side).
+	afterName := "afterName_example" // string | Cursor: pass nextAfterName from the previous response. (optional)
+	afterUserId := "afterUserId_example" // string | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetOnlineUsers(context.Background(), tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetOnlineUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetOnlineUsers`: PageUsersOnlineResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetOnlineUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOnlineUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** | Page URL identifier (cleaned server-side). | 
+ **afterName** | **string** | Cursor: pass nextAfterName from the previous response. | 
+ **afterUserId** | **string** | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don&#39;t drop entries. | 
+
+### Return type
+
+[**PageUsersOnlineResponse**](PageUsersOnlineResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPagesPublic
+
+> GetPublicPagesResponse GetPagesPublic(ctx, tenantId).Cursor(cursor).Limit(limit).Q(q).SortBy(sortBy).HasComments(hasComments).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	cursor := "cursor_example" // string | Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`. (optional)
+	limit := int32(56) // int32 | 1..200, default 50 (optional)
+	q := "q_example" // string | Optional case-insensitive title prefix filter. (optional)
+	sortBy := openapiclient.PagesSortBy("updatedAt") // PagesSortBy | Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical). (optional)
+	hasComments := true // bool | If true, only return pages with at least one comment. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetPagesPublic(context.Background(), tenantId).Cursor(cursor).Limit(limit).Q(q).SortBy(sortBy).HasComments(hasComments).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetPagesPublic``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPagesPublic`: GetPublicPagesResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetPagesPublic`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPagesPublicRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **cursor** | **string** | Opaque pagination cursor returned as &#x60;nextCursor&#x60; from a prior request. Tied to the same &#x60;sortBy&#x60;. | 
+ **limit** | **int32** | 1..200, default 50 | 
+ **q** | **string** | Optional case-insensitive title prefix filter. | 
+ **sortBy** | [**PagesSortBy**](PagesSortBy.md) | Sort order. &#x60;updatedAt&#x60; (default, newest first), &#x60;commentCount&#x60; (most comments first), or &#x60;title&#x60; (alphabetical). | 
+ **hasComments** | **bool** | If true, only return pages with at least one comment. | 
+
+### Return type
+
+[**GetPublicPagesResponse**](GetPublicPagesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTranslations
+
+> GetTranslationsResponse GetTranslations(ctx, namespace, component).Locale(locale).UseFullTranslationIds(useFullTranslationIds).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	namespace := "namespace_example" // string | 
+	component := "component_example" // string | 
+	locale := "locale_example" // string |  (optional)
+	useFullTranslationIds := true // bool |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetTranslations(context.Background(), namespace, component).Locale(locale).UseFullTranslationIds(useFullTranslationIds).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetTranslations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTranslations`: GetTranslationsResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetTranslations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**namespace** | **string** |  | 
+**component** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTranslationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **locale** | **string** |  | 
+ **useFullTranslationIds** | **bool** |  | 
+
+### Return type
+
+[**GetTranslationsResponse**](GetTranslationsResponse.md)
 
 ### Authorization
 
@@ -1230,7 +2138,7 @@ No authorization required
 
 ## GetUserNotificationCount
 
-> GetUserNotificationCount200Response GetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
+> GetUserNotificationCountResponse GetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1257,7 +2165,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserNotificationCount`: GetUserNotificationCount200Response
+	// response from `GetUserNotificationCount`: GetUserNotificationCountResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserNotificationCount`: %v\n", resp)
 }
 ```
@@ -1278,7 +2186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserNotificationCount200Response**](GetUserNotificationCount200Response.md)
+[**GetUserNotificationCountResponse**](GetUserNotificationCountResponse.md)
 
 ### Authorization
 
@@ -1296,7 +2204,7 @@ No authorization required
 
 ## GetUserNotifications
 
-> GetUserNotifications200Response GetUserNotifications(ctx).TenantId(tenantId).PageSize(pageSize).AfterId(afterId).IncludeContext(includeContext).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).IncludeTranslations(includeTranslations).Sso(sso).Execute()
+> GetMyNotificationsResponse GetUserNotifications(ctx).TenantId(tenantId).UrlId(urlId).PageSize(pageSize).AfterId(afterId).IncludeContext(includeContext).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).IncludeTranslations(includeTranslations).IncludeTenantNotifications(includeTenantNotifications).Sso(sso).Execute()
 
 
 
@@ -1314,6 +2222,7 @@ import (
 
 func main() {
 	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | Used to determine whether the current page is subscribed. (optional)
 	pageSize := int32(56) // int32 |  (optional)
 	afterId := "afterId_example" // string |  (optional)
 	includeContext := true // bool |  (optional)
@@ -1322,16 +2231,17 @@ func main() {
 	dmOnly := true // bool |  (optional)
 	noDm := true // bool |  (optional)
 	includeTranslations := true // bool |  (optional)
+	includeTenantNotifications := true // bool |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PublicAPI.GetUserNotifications(context.Background()).TenantId(tenantId).PageSize(pageSize).AfterId(afterId).IncludeContext(includeContext).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).IncludeTranslations(includeTranslations).Sso(sso).Execute()
+	resp, r, err := apiClient.PublicAPI.GetUserNotifications(context.Background()).TenantId(tenantId).UrlId(urlId).PageSize(pageSize).AfterId(afterId).IncludeContext(includeContext).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).IncludeTranslations(includeTranslations).IncludeTenantNotifications(includeTenantNotifications).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserNotifications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserNotifications`: GetUserNotifications200Response
+	// response from `GetUserNotifications`: GetMyNotificationsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserNotifications`: %v\n", resp)
 }
 ```
@@ -1348,6 +2258,7 @@ Other parameters are passed through a pointer to a apiGetUserNotificationsReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenantId** | **string** |  | 
+ **urlId** | **string** | Used to determine whether the current page is subscribed. | 
  **pageSize** | **int32** |  | 
  **afterId** | **string** |  | 
  **includeContext** | **bool** |  | 
@@ -1356,11 +2267,12 @@ Name | Type | Description  | Notes
  **dmOnly** | **bool** |  | 
  **noDm** | **bool** |  | 
  **includeTranslations** | **bool** |  | 
+ **includeTenantNotifications** | **bool** |  | 
  **sso** | **string** |  | 
 
 ### Return type
 
-[**GetUserNotifications200Response**](GetUserNotifications200Response.md)
+[**GetMyNotificationsResponse**](GetMyNotificationsResponse.md)
 
 ### Authorization
 
@@ -1378,7 +2290,7 @@ No authorization required
 
 ## GetUserPresenceStatuses
 
-> GetUserPresenceStatuses200Response GetUserPresenceStatuses(ctx).TenantId(tenantId).UrlIdWS(urlIdWS).UserIds(userIds).Execute()
+> GetUserPresenceStatusesResponse GetUserPresenceStatuses(ctx).TenantId(tenantId).UrlIdWS(urlIdWS).UserIds(userIds).Execute()
 
 
 
@@ -1406,7 +2318,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserPresenceStatuses``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserPresenceStatuses`: GetUserPresenceStatuses200Response
+	// response from `GetUserPresenceStatuses`: GetUserPresenceStatusesResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserPresenceStatuses`: %v\n", resp)
 }
 ```
@@ -1428,7 +2340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserPresenceStatuses200Response**](GetUserPresenceStatuses200Response.md)
+[**GetUserPresenceStatusesResponse**](GetUserPresenceStatusesResponse.md)
 
 ### Authorization
 
@@ -1446,7 +2358,7 @@ No authorization required
 
 ## GetUserReactsPublic
 
-> GetUserReactsPublic200Response GetUserReactsPublic(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
+> UserReactsResponse GetUserReactsPublic(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
 
 
 
@@ -1474,7 +2386,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserReactsPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserReactsPublic`: GetUserReactsPublic200Response
+	// response from `GetUserReactsPublic`: UserReactsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserReactsPublic`: %v\n", resp)
 }
 ```
@@ -1500,7 +2412,291 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserReactsPublic200Response**](GetUserReactsPublic200Response.md)
+[**UserReactsResponse**](UserReactsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUsersInfo
+
+> PageUsersInfoResponse GetUsersInfo(ctx, tenantId).Ids(ids).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	ids := "ids_example" // string | Comma-delimited userIds.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetUsersInfo(context.Background(), tenantId).Ids(ids).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUsersInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUsersInfo`: PageUsersInfoResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUsersInfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUsersInfoRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ids** | **string** | Comma-delimited userIds. | 
+
+### Return type
+
+[**PageUsersInfoResponse**](PageUsersInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetV1PageLikes
+
+> GetV1PageLikes GetV1PageLikes(ctx, tenantId).UrlId(urlId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetV1PageLikes(context.Background(), tenantId).UrlId(urlId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetV1PageLikes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetV1PageLikes`: GetV1PageLikes
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetV1PageLikes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetV1PageLikesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+
+### Return type
+
+[**GetV1PageLikes**](GetV1PageLikes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetV2PageReactUsers
+
+> GetV2PageReactUsersResponse GetV2PageReactUsers(ctx, tenantId).UrlId(urlId).Id(id).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+	id := "id_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetV2PageReactUsers(context.Background(), tenantId).UrlId(urlId).Id(id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetV2PageReactUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetV2PageReactUsers`: GetV2PageReactUsersResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetV2PageReactUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetV2PageReactUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+ **id** | **string** |  | 
+
+### Return type
+
+[**GetV2PageReactUsersResponse**](GetV2PageReactUsersResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetV2PageReacts
+
+> GetV2PageReacts GetV2PageReacts(ctx, tenantId).UrlId(urlId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	urlId := "urlId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetV2PageReacts(context.Background(), tenantId).UrlId(urlId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetV2PageReacts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetV2PageReacts`: GetV2PageReacts
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetV2PageReacts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetV2PageReactsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **urlId** | **string** |  | 
+
+### Return type
+
+[**GetV2PageReacts**](GetV2PageReacts.md)
 
 ### Authorization
 
@@ -1518,7 +2714,7 @@ No authorization required
 
 ## LockComment
 
-> LockComment200Response LockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> APIEmptyResponse LockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -1547,7 +2743,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.LockComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `LockComment`: LockComment200Response
+	// response from `LockComment`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.LockComment`: %v\n", resp)
 }
 ```
@@ -1575,7 +2771,66 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LockComment200Response**](LockComment200Response.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LogoutPublic
+
+> APIEmptyResponse LogoutPublic(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/fastcomments/fastcomments-go/client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.LogoutPublic(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.LogoutPublic``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LogoutPublic`: APIEmptyResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.LogoutPublic`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLogoutPublicRequest struct via the builder pattern
+
+
+### Return type
+
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1593,7 +2848,7 @@ No authorization required
 
 ## PinComment
 
-> PinComment200Response PinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> ChangeCommentPinStatusResponse PinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -1622,7 +2877,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.PinComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PinComment`: PinComment200Response
+	// response from `PinComment`: ChangeCommentPinStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.PinComment`: %v\n", resp)
 }
 ```
@@ -1650,7 +2905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PinComment200Response**](PinComment200Response.md)
+[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
 
 ### Authorization
 
@@ -1668,7 +2923,7 @@ No authorization required
 
 ## ReactFeedPostPublic
 
-> ReactFeedPostPublic200Response ReactFeedPostPublic(ctx, tenantId, postId).ReactBodyParams(reactBodyParams).IsUndo(isUndo).BroadcastId(broadcastId).Sso(sso).Execute()
+> ReactFeedPostResponse ReactFeedPostPublic(ctx, tenantId, postId).ReactBodyParams(reactBodyParams).IsUndo(isUndo).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -1699,7 +2954,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.ReactFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ReactFeedPostPublic`: ReactFeedPostPublic200Response
+	// response from `ReactFeedPostPublic`: ReactFeedPostResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.ReactFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -1729,7 +2984,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReactFeedPostPublic200Response**](ReactFeedPostPublic200Response.md)
+[**ReactFeedPostResponse**](ReactFeedPostResponse.md)
 
 ### Authorization
 
@@ -1747,7 +3002,7 @@ No authorization required
 
 ## ResetUserNotificationCount
 
-> ResetUserNotifications200Response ResetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
+> ResetUserNotificationsResponse ResetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1774,7 +3029,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.ResetUserNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResetUserNotificationCount`: ResetUserNotifications200Response
+	// response from `ResetUserNotificationCount`: ResetUserNotificationsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.ResetUserNotificationCount`: %v\n", resp)
 }
 ```
@@ -1795,7 +3050,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResetUserNotifications200Response**](ResetUserNotifications200Response.md)
+[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -1813,7 +3068,7 @@ No authorization required
 
 ## ResetUserNotifications
 
-> ResetUserNotifications200Response ResetUserNotifications(ctx).TenantId(tenantId).AfterId(afterId).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).Sso(sso).Execute()
+> ResetUserNotificationsResponse ResetUserNotifications(ctx).TenantId(tenantId).AfterId(afterId).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).Sso(sso).Execute()
 
 
 
@@ -1845,7 +3100,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.ResetUserNotifications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResetUserNotifications`: ResetUserNotifications200Response
+	// response from `ResetUserNotifications`: ResetUserNotificationsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.ResetUserNotifications`: %v\n", resp)
 }
 ```
@@ -1871,7 +3126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResetUserNotifications200Response**](ResetUserNotifications200Response.md)
+[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -1889,7 +3144,7 @@ No authorization required
 
 ## SearchUsers
 
-> SearchUsers200Response SearchUsers(ctx, tenantId).UrlId(urlId).UsernameStartsWith(usernameStartsWith).MentionGroupIds(mentionGroupIds).Sso(sso).SearchSection(searchSection).Execute()
+> SearchUsersResult SearchUsers(ctx, tenantId).UrlId(urlId).UsernameStartsWith(usernameStartsWith).MentionGroupIds(mentionGroupIds).Sso(sso).SearchSection(searchSection).Execute()
 
 
 
@@ -1920,7 +3175,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.SearchUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SearchUsers`: SearchUsers200Response
+	// response from `SearchUsers`: SearchUsersResult
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.SearchUsers`: %v\n", resp)
 }
 ```
@@ -1949,7 +3204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchUsers200Response**](SearchUsers200Response.md)
+[**SearchUsersResult**](SearchUsersResult.md)
 
 ### Authorization
 
@@ -1967,7 +3222,7 @@ No authorization required
 
 ## SetCommentText
 
-> SetCommentText200Response SetCommentText(ctx, tenantId, commentId).BroadcastId(broadcastId).CommentTextUpdateRequest(commentTextUpdateRequest).EditKey(editKey).Sso(sso).Execute()
+> PublicAPISetCommentTextResponse SetCommentText(ctx, tenantId, commentId).BroadcastId(broadcastId).CommentTextUpdateRequest(commentTextUpdateRequest).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -1998,7 +3253,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.SetCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SetCommentText`: SetCommentText200Response
+	// response from `SetCommentText`: PublicAPISetCommentTextResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.SetCommentText`: %v\n", resp)
 }
 ```
@@ -2028,7 +3283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SetCommentText200Response**](SetCommentText200Response.md)
+[**PublicAPISetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
 
 ### Authorization
 
@@ -2046,7 +3301,7 @@ No authorization required
 
 ## UnBlockCommentPublic
 
-> UnBlockCommentPublic200Response UnBlockCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
+> UnblockSuccess UnBlockCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
 
 
 
@@ -2075,7 +3330,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UnBlockCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnBlockCommentPublic`: UnBlockCommentPublic200Response
+	// response from `UnBlockCommentPublic`: UnblockSuccess
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UnBlockCommentPublic`: %v\n", resp)
 }
 ```
@@ -2102,7 +3357,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnBlockCommentPublic200Response**](UnBlockCommentPublic200Response.md)
+[**UnblockSuccess**](UnblockSuccess.md)
 
 ### Authorization
 
@@ -2120,7 +3375,7 @@ No authorization required
 
 ## UnLockComment
 
-> LockComment200Response UnLockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> APIEmptyResponse UnLockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2149,7 +3404,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UnLockComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnLockComment`: LockComment200Response
+	// response from `UnLockComment`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UnLockComment`: %v\n", resp)
 }
 ```
@@ -2177,7 +3432,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LockComment200Response**](LockComment200Response.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2195,7 +3450,7 @@ No authorization required
 
 ## UnPinComment
 
-> PinComment200Response UnPinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> ChangeCommentPinStatusResponse UnPinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2224,7 +3479,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UnPinComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnPinComment`: PinComment200Response
+	// response from `UnPinComment`: ChangeCommentPinStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UnPinComment`: %v\n", resp)
 }
 ```
@@ -2252,7 +3507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PinComment200Response**](PinComment200Response.md)
+[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
 
 ### Authorization
 
@@ -2270,7 +3525,7 @@ No authorization required
 
 ## UpdateFeedPostPublic
 
-> CreateFeedPostPublic200Response UpdateFeedPostPublic(ctx, tenantId, postId).UpdateFeedPostParams(updateFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
+> CreateFeedPostResponse UpdateFeedPostPublic(ctx, tenantId, postId).UpdateFeedPostParams(updateFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2300,7 +3555,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UpdateFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateFeedPostPublic`: CreateFeedPostPublic200Response
+	// response from `UpdateFeedPostPublic`: CreateFeedPostResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UpdateFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -2329,7 +3584,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostPublic200Response**](CreateFeedPostPublic200Response.md)
+[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
 
 ### Authorization
 
@@ -2347,7 +3602,7 @@ No authorization required
 
 ## UpdateUserNotificationCommentSubscriptionStatus
 
-> UpdateUserNotificationStatus200Response UpdateUserNotificationCommentSubscriptionStatus(ctx, notificationId, optedInOrOut).TenantId(tenantId).CommentId(commentId).Sso(sso).Execute()
+> UpdateUserNotificationCommentSubscriptionStatusResponse UpdateUserNotificationCommentSubscriptionStatus(ctx, notificationId, optedInOrOut).TenantId(tenantId).CommentId(commentId).Sso(sso).Execute()
 
 
 
@@ -2379,7 +3634,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UpdateUserNotificationCommentSubscriptionStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateUserNotificationCommentSubscriptionStatus`: UpdateUserNotificationStatus200Response
+	// response from `UpdateUserNotificationCommentSubscriptionStatus`: UpdateUserNotificationCommentSubscriptionStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UpdateUserNotificationCommentSubscriptionStatus`: %v\n", resp)
 }
 ```
@@ -2408,7 +3663,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+[**UpdateUserNotificationCommentSubscriptionStatusResponse**](UpdateUserNotificationCommentSubscriptionStatusResponse.md)
 
 ### Authorization
 
@@ -2426,7 +3681,7 @@ No authorization required
 
 ## UpdateUserNotificationPageSubscriptionStatus
 
-> UpdateUserNotificationStatus200Response UpdateUserNotificationPageSubscriptionStatus(ctx, subscribedOrUnsubscribed).TenantId(tenantId).UrlId(urlId).Url(url).PageTitle(pageTitle).Sso(sso).Execute()
+> UpdateUserNotificationPageSubscriptionStatusResponse UpdateUserNotificationPageSubscriptionStatus(ctx, subscribedOrUnsubscribed).TenantId(tenantId).UrlId(urlId).Url(url).PageTitle(pageTitle).Sso(sso).Execute()
 
 
 
@@ -2459,7 +3714,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UpdateUserNotificationPageSubscriptionStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateUserNotificationPageSubscriptionStatus`: UpdateUserNotificationStatus200Response
+	// response from `UpdateUserNotificationPageSubscriptionStatus`: UpdateUserNotificationPageSubscriptionStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UpdateUserNotificationPageSubscriptionStatus`: %v\n", resp)
 }
 ```
@@ -2488,7 +3743,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+[**UpdateUserNotificationPageSubscriptionStatusResponse**](UpdateUserNotificationPageSubscriptionStatusResponse.md)
 
 ### Authorization
 
@@ -2506,7 +3761,7 @@ No authorization required
 
 ## UpdateUserNotificationStatus
 
-> UpdateUserNotificationStatus200Response UpdateUserNotificationStatus(ctx, notificationId, newStatus).TenantId(tenantId).Sso(sso).Execute()
+> UpdateUserNotificationStatusResponse UpdateUserNotificationStatus(ctx, notificationId, newStatus).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2535,7 +3790,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UpdateUserNotificationStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateUserNotificationStatus`: UpdateUserNotificationStatus200Response
+	// response from `UpdateUserNotificationStatus`: UpdateUserNotificationStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UpdateUserNotificationStatus`: %v\n", resp)
 }
 ```
@@ -2563,7 +3818,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+[**UpdateUserNotificationStatusResponse**](UpdateUserNotificationStatusResponse.md)
 
 ### Authorization
 
@@ -2657,7 +3912,7 @@ No authorization required
 
 ## VoteComment
 
-> VoteComment200Response VoteComment(ctx, tenantId, commentId).UrlId(urlId).BroadcastId(broadcastId).VoteBodyParams(voteBodyParams).SessionId(sessionId).Sso(sso).Execute()
+> VoteResponse VoteComment(ctx, tenantId, commentId).UrlId(urlId).BroadcastId(broadcastId).VoteBodyParams(voteBodyParams).SessionId(sessionId).Sso(sso).Execute()
 
 
 
@@ -2689,7 +3944,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.VoteComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VoteComment`: VoteComment200Response
+	// response from `VoteComment`: VoteResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.VoteComment`: %v\n", resp)
 }
 ```
@@ -2720,7 +3975,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteComment200Response**](VoteComment200Response.md)
+[**VoteResponse**](VoteResponse.md)
 
 ### Authorization
 

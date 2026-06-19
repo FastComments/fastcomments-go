@@ -71,11 +71,14 @@ type CustomConfigParameters struct {
 	NoCustomConfig *bool `json:"noCustomConfig,omitempty"`
 	MentionAutoCompleteMode NullableMentionAutoCompleteMode `json:"mentionAutoCompleteMode,omitempty"`
 	NoImageUploads *bool `json:"noImageUploads,omitempty"`
+	AllowEmbeds *bool `json:"allowEmbeds,omitempty"`
+	AllowedEmbedDomains []string `json:"allowedEmbedDomains,omitempty"`
 	NoStyles *bool `json:"noStyles,omitempty"`
 	PageSize NullableInt32 `json:"pageSize,omitempty"`
 	Readonly *bool `json:"readonly,omitempty"`
 	NoNewRootComments *bool `json:"noNewRootComments,omitempty"`
 	RequireSSO *bool `json:"requireSSO,omitempty"`
+	EnableFChat *bool `json:"enableFChat,omitempty"`
 	EnableResizeHandle *bool `json:"enableResizeHandle,omitempty"`
 	RestrictedLinkDomains []string `json:"restrictedLinkDomains,omitempty"`
 	ShowBadgesInTopBar *bool `json:"showBadgesInTopBar,omitempty"`
@@ -97,6 +100,8 @@ type CustomConfigParameters struct {
 	WidgetQuestionsRequired *CommentQuestionsRequired `json:"widgetQuestionsRequired,omitempty"`
 	WidgetSubQuestionVisibility *QuestionSubQuestionVisibility `json:"widgetSubQuestionVisibility,omitempty"`
 	Wrap *bool `json:"wrap,omitempty"`
+	UsersListLocation *UsersListLocation `json:"usersListLocation,omitempty"`
+	UsersListIncludeOffline *bool `json:"usersListIncludeOffline,omitempty"`
 	TicketBaseUrl *string `json:"ticketBaseUrl,omitempty"`
 	TicketKBSearchEndpoint *string `json:"ticketKBSearchEndpoint,omitempty"`
 	TicketFileUploadsEnabled *bool `json:"ticketFileUploadsEnabled,omitempty"`
@@ -1917,6 +1922,71 @@ func (o *CustomConfigParameters) SetNoImageUploads(v bool) {
 	o.NoImageUploads = &v
 }
 
+// GetAllowEmbeds returns the AllowEmbeds field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetAllowEmbeds() bool {
+	if o == nil || IsNil(o.AllowEmbeds) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowEmbeds
+}
+
+// GetAllowEmbedsOk returns a tuple with the AllowEmbeds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetAllowEmbedsOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowEmbeds) {
+		return nil, false
+	}
+	return o.AllowEmbeds, true
+}
+
+// HasAllowEmbeds returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasAllowEmbeds() bool {
+	if o != nil && !IsNil(o.AllowEmbeds) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowEmbeds gets a reference to the given bool and assigns it to the AllowEmbeds field.
+func (o *CustomConfigParameters) SetAllowEmbeds(v bool) {
+	o.AllowEmbeds = &v
+}
+
+// GetAllowedEmbedDomains returns the AllowedEmbedDomains field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomConfigParameters) GetAllowedEmbedDomains() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.AllowedEmbedDomains
+}
+
+// GetAllowedEmbedDomainsOk returns a tuple with the AllowedEmbedDomains field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomConfigParameters) GetAllowedEmbedDomainsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AllowedEmbedDomains) {
+		return nil, false
+	}
+	return o.AllowedEmbedDomains, true
+}
+
+// HasAllowedEmbedDomains returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasAllowedEmbedDomains() bool {
+	if o != nil && !IsNil(o.AllowedEmbedDomains) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedEmbedDomains gets a reference to the given []string and assigns it to the AllowedEmbedDomains field.
+func (o *CustomConfigParameters) SetAllowedEmbedDomains(v []string) {
+	o.AllowedEmbedDomains = v
+}
+
 // GetNoStyles returns the NoStyles field value if set, zero value otherwise.
 func (o *CustomConfigParameters) GetNoStyles() bool {
 	if o == nil || IsNil(o.NoStyles) {
@@ -2085,6 +2155,38 @@ func (o *CustomConfigParameters) HasRequireSSO() bool {
 // SetRequireSSO gets a reference to the given bool and assigns it to the RequireSSO field.
 func (o *CustomConfigParameters) SetRequireSSO(v bool) {
 	o.RequireSSO = &v
+}
+
+// GetEnableFChat returns the EnableFChat field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetEnableFChat() bool {
+	if o == nil || IsNil(o.EnableFChat) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableFChat
+}
+
+// GetEnableFChatOk returns a tuple with the EnableFChat field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetEnableFChatOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableFChat) {
+		return nil, false
+	}
+	return o.EnableFChat, true
+}
+
+// HasEnableFChat returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasEnableFChat() bool {
+	if o != nil && !IsNil(o.EnableFChat) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnableFChat gets a reference to the given bool and assigns it to the EnableFChat field.
+func (o *CustomConfigParameters) SetEnableFChat(v bool) {
+	o.EnableFChat = &v
 }
 
 // GetEnableResizeHandle returns the EnableResizeHandle field value if set, zero value otherwise.
@@ -2729,6 +2831,70 @@ func (o *CustomConfigParameters) SetWrap(v bool) {
 	o.Wrap = &v
 }
 
+// GetUsersListLocation returns the UsersListLocation field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetUsersListLocation() UsersListLocation {
+	if o == nil || IsNil(o.UsersListLocation) {
+		var ret UsersListLocation
+		return ret
+	}
+	return *o.UsersListLocation
+}
+
+// GetUsersListLocationOk returns a tuple with the UsersListLocation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetUsersListLocationOk() (*UsersListLocation, bool) {
+	if o == nil || IsNil(o.UsersListLocation) {
+		return nil, false
+	}
+	return o.UsersListLocation, true
+}
+
+// HasUsersListLocation returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasUsersListLocation() bool {
+	if o != nil && !IsNil(o.UsersListLocation) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsersListLocation gets a reference to the given UsersListLocation and assigns it to the UsersListLocation field.
+func (o *CustomConfigParameters) SetUsersListLocation(v UsersListLocation) {
+	o.UsersListLocation = &v
+}
+
+// GetUsersListIncludeOffline returns the UsersListIncludeOffline field value if set, zero value otherwise.
+func (o *CustomConfigParameters) GetUsersListIncludeOffline() bool {
+	if o == nil || IsNil(o.UsersListIncludeOffline) {
+		var ret bool
+		return ret
+	}
+	return *o.UsersListIncludeOffline
+}
+
+// GetUsersListIncludeOfflineOk returns a tuple with the UsersListIncludeOffline field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomConfigParameters) GetUsersListIncludeOfflineOk() (*bool, bool) {
+	if o == nil || IsNil(o.UsersListIncludeOffline) {
+		return nil, false
+	}
+	return o.UsersListIncludeOffline, true
+}
+
+// HasUsersListIncludeOffline returns a boolean if a field has been set.
+func (o *CustomConfigParameters) HasUsersListIncludeOffline() bool {
+	if o != nil && !IsNil(o.UsersListIncludeOffline) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsersListIncludeOffline gets a reference to the given bool and assigns it to the UsersListIncludeOffline field.
+func (o *CustomConfigParameters) SetUsersListIncludeOffline(v bool) {
+	o.UsersListIncludeOffline = &v
+}
+
 // GetTicketBaseUrl returns the TicketBaseUrl field value if set, zero value otherwise.
 func (o *CustomConfigParameters) GetTicketBaseUrl() string {
 	if o == nil || IsNil(o.TicketBaseUrl) {
@@ -3087,6 +3253,12 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NoImageUploads) {
 		toSerialize["noImageUploads"] = o.NoImageUploads
 	}
+	if !IsNil(o.AllowEmbeds) {
+		toSerialize["allowEmbeds"] = o.AllowEmbeds
+	}
+	if o.AllowedEmbedDomains != nil {
+		toSerialize["allowedEmbedDomains"] = o.AllowedEmbedDomains
+	}
 	if !IsNil(o.NoStyles) {
 		toSerialize["noStyles"] = o.NoStyles
 	}
@@ -3101,6 +3273,9 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RequireSSO) {
 		toSerialize["requireSSO"] = o.RequireSSO
+	}
+	if !IsNil(o.EnableFChat) {
+		toSerialize["enableFChat"] = o.EnableFChat
 	}
 	if !IsNil(o.EnableResizeHandle) {
 		toSerialize["enableResizeHandle"] = o.EnableResizeHandle
@@ -3161,6 +3336,12 @@ func (o CustomConfigParameters) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Wrap) {
 		toSerialize["wrap"] = o.Wrap
+	}
+	if !IsNil(o.UsersListLocation) {
+		toSerialize["usersListLocation"] = o.UsersListLocation
+	}
+	if !IsNil(o.UsersListIncludeOffline) {
+		toSerialize["usersListIncludeOffline"] = o.UsersListIncludeOffline
 	}
 	if !IsNil(o.TicketBaseUrl) {
 		toSerialize["ticketBaseUrl"] = o.TicketBaseUrl

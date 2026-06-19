@@ -27,8 +27,9 @@ Name | Type | Description | Notes
 **FromOfflineRestore** | Pointer to **bool** |  | [optional] 
 **AutoplayDelayMS** | Pointer to **int64** |  | [optional] 
 **FeedbackIds** | Pointer to **[]string** |  | [optional] 
-**QuestionValues** | Pointer to [**map[string]RecordStringStringOrNumberValue**](RecordStringStringOrNumberValue.md) | Construct a type with a set of properties K of type T | [optional] 
+**QuestionValues** | Pointer to [**map[string]GifSearchResponseImagesInnerInner**](GifSearchResponseImagesInnerInner.md) | Construct a type with a set of properties K of type T | [optional] 
 **Tos** | Pointer to **bool** |  | [optional] 
+**BotId** | Pointer to **string** |  | [optional] 
 **Approved** | Pointer to **bool** |  | [optional] 
 **Domain** | Pointer to **string** |  | [optional] 
 **Ip** | Pointer to **string** |  | [optional] 
@@ -666,20 +667,20 @@ HasFeedbackIds returns a boolean if a field has been set.
 
 ### GetQuestionValues
 
-`func (o *CreateCommentParams) GetQuestionValues() map[string]RecordStringStringOrNumberValue`
+`func (o *CreateCommentParams) GetQuestionValues() map[string]GifSearchResponseImagesInnerInner`
 
 GetQuestionValues returns the QuestionValues field if non-nil, zero value otherwise.
 
 ### GetQuestionValuesOk
 
-`func (o *CreateCommentParams) GetQuestionValuesOk() (*map[string]RecordStringStringOrNumberValue, bool)`
+`func (o *CreateCommentParams) GetQuestionValuesOk() (*map[string]GifSearchResponseImagesInnerInner, bool)`
 
 GetQuestionValuesOk returns a tuple with the QuestionValues field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetQuestionValues
 
-`func (o *CreateCommentParams) SetQuestionValues(v map[string]RecordStringStringOrNumberValue)`
+`func (o *CreateCommentParams) SetQuestionValues(v map[string]GifSearchResponseImagesInnerInner)`
 
 SetQuestionValues sets QuestionValues field to given value.
 
@@ -713,6 +714,31 @@ SetTos sets Tos field to given value.
 `func (o *CreateCommentParams) HasTos() bool`
 
 HasTos returns a boolean if a field has been set.
+
+### GetBotId
+
+`func (o *CreateCommentParams) GetBotId() string`
+
+GetBotId returns the BotId field if non-nil, zero value otherwise.
+
+### GetBotIdOk
+
+`func (o *CreateCommentParams) GetBotIdOk() (*string, bool)`
+
+GetBotIdOk returns a tuple with the BotId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBotId
+
+`func (o *CreateCommentParams) SetBotId(v string)`
+
+SetBotId sets BotId field to given value.
+
+### HasBotId
+
+`func (o *CreateCommentParams) HasBotId() bool`
+
+HasBotId returns a boolean if a field has been set.
 
 ### GetApproved
 

@@ -35,6 +35,7 @@ type CommentLogData struct {
 	EngineResponse *string `json:"engineResponse,omitempty"`
 	EngineTokens *float64 `json:"engineTokens,omitempty"`
 	TrustFactor *float64 `json:"trustFactor,omitempty"`
+	Source *string `json:"source,omitempty"`
 	Rule *SpamRule `json:"rule,omitempty"`
 	UserId *string `json:"userId,omitempty"`
 	Subscribers *float64 `json:"subscribers,omitempty"`
@@ -563,6 +564,38 @@ func (o *CommentLogData) HasTrustFactor() bool {
 // SetTrustFactor gets a reference to the given float64 and assigns it to the TrustFactor field.
 func (o *CommentLogData) SetTrustFactor(v float64) {
 	o.TrustFactor = &v
+}
+
+// GetSource returns the Source field value if set, zero value otherwise.
+func (o *CommentLogData) GetSource() string {
+	if o == nil || IsNil(o.Source) {
+		var ret string
+		return ret
+	}
+	return *o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommentLogData) GetSourceOk() (*string, bool) {
+	if o == nil || IsNil(o.Source) {
+		return nil, false
+	}
+	return o.Source, true
+}
+
+// HasSource returns a boolean if a field has been set.
+func (o *CommentLogData) HasSource() bool {
+	if o != nil && !IsNil(o.Source) {
+		return true
+	}
+
+	return false
+}
+
+// SetSource gets a reference to the given string and assigns it to the Source field.
+func (o *CommentLogData) SetSource(v string) {
+	o.Source = &v
 }
 
 // GetRule returns the Rule field value if set, zero value otherwise.
@@ -1702,6 +1735,9 @@ func (o CommentLogData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TrustFactor) {
 		toSerialize["trustFactor"] = o.TrustFactor
+	}
+	if !IsNil(o.Source) {
+		toSerialize["source"] = o.Source
 	}
 	if !IsNil(o.Rule) {
 		toSerialize["rule"] = o.Rule

@@ -21,8 +21,8 @@ var _ MappedNullable = &RecordStringBeforeStringOrNullAfterStringOrNullValue{}
 
 // RecordStringBeforeStringOrNullAfterStringOrNullValue struct for RecordStringBeforeStringOrNullAfterStringOrNullValue
 type RecordStringBeforeStringOrNullAfterStringOrNullValue struct {
-	After string `json:"after"`
-	Before string `json:"before"`
+	After NullableString `json:"after"`
+	Before NullableString `json:"before"`
 }
 
 type _RecordStringBeforeStringOrNullAfterStringOrNullValue RecordStringBeforeStringOrNullAfterStringOrNullValue
@@ -31,7 +31,7 @@ type _RecordStringBeforeStringOrNullAfterStringOrNullValue RecordStringBeforeStr
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecordStringBeforeStringOrNullAfterStringOrNullValue(after string, before string) *RecordStringBeforeStringOrNullAfterStringOrNullValue {
+func NewRecordStringBeforeStringOrNullAfterStringOrNullValue(after NullableString, before NullableString) *RecordStringBeforeStringOrNullAfterStringOrNullValue {
 	this := RecordStringBeforeStringOrNullAfterStringOrNullValue{}
 	this.After = after
 	this.Before = before
@@ -47,51 +47,55 @@ func NewRecordStringBeforeStringOrNullAfterStringOrNullValueWithDefaults() *Reco
 }
 
 // GetAfter returns the After field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) GetAfter() string {
-	if o == nil {
+	if o == nil || o.After.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.After
+	return *o.After.Get()
 }
 
 // GetAfterOk returns a tuple with the After field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) GetAfterOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.After, true
+	return o.After.Get(), o.After.IsSet()
 }
 
 // SetAfter sets field value
 func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) SetAfter(v string) {
-	o.After = v
+	o.After.Set(&v)
 }
 
 // GetBefore returns the Before field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) GetBefore() string {
-	if o == nil {
+	if o == nil || o.Before.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Before
+	return *o.Before.Get()
 }
 
 // GetBeforeOk returns a tuple with the Before field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) GetBeforeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Before, true
+	return o.Before.Get(), o.Before.IsSet()
 }
 
 // SetBefore sets field value
 func (o *RecordStringBeforeStringOrNullAfterStringOrNullValue) SetBefore(v string) {
-	o.Before = v
+	o.Before.Set(&v)
 }
 
 func (o RecordStringBeforeStringOrNullAfterStringOrNullValue) MarshalJSON() ([]byte, error) {
@@ -104,8 +108,8 @@ func (o RecordStringBeforeStringOrNullAfterStringOrNullValue) MarshalJSON() ([]b
 
 func (o RecordStringBeforeStringOrNullAfterStringOrNullValue) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["after"] = o.After
-	toSerialize["before"] = o.Before
+	toSerialize["after"] = o.After.Get()
+	toSerialize["before"] = o.Before.Get()
 	return toSerialize, nil
 }
 
