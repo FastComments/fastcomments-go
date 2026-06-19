@@ -36,6 +36,7 @@ type LiveEvent struct {
 	IsClosed *bool `json:"isClosed,omitempty"`
 	Uj []string `json:"uj,omitempty"`
 	Ul []string `json:"ul,omitempty"`
+	Sc *int32 `json:"sc,omitempty"`
 	Changes *map[string]int32 `json:"changes,omitempty"`
 }
 
@@ -531,6 +532,38 @@ func (o *LiveEvent) SetUl(v []string) {
 	o.Ul = v
 }
 
+// GetSc returns the Sc field value if set, zero value otherwise.
+func (o *LiveEvent) GetSc() int32 {
+	if o == nil || IsNil(o.Sc) {
+		var ret int32
+		return ret
+	}
+	return *o.Sc
+}
+
+// GetScOk returns a tuple with the Sc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LiveEvent) GetScOk() (*int32, bool) {
+	if o == nil || IsNil(o.Sc) {
+		return nil, false
+	}
+	return o.Sc, true
+}
+
+// HasSc returns a boolean if a field has been set.
+func (o *LiveEvent) HasSc() bool {
+	if o != nil && !IsNil(o.Sc) {
+		return true
+	}
+
+	return false
+}
+
+// SetSc gets a reference to the given int32 and assigns it to the Sc field.
+func (o *LiveEvent) SetSc(v int32) {
+	o.Sc = &v
+}
+
 // GetChanges returns the Changes field value if set, zero value otherwise.
 func (o *LiveEvent) GetChanges() map[string]int32 {
 	if o == nil || IsNil(o.Changes) {
@@ -615,6 +648,9 @@ func (o LiveEvent) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Ul) {
 		toSerialize["ul"] = o.Ul
+	}
+	if !IsNil(o.Sc) {
+		toSerialize["sc"] = o.Sc
 	}
 	if !IsNil(o.Changes) {
 		toSerialize["changes"] = o.Changes

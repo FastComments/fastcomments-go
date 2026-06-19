@@ -37,6 +37,18 @@
 
 * `DELETED_FEED_POST` (value: `"deleted-feed-post"`)
 
+* `NEW_TICKET` (value: `"new-ticket"`)
+
+* `UPDATED_TICKET_STATE` (value: `"updated-ticket-state"`)
+
+* `UPDATED_TICKET_ASSIGNMENT` (value: `"updated-ticket-assignment"`)
+
+* `DELETED_TICKET` (value: `"deleted-ticket"`)
+
+* `PAGE_REACT` (value: `"page-react"`)
+
+* `QUESTION_RESULT` (value: `"question-result"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

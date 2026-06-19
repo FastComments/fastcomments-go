@@ -45,8 +45,8 @@ Name | Type | Description | Notes
 **FlexAdminUnit** | Pointer to **float64** |  | [optional] 
 **FlexDomainCostCents** | Pointer to **float64** |  | [optional] 
 **FlexDomainUnit** | Pointer to **float64** |  | [optional] 
-**FlexChatGPTCostCents** | Pointer to **float64** |  | [optional] 
-**FlexChatGPTUnit** | Pointer to **float64** |  | [optional] 
+**FlexLLMCostCents** | Pointer to **float64** |  | [optional] 
+**FlexLLMUnit** | Pointer to **float64** |  | [optional] 
 **FlexMinimumCostCents** | Pointer to **float64** |  | [optional] 
 **FlexManagedTenantCostCents** | Pointer to **float64** |  | [optional] 
 **FlexSSOAdminCostCents** | Pointer to **float64** |  | [optional] 
@@ -1073,55 +1073,55 @@ SetFlexDomainUnit sets FlexDomainUnit field to given value.
 
 HasFlexDomainUnit returns a boolean if a field has been set.
 
-### GetFlexChatGPTCostCents
+### GetFlexLLMCostCents
 
-`func (o *CreateTenantPackageBody) GetFlexChatGPTCostCents() float64`
+`func (o *CreateTenantPackageBody) GetFlexLLMCostCents() float64`
 
-GetFlexChatGPTCostCents returns the FlexChatGPTCostCents field if non-nil, zero value otherwise.
+GetFlexLLMCostCents returns the FlexLLMCostCents field if non-nil, zero value otherwise.
 
-### GetFlexChatGPTCostCentsOk
+### GetFlexLLMCostCentsOk
 
-`func (o *CreateTenantPackageBody) GetFlexChatGPTCostCentsOk() (*float64, bool)`
+`func (o *CreateTenantPackageBody) GetFlexLLMCostCentsOk() (*float64, bool)`
 
-GetFlexChatGPTCostCentsOk returns a tuple with the FlexChatGPTCostCents field if it's non-nil, zero value otherwise
+GetFlexLLMCostCentsOk returns a tuple with the FlexLLMCostCents field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFlexChatGPTCostCents
+### SetFlexLLMCostCents
 
-`func (o *CreateTenantPackageBody) SetFlexChatGPTCostCents(v float64)`
+`func (o *CreateTenantPackageBody) SetFlexLLMCostCents(v float64)`
 
-SetFlexChatGPTCostCents sets FlexChatGPTCostCents field to given value.
+SetFlexLLMCostCents sets FlexLLMCostCents field to given value.
 
-### HasFlexChatGPTCostCents
+### HasFlexLLMCostCents
 
-`func (o *CreateTenantPackageBody) HasFlexChatGPTCostCents() bool`
+`func (o *CreateTenantPackageBody) HasFlexLLMCostCents() bool`
 
-HasFlexChatGPTCostCents returns a boolean if a field has been set.
+HasFlexLLMCostCents returns a boolean if a field has been set.
 
-### GetFlexChatGPTUnit
+### GetFlexLLMUnit
 
-`func (o *CreateTenantPackageBody) GetFlexChatGPTUnit() float64`
+`func (o *CreateTenantPackageBody) GetFlexLLMUnit() float64`
 
-GetFlexChatGPTUnit returns the FlexChatGPTUnit field if non-nil, zero value otherwise.
+GetFlexLLMUnit returns the FlexLLMUnit field if non-nil, zero value otherwise.
 
-### GetFlexChatGPTUnitOk
+### GetFlexLLMUnitOk
 
-`func (o *CreateTenantPackageBody) GetFlexChatGPTUnitOk() (*float64, bool)`
+`func (o *CreateTenantPackageBody) GetFlexLLMUnitOk() (*float64, bool)`
 
-GetFlexChatGPTUnitOk returns a tuple with the FlexChatGPTUnit field if it's non-nil, zero value otherwise
+GetFlexLLMUnitOk returns a tuple with the FlexLLMUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFlexChatGPTUnit
+### SetFlexLLMUnit
 
-`func (o *CreateTenantPackageBody) SetFlexChatGPTUnit(v float64)`
+`func (o *CreateTenantPackageBody) SetFlexLLMUnit(v float64)`
 
-SetFlexChatGPTUnit sets FlexChatGPTUnit field to given value.
+SetFlexLLMUnit sets FlexLLMUnit field to given value.
 
-### HasFlexChatGPTUnit
+### HasFlexLLMUnit
 
-`func (o *CreateTenantPackageBody) HasFlexChatGPTUnit() bool`
+`func (o *CreateTenantPackageBody) HasFlexLLMUnit() bool`
 
-HasFlexChatGPTUnit returns a boolean if a field has been set.
+HasFlexLLMUnit returns a boolean if a field has been set.
 
 ### GetFlexMinimumCostCents
 

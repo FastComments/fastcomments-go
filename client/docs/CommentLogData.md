@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **EngineResponse** | Pointer to **string** |  | [optional] 
 **EngineTokens** | Pointer to **float64** |  | [optional] 
 **TrustFactor** | Pointer to **float64** |  | [optional] 
+**Source** | Pointer to **string** |  | [optional] 
 **Rule** | Pointer to [**SpamRule**](SpamRule.md) |  | [optional] 
 **UserId** | Pointer to **string** |  | [optional] 
 **Subscribers** | Pointer to **float64** |  | [optional] 
@@ -444,6 +445,31 @@ SetTrustFactor sets TrustFactor field to given value.
 `func (o *CommentLogData) HasTrustFactor() bool`
 
 HasTrustFactor returns a boolean if a field has been set.
+
+### GetSource
+
+`func (o *CommentLogData) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *CommentLogData) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *CommentLogData) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *CommentLogData) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
 
 ### GetRule
 

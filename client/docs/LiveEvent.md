@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **IsClosed** | Pointer to **bool** |  | [optional] 
 **Uj** | Pointer to **[]string** |  | [optional] 
 **Ul** | Pointer to **[]string** |  | [optional] 
+**Sc** | Pointer to **int32** |  | [optional] 
 **Changes** | Pointer to **map[string]int32** |  | [optional] 
 
 ## Methods
@@ -409,6 +410,31 @@ SetUl sets Ul field to given value.
 `func (o *LiveEvent) HasUl() bool`
 
 HasUl returns a boolean if a field has been set.
+
+### GetSc
+
+`func (o *LiveEvent) GetSc() int32`
+
+GetSc returns the Sc field if non-nil, zero value otherwise.
+
+### GetScOk
+
+`func (o *LiveEvent) GetScOk() (*int32, bool)`
+
+GetScOk returns a tuple with the Sc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSc
+
+`func (o *LiveEvent) SetSc(v int32)`
+
+SetSc sets Sc field to given value.
+
+### HasSc
+
+`func (o *LiveEvent) HasSc() bool`
+
+HasSc returns a boolean if a field has been set.
 
 ### GetChanges
 

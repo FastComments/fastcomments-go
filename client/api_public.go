@@ -49,7 +49,7 @@ func (r ApiBlockFromCommentPublicRequest) Sso(sso string) ApiBlockFromCommentPub
 	return r
 }
 
-func (r ApiBlockFromCommentPublicRequest) Execute() (*BlockFromCommentPublic200Response, *http.Response, error) {
+func (r ApiBlockFromCommentPublicRequest) Execute() (*BlockSuccess, *http.Response, error) {
 	return r.ApiService.BlockFromCommentPublicExecute(r)
 }
 
@@ -69,13 +69,13 @@ func (a *PublicAPIService) BlockFromCommentPublic(ctx context.Context, commentId
 }
 
 // Execute executes the request
-//  @return BlockFromCommentPublic200Response
-func (a *PublicAPIService) BlockFromCommentPublicExecute(r ApiBlockFromCommentPublicRequest) (*BlockFromCommentPublic200Response, *http.Response, error) {
+//  @return BlockSuccess
+func (a *PublicAPIService) BlockFromCommentPublicExecute(r ApiBlockFromCommentPublicRequest) (*BlockSuccess, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BlockFromCommentPublic200Response
+		localVarReturnValue  *BlockSuccess
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.BlockFromCommentPublic")
@@ -141,6 +141,14 @@ func (a *PublicAPIService) BlockFromCommentPublicExecute(r ApiBlockFromCommentPu
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -180,7 +188,7 @@ func (r ApiCheckedCommentsForBlockedRequest) Sso(sso string) ApiCheckedCommentsF
 	return r
 }
 
-func (r ApiCheckedCommentsForBlockedRequest) Execute() (*CheckedCommentsForBlocked200Response, *http.Response, error) {
+func (r ApiCheckedCommentsForBlockedRequest) Execute() (*CheckBlockedCommentsResponse, *http.Response, error) {
 	return r.ApiService.CheckedCommentsForBlockedExecute(r)
 }
 
@@ -198,13 +206,13 @@ func (a *PublicAPIService) CheckedCommentsForBlocked(ctx context.Context) ApiChe
 }
 
 // Execute executes the request
-//  @return CheckedCommentsForBlocked200Response
-func (a *PublicAPIService) CheckedCommentsForBlockedExecute(r ApiCheckedCommentsForBlockedRequest) (*CheckedCommentsForBlocked200Response, *http.Response, error) {
+//  @return CheckBlockedCommentsResponse
+func (a *PublicAPIService) CheckedCommentsForBlockedExecute(r ApiCheckedCommentsForBlockedRequest) (*CheckBlockedCommentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CheckedCommentsForBlocked200Response
+		localVarReturnValue  *CheckBlockedCommentsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.CheckedCommentsForBlocked")
@@ -268,6 +276,14 @@ func (a *PublicAPIService) CheckedCommentsForBlockedExecute(r ApiCheckedComments
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -319,7 +335,7 @@ func (r ApiCreateCommentPublicRequest) Sso(sso string) ApiCreateCommentPublicReq
 	return r
 }
 
-func (r ApiCreateCommentPublicRequest) Execute() (*CreateCommentPublic200Response, *http.Response, error) {
+func (r ApiCreateCommentPublicRequest) Execute() (*SaveCommentsResponseWithPresence, *http.Response, error) {
 	return r.ApiService.CreateCommentPublicExecute(r)
 }
 
@@ -339,13 +355,13 @@ func (a *PublicAPIService) CreateCommentPublic(ctx context.Context, tenantId str
 }
 
 // Execute executes the request
-//  @return CreateCommentPublic200Response
-func (a *PublicAPIService) CreateCommentPublicExecute(r ApiCreateCommentPublicRequest) (*CreateCommentPublic200Response, *http.Response, error) {
+//  @return SaveCommentsResponseWithPresence
+func (a *PublicAPIService) CreateCommentPublicExecute(r ApiCreateCommentPublicRequest) (*SaveCommentsResponseWithPresence, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCommentPublic200Response
+		localVarReturnValue  *SaveCommentsResponseWithPresence
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.CreateCommentPublic")
@@ -418,6 +434,14 @@ func (a *PublicAPIService) CreateCommentPublicExecute(r ApiCreateCommentPublicRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -457,7 +481,7 @@ func (r ApiCreateFeedPostPublicRequest) Sso(sso string) ApiCreateFeedPostPublicR
 	return r
 }
 
-func (r ApiCreateFeedPostPublicRequest) Execute() (*CreateFeedPostPublic200Response, *http.Response, error) {
+func (r ApiCreateFeedPostPublicRequest) Execute() (*CreateFeedPostResponse, *http.Response, error) {
 	return r.ApiService.CreateFeedPostPublicExecute(r)
 }
 
@@ -477,13 +501,13 @@ func (a *PublicAPIService) CreateFeedPostPublic(ctx context.Context, tenantId st
 }
 
 // Execute executes the request
-//  @return CreateFeedPostPublic200Response
-func (a *PublicAPIService) CreateFeedPostPublicExecute(r ApiCreateFeedPostPublicRequest) (*CreateFeedPostPublic200Response, *http.Response, error) {
+//  @return CreateFeedPostResponse
+func (a *PublicAPIService) CreateFeedPostPublicExecute(r ApiCreateFeedPostPublicRequest) (*CreateFeedPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateFeedPostPublic200Response
+		localVarReturnValue  *CreateFeedPostResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.CreateFeedPostPublic")
@@ -548,6 +572,280 @@ func (a *PublicAPIService) CreateFeedPostPublicExecute(r ApiCreateFeedPostPublic
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateV1PageReactRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+	title *string
+}
+
+func (r ApiCreateV1PageReactRequest) UrlId(urlId string) ApiCreateV1PageReactRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiCreateV1PageReactRequest) Title(title string) ApiCreateV1PageReactRequest {
+	r.title = &title
+	return r
+}
+
+func (r ApiCreateV1PageReactRequest) Execute() (*CreateV1PageReact, *http.Response, error) {
+	return r.ApiService.CreateV1PageReactExecute(r)
+}
+
+/*
+CreateV1PageReact Method for CreateV1PageReact
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiCreateV1PageReactRequest
+*/
+func (a *PublicAPIService) CreateV1PageReact(ctx context.Context, tenantId string) ApiCreateV1PageReactRequest {
+	return ApiCreateV1PageReactRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateV1PageReact
+func (a *PublicAPIService) CreateV1PageReactExecute(r ApiCreateV1PageReactRequest) (*CreateV1PageReact, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateV1PageReact
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.CreateV1PageReact")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v1/likes/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	if r.title != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "title", r.title, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateV2PageReactRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+	id *string
+	title *string
+}
+
+func (r ApiCreateV2PageReactRequest) UrlId(urlId string) ApiCreateV2PageReactRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiCreateV2PageReactRequest) Id(id string) ApiCreateV2PageReactRequest {
+	r.id = &id
+	return r
+}
+
+func (r ApiCreateV2PageReactRequest) Title(title string) ApiCreateV2PageReactRequest {
+	r.title = &title
+	return r
+}
+
+func (r ApiCreateV2PageReactRequest) Execute() (*CreateV1PageReact, *http.Response, error) {
+	return r.ApiService.CreateV2PageReactExecute(r)
+}
+
+/*
+CreateV2PageReact Method for CreateV2PageReact
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiCreateV2PageReactRequest
+*/
+func (a *PublicAPIService) CreateV2PageReact(ctx context.Context, tenantId string) ApiCreateV2PageReactRequest {
+	return ApiCreateV2PageReactRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateV1PageReact
+func (a *PublicAPIService) CreateV2PageReactExecute(r ApiCreateV2PageReactRequest) (*CreateV1PageReact, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateV1PageReact
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.CreateV2PageReact")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v2/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+	if r.id == nil {
+		return localVarReturnValue, nil, reportError("id is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
+	if r.title != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "title", r.title, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -588,7 +886,7 @@ func (r ApiDeleteCommentPublicRequest) Sso(sso string) ApiDeleteCommentPublicReq
 	return r
 }
 
-func (r ApiDeleteCommentPublicRequest) Execute() (*DeleteCommentPublic200Response, *http.Response, error) {
+func (r ApiDeleteCommentPublicRequest) Execute() (*PublicAPIDeleteCommentResponse, *http.Response, error) {
 	return r.ApiService.DeleteCommentPublicExecute(r)
 }
 
@@ -610,13 +908,13 @@ func (a *PublicAPIService) DeleteCommentPublic(ctx context.Context, tenantId str
 }
 
 // Execute executes the request
-//  @return DeleteCommentPublic200Response
-func (a *PublicAPIService) DeleteCommentPublicExecute(r ApiDeleteCommentPublicRequest) (*DeleteCommentPublic200Response, *http.Response, error) {
+//  @return PublicAPIDeleteCommentResponse
+func (a *PublicAPIService) DeleteCommentPublicExecute(r ApiDeleteCommentPublicRequest) (*PublicAPIDeleteCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteCommentPublic200Response
+		localVarReturnValue  *PublicAPIDeleteCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.DeleteCommentPublic")
@@ -681,6 +979,14 @@ func (a *PublicAPIService) DeleteCommentPublicExecute(r ApiDeleteCommentPublicRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -728,7 +1034,7 @@ func (r ApiDeleteCommentVoteRequest) Sso(sso string) ApiDeleteCommentVoteRequest
 	return r
 }
 
-func (r ApiDeleteCommentVoteRequest) Execute() (*DeleteCommentVote200Response, *http.Response, error) {
+func (r ApiDeleteCommentVoteRequest) Execute() (*VoteDeleteResponse, *http.Response, error) {
 	return r.ApiService.DeleteCommentVoteExecute(r)
 }
 
@@ -752,13 +1058,13 @@ func (a *PublicAPIService) DeleteCommentVote(ctx context.Context, tenantId strin
 }
 
 // Execute executes the request
-//  @return DeleteCommentVote200Response
-func (a *PublicAPIService) DeleteCommentVoteExecute(r ApiDeleteCommentVoteRequest) (*DeleteCommentVote200Response, *http.Response, error) {
+//  @return VoteDeleteResponse
+func (a *PublicAPIService) DeleteCommentVoteExecute(r ApiDeleteCommentVoteRequest) (*VoteDeleteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteCommentVote200Response
+		localVarReturnValue  *VoteDeleteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.DeleteCommentVote")
@@ -828,6 +1134,14 @@ func (a *PublicAPIService) DeleteCommentVoteExecute(r ApiDeleteCommentVoteReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -862,7 +1176,7 @@ func (r ApiDeleteFeedPostPublicRequest) Sso(sso string) ApiDeleteFeedPostPublicR
 	return r
 }
 
-func (r ApiDeleteFeedPostPublicRequest) Execute() (*DeleteFeedPostPublic200Response, *http.Response, error) {
+func (r ApiDeleteFeedPostPublicRequest) Execute() (*DeleteFeedPostPublicResponse, *http.Response, error) {
 	return r.ApiService.DeleteFeedPostPublicExecute(r)
 }
 
@@ -884,13 +1198,13 @@ func (a *PublicAPIService) DeleteFeedPostPublic(ctx context.Context, tenantId st
 }
 
 // Execute executes the request
-//  @return DeleteFeedPostPublic200Response
-func (a *PublicAPIService) DeleteFeedPostPublicExecute(r ApiDeleteFeedPostPublicRequest) (*DeleteFeedPostPublic200Response, *http.Response, error) {
+//  @return DeleteFeedPostPublicResponse
+func (a *PublicAPIService) DeleteFeedPostPublicExecute(r ApiDeleteFeedPostPublicRequest) (*DeleteFeedPostPublicResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteFeedPostPublic200Response
+		localVarReturnValue  *DeleteFeedPostPublicResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.DeleteFeedPostPublic")
@@ -951,6 +1265,262 @@ func (a *PublicAPIService) DeleteFeedPostPublicExecute(r ApiDeleteFeedPostPublic
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteV1PageReactRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+}
+
+func (r ApiDeleteV1PageReactRequest) UrlId(urlId string) ApiDeleteV1PageReactRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiDeleteV1PageReactRequest) Execute() (*CreateV1PageReact, *http.Response, error) {
+	return r.ApiService.DeleteV1PageReactExecute(r)
+}
+
+/*
+DeleteV1PageReact Method for DeleteV1PageReact
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiDeleteV1PageReactRequest
+*/
+func (a *PublicAPIService) DeleteV1PageReact(ctx context.Context, tenantId string) ApiDeleteV1PageReactRequest {
+	return ApiDeleteV1PageReactRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateV1PageReact
+func (a *PublicAPIService) DeleteV1PageReactExecute(r ApiDeleteV1PageReactRequest) (*CreateV1PageReact, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateV1PageReact
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.DeleteV1PageReact")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v1/likes/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteV2PageReactRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+	id *string
+}
+
+func (r ApiDeleteV2PageReactRequest) UrlId(urlId string) ApiDeleteV2PageReactRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiDeleteV2PageReactRequest) Id(id string) ApiDeleteV2PageReactRequest {
+	r.id = &id
+	return r
+}
+
+func (r ApiDeleteV2PageReactRequest) Execute() (*CreateV1PageReact, *http.Response, error) {
+	return r.ApiService.DeleteV2PageReactExecute(r)
+}
+
+/*
+DeleteV2PageReact Method for DeleteV2PageReact
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiDeleteV2PageReactRequest
+*/
+func (a *PublicAPIService) DeleteV2PageReact(ctx context.Context, tenantId string) ApiDeleteV2PageReactRequest {
+	return ApiDeleteV2PageReactRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateV1PageReact
+func (a *PublicAPIService) DeleteV2PageReactExecute(r ApiDeleteV2PageReactRequest) (*CreateV1PageReact, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateV1PageReact
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.DeleteV2PageReact")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v2/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+	if r.id == nil {
+		return localVarReturnValue, nil, reportError("id is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -990,7 +1560,7 @@ func (r ApiFlagCommentPublicRequest) Sso(sso string) ApiFlagCommentPublicRequest
 	return r
 }
 
-func (r ApiFlagCommentPublicRequest) Execute() (*FlagCommentPublic200Response, *http.Response, error) {
+func (r ApiFlagCommentPublicRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.FlagCommentPublicExecute(r)
 }
 
@@ -1010,13 +1580,13 @@ func (a *PublicAPIService) FlagCommentPublic(ctx context.Context, commentId stri
 }
 
 // Execute executes the request
-//  @return FlagCommentPublic200Response
-func (a *PublicAPIService) FlagCommentPublicExecute(r ApiFlagCommentPublicRequest) (*FlagCommentPublic200Response, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *PublicAPIService) FlagCommentPublicExecute(r ApiFlagCommentPublicRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FlagCommentPublic200Response
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.FlagCommentPublic")
@@ -1081,6 +1651,14 @@ func (a *PublicAPIService) FlagCommentPublicExecute(r ApiFlagCommentPublicReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1115,7 +1693,7 @@ func (r ApiGetCommentTextRequest) Sso(sso string) ApiGetCommentTextRequest {
 	return r
 }
 
-func (r ApiGetCommentTextRequest) Execute() (*GetCommentText200Response, *http.Response, error) {
+func (r ApiGetCommentTextRequest) Execute() (*PublicAPIGetCommentTextResponse, *http.Response, error) {
 	return r.ApiService.GetCommentTextExecute(r)
 }
 
@@ -1137,13 +1715,13 @@ func (a *PublicAPIService) GetCommentText(ctx context.Context, tenantId string, 
 }
 
 // Execute executes the request
-//  @return GetCommentText200Response
-func (a *PublicAPIService) GetCommentTextExecute(r ApiGetCommentTextRequest) (*GetCommentText200Response, *http.Response, error) {
+//  @return PublicAPIGetCommentTextResponse
+func (a *PublicAPIService) GetCommentTextExecute(r ApiGetCommentTextRequest) (*PublicAPIGetCommentTextResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentText200Response
+		localVarReturnValue  *PublicAPIGetCommentTextResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetCommentText")
@@ -1204,6 +1782,14 @@ func (a *PublicAPIService) GetCommentTextExecute(r ApiGetCommentTextRequest) (*G
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1238,7 +1824,7 @@ func (r ApiGetCommentVoteUserNamesRequest) Sso(sso string) ApiGetCommentVoteUser
 	return r
 }
 
-func (r ApiGetCommentVoteUserNamesRequest) Execute() (*GetCommentVoteUserNames200Response, *http.Response, error) {
+func (r ApiGetCommentVoteUserNamesRequest) Execute() (*GetCommentVoteUserNamesSuccessResponse, *http.Response, error) {
 	return r.ApiService.GetCommentVoteUserNamesExecute(r)
 }
 
@@ -1260,13 +1846,13 @@ func (a *PublicAPIService) GetCommentVoteUserNames(ctx context.Context, tenantId
 }
 
 // Execute executes the request
-//  @return GetCommentVoteUserNames200Response
-func (a *PublicAPIService) GetCommentVoteUserNamesExecute(r ApiGetCommentVoteUserNamesRequest) (*GetCommentVoteUserNames200Response, *http.Response, error) {
+//  @return GetCommentVoteUserNamesSuccessResponse
+func (a *PublicAPIService) GetCommentVoteUserNamesExecute(r ApiGetCommentVoteUserNamesRequest) (*GetCommentVoteUserNamesSuccessResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentVoteUserNames200Response
+		localVarReturnValue  *GetCommentVoteUserNamesSuccessResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetCommentVoteUserNames")
@@ -1328,6 +1914,182 @@ func (a *PublicAPIService) GetCommentVoteUserNamesExecute(r ApiGetCommentVoteUse
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetCommentsForUserRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	userId *string
+	direction *SortDirections
+	repliesToUserId *string
+	page *float64
+	includei10n *bool
+	locale *string
+	isCrawler *bool
+}
+
+func (r ApiGetCommentsForUserRequest) UserId(userId string) ApiGetCommentsForUserRequest {
+	r.userId = &userId
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) Direction(direction SortDirections) ApiGetCommentsForUserRequest {
+	r.direction = &direction
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) RepliesToUserId(repliesToUserId string) ApiGetCommentsForUserRequest {
+	r.repliesToUserId = &repliesToUserId
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) Page(page float64) ApiGetCommentsForUserRequest {
+	r.page = &page
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) Includei10n(includei10n bool) ApiGetCommentsForUserRequest {
+	r.includei10n = &includei10n
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) Locale(locale string) ApiGetCommentsForUserRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) IsCrawler(isCrawler bool) ApiGetCommentsForUserRequest {
+	r.isCrawler = &isCrawler
+	return r
+}
+
+func (r ApiGetCommentsForUserRequest) Execute() (*GetCommentsForUserResponse, *http.Response, error) {
+	return r.ApiService.GetCommentsForUserExecute(r)
+}
+
+/*
+GetCommentsForUser Method for GetCommentsForUser
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetCommentsForUserRequest
+*/
+func (a *PublicAPIService) GetCommentsForUser(ctx context.Context) ApiGetCommentsForUserRequest {
+	return ApiGetCommentsForUserRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetCommentsForUserResponse
+func (a *PublicAPIService) GetCommentsForUserExecute(r ApiGetCommentsForUserRequest) (*GetCommentsForUserResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetCommentsForUserResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetCommentsForUser")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/comments-for-user"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.userId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
+	}
+	if r.direction != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
+	}
+	if r.repliesToUserId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "repliesToUserId", r.repliesToUserId, "form", "")
+	}
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
+	}
+	if r.includei10n != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includei10n", r.includei10n, "form", "")
+	}
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	}
+	if r.isCrawler != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isCrawler", r.isCrawler, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1511,7 +2273,7 @@ func (r ApiGetCommentsPublicRequest) BeforeCommentId(beforeCommentId string) Api
 	return r
 }
 
-func (r ApiGetCommentsPublicRequest) Execute() (*GetCommentsPublic200Response, *http.Response, error) {
+func (r ApiGetCommentsPublicRequest) Execute() (*GetCommentsResponseWithPresencePublicComment, *http.Response, error) {
 	return r.ApiService.GetCommentsPublicExecute(r)
 }
 
@@ -1536,13 +2298,13 @@ func (a *PublicAPIService) GetCommentsPublic(ctx context.Context, tenantId strin
 }
 
 // Execute executes the request
-//  @return GetCommentsPublic200Response
-func (a *PublicAPIService) GetCommentsPublicExecute(r ApiGetCommentsPublicRequest) (*GetCommentsPublic200Response, *http.Response, error) {
+//  @return GetCommentsResponseWithPresencePublicComment
+func (a *PublicAPIService) GetCommentsPublicExecute(r ApiGetCommentsPublicRequest) (*GetCommentsResponseWithPresencePublicComment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentsPublic200Response
+		localVarReturnValue  *GetCommentsResponseWithPresencePublicComment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetCommentsPublic")
@@ -1686,6 +2448,14 @@ func (a *PublicAPIService) GetCommentsPublicExecute(r ApiGetCommentsPublicReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1731,7 +2501,7 @@ func (r ApiGetEventLogRequest) EndTime(endTime int64) ApiGetEventLogRequest {
 	return r
 }
 
-func (r ApiGetEventLogRequest) Execute() (*GetEventLog200Response, *http.Response, error) {
+func (r ApiGetEventLogRequest) Execute() (*GetEventLogResponse, *http.Response, error) {
 	return r.ApiService.GetEventLogExecute(r)
 }
 
@@ -1757,13 +2527,13 @@ func (a *PublicAPIService) GetEventLog(ctx context.Context, tenantId string) Api
 }
 
 // Execute executes the request
-//  @return GetEventLog200Response
-func (a *PublicAPIService) GetEventLogExecute(r ApiGetEventLogRequest) (*GetEventLog200Response, *http.Response, error) {
+//  @return GetEventLogResponse
+func (a *PublicAPIService) GetEventLogExecute(r ApiGetEventLogRequest) (*GetEventLogResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetEventLog200Response
+		localVarReturnValue  *GetEventLogResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetEventLog")
@@ -1786,14 +2556,13 @@ func (a *PublicAPIService) GetEventLogExecute(r ApiGetEventLogRequest) (*GetEven
 	if r.startTime == nil {
 		return localVarReturnValue, nil, reportError("startTime is required and must be specified")
 	}
-	if r.endTime == nil {
-		return localVarReturnValue, nil, reportError("endTime is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "userIdWS", r.userIdWS, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1833,6 +2602,14 @@ func (a *PublicAPIService) GetEventLogExecute(r ApiGetEventLogRequest) (*GetEven
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1890,7 +2667,7 @@ func (r ApiGetFeedPostsPublicRequest) IncludeUserInfo(includeUserInfo bool) ApiG
 	return r
 }
 
-func (r ApiGetFeedPostsPublicRequest) Execute() (*GetFeedPostsPublic200Response, *http.Response, error) {
+func (r ApiGetFeedPostsPublicRequest) Execute() (*PublicFeedPostsResponse, *http.Response, error) {
 	return r.ApiService.GetFeedPostsPublicExecute(r)
 }
 
@@ -1915,13 +2692,13 @@ func (a *PublicAPIService) GetFeedPostsPublic(ctx context.Context, tenantId stri
 }
 
 // Execute executes the request
-//  @return GetFeedPostsPublic200Response
-func (a *PublicAPIService) GetFeedPostsPublicExecute(r ApiGetFeedPostsPublicRequest) (*GetFeedPostsPublic200Response, *http.Response, error) {
+//  @return PublicFeedPostsResponse
+func (a *PublicAPIService) GetFeedPostsPublicExecute(r ApiGetFeedPostsPublicRequest) (*PublicFeedPostsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetFeedPostsPublic200Response
+		localVarReturnValue  *PublicFeedPostsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetFeedPostsPublic")
@@ -2001,6 +2778,14 @@ func (a *PublicAPIService) GetFeedPostsPublicExecute(r ApiGetFeedPostsPublicRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2034,7 +2819,7 @@ func (r ApiGetFeedPostsStatsRequest) Sso(sso string) ApiGetFeedPostsStatsRequest
 	return r
 }
 
-func (r ApiGetFeedPostsStatsRequest) Execute() (*GetFeedPostsStats200Response, *http.Response, error) {
+func (r ApiGetFeedPostsStatsRequest) Execute() (*FeedPostsStatsResponse, *http.Response, error) {
 	return r.ApiService.GetFeedPostsStatsExecute(r)
 }
 
@@ -2054,13 +2839,13 @@ func (a *PublicAPIService) GetFeedPostsStats(ctx context.Context, tenantId strin
 }
 
 // Execute executes the request
-//  @return GetFeedPostsStats200Response
-func (a *PublicAPIService) GetFeedPostsStatsExecute(r ApiGetFeedPostsStatsRequest) (*GetFeedPostsStats200Response, *http.Response, error) {
+//  @return FeedPostsStatsResponse
+func (a *PublicAPIService) GetFeedPostsStatsExecute(r ApiGetFeedPostsStatsRequest) (*FeedPostsStatsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetFeedPostsStats200Response
+		localVarReturnValue  *FeedPostsStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetFeedPostsStats")
@@ -2091,6 +2876,429 @@ func (a *PublicAPIService) GetFeedPostsStatsExecute(r ApiGetFeedPostsStatsReques
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetGifLargeRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	largeInternalURLSanitized *string
+}
+
+func (r ApiGetGifLargeRequest) LargeInternalURLSanitized(largeInternalURLSanitized string) ApiGetGifLargeRequest {
+	r.largeInternalURLSanitized = &largeInternalURLSanitized
+	return r
+}
+
+func (r ApiGetGifLargeRequest) Execute() (*GifGetLargeResponse, *http.Response, error) {
+	return r.ApiService.GetGifLargeExecute(r)
+}
+
+/*
+GetGifLarge Method for GetGifLarge
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetGifLargeRequest
+*/
+func (a *PublicAPIService) GetGifLarge(ctx context.Context, tenantId string) ApiGetGifLargeRequest {
+	return ApiGetGifLargeRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GifGetLargeResponse
+func (a *PublicAPIService) GetGifLargeExecute(r ApiGetGifLargeRequest) (*GifGetLargeResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GifGetLargeResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetGifLarge")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/gifs/get-large/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.largeInternalURLSanitized == nil {
+		return localVarReturnValue, nil, reportError("largeInternalURLSanitized is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "largeInternalURLSanitized", r.largeInternalURLSanitized, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetGifsSearchRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	search *string
+	locale *string
+	rating *string
+	page *float64
+}
+
+func (r ApiGetGifsSearchRequest) Search(search string) ApiGetGifsSearchRequest {
+	r.search = &search
+	return r
+}
+
+func (r ApiGetGifsSearchRequest) Locale(locale string) ApiGetGifsSearchRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetGifsSearchRequest) Rating(rating string) ApiGetGifsSearchRequest {
+	r.rating = &rating
+	return r
+}
+
+func (r ApiGetGifsSearchRequest) Page(page float64) ApiGetGifsSearchRequest {
+	r.page = &page
+	return r
+}
+
+func (r ApiGetGifsSearchRequest) Execute() (*GetGifsSearchResponse, *http.Response, error) {
+	return r.ApiService.GetGifsSearchExecute(r)
+}
+
+/*
+GetGifsSearch Method for GetGifsSearch
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetGifsSearchRequest
+*/
+func (a *PublicAPIService) GetGifsSearch(ctx context.Context, tenantId string) ApiGetGifsSearchRequest {
+	return ApiGetGifsSearchRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GetGifsSearchResponse
+func (a *PublicAPIService) GetGifsSearchExecute(r ApiGetGifsSearchRequest) (*GetGifsSearchResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetGifsSearchResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetGifsSearch")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/gifs/search/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.search == nil {
+		return localVarReturnValue, nil, reportError("search is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	}
+	if r.rating != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "rating", r.rating, "form", "")
+	}
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetGifsTrendingRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	locale *string
+	rating *string
+	page *float64
+}
+
+func (r ApiGetGifsTrendingRequest) Locale(locale string) ApiGetGifsTrendingRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetGifsTrendingRequest) Rating(rating string) ApiGetGifsTrendingRequest {
+	r.rating = &rating
+	return r
+}
+
+func (r ApiGetGifsTrendingRequest) Page(page float64) ApiGetGifsTrendingRequest {
+	r.page = &page
+	return r
+}
+
+func (r ApiGetGifsTrendingRequest) Execute() (*GetGifsTrendingResponse, *http.Response, error) {
+	return r.ApiService.GetGifsTrendingExecute(r)
+}
+
+/*
+GetGifsTrending Method for GetGifsTrending
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetGifsTrendingRequest
+*/
+func (a *PublicAPIService) GetGifsTrending(ctx context.Context, tenantId string) ApiGetGifsTrendingRequest {
+	return ApiGetGifsTrendingRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GetGifsTrendingResponse
+func (a *PublicAPIService) GetGifsTrendingExecute(r ApiGetGifsTrendingRequest) (*GetGifsTrendingResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetGifsTrendingResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetGifsTrending")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/gifs/trending/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	}
+	if r.rating != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "rating", r.rating, "form", "")
+	}
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2176,7 +3384,7 @@ func (r ApiGetGlobalEventLogRequest) EndTime(endTime int64) ApiGetGlobalEventLog
 	return r
 }
 
-func (r ApiGetGlobalEventLogRequest) Execute() (*GetEventLog200Response, *http.Response, error) {
+func (r ApiGetGlobalEventLogRequest) Execute() (*GetEventLogResponse, *http.Response, error) {
 	return r.ApiService.GetGlobalEventLogExecute(r)
 }
 
@@ -2202,13 +3410,13 @@ func (a *PublicAPIService) GetGlobalEventLog(ctx context.Context, tenantId strin
 }
 
 // Execute executes the request
-//  @return GetEventLog200Response
-func (a *PublicAPIService) GetGlobalEventLogExecute(r ApiGetGlobalEventLogRequest) (*GetEventLog200Response, *http.Response, error) {
+//  @return GetEventLogResponse
+func (a *PublicAPIService) GetGlobalEventLogExecute(r ApiGetGlobalEventLogRequest) (*GetEventLogResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetEventLog200Response
+		localVarReturnValue  *GetEventLogResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetGlobalEventLog")
@@ -2231,14 +3439,13 @@ func (a *PublicAPIService) GetGlobalEventLogExecute(r ApiGetGlobalEventLogReques
 	if r.startTime == nil {
 		return localVarReturnValue, nil, reportError("startTime is required and must be specified")
 	}
-	if r.endTime == nil {
-		return localVarReturnValue, nil, reportError("endTime is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "userIdWS", r.userIdWS, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -2278,6 +3485,662 @@ func (a *PublicAPIService) GetGlobalEventLogExecute(r ApiGetGlobalEventLogReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOfflineUsersRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+	afterName *string
+	afterUserId *string
+}
+
+// Page URL identifier (cleaned server-side).
+func (r ApiGetOfflineUsersRequest) UrlId(urlId string) ApiGetOfflineUsersRequest {
+	r.urlId = &urlId
+	return r
+}
+
+// Cursor: pass nextAfterName from the previous response.
+func (r ApiGetOfflineUsersRequest) AfterName(afterName string) ApiGetOfflineUsersRequest {
+	r.afterName = &afterName
+	return r
+}
+
+// Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don&#39;t drop entries.
+func (r ApiGetOfflineUsersRequest) AfterUserId(afterUserId string) ApiGetOfflineUsersRequest {
+	r.afterUserId = &afterUserId
+	return r
+}
+
+func (r ApiGetOfflineUsersRequest) Execute() (*PageUsersOfflineResponse, *http.Response, error) {
+	return r.ApiService.GetOfflineUsersExecute(r)
+}
+
+/*
+GetOfflineUsers Method for GetOfflineUsers
+
+Past commenters on the page who are NOT currently online. Sorted by displayName.
+Use this after exhausting /users/online to render a "Members" section.
+Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName}
+index from afterName forward via $gt, no $skip cost.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetOfflineUsersRequest
+*/
+func (a *PublicAPIService) GetOfflineUsers(ctx context.Context, tenantId string) ApiGetOfflineUsersRequest {
+	return ApiGetOfflineUsersRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return PageUsersOfflineResponse
+func (a *PublicAPIService) GetOfflineUsersExecute(r ApiGetOfflineUsersRequest) (*PageUsersOfflineResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PageUsersOfflineResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetOfflineUsers")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pages/{tenantId}/users/offline"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	if r.afterName != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "afterName", r.afterName, "form", "")
+	}
+	if r.afterUserId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "afterUserId", r.afterUserId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOnlineUsersRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+	afterName *string
+	afterUserId *string
+}
+
+// Page URL identifier (cleaned server-side).
+func (r ApiGetOnlineUsersRequest) UrlId(urlId string) ApiGetOnlineUsersRequest {
+	r.urlId = &urlId
+	return r
+}
+
+// Cursor: pass nextAfterName from the previous response.
+func (r ApiGetOnlineUsersRequest) AfterName(afterName string) ApiGetOnlineUsersRequest {
+	r.afterName = &afterName
+	return r
+}
+
+// Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don&#39;t drop entries.
+func (r ApiGetOnlineUsersRequest) AfterUserId(afterUserId string) ApiGetOnlineUsersRequest {
+	r.afterUserId = &afterUserId
+	return r
+}
+
+func (r ApiGetOnlineUsersRequest) Execute() (*PageUsersOnlineResponse, *http.Response, error) {
+	return r.ApiService.GetOnlineUsersExecute(r)
+}
+
+/*
+GetOnlineUsers Method for GetOnlineUsers
+
+Currently-online viewers of a page: people whose websocket session is subscribed to the page right now.
+Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetOnlineUsersRequest
+*/
+func (a *PublicAPIService) GetOnlineUsers(ctx context.Context, tenantId string) ApiGetOnlineUsersRequest {
+	return ApiGetOnlineUsersRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return PageUsersOnlineResponse
+func (a *PublicAPIService) GetOnlineUsersExecute(r ApiGetOnlineUsersRequest) (*PageUsersOnlineResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PageUsersOnlineResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetOnlineUsers")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pages/{tenantId}/users/online"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	if r.afterName != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "afterName", r.afterName, "form", "")
+	}
+	if r.afterUserId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "afterUserId", r.afterUserId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetPagesPublicRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	cursor *string
+	limit *int32
+	q *string
+	sortBy *PagesSortBy
+	hasComments *bool
+}
+
+// Opaque pagination cursor returned as &#x60;nextCursor&#x60; from a prior request. Tied to the same &#x60;sortBy&#x60;.
+func (r ApiGetPagesPublicRequest) Cursor(cursor string) ApiGetPagesPublicRequest {
+	r.cursor = &cursor
+	return r
+}
+
+// 1..200, default 50
+func (r ApiGetPagesPublicRequest) Limit(limit int32) ApiGetPagesPublicRequest {
+	r.limit = &limit
+	return r
+}
+
+// Optional case-insensitive title prefix filter.
+func (r ApiGetPagesPublicRequest) Q(q string) ApiGetPagesPublicRequest {
+	r.q = &q
+	return r
+}
+
+// Sort order. &#x60;updatedAt&#x60; (default, newest first), &#x60;commentCount&#x60; (most comments first), or &#x60;title&#x60; (alphabetical).
+func (r ApiGetPagesPublicRequest) SortBy(sortBy PagesSortBy) ApiGetPagesPublicRequest {
+	r.sortBy = &sortBy
+	return r
+}
+
+// If true, only return pages with at least one comment.
+func (r ApiGetPagesPublicRequest) HasComments(hasComments bool) ApiGetPagesPublicRequest {
+	r.hasComments = &hasComments
+	return r
+}
+
+func (r ApiGetPagesPublicRequest) Execute() (*GetPublicPagesResponse, *http.Response, error) {
+	return r.ApiService.GetPagesPublicExecute(r)
+}
+
+/*
+GetPagesPublic Method for GetPagesPublic
+
+List pages for a tenant. Used by the FChat desktop client to populate its room list.
+Requires `enableFChat` to be true on the resolved custom config for each page.
+Pages that require SSO are filtered against the requesting user's group access.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetPagesPublicRequest
+*/
+func (a *PublicAPIService) GetPagesPublic(ctx context.Context, tenantId string) ApiGetPagesPublicRequest {
+	return ApiGetPagesPublicRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GetPublicPagesResponse
+func (a *PublicAPIService) GetPagesPublicExecute(r ApiGetPagesPublicRequest) (*GetPublicPagesResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetPublicPagesResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetPagesPublic")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pages/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.cursor != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "cursor", r.cursor, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	}
+	if r.q != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "q", r.q, "form", "")
+	}
+	if r.sortBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "form", "")
+	}
+	if r.hasComments != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hasComments", r.hasComments, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTranslationsRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	namespace string
+	component string
+	locale *string
+	useFullTranslationIds *bool
+}
+
+func (r ApiGetTranslationsRequest) Locale(locale string) ApiGetTranslationsRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetTranslationsRequest) UseFullTranslationIds(useFullTranslationIds bool) ApiGetTranslationsRequest {
+	r.useFullTranslationIds = &useFullTranslationIds
+	return r
+}
+
+func (r ApiGetTranslationsRequest) Execute() (*GetTranslationsResponse, *http.Response, error) {
+	return r.ApiService.GetTranslationsExecute(r)
+}
+
+/*
+GetTranslations Method for GetTranslations
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param namespace
+ @param component
+ @return ApiGetTranslationsRequest
+*/
+func (a *PublicAPIService) GetTranslations(ctx context.Context, namespace string, component string) ApiGetTranslationsRequest {
+	return ApiGetTranslationsRequest{
+		ApiService: a,
+		ctx: ctx,
+		namespace: namespace,
+		component: component,
+	}
+}
+
+// Execute executes the request
+//  @return GetTranslationsResponse
+func (a *PublicAPIService) GetTranslationsExecute(r ApiGetTranslationsRequest) (*GetTranslationsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTranslationsResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetTranslations")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/translations/{namespace}/{component}"
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", url.PathEscape(parameterValueToString(r.namespace, "namespace")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"component"+"}", url.PathEscape(parameterValueToString(r.component, "component")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	}
+	if r.useFullTranslationIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "useFullTranslationIds", r.useFullTranslationIds, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2310,7 +4173,7 @@ func (r ApiGetUserNotificationCountRequest) Sso(sso string) ApiGetUserNotificati
 	return r
 }
 
-func (r ApiGetUserNotificationCountRequest) Execute() (*GetUserNotificationCount200Response, *http.Response, error) {
+func (r ApiGetUserNotificationCountRequest) Execute() (*GetUserNotificationCountResponse, *http.Response, error) {
 	return r.ApiService.GetUserNotificationCountExecute(r)
 }
 
@@ -2328,13 +4191,13 @@ func (a *PublicAPIService) GetUserNotificationCount(ctx context.Context) ApiGetU
 }
 
 // Execute executes the request
-//  @return GetUserNotificationCount200Response
-func (a *PublicAPIService) GetUserNotificationCountExecute(r ApiGetUserNotificationCountRequest) (*GetUserNotificationCount200Response, *http.Response, error) {
+//  @return GetUserNotificationCountResponse
+func (a *PublicAPIService) GetUserNotificationCountExecute(r ApiGetUserNotificationCountRequest) (*GetUserNotificationCountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserNotificationCount200Response
+		localVarReturnValue  *GetUserNotificationCountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetUserNotificationCount")
@@ -2394,6 +4257,14 @@ func (a *PublicAPIService) GetUserNotificationCountExecute(r ApiGetUserNotificat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2413,6 +4284,7 @@ type ApiGetUserNotificationsRequest struct {
 	ctx context.Context
 	ApiService *PublicAPIService
 	tenantId *string
+	urlId *string
 	pageSize *int32
 	afterId *string
 	includeContext *bool
@@ -2421,11 +4293,18 @@ type ApiGetUserNotificationsRequest struct {
 	dmOnly *bool
 	noDm *bool
 	includeTranslations *bool
+	includeTenantNotifications *bool
 	sso *string
 }
 
 func (r ApiGetUserNotificationsRequest) TenantId(tenantId string) ApiGetUserNotificationsRequest {
 	r.tenantId = &tenantId
+	return r
+}
+
+// Used to determine whether the current page is subscribed.
+func (r ApiGetUserNotificationsRequest) UrlId(urlId string) ApiGetUserNotificationsRequest {
+	r.urlId = &urlId
 	return r
 }
 
@@ -2469,12 +4348,17 @@ func (r ApiGetUserNotificationsRequest) IncludeTranslations(includeTranslations 
 	return r
 }
 
+func (r ApiGetUserNotificationsRequest) IncludeTenantNotifications(includeTenantNotifications bool) ApiGetUserNotificationsRequest {
+	r.includeTenantNotifications = &includeTenantNotifications
+	return r
+}
+
 func (r ApiGetUserNotificationsRequest) Sso(sso string) ApiGetUserNotificationsRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetUserNotificationsRequest) Execute() (*GetUserNotifications200Response, *http.Response, error) {
+func (r ApiGetUserNotificationsRequest) Execute() (*GetMyNotificationsResponse, *http.Response, error) {
 	return r.ApiService.GetUserNotificationsExecute(r)
 }
 
@@ -2492,13 +4376,13 @@ func (a *PublicAPIService) GetUserNotifications(ctx context.Context) ApiGetUserN
 }
 
 // Execute executes the request
-//  @return GetUserNotifications200Response
-func (a *PublicAPIService) GetUserNotificationsExecute(r ApiGetUserNotificationsRequest) (*GetUserNotifications200Response, *http.Response, error) {
+//  @return GetMyNotificationsResponse
+func (a *PublicAPIService) GetUserNotificationsExecute(r ApiGetUserNotificationsRequest) (*GetMyNotificationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserNotifications200Response
+		localVarReturnValue  *GetMyNotificationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetUserNotifications")
@@ -2516,6 +4400,9 @@ func (a *PublicAPIService) GetUserNotificationsExecute(r ApiGetUserNotifications
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.urlId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	}
 	if r.pageSize != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
@@ -2539,6 +4426,9 @@ func (a *PublicAPIService) GetUserNotificationsExecute(r ApiGetUserNotifications
 	}
 	if r.includeTranslations != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeTranslations", r.includeTranslations, "form", "")
+	}
+	if r.includeTenantNotifications != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeTenantNotifications", r.includeTenantNotifications, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2582,6 +4472,14 @@ func (a *PublicAPIService) GetUserNotificationsExecute(r ApiGetUserNotifications
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2620,7 +4518,7 @@ func (r ApiGetUserPresenceStatusesRequest) UserIds(userIds string) ApiGetUserPre
 	return r
 }
 
-func (r ApiGetUserPresenceStatusesRequest) Execute() (*GetUserPresenceStatuses200Response, *http.Response, error) {
+func (r ApiGetUserPresenceStatusesRequest) Execute() (*GetUserPresenceStatusesResponse, *http.Response, error) {
 	return r.ApiService.GetUserPresenceStatusesExecute(r)
 }
 
@@ -2638,13 +4536,13 @@ func (a *PublicAPIService) GetUserPresenceStatuses(ctx context.Context) ApiGetUs
 }
 
 // Execute executes the request
-//  @return GetUserPresenceStatuses200Response
-func (a *PublicAPIService) GetUserPresenceStatusesExecute(r ApiGetUserPresenceStatusesRequest) (*GetUserPresenceStatuses200Response, *http.Response, error) {
+//  @return GetUserPresenceStatusesResponse
+func (a *PublicAPIService) GetUserPresenceStatusesExecute(r ApiGetUserPresenceStatusesRequest) (*GetUserPresenceStatusesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserPresenceStatuses200Response
+		localVarReturnValue  *GetUserPresenceStatusesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetUserPresenceStatuses")
@@ -2718,7 +4616,16 @@ func (a *PublicAPIService) GetUserPresenceStatusesExecute(r ApiGetUserPresenceSt
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2752,7 +4659,7 @@ func (r ApiGetUserReactsPublicRequest) Sso(sso string) ApiGetUserReactsPublicReq
 	return r
 }
 
-func (r ApiGetUserReactsPublicRequest) Execute() (*GetUserReactsPublic200Response, *http.Response, error) {
+func (r ApiGetUserReactsPublicRequest) Execute() (*UserReactsResponse, *http.Response, error) {
 	return r.ApiService.GetUserReactsPublicExecute(r)
 }
 
@@ -2772,13 +4679,13 @@ func (a *PublicAPIService) GetUserReactsPublic(ctx context.Context, tenantId str
 }
 
 // Execute executes the request
-//  @return GetUserReactsPublic200Response
-func (a *PublicAPIService) GetUserReactsPublicExecute(r ApiGetUserReactsPublicRequest) (*GetUserReactsPublic200Response, *http.Response, error) {
+//  @return UserReactsResponse
+func (a *PublicAPIService) GetUserReactsPublicExecute(r ApiGetUserReactsPublicRequest) (*UserReactsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserReactsPublic200Response
+		localVarReturnValue  *UserReactsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetUserReactsPublic")
@@ -2846,6 +4753,516 @@ func (a *PublicAPIService) GetUserReactsPublicExecute(r ApiGetUserReactsPublicRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetUsersInfoRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	ids *string
+}
+
+// Comma-delimited userIds.
+func (r ApiGetUsersInfoRequest) Ids(ids string) ApiGetUsersInfoRequest {
+	r.ids = &ids
+	return r
+}
+
+func (r ApiGetUsersInfoRequest) Execute() (*PageUsersInfoResponse, *http.Response, error) {
+	return r.ApiService.GetUsersInfoExecute(r)
+}
+
+/*
+GetUsersInfo Method for GetUsersInfo
+
+Bulk user info for a tenant. Given userIds, return display info from User / SSOUser.
+Used by the comment widget to enrich users that just appeared via a presence event.
+No page context: privacy is enforced uniformly (private profiles are masked).
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetUsersInfoRequest
+*/
+func (a *PublicAPIService) GetUsersInfo(ctx context.Context, tenantId string) ApiGetUsersInfoRequest {
+	return ApiGetUsersInfoRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return PageUsersInfoResponse
+func (a *PublicAPIService) GetUsersInfoExecute(r ApiGetUsersInfoRequest) (*PageUsersInfoResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PageUsersInfoResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetUsersInfo")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/pages/{tenantId}/users/info"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.ids == nil {
+		return localVarReturnValue, nil, reportError("ids is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "ids", r.ids, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PageLikesRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+}
+
+func (r ApiGetV1PageLikesRequest) UrlId(urlId string) ApiGetV1PageLikesRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiGetV1PageLikesRequest) Execute() (*GetV1PageLikes, *http.Response, error) {
+	return r.ApiService.GetV1PageLikesExecute(r)
+}
+
+/*
+GetV1PageLikes Method for GetV1PageLikes
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetV1PageLikesRequest
+*/
+func (a *PublicAPIService) GetV1PageLikes(ctx context.Context, tenantId string) ApiGetV1PageLikesRequest {
+	return ApiGetV1PageLikesRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GetV1PageLikes
+func (a *PublicAPIService) GetV1PageLikesExecute(r ApiGetV1PageLikesRequest) (*GetV1PageLikes, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1PageLikes
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetV1PageLikes")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v1/likes/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV2PageReactUsersRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+	id *string
+}
+
+func (r ApiGetV2PageReactUsersRequest) UrlId(urlId string) ApiGetV2PageReactUsersRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiGetV2PageReactUsersRequest) Id(id string) ApiGetV2PageReactUsersRequest {
+	r.id = &id
+	return r
+}
+
+func (r ApiGetV2PageReactUsersRequest) Execute() (*GetV2PageReactUsersResponse, *http.Response, error) {
+	return r.ApiService.GetV2PageReactUsersExecute(r)
+}
+
+/*
+GetV2PageReactUsers Method for GetV2PageReactUsers
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetV2PageReactUsersRequest
+*/
+func (a *PublicAPIService) GetV2PageReactUsers(ctx context.Context, tenantId string) ApiGetV2PageReactUsersRequest {
+	return ApiGetV2PageReactUsersRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GetV2PageReactUsersResponse
+func (a *PublicAPIService) GetV2PageReactUsersExecute(r ApiGetV2PageReactUsersRequest) (*GetV2PageReactUsersResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2PageReactUsersResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetV2PageReactUsers")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v2/{tenantId}/list"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+	if r.id == nil {
+		return localVarReturnValue, nil, reportError("id is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV2PageReactsRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+	tenantId string
+	urlId *string
+}
+
+func (r ApiGetV2PageReactsRequest) UrlId(urlId string) ApiGetV2PageReactsRequest {
+	r.urlId = &urlId
+	return r
+}
+
+func (r ApiGetV2PageReactsRequest) Execute() (*GetV2PageReacts, *http.Response, error) {
+	return r.ApiService.GetV2PageReactsExecute(r)
+}
+
+/*
+GetV2PageReacts Method for GetV2PageReacts
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @return ApiGetV2PageReactsRequest
+*/
+func (a *PublicAPIService) GetV2PageReacts(ctx context.Context, tenantId string) ApiGetV2PageReactsRequest {
+	return ApiGetV2PageReactsRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+	}
+}
+
+// Execute executes the request
+//  @return GetV2PageReacts
+func (a *PublicAPIService) GetV2PageReactsExecute(r ApiGetV2PageReactsRequest) (*GetV2PageReacts, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2PageReacts
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetV2PageReacts")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/page-reacts/v2/{tenantId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.urlId == nil {
+		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2880,7 +5297,7 @@ func (r ApiLockCommentRequest) Sso(sso string) ApiLockCommentRequest {
 	return r
 }
 
-func (r ApiLockCommentRequest) Execute() (*LockComment200Response, *http.Response, error) {
+func (r ApiLockCommentRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.LockCommentExecute(r)
 }
 
@@ -2902,13 +5319,13 @@ func (a *PublicAPIService) LockComment(ctx context.Context, tenantId string, com
 }
 
 // Execute executes the request
-//  @return LockComment200Response
-func (a *PublicAPIService) LockCommentExecute(r ApiLockCommentRequest) (*LockComment200Response, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *PublicAPIService) LockCommentExecute(r ApiLockCommentRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *LockComment200Response
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.LockComment")
@@ -2931,6 +5348,111 @@ func (a *PublicAPIService) LockCommentExecute(r ApiLockCommentRequest) (*LockCom
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiLogoutPublicRequest struct {
+	ctx context.Context
+	ApiService *PublicAPIService
+}
+
+func (r ApiLogoutPublicRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+	return r.ApiService.LogoutPublicExecute(r)
+}
+
+/*
+LogoutPublic Method for LogoutPublic
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiLogoutPublicRequest
+*/
+func (a *PublicAPIService) LogoutPublic(ctx context.Context) ApiLogoutPublicRequest {
+	return ApiLogoutPublicRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return APIEmptyResponse
+func (a *PublicAPIService) LogoutPublicExecute(r ApiLogoutPublicRequest) (*APIEmptyResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *APIEmptyResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.LogoutPublic")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/auth/logout"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -3004,7 +5526,7 @@ func (r ApiPinCommentRequest) Sso(sso string) ApiPinCommentRequest {
 	return r
 }
 
-func (r ApiPinCommentRequest) Execute() (*PinComment200Response, *http.Response, error) {
+func (r ApiPinCommentRequest) Execute() (*ChangeCommentPinStatusResponse, *http.Response, error) {
 	return r.ApiService.PinCommentExecute(r)
 }
 
@@ -3026,13 +5548,13 @@ func (a *PublicAPIService) PinComment(ctx context.Context, tenantId string, comm
 }
 
 // Execute executes the request
-//  @return PinComment200Response
-func (a *PublicAPIService) PinCommentExecute(r ApiPinCommentRequest) (*PinComment200Response, *http.Response, error) {
+//  @return ChangeCommentPinStatusResponse
+func (a *PublicAPIService) PinCommentExecute(r ApiPinCommentRequest) (*ChangeCommentPinStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PinComment200Response
+		localVarReturnValue  *ChangeCommentPinStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.PinComment")
@@ -3094,6 +5616,14 @@ func (a *PublicAPIService) PinCommentExecute(r ApiPinCommentRequest) (*PinCommen
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3140,7 +5670,7 @@ func (r ApiReactFeedPostPublicRequest) Sso(sso string) ApiReactFeedPostPublicReq
 	return r
 }
 
-func (r ApiReactFeedPostPublicRequest) Execute() (*ReactFeedPostPublic200Response, *http.Response, error) {
+func (r ApiReactFeedPostPublicRequest) Execute() (*ReactFeedPostResponse, *http.Response, error) {
 	return r.ApiService.ReactFeedPostPublicExecute(r)
 }
 
@@ -3162,13 +5692,13 @@ func (a *PublicAPIService) ReactFeedPostPublic(ctx context.Context, tenantId str
 }
 
 // Execute executes the request
-//  @return ReactFeedPostPublic200Response
-func (a *PublicAPIService) ReactFeedPostPublicExecute(r ApiReactFeedPostPublicRequest) (*ReactFeedPostPublic200Response, *http.Response, error) {
+//  @return ReactFeedPostResponse
+func (a *PublicAPIService) ReactFeedPostPublicExecute(r ApiReactFeedPostPublicRequest) (*ReactFeedPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ReactFeedPostPublic200Response
+		localVarReturnValue  *ReactFeedPostResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.ReactFeedPostPublic")
@@ -3237,6 +5767,14 @@ func (a *PublicAPIService) ReactFeedPostPublicExecute(r ApiReactFeedPostPublicRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3269,7 +5807,7 @@ func (r ApiResetUserNotificationCountRequest) Sso(sso string) ApiResetUserNotifi
 	return r
 }
 
-func (r ApiResetUserNotificationCountRequest) Execute() (*ResetUserNotifications200Response, *http.Response, error) {
+func (r ApiResetUserNotificationCountRequest) Execute() (*ResetUserNotificationsResponse, *http.Response, error) {
 	return r.ApiService.ResetUserNotificationCountExecute(r)
 }
 
@@ -3287,13 +5825,13 @@ func (a *PublicAPIService) ResetUserNotificationCount(ctx context.Context) ApiRe
 }
 
 // Execute executes the request
-//  @return ResetUserNotifications200Response
-func (a *PublicAPIService) ResetUserNotificationCountExecute(r ApiResetUserNotificationCountRequest) (*ResetUserNotifications200Response, *http.Response, error) {
+//  @return ResetUserNotificationsResponse
+func (a *PublicAPIService) ResetUserNotificationCountExecute(r ApiResetUserNotificationCountRequest) (*ResetUserNotificationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ResetUserNotifications200Response
+		localVarReturnValue  *ResetUserNotificationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.ResetUserNotificationCount")
@@ -3353,6 +5891,14 @@ func (a *PublicAPIService) ResetUserNotificationCountExecute(r ApiResetUserNotif
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3415,7 +5961,7 @@ func (r ApiResetUserNotificationsRequest) Sso(sso string) ApiResetUserNotificati
 	return r
 }
 
-func (r ApiResetUserNotificationsRequest) Execute() (*ResetUserNotifications200Response, *http.Response, error) {
+func (r ApiResetUserNotificationsRequest) Execute() (*ResetUserNotificationsResponse, *http.Response, error) {
 	return r.ApiService.ResetUserNotificationsExecute(r)
 }
 
@@ -3433,13 +5979,13 @@ func (a *PublicAPIService) ResetUserNotifications(ctx context.Context) ApiResetU
 }
 
 // Execute executes the request
-//  @return ResetUserNotifications200Response
-func (a *PublicAPIService) ResetUserNotificationsExecute(r ApiResetUserNotificationsRequest) (*ResetUserNotifications200Response, *http.Response, error) {
+//  @return ResetUserNotificationsResponse
+func (a *PublicAPIService) ResetUserNotificationsExecute(r ApiResetUserNotificationsRequest) (*ResetUserNotificationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ResetUserNotifications200Response
+		localVarReturnValue  *ResetUserNotificationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.ResetUserNotifications")
@@ -3514,6 +6060,14 @@ func (a *PublicAPIService) ResetUserNotificationsExecute(r ApiResetUserNotificat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3565,7 +6119,7 @@ func (r ApiSearchUsersRequest) SearchSection(searchSection string) ApiSearchUser
 	return r
 }
 
-func (r ApiSearchUsersRequest) Execute() (*SearchUsers200Response, *http.Response, error) {
+func (r ApiSearchUsersRequest) Execute() (*SearchUsersResult, *http.Response, error) {
 	return r.ApiService.SearchUsersExecute(r)
 }
 
@@ -3585,13 +6139,13 @@ func (a *PublicAPIService) SearchUsers(ctx context.Context, tenantId string) Api
 }
 
 // Execute executes the request
-//  @return SearchUsers200Response
-func (a *PublicAPIService) SearchUsersExecute(r ApiSearchUsersRequest) (*SearchUsers200Response, *http.Response, error) {
+//  @return SearchUsersResult
+func (a *PublicAPIService) SearchUsersExecute(r ApiSearchUsersRequest) (*SearchUsersResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchUsers200Response
+		localVarReturnValue  *SearchUsersResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.SearchUsers")
@@ -3669,6 +6223,14 @@ func (a *PublicAPIService) SearchUsersExecute(r ApiSearchUsersRequest) (*SearchU
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3715,7 +6277,7 @@ func (r ApiSetCommentTextRequest) Sso(sso string) ApiSetCommentTextRequest {
 	return r
 }
 
-func (r ApiSetCommentTextRequest) Execute() (*SetCommentText200Response, *http.Response, error) {
+func (r ApiSetCommentTextRequest) Execute() (*PublicAPISetCommentTextResponse, *http.Response, error) {
 	return r.ApiService.SetCommentTextExecute(r)
 }
 
@@ -3737,13 +6299,13 @@ func (a *PublicAPIService) SetCommentText(ctx context.Context, tenantId string, 
 }
 
 // Execute executes the request
-//  @return SetCommentText200Response
-func (a *PublicAPIService) SetCommentTextExecute(r ApiSetCommentTextRequest) (*SetCommentText200Response, *http.Response, error) {
+//  @return PublicAPISetCommentTextResponse
+func (a *PublicAPIService) SetCommentTextExecute(r ApiSetCommentTextRequest) (*PublicAPISetCommentTextResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SetCommentText200Response
+		localVarReturnValue  *PublicAPISetCommentTextResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.SetCommentText")
@@ -3813,6 +6375,14 @@ func (a *PublicAPIService) SetCommentTextExecute(r ApiSetCommentTextRequest) (*S
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3852,7 +6422,7 @@ func (r ApiUnBlockCommentPublicRequest) Sso(sso string) ApiUnBlockCommentPublicR
 	return r
 }
 
-func (r ApiUnBlockCommentPublicRequest) Execute() (*UnBlockCommentPublic200Response, *http.Response, error) {
+func (r ApiUnBlockCommentPublicRequest) Execute() (*UnblockSuccess, *http.Response, error) {
 	return r.ApiService.UnBlockCommentPublicExecute(r)
 }
 
@@ -3872,13 +6442,13 @@ func (a *PublicAPIService) UnBlockCommentPublic(ctx context.Context, commentId s
 }
 
 // Execute executes the request
-//  @return UnBlockCommentPublic200Response
-func (a *PublicAPIService) UnBlockCommentPublicExecute(r ApiUnBlockCommentPublicRequest) (*UnBlockCommentPublic200Response, *http.Response, error) {
+//  @return UnblockSuccess
+func (a *PublicAPIService) UnBlockCommentPublicExecute(r ApiUnBlockCommentPublicRequest) (*UnblockSuccess, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UnBlockCommentPublic200Response
+		localVarReturnValue  *UnblockSuccess
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UnBlockCommentPublic")
@@ -3944,6 +6514,14 @@ func (a *PublicAPIService) UnBlockCommentPublicExecute(r ApiUnBlockCommentPublic
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3978,7 +6556,7 @@ func (r ApiUnLockCommentRequest) Sso(sso string) ApiUnLockCommentRequest {
 	return r
 }
 
-func (r ApiUnLockCommentRequest) Execute() (*LockComment200Response, *http.Response, error) {
+func (r ApiUnLockCommentRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UnLockCommentExecute(r)
 }
 
@@ -4000,13 +6578,13 @@ func (a *PublicAPIService) UnLockComment(ctx context.Context, tenantId string, c
 }
 
 // Execute executes the request
-//  @return LockComment200Response
-func (a *PublicAPIService) UnLockCommentExecute(r ApiUnLockCommentRequest) (*LockComment200Response, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *PublicAPIService) UnLockCommentExecute(r ApiUnLockCommentRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *LockComment200Response
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UnLockComment")
@@ -4068,6 +6646,14 @@ func (a *PublicAPIService) UnLockCommentExecute(r ApiUnLockCommentRequest) (*Loc
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4102,7 +6688,7 @@ func (r ApiUnPinCommentRequest) Sso(sso string) ApiUnPinCommentRequest {
 	return r
 }
 
-func (r ApiUnPinCommentRequest) Execute() (*PinComment200Response, *http.Response, error) {
+func (r ApiUnPinCommentRequest) Execute() (*ChangeCommentPinStatusResponse, *http.Response, error) {
 	return r.ApiService.UnPinCommentExecute(r)
 }
 
@@ -4124,13 +6710,13 @@ func (a *PublicAPIService) UnPinComment(ctx context.Context, tenantId string, co
 }
 
 // Execute executes the request
-//  @return PinComment200Response
-func (a *PublicAPIService) UnPinCommentExecute(r ApiUnPinCommentRequest) (*PinComment200Response, *http.Response, error) {
+//  @return ChangeCommentPinStatusResponse
+func (a *PublicAPIService) UnPinCommentExecute(r ApiUnPinCommentRequest) (*ChangeCommentPinStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PinComment200Response
+		localVarReturnValue  *ChangeCommentPinStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UnPinComment")
@@ -4192,6 +6778,14 @@ func (a *PublicAPIService) UnPinCommentExecute(r ApiUnPinCommentRequest) (*PinCo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4232,7 +6826,7 @@ func (r ApiUpdateFeedPostPublicRequest) Sso(sso string) ApiUpdateFeedPostPublicR
 	return r
 }
 
-func (r ApiUpdateFeedPostPublicRequest) Execute() (*CreateFeedPostPublic200Response, *http.Response, error) {
+func (r ApiUpdateFeedPostPublicRequest) Execute() (*CreateFeedPostResponse, *http.Response, error) {
 	return r.ApiService.UpdateFeedPostPublicExecute(r)
 }
 
@@ -4254,13 +6848,13 @@ func (a *PublicAPIService) UpdateFeedPostPublic(ctx context.Context, tenantId st
 }
 
 // Execute executes the request
-//  @return CreateFeedPostPublic200Response
-func (a *PublicAPIService) UpdateFeedPostPublicExecute(r ApiUpdateFeedPostPublicRequest) (*CreateFeedPostPublic200Response, *http.Response, error) {
+//  @return CreateFeedPostResponse
+func (a *PublicAPIService) UpdateFeedPostPublicExecute(r ApiUpdateFeedPostPublicRequest) (*CreateFeedPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateFeedPostPublic200Response
+		localVarReturnValue  *CreateFeedPostResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UpdateFeedPostPublic")
@@ -4326,6 +6920,14 @@ func (a *PublicAPIService) UpdateFeedPostPublicExecute(r ApiUpdateFeedPostPublic
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4366,7 +6968,7 @@ func (r ApiUpdateUserNotificationCommentSubscriptionStatusRequest) Sso(sso strin
 	return r
 }
 
-func (r ApiUpdateUserNotificationCommentSubscriptionStatusRequest) Execute() (*UpdateUserNotificationStatus200Response, *http.Response, error) {
+func (r ApiUpdateUserNotificationCommentSubscriptionStatusRequest) Execute() (*UpdateUserNotificationCommentSubscriptionStatusResponse, *http.Response, error) {
 	return r.ApiService.UpdateUserNotificationCommentSubscriptionStatusExecute(r)
 }
 
@@ -4390,13 +6992,13 @@ func (a *PublicAPIService) UpdateUserNotificationCommentSubscriptionStatus(ctx c
 }
 
 // Execute executes the request
-//  @return UpdateUserNotificationStatus200Response
-func (a *PublicAPIService) UpdateUserNotificationCommentSubscriptionStatusExecute(r ApiUpdateUserNotificationCommentSubscriptionStatusRequest) (*UpdateUserNotificationStatus200Response, *http.Response, error) {
+//  @return UpdateUserNotificationCommentSubscriptionStatusResponse
+func (a *PublicAPIService) UpdateUserNotificationCommentSubscriptionStatusExecute(r ApiUpdateUserNotificationCommentSubscriptionStatusRequest) (*UpdateUserNotificationCommentSubscriptionStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateUserNotificationStatus200Response
+		localVarReturnValue  *UpdateUserNotificationCommentSubscriptionStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UpdateUserNotificationCommentSubscriptionStatus")
@@ -4462,6 +7064,14 @@ func (a *PublicAPIService) UpdateUserNotificationCommentSubscriptionStatusExecut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4513,7 +7123,7 @@ func (r ApiUpdateUserNotificationPageSubscriptionStatusRequest) Sso(sso string) 
 	return r
 }
 
-func (r ApiUpdateUserNotificationPageSubscriptionStatusRequest) Execute() (*UpdateUserNotificationStatus200Response, *http.Response, error) {
+func (r ApiUpdateUserNotificationPageSubscriptionStatusRequest) Execute() (*UpdateUserNotificationPageSubscriptionStatusResponse, *http.Response, error) {
 	return r.ApiService.UpdateUserNotificationPageSubscriptionStatusExecute(r)
 }
 
@@ -4536,13 +7146,13 @@ func (a *PublicAPIService) UpdateUserNotificationPageSubscriptionStatus(ctx cont
 }
 
 // Execute executes the request
-//  @return UpdateUserNotificationStatus200Response
-func (a *PublicAPIService) UpdateUserNotificationPageSubscriptionStatusExecute(r ApiUpdateUserNotificationPageSubscriptionStatusRequest) (*UpdateUserNotificationStatus200Response, *http.Response, error) {
+//  @return UpdateUserNotificationPageSubscriptionStatusResponse
+func (a *PublicAPIService) UpdateUserNotificationPageSubscriptionStatusExecute(r ApiUpdateUserNotificationPageSubscriptionStatusRequest) (*UpdateUserNotificationPageSubscriptionStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateUserNotificationStatus200Response
+		localVarReturnValue  *UpdateUserNotificationPageSubscriptionStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UpdateUserNotificationPageSubscriptionStatus")
@@ -4615,6 +7225,14 @@ func (a *PublicAPIService) UpdateUserNotificationPageSubscriptionStatusExecute(r
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4649,7 +7267,7 @@ func (r ApiUpdateUserNotificationStatusRequest) Sso(sso string) ApiUpdateUserNot
 	return r
 }
 
-func (r ApiUpdateUserNotificationStatusRequest) Execute() (*UpdateUserNotificationStatus200Response, *http.Response, error) {
+func (r ApiUpdateUserNotificationStatusRequest) Execute() (*UpdateUserNotificationStatusResponse, *http.Response, error) {
 	return r.ApiService.UpdateUserNotificationStatusExecute(r)
 }
 
@@ -4671,13 +7289,13 @@ func (a *PublicAPIService) UpdateUserNotificationStatus(ctx context.Context, not
 }
 
 // Execute executes the request
-//  @return UpdateUserNotificationStatus200Response
-func (a *PublicAPIService) UpdateUserNotificationStatusExecute(r ApiUpdateUserNotificationStatusRequest) (*UpdateUserNotificationStatus200Response, *http.Response, error) {
+//  @return UpdateUserNotificationStatusResponse
+func (a *PublicAPIService) UpdateUserNotificationStatusExecute(r ApiUpdateUserNotificationStatusRequest) (*UpdateUserNotificationStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateUserNotificationStatus200Response
+		localVarReturnValue  *UpdateUserNotificationStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.UpdateUserNotificationStatus")
@@ -4739,6 +7357,14 @@ func (a *PublicAPIService) UpdateUserNotificationStatusExecute(r ApiUpdateUserNo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4938,7 +7564,7 @@ func (r ApiVoteCommentRequest) Sso(sso string) ApiVoteCommentRequest {
 	return r
 }
 
-func (r ApiVoteCommentRequest) Execute() (*VoteComment200Response, *http.Response, error) {
+func (r ApiVoteCommentRequest) Execute() (*VoteResponse, *http.Response, error) {
 	return r.ApiService.VoteCommentExecute(r)
 }
 
@@ -4960,13 +7586,13 @@ func (a *PublicAPIService) VoteComment(ctx context.Context, tenantId string, com
 }
 
 // Execute executes the request
-//  @return VoteComment200Response
-func (a *PublicAPIService) VoteCommentExecute(r ApiVoteCommentRequest) (*VoteComment200Response, *http.Response, error) {
+//  @return VoteResponse
+func (a *PublicAPIService) VoteCommentExecute(r ApiVoteCommentRequest) (*VoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *VoteComment200Response
+		localVarReturnValue  *VoteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.VoteComment")
@@ -5040,6 +7666,14 @@ func (a *PublicAPIService) VoteCommentExecute(r ApiVoteCommentRequest) (*VoteCom
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

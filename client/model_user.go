@@ -61,6 +61,7 @@ type User struct {
 	DigestEmailFrequency *DigestEmailFrequency `json:"digestEmailFrequency,omitempty"`
 	NotificationFrequency *float64 `json:"notificationFrequency,omitempty"`
 	AdminNotificationFrequency *float64 `json:"adminNotificationFrequency,omitempty"`
+	AgentApprovalNotificationFrequency *ImportedAgentApprovalNotificationFrequency `json:"agentApprovalNotificationFrequency,omitempty"`
 	LastTenantNotificationSentDate *time.Time `json:"lastTenantNotificationSentDate,omitempty"`
 	LastReplyNotificationSentDate *time.Time `json:"lastReplyNotificationSentDate,omitempty"`
 	IgnoredAddToMySiteMessages *bool `json:"ignoredAddToMySiteMessages,omitempty"`
@@ -1331,6 +1332,38 @@ func (o *User) SetAdminNotificationFrequency(v float64) {
 	o.AdminNotificationFrequency = &v
 }
 
+// GetAgentApprovalNotificationFrequency returns the AgentApprovalNotificationFrequency field value if set, zero value otherwise.
+func (o *User) GetAgentApprovalNotificationFrequency() ImportedAgentApprovalNotificationFrequency {
+	if o == nil || IsNil(o.AgentApprovalNotificationFrequency) {
+		var ret ImportedAgentApprovalNotificationFrequency
+		return ret
+	}
+	return *o.AgentApprovalNotificationFrequency
+}
+
+// GetAgentApprovalNotificationFrequencyOk returns a tuple with the AgentApprovalNotificationFrequency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *User) GetAgentApprovalNotificationFrequencyOk() (*ImportedAgentApprovalNotificationFrequency, bool) {
+	if o == nil || IsNil(o.AgentApprovalNotificationFrequency) {
+		return nil, false
+	}
+	return o.AgentApprovalNotificationFrequency, true
+}
+
+// HasAgentApprovalNotificationFrequency returns a boolean if a field has been set.
+func (o *User) HasAgentApprovalNotificationFrequency() bool {
+	if o != nil && !IsNil(o.AgentApprovalNotificationFrequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentApprovalNotificationFrequency gets a reference to the given ImportedAgentApprovalNotificationFrequency and assigns it to the AgentApprovalNotificationFrequency field.
+func (o *User) SetAgentApprovalNotificationFrequency(v ImportedAgentApprovalNotificationFrequency) {
+	o.AgentApprovalNotificationFrequency = &v
+}
+
 // GetLastTenantNotificationSentDate returns the LastTenantNotificationSentDate field value if set, zero value otherwise.
 func (o *User) GetLastTenantNotificationSentDate() time.Time {
 	if o == nil || IsNil(o.LastTenantNotificationSentDate) {
@@ -2089,6 +2122,9 @@ func (o User) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AdminNotificationFrequency) {
 		toSerialize["adminNotificationFrequency"] = o.AdminNotificationFrequency
+	}
+	if !IsNil(o.AgentApprovalNotificationFrequency) {
+		toSerialize["agentApprovalNotificationFrequency"] = o.AgentApprovalNotificationFrequency
 	}
 	if !IsNil(o.LastTenantNotificationSentDate) {
 		toSerialize["lastTenantNotificationSentDate"] = o.LastTenantNotificationSentDate

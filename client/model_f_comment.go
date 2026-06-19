@@ -94,6 +94,7 @@ type FComment struct {
 	RequiresVerification *bool `json:"requiresVerification,omitempty"`
 	EditKey *string `json:"editKey,omitempty"`
 	TosAcceptedAt *time.Time `json:"tosAcceptedAt,omitempty"`
+	BotId *string `json:"botId,omitempty"`
 }
 
 type _FComment FComment
@@ -2620,6 +2621,38 @@ func (o *FComment) SetTosAcceptedAt(v time.Time) {
 	o.TosAcceptedAt = &v
 }
 
+// GetBotId returns the BotId field value if set, zero value otherwise.
+func (o *FComment) GetBotId() string {
+	if o == nil || IsNil(o.BotId) {
+		var ret string
+		return ret
+	}
+	return *o.BotId
+}
+
+// GetBotIdOk returns a tuple with the BotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FComment) GetBotIdOk() (*string, bool) {
+	if o == nil || IsNil(o.BotId) {
+		return nil, false
+	}
+	return o.BotId, true
+}
+
+// HasBotId returns a boolean if a field has been set.
+func (o *FComment) HasBotId() bool {
+	if o != nil && !IsNil(o.BotId) {
+		return true
+	}
+
+	return false
+}
+
+// SetBotId gets a reference to the given string and assigns it to the BotId field.
+func (o *FComment) SetBotId(v string) {
+	o.BotId = &v
+}
+
 func (o FComment) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -2823,6 +2856,9 @@ func (o FComment) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TosAcceptedAt) {
 		toSerialize["tosAcceptedAt"] = o.TosAcceptedAt
+	}
+	if !IsNil(o.BotId) {
+		toSerialize["botId"] = o.BotId
 	}
 	return toSerialize, nil
 }

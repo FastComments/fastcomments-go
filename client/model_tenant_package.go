@@ -26,6 +26,7 @@ type TenantPackage struct {
 	Name string `json:"name"`
 	TenantId string `json:"tenantId"`
 	CreatedAt time.Time `json:"createdAt"`
+	TemplateId *string `json:"templateId,omitempty"`
 	MonthlyCostUSD NullableFloat64 `json:"monthlyCostUSD"`
 	YearlyCostUSD NullableFloat64 `json:"yearlyCostUSD"`
 	MonthlyStripePlanId NullableString `json:"monthlyStripePlanId"`
@@ -69,6 +70,8 @@ type TenantPackage struct {
 	FlexDomainUnit *float64 `json:"flexDomainUnit,omitempty"`
 	FlexChatGPTCostCents *float64 `json:"flexChatGPTCostCents,omitempty"`
 	FlexChatGPTUnit *float64 `json:"flexChatGPTUnit,omitempty"`
+	FlexLLMCostCents *float64 `json:"flexLLMCostCents,omitempty"`
+	FlexLLMUnit *float64 `json:"flexLLMUnit,omitempty"`
 	FlexMinimumCostCents *float64 `json:"flexMinimumCostCents,omitempty"`
 	FlexManagedTenantCostCents *float64 `json:"flexManagedTenantCostCents,omitempty"`
 	FlexSSOAdminCostCents *float64 `json:"flexSSOAdminCostCents,omitempty"`
@@ -76,6 +79,10 @@ type TenantPackage struct {
 	FlexSSOModeratorCostCents *float64 `json:"flexSSOModeratorCostCents,omitempty"`
 	FlexSSOModeratorUnit *float64 `json:"flexSSOModeratorUnit,omitempty"`
 	IsSSOBillingMonthlyActiveUsers *bool `json:"isSSOBillingMonthlyActiveUsers,omitempty"`
+	HasAIAgents *bool `json:"hasAIAgents,omitempty"`
+	MaxAIAgents *float64 `json:"maxAIAgents,omitempty"`
+	AiAgentDailyBudgetCents *float64 `json:"aiAgentDailyBudgetCents,omitempty"`
+	AiAgentMonthlyBudgetCents *float64 `json:"aiAgentMonthlyBudgetCents,omitempty"`
 }
 
 type _TenantPackage TenantPackage
@@ -218,6 +225,38 @@ func (o *TenantPackage) GetCreatedAtOk() (*time.Time, bool) {
 // SetCreatedAt sets field value
 func (o *TenantPackage) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
+}
+
+// GetTemplateId returns the TemplateId field value if set, zero value otherwise.
+func (o *TenantPackage) GetTemplateId() string {
+	if o == nil || IsNil(o.TemplateId) {
+		var ret string
+		return ret
+	}
+	return *o.TemplateId
+}
+
+// GetTemplateIdOk returns a tuple with the TemplateId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetTemplateIdOk() (*string, bool) {
+	if o == nil || IsNil(o.TemplateId) {
+		return nil, false
+	}
+	return o.TemplateId, true
+}
+
+// HasTemplateId returns a boolean if a field has been set.
+func (o *TenantPackage) HasTemplateId() bool {
+	if o != nil && !IsNil(o.TemplateId) {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateId gets a reference to the given string and assigns it to the TemplateId field.
+func (o *TenantPackage) SetTemplateId(v string) {
+	o.TemplateId = &v
 }
 
 // GetMonthlyCostUSD returns the MonthlyCostUSD field value
@@ -1420,6 +1459,70 @@ func (o *TenantPackage) SetFlexChatGPTUnit(v float64) {
 	o.FlexChatGPTUnit = &v
 }
 
+// GetFlexLLMCostCents returns the FlexLLMCostCents field value if set, zero value otherwise.
+func (o *TenantPackage) GetFlexLLMCostCents() float64 {
+	if o == nil || IsNil(o.FlexLLMCostCents) {
+		var ret float64
+		return ret
+	}
+	return *o.FlexLLMCostCents
+}
+
+// GetFlexLLMCostCentsOk returns a tuple with the FlexLLMCostCents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetFlexLLMCostCentsOk() (*float64, bool) {
+	if o == nil || IsNil(o.FlexLLMCostCents) {
+		return nil, false
+	}
+	return o.FlexLLMCostCents, true
+}
+
+// HasFlexLLMCostCents returns a boolean if a field has been set.
+func (o *TenantPackage) HasFlexLLMCostCents() bool {
+	if o != nil && !IsNil(o.FlexLLMCostCents) {
+		return true
+	}
+
+	return false
+}
+
+// SetFlexLLMCostCents gets a reference to the given float64 and assigns it to the FlexLLMCostCents field.
+func (o *TenantPackage) SetFlexLLMCostCents(v float64) {
+	o.FlexLLMCostCents = &v
+}
+
+// GetFlexLLMUnit returns the FlexLLMUnit field value if set, zero value otherwise.
+func (o *TenantPackage) GetFlexLLMUnit() float64 {
+	if o == nil || IsNil(o.FlexLLMUnit) {
+		var ret float64
+		return ret
+	}
+	return *o.FlexLLMUnit
+}
+
+// GetFlexLLMUnitOk returns a tuple with the FlexLLMUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetFlexLLMUnitOk() (*float64, bool) {
+	if o == nil || IsNil(o.FlexLLMUnit) {
+		return nil, false
+	}
+	return o.FlexLLMUnit, true
+}
+
+// HasFlexLLMUnit returns a boolean if a field has been set.
+func (o *TenantPackage) HasFlexLLMUnit() bool {
+	if o != nil && !IsNil(o.FlexLLMUnit) {
+		return true
+	}
+
+	return false
+}
+
+// SetFlexLLMUnit gets a reference to the given float64 and assigns it to the FlexLLMUnit field.
+func (o *TenantPackage) SetFlexLLMUnit(v float64) {
+	o.FlexLLMUnit = &v
+}
+
 // GetFlexMinimumCostCents returns the FlexMinimumCostCents field value if set, zero value otherwise.
 func (o *TenantPackage) GetFlexMinimumCostCents() float64 {
 	if o == nil || IsNil(o.FlexMinimumCostCents) {
@@ -1644,6 +1747,134 @@ func (o *TenantPackage) SetIsSSOBillingMonthlyActiveUsers(v bool) {
 	o.IsSSOBillingMonthlyActiveUsers = &v
 }
 
+// GetHasAIAgents returns the HasAIAgents field value if set, zero value otherwise.
+func (o *TenantPackage) GetHasAIAgents() bool {
+	if o == nil || IsNil(o.HasAIAgents) {
+		var ret bool
+		return ret
+	}
+	return *o.HasAIAgents
+}
+
+// GetHasAIAgentsOk returns a tuple with the HasAIAgents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetHasAIAgentsOk() (*bool, bool) {
+	if o == nil || IsNil(o.HasAIAgents) {
+		return nil, false
+	}
+	return o.HasAIAgents, true
+}
+
+// HasHasAIAgents returns a boolean if a field has been set.
+func (o *TenantPackage) HasHasAIAgents() bool {
+	if o != nil && !IsNil(o.HasAIAgents) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasAIAgents gets a reference to the given bool and assigns it to the HasAIAgents field.
+func (o *TenantPackage) SetHasAIAgents(v bool) {
+	o.HasAIAgents = &v
+}
+
+// GetMaxAIAgents returns the MaxAIAgents field value if set, zero value otherwise.
+func (o *TenantPackage) GetMaxAIAgents() float64 {
+	if o == nil || IsNil(o.MaxAIAgents) {
+		var ret float64
+		return ret
+	}
+	return *o.MaxAIAgents
+}
+
+// GetMaxAIAgentsOk returns a tuple with the MaxAIAgents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetMaxAIAgentsOk() (*float64, bool) {
+	if o == nil || IsNil(o.MaxAIAgents) {
+		return nil, false
+	}
+	return o.MaxAIAgents, true
+}
+
+// HasMaxAIAgents returns a boolean if a field has been set.
+func (o *TenantPackage) HasMaxAIAgents() bool {
+	if o != nil && !IsNil(o.MaxAIAgents) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxAIAgents gets a reference to the given float64 and assigns it to the MaxAIAgents field.
+func (o *TenantPackage) SetMaxAIAgents(v float64) {
+	o.MaxAIAgents = &v
+}
+
+// GetAiAgentDailyBudgetCents returns the AiAgentDailyBudgetCents field value if set, zero value otherwise.
+func (o *TenantPackage) GetAiAgentDailyBudgetCents() float64 {
+	if o == nil || IsNil(o.AiAgentDailyBudgetCents) {
+		var ret float64
+		return ret
+	}
+	return *o.AiAgentDailyBudgetCents
+}
+
+// GetAiAgentDailyBudgetCentsOk returns a tuple with the AiAgentDailyBudgetCents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetAiAgentDailyBudgetCentsOk() (*float64, bool) {
+	if o == nil || IsNil(o.AiAgentDailyBudgetCents) {
+		return nil, false
+	}
+	return o.AiAgentDailyBudgetCents, true
+}
+
+// HasAiAgentDailyBudgetCents returns a boolean if a field has been set.
+func (o *TenantPackage) HasAiAgentDailyBudgetCents() bool {
+	if o != nil && !IsNil(o.AiAgentDailyBudgetCents) {
+		return true
+	}
+
+	return false
+}
+
+// SetAiAgentDailyBudgetCents gets a reference to the given float64 and assigns it to the AiAgentDailyBudgetCents field.
+func (o *TenantPackage) SetAiAgentDailyBudgetCents(v float64) {
+	o.AiAgentDailyBudgetCents = &v
+}
+
+// GetAiAgentMonthlyBudgetCents returns the AiAgentMonthlyBudgetCents field value if set, zero value otherwise.
+func (o *TenantPackage) GetAiAgentMonthlyBudgetCents() float64 {
+	if o == nil || IsNil(o.AiAgentMonthlyBudgetCents) {
+		var ret float64
+		return ret
+	}
+	return *o.AiAgentMonthlyBudgetCents
+}
+
+// GetAiAgentMonthlyBudgetCentsOk returns a tuple with the AiAgentMonthlyBudgetCents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantPackage) GetAiAgentMonthlyBudgetCentsOk() (*float64, bool) {
+	if o == nil || IsNil(o.AiAgentMonthlyBudgetCents) {
+		return nil, false
+	}
+	return o.AiAgentMonthlyBudgetCents, true
+}
+
+// HasAiAgentMonthlyBudgetCents returns a boolean if a field has been set.
+func (o *TenantPackage) HasAiAgentMonthlyBudgetCents() bool {
+	if o != nil && !IsNil(o.AiAgentMonthlyBudgetCents) {
+		return true
+	}
+
+	return false
+}
+
+// SetAiAgentMonthlyBudgetCents gets a reference to the given float64 and assigns it to the AiAgentMonthlyBudgetCents field.
+func (o *TenantPackage) SetAiAgentMonthlyBudgetCents(v float64) {
+	o.AiAgentMonthlyBudgetCents = &v
+}
+
 func (o TenantPackage) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1658,6 +1889,9 @@ func (o TenantPackage) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.TemplateId) {
+		toSerialize["templateId"] = o.TemplateId
+	}
 	toSerialize["monthlyCostUSD"] = o.MonthlyCostUSD.Get()
 	toSerialize["yearlyCostUSD"] = o.YearlyCostUSD.Get()
 	toSerialize["monthlyStripePlanId"] = o.MonthlyStripePlanId.Get()
@@ -1741,6 +1975,12 @@ func (o TenantPackage) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FlexChatGPTUnit) {
 		toSerialize["flexChatGPTUnit"] = o.FlexChatGPTUnit
 	}
+	if !IsNil(o.FlexLLMCostCents) {
+		toSerialize["flexLLMCostCents"] = o.FlexLLMCostCents
+	}
+	if !IsNil(o.FlexLLMUnit) {
+		toSerialize["flexLLMUnit"] = o.FlexLLMUnit
+	}
 	if !IsNil(o.FlexMinimumCostCents) {
 		toSerialize["flexMinimumCostCents"] = o.FlexMinimumCostCents
 	}
@@ -1761,6 +2001,18 @@ func (o TenantPackage) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsSSOBillingMonthlyActiveUsers) {
 		toSerialize["isSSOBillingMonthlyActiveUsers"] = o.IsSSOBillingMonthlyActiveUsers
+	}
+	if !IsNil(o.HasAIAgents) {
+		toSerialize["hasAIAgents"] = o.HasAIAgents
+	}
+	if !IsNil(o.MaxAIAgents) {
+		toSerialize["maxAIAgents"] = o.MaxAIAgents
+	}
+	if !IsNil(o.AiAgentDailyBudgetCents) {
+		toSerialize["aiAgentDailyBudgetCents"] = o.AiAgentDailyBudgetCents
+	}
+	if !IsNil(o.AiAgentMonthlyBudgetCents) {
+		toSerialize["aiAgentMonthlyBudgetCents"] = o.AiAgentMonthlyBudgetCents
 	}
 	return toSerialize, nil
 }

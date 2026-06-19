@@ -37,6 +37,12 @@ const (
 	LIVEEVENTTYPE_NEW_FEED_POST LiveEventType = "new-feed-post"
 	LIVEEVENTTYPE_UPDATED_FEED_POST LiveEventType = "updated-feed-post"
 	LIVEEVENTTYPE_DELETED_FEED_POST LiveEventType = "deleted-feed-post"
+	LIVEEVENTTYPE_NEW_TICKET LiveEventType = "new-ticket"
+	LIVEEVENTTYPE_UPDATED_TICKET_STATE LiveEventType = "updated-ticket-state"
+	LIVEEVENTTYPE_UPDATED_TICKET_ASSIGNMENT LiveEventType = "updated-ticket-assignment"
+	LIVEEVENTTYPE_DELETED_TICKET LiveEventType = "deleted-ticket"
+	LIVEEVENTTYPE_PAGE_REACT LiveEventType = "page-react"
+	LIVEEVENTTYPE_QUESTION_RESULT LiveEventType = "question-result"
 )
 
 // All allowed values of LiveEventType enum
@@ -58,6 +64,12 @@ var AllowedLiveEventTypeEnumValues = []LiveEventType{
 	"new-feed-post",
 	"updated-feed-post",
 	"deleted-feed-post",
+	"new-ticket",
+	"updated-ticket-state",
+	"updated-ticket-assignment",
+	"deleted-ticket",
+	"page-react",
+	"question-result",
 }
 
 func (v *LiveEventType) UnmarshalJSON(src []byte) error {

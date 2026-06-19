@@ -62,8 +62,8 @@ type CreateTenantPackageBody struct {
 	FlexAdminUnit *float64 `json:"flexAdminUnit,omitempty"`
 	FlexDomainCostCents *float64 `json:"flexDomainCostCents,omitempty"`
 	FlexDomainUnit *float64 `json:"flexDomainUnit,omitempty"`
-	FlexChatGPTCostCents *float64 `json:"flexChatGPTCostCents,omitempty"`
-	FlexChatGPTUnit *float64 `json:"flexChatGPTUnit,omitempty"`
+	FlexLLMCostCents *float64 `json:"flexLLMCostCents,omitempty"`
+	FlexLLMUnit *float64 `json:"flexLLMUnit,omitempty"`
 	FlexMinimumCostCents *float64 `json:"flexMinimumCostCents,omitempty"`
 	FlexManagedTenantCostCents *float64 `json:"flexManagedTenantCostCents,omitempty"`
 	FlexSSOAdminCostCents *float64 `json:"flexSSOAdminCostCents,omitempty"`
@@ -1352,68 +1352,68 @@ func (o *CreateTenantPackageBody) SetFlexDomainUnit(v float64) {
 	o.FlexDomainUnit = &v
 }
 
-// GetFlexChatGPTCostCents returns the FlexChatGPTCostCents field value if set, zero value otherwise.
-func (o *CreateTenantPackageBody) GetFlexChatGPTCostCents() float64 {
-	if o == nil || IsNil(o.FlexChatGPTCostCents) {
+// GetFlexLLMCostCents returns the FlexLLMCostCents field value if set, zero value otherwise.
+func (o *CreateTenantPackageBody) GetFlexLLMCostCents() float64 {
+	if o == nil || IsNil(o.FlexLLMCostCents) {
 		var ret float64
 		return ret
 	}
-	return *o.FlexChatGPTCostCents
+	return *o.FlexLLMCostCents
 }
 
-// GetFlexChatGPTCostCentsOk returns a tuple with the FlexChatGPTCostCents field value if set, nil otherwise
+// GetFlexLLMCostCentsOk returns a tuple with the FlexLLMCostCents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateTenantPackageBody) GetFlexChatGPTCostCentsOk() (*float64, bool) {
-	if o == nil || IsNil(o.FlexChatGPTCostCents) {
+func (o *CreateTenantPackageBody) GetFlexLLMCostCentsOk() (*float64, bool) {
+	if o == nil || IsNil(o.FlexLLMCostCents) {
 		return nil, false
 	}
-	return o.FlexChatGPTCostCents, true
+	return o.FlexLLMCostCents, true
 }
 
-// HasFlexChatGPTCostCents returns a boolean if a field has been set.
-func (o *CreateTenantPackageBody) HasFlexChatGPTCostCents() bool {
-	if o != nil && !IsNil(o.FlexChatGPTCostCents) {
+// HasFlexLLMCostCents returns a boolean if a field has been set.
+func (o *CreateTenantPackageBody) HasFlexLLMCostCents() bool {
+	if o != nil && !IsNil(o.FlexLLMCostCents) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlexChatGPTCostCents gets a reference to the given float64 and assigns it to the FlexChatGPTCostCents field.
-func (o *CreateTenantPackageBody) SetFlexChatGPTCostCents(v float64) {
-	o.FlexChatGPTCostCents = &v
+// SetFlexLLMCostCents gets a reference to the given float64 and assigns it to the FlexLLMCostCents field.
+func (o *CreateTenantPackageBody) SetFlexLLMCostCents(v float64) {
+	o.FlexLLMCostCents = &v
 }
 
-// GetFlexChatGPTUnit returns the FlexChatGPTUnit field value if set, zero value otherwise.
-func (o *CreateTenantPackageBody) GetFlexChatGPTUnit() float64 {
-	if o == nil || IsNil(o.FlexChatGPTUnit) {
+// GetFlexLLMUnit returns the FlexLLMUnit field value if set, zero value otherwise.
+func (o *CreateTenantPackageBody) GetFlexLLMUnit() float64 {
+	if o == nil || IsNil(o.FlexLLMUnit) {
 		var ret float64
 		return ret
 	}
-	return *o.FlexChatGPTUnit
+	return *o.FlexLLMUnit
 }
 
-// GetFlexChatGPTUnitOk returns a tuple with the FlexChatGPTUnit field value if set, nil otherwise
+// GetFlexLLMUnitOk returns a tuple with the FlexLLMUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateTenantPackageBody) GetFlexChatGPTUnitOk() (*float64, bool) {
-	if o == nil || IsNil(o.FlexChatGPTUnit) {
+func (o *CreateTenantPackageBody) GetFlexLLMUnitOk() (*float64, bool) {
+	if o == nil || IsNil(o.FlexLLMUnit) {
 		return nil, false
 	}
-	return o.FlexChatGPTUnit, true
+	return o.FlexLLMUnit, true
 }
 
-// HasFlexChatGPTUnit returns a boolean if a field has been set.
-func (o *CreateTenantPackageBody) HasFlexChatGPTUnit() bool {
-	if o != nil && !IsNil(o.FlexChatGPTUnit) {
+// HasFlexLLMUnit returns a boolean if a field has been set.
+func (o *CreateTenantPackageBody) HasFlexLLMUnit() bool {
+	if o != nil && !IsNil(o.FlexLLMUnit) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlexChatGPTUnit gets a reference to the given float64 and assigns it to the FlexChatGPTUnit field.
-func (o *CreateTenantPackageBody) SetFlexChatGPTUnit(v float64) {
-	o.FlexChatGPTUnit = &v
+// SetFlexLLMUnit gets a reference to the given float64 and assigns it to the FlexLLMUnit field.
+func (o *CreateTenantPackageBody) SetFlexLLMUnit(v float64) {
+	o.FlexLLMUnit = &v
 }
 
 // GetFlexMinimumCostCents returns the FlexMinimumCostCents field value if set, zero value otherwise.
@@ -1715,11 +1715,11 @@ func (o CreateTenantPackageBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FlexDomainUnit) {
 		toSerialize["flexDomainUnit"] = o.FlexDomainUnit
 	}
-	if !IsNil(o.FlexChatGPTCostCents) {
-		toSerialize["flexChatGPTCostCents"] = o.FlexChatGPTCostCents
+	if !IsNil(o.FlexLLMCostCents) {
+		toSerialize["flexLLMCostCents"] = o.FlexLLMCostCents
 	}
-	if !IsNil(o.FlexChatGPTUnit) {
-		toSerialize["flexChatGPTUnit"] = o.FlexChatGPTUnit
+	if !IsNil(o.FlexLLMUnit) {
+		toSerialize["flexLLMUnit"] = o.FlexLLMUnit
 	}
 	if !IsNil(o.FlexMinimumCostCents) {
 		toSerialize["flexMinimumCostCents"] = o.FlexMinimumCostCents

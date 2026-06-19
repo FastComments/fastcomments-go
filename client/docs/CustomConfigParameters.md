@@ -56,11 +56,14 @@ Name | Type | Description | Notes
 **NoCustomConfig** | Pointer to **bool** |  | [optional] 
 **MentionAutoCompleteMode** | Pointer to [**NullableMentionAutoCompleteMode**](MentionAutoCompleteMode.md) |  | [optional] 
 **NoImageUploads** | Pointer to **bool** |  | [optional] 
+**AllowEmbeds** | Pointer to **bool** |  | [optional] 
+**AllowedEmbedDomains** | Pointer to **[]string** |  | [optional] 
 **NoStyles** | Pointer to **bool** |  | [optional] 
 **PageSize** | Pointer to **NullableInt32** |  | [optional] 
 **Readonly** | Pointer to **bool** |  | [optional] 
 **NoNewRootComments** | Pointer to **bool** |  | [optional] 
 **RequireSSO** | Pointer to **bool** |  | [optional] 
+**EnableFChat** | Pointer to **bool** |  | [optional] 
 **EnableResizeHandle** | Pointer to **bool** |  | [optional] 
 **RestrictedLinkDomains** | Pointer to **[]string** |  | [optional] 
 **ShowBadgesInTopBar** | Pointer to **bool** |  | [optional] 
@@ -81,6 +84,8 @@ Name | Type | Description | Notes
 **WidgetQuestionsRequired** | Pointer to [**CommentQuestionsRequired**](CommentQuestionsRequired.md) |  | [optional] 
 **WidgetSubQuestionVisibility** | Pointer to [**QuestionSubQuestionVisibility**](QuestionSubQuestionVisibility.md) |  | [optional] 
 **Wrap** | Pointer to **bool** |  | [optional] 
+**UsersListLocation** | Pointer to [**UsersListLocation**](UsersListLocation.md) |  | [optional] 
+**UsersListIncludeOffline** | Pointer to **bool** |  | [optional] 
 **TicketBaseUrl** | Pointer to **string** |  | [optional] 
 **TicketKBSearchEndpoint** | Pointer to **string** |  | [optional] 
 **TicketFileUploadsEnabled** | Pointer to **bool** |  | [optional] 
@@ -1547,6 +1552,66 @@ SetNoImageUploads sets NoImageUploads field to given value.
 
 HasNoImageUploads returns a boolean if a field has been set.
 
+### GetAllowEmbeds
+
+`func (o *CustomConfigParameters) GetAllowEmbeds() bool`
+
+GetAllowEmbeds returns the AllowEmbeds field if non-nil, zero value otherwise.
+
+### GetAllowEmbedsOk
+
+`func (o *CustomConfigParameters) GetAllowEmbedsOk() (*bool, bool)`
+
+GetAllowEmbedsOk returns a tuple with the AllowEmbeds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowEmbeds
+
+`func (o *CustomConfigParameters) SetAllowEmbeds(v bool)`
+
+SetAllowEmbeds sets AllowEmbeds field to given value.
+
+### HasAllowEmbeds
+
+`func (o *CustomConfigParameters) HasAllowEmbeds() bool`
+
+HasAllowEmbeds returns a boolean if a field has been set.
+
+### GetAllowedEmbedDomains
+
+`func (o *CustomConfigParameters) GetAllowedEmbedDomains() []string`
+
+GetAllowedEmbedDomains returns the AllowedEmbedDomains field if non-nil, zero value otherwise.
+
+### GetAllowedEmbedDomainsOk
+
+`func (o *CustomConfigParameters) GetAllowedEmbedDomainsOk() (*[]string, bool)`
+
+GetAllowedEmbedDomainsOk returns a tuple with the AllowedEmbedDomains field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedEmbedDomains
+
+`func (o *CustomConfigParameters) SetAllowedEmbedDomains(v []string)`
+
+SetAllowedEmbedDomains sets AllowedEmbedDomains field to given value.
+
+### HasAllowedEmbedDomains
+
+`func (o *CustomConfigParameters) HasAllowedEmbedDomains() bool`
+
+HasAllowedEmbedDomains returns a boolean if a field has been set.
+
+### SetAllowedEmbedDomainsNil
+
+`func (o *CustomConfigParameters) SetAllowedEmbedDomainsNil(b bool)`
+
+ SetAllowedEmbedDomainsNil sets the value for AllowedEmbedDomains to be an explicit nil
+
+### UnsetAllowedEmbedDomains
+`func (o *CustomConfigParameters) UnsetAllowedEmbedDomains()`
+
+UnsetAllowedEmbedDomains ensures that no value is present for AllowedEmbedDomains, not even an explicit nil
 ### GetNoStyles
 
 `func (o *CustomConfigParameters) GetNoStyles() bool`
@@ -1681,6 +1746,31 @@ SetRequireSSO sets RequireSSO field to given value.
 `func (o *CustomConfigParameters) HasRequireSSO() bool`
 
 HasRequireSSO returns a boolean if a field has been set.
+
+### GetEnableFChat
+
+`func (o *CustomConfigParameters) GetEnableFChat() bool`
+
+GetEnableFChat returns the EnableFChat field if non-nil, zero value otherwise.
+
+### GetEnableFChatOk
+
+`func (o *CustomConfigParameters) GetEnableFChatOk() (*bool, bool)`
+
+GetEnableFChatOk returns a tuple with the EnableFChat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableFChat
+
+`func (o *CustomConfigParameters) SetEnableFChat(v bool)`
+
+SetEnableFChat sets EnableFChat field to given value.
+
+### HasEnableFChat
+
+`func (o *CustomConfigParameters) HasEnableFChat() bool`
+
+HasEnableFChat returns a boolean if a field has been set.
 
 ### GetEnableResizeHandle
 
@@ -2201,6 +2291,56 @@ SetWrap sets Wrap field to given value.
 `func (o *CustomConfigParameters) HasWrap() bool`
 
 HasWrap returns a boolean if a field has been set.
+
+### GetUsersListLocation
+
+`func (o *CustomConfigParameters) GetUsersListLocation() UsersListLocation`
+
+GetUsersListLocation returns the UsersListLocation field if non-nil, zero value otherwise.
+
+### GetUsersListLocationOk
+
+`func (o *CustomConfigParameters) GetUsersListLocationOk() (*UsersListLocation, bool)`
+
+GetUsersListLocationOk returns a tuple with the UsersListLocation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsersListLocation
+
+`func (o *CustomConfigParameters) SetUsersListLocation(v UsersListLocation)`
+
+SetUsersListLocation sets UsersListLocation field to given value.
+
+### HasUsersListLocation
+
+`func (o *CustomConfigParameters) HasUsersListLocation() bool`
+
+HasUsersListLocation returns a boolean if a field has been set.
+
+### GetUsersListIncludeOffline
+
+`func (o *CustomConfigParameters) GetUsersListIncludeOffline() bool`
+
+GetUsersListIncludeOffline returns the UsersListIncludeOffline field if non-nil, zero value otherwise.
+
+### GetUsersListIncludeOfflineOk
+
+`func (o *CustomConfigParameters) GetUsersListIncludeOfflineOk() (*bool, bool)`
+
+GetUsersListIncludeOfflineOk returns a tuple with the UsersListIncludeOffline field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsersListIncludeOffline
+
+`func (o *CustomConfigParameters) SetUsersListIncludeOffline(v bool)`
+
+SetUsersListIncludeOffline sets UsersListIncludeOffline field to given value.
+
+### HasUsersListIncludeOffline
+
+`func (o *CustomConfigParameters) HasUsersListIncludeOffline() bool`
+
+HasUsersListIncludeOffline returns a boolean if a field has been set.
 
 ### GetTicketBaseUrl
 

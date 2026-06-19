@@ -76,6 +76,34 @@ func Test_client_PublicAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test PublicAPIService CreateV1PageReact", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.CreateV1PageReact(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService CreateV2PageReact", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.CreateV2PageReact(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PublicAPIService DeleteCommentPublic", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -122,6 +150,34 @@ func Test_client_PublicAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test PublicAPIService DeleteV1PageReact", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.DeleteV1PageReact(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService DeleteV2PageReact", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.DeleteV2PageReact(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PublicAPIService FlagCommentPublic", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -159,6 +215,18 @@ func Test_client_PublicAPIService(t *testing.T) {
 		var commentId string
 
 		resp, httpRes, err := apiClient.PublicAPI.GetCommentVoteUserNames(context.Background(), tenantId, commentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetCommentsForUser", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PublicAPI.GetCommentsForUser(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -222,6 +290,48 @@ func Test_client_PublicAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test PublicAPIService GetGifLarge", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetGifLarge(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetGifsSearch", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetGifsSearch(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetGifsTrending", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetGifsTrending(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PublicAPIService GetGlobalEventLog", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -229,6 +339,63 @@ func Test_client_PublicAPIService(t *testing.T) {
 		var tenantId string
 
 		resp, httpRes, err := apiClient.PublicAPI.GetGlobalEventLog(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetOfflineUsers", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetOfflineUsers(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetOnlineUsers", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetOnlineUsers(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetPagesPublic", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetPagesPublic(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetTranslations", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var namespace string
+		var component string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetTranslations(context.Background(), namespace, component).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -286,6 +453,62 @@ func Test_client_PublicAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test PublicAPIService GetUsersInfo", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetUsersInfo(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetV1PageLikes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetV1PageLikes(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetV2PageReactUsers", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetV2PageReactUsers(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService GetV2PageReacts", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tenantId string
+
+		resp, httpRes, err := apiClient.PublicAPI.GetV2PageReacts(context.Background(), tenantId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PublicAPIService LockComment", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -294,6 +517,18 @@ func Test_client_PublicAPIService(t *testing.T) {
 		var commentId string
 
 		resp, httpRes, err := apiClient.PublicAPI.LockComment(context.Background(), tenantId, commentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicAPIService LogoutPublic", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PublicAPI.LogoutPublic(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

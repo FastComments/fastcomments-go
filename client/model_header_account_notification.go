@@ -33,6 +33,8 @@ type HeaderAccountNotification struct {
 	LinkUrl NullableString `json:"linkUrl"`
 	LinkText NullableString `json:"linkText"`
 	CreatedAt time.Time `json:"createdAt"`
+	// Discriminator for notifications with a special layout/click handler (e.g. \"feedback-offer\").
+	Type NullableString `json:"type,omitempty"`
 }
 
 type _HeaderAccountNotification HeaderAccountNotification
@@ -287,6 +289,48 @@ func (o *HeaderAccountNotification) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
 }
 
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeaderAccountNotification) GetType() string {
+	if o == nil || IsNil(o.Type.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Type.Get()
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeaderAccountNotification) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Type.Get(), o.Type.IsSet()
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *HeaderAccountNotification) HasType() bool {
+	if o != nil && o.Type.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
+func (o *HeaderAccountNotification) SetType(v string) {
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *HeaderAccountNotification) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *HeaderAccountNotification) UnsetType() {
+	o.Type.Unset()
+}
+
 func (o HeaderAccountNotification) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -310,6 +354,9 @@ func (o HeaderAccountNotification) ToMap() (map[string]interface{}, error) {
 	toSerialize["linkUrl"] = o.LinkUrl.Get()
 	toSerialize["linkText"] = o.LinkText.Get()
 	toSerialize["createdAt"] = o.CreatedAt
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
+	}
 	return toSerialize, nil
 }
 
