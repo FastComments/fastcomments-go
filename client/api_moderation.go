@@ -28,7 +28,19 @@ type ApiDeleteModerationVoteRequest struct {
 	ApiService *ModerationAPIService
 	commentId string
 	voteId string
+	broadcastId *string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiDeleteModerationVoteRequest) BroadcastId(broadcastId string) ApiDeleteModerationVoteRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiDeleteModerationVoteRequest) TenantId(tenantId string) ApiDeleteModerationVoteRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiDeleteModerationVoteRequest) Sso(sso string) ApiDeleteModerationVoteRequest {
@@ -36,7 +48,7 @@ func (r ApiDeleteModerationVoteRequest) Sso(sso string) ApiDeleteModerationVoteR
 	return r
 }
 
-func (r ApiDeleteModerationVoteRequest) Execute() (*VoteDeleteResponse, *http.Response, error) {
+func (r ApiDeleteModerationVoteRequest) Execute() (*DeleteModerationVoteResponse, *http.Response, error) {
 	return r.ApiService.DeleteModerationVoteExecute(r)
 }
 
@@ -58,13 +70,13 @@ func (a *ModerationAPIService) DeleteModerationVote(ctx context.Context, comment
 }
 
 // Execute executes the request
-//  @return VoteDeleteResponse
-func (a *ModerationAPIService) DeleteModerationVoteExecute(r ApiDeleteModerationVoteRequest) (*VoteDeleteResponse, *http.Response, error) {
+//  @return DeleteModerationVoteResponse
+func (a *ModerationAPIService) DeleteModerationVoteExecute(r ApiDeleteModerationVoteRequest) (*DeleteModerationVoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *VoteDeleteResponse
+		localVarReturnValue  *DeleteModerationVoteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.DeleteModerationVote")
@@ -80,6 +92,12 @@ func (a *ModerationAPIService) DeleteModerationVoteExecute(r ApiDeleteModeration
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -122,14 +140,6 @@ func (a *ModerationAPIService) DeleteModerationVoteExecute(r ApiDeleteModeration
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -156,6 +166,7 @@ type ApiGetApiCommentsRequest struct {
 	searchFilters *string
 	sorts *string
 	demo *bool
+	tenantId *string
 	sso *string
 }
 
@@ -199,12 +210,17 @@ func (r ApiGetApiCommentsRequest) Demo(demo bool) ApiGetApiCommentsRequest {
 	return r
 }
 
+func (r ApiGetApiCommentsRequest) TenantId(tenantId string) ApiGetApiCommentsRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetApiCommentsRequest) Sso(sso string) ApiGetApiCommentsRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetApiCommentsRequest) Execute() (*ModerationAPIGetCommentsResponse, *http.Response, error) {
+func (r ApiGetApiCommentsRequest) Execute() (*GetApiCommentsResponse, *http.Response, error) {
 	return r.ApiService.GetApiCommentsExecute(r)
 }
 
@@ -222,13 +238,13 @@ func (a *ModerationAPIService) GetApiComments(ctx context.Context) ApiGetApiComm
 }
 
 // Execute executes the request
-//  @return ModerationAPIGetCommentsResponse
-func (a *ModerationAPIService) GetApiCommentsExecute(r ApiGetApiCommentsRequest) (*ModerationAPIGetCommentsResponse, *http.Response, error) {
+//  @return GetApiCommentsResponse
+func (a *ModerationAPIService) GetApiCommentsExecute(r ApiGetApiCommentsRequest) (*GetApiCommentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPIGetCommentsResponse
+		localVarReturnValue  *GetApiCommentsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetApiComments")
@@ -266,6 +282,9 @@ func (a *ModerationAPIService) GetApiCommentsExecute(r ApiGetApiCommentsRequest)
 	if r.demo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "demo", r.demo, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -308,14 +327,6 @@ func (a *ModerationAPIService) GetApiCommentsExecute(r ApiGetApiCommentsRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -335,6 +346,7 @@ type ApiGetApiExportStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	batchJobId *string
+	tenantId *string
 	sso *string
 }
 
@@ -343,12 +355,17 @@ func (r ApiGetApiExportStatusRequest) BatchJobId(batchJobId string) ApiGetApiExp
 	return r
 }
 
+func (r ApiGetApiExportStatusRequest) TenantId(tenantId string) ApiGetApiExportStatusRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetApiExportStatusRequest) Sso(sso string) ApiGetApiExportStatusRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetApiExportStatusRequest) Execute() (*ModerationExportStatusResponse, *http.Response, error) {
+func (r ApiGetApiExportStatusRequest) Execute() (*GetApiExportStatusResponse, *http.Response, error) {
 	return r.ApiService.GetApiExportStatusExecute(r)
 }
 
@@ -366,13 +383,13 @@ func (a *ModerationAPIService) GetApiExportStatus(ctx context.Context) ApiGetApi
 }
 
 // Execute executes the request
-//  @return ModerationExportStatusResponse
-func (a *ModerationAPIService) GetApiExportStatusExecute(r ApiGetApiExportStatusRequest) (*ModerationExportStatusResponse, *http.Response, error) {
+//  @return GetApiExportStatusResponse
+func (a *ModerationAPIService) GetApiExportStatusExecute(r ApiGetApiExportStatusRequest) (*GetApiExportStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationExportStatusResponse
+		localVarReturnValue  *GetApiExportStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetApiExportStatus")
@@ -388,6 +405,9 @@ func (a *ModerationAPIService) GetApiExportStatusExecute(r ApiGetApiExportStatus
 
 	if r.batchJobId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "batchJobId", r.batchJobId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -431,14 +451,6 @@ func (a *ModerationAPIService) GetApiExportStatusExecute(r ApiGetApiExportStatus
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -463,6 +475,7 @@ type ApiGetApiIdsRequest struct {
 	searchFilters *string
 	afterId *string
 	demo *bool
+	tenantId *string
 	sso *string
 }
 
@@ -496,12 +509,17 @@ func (r ApiGetApiIdsRequest) Demo(demo bool) ApiGetApiIdsRequest {
 	return r
 }
 
+func (r ApiGetApiIdsRequest) TenantId(tenantId string) ApiGetApiIdsRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetApiIdsRequest) Sso(sso string) ApiGetApiIdsRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetApiIdsRequest) Execute() (*ModerationAPIGetCommentIdsResponse, *http.Response, error) {
+func (r ApiGetApiIdsRequest) Execute() (*GetApiIdsResponse, *http.Response, error) {
 	return r.ApiService.GetApiIdsExecute(r)
 }
 
@@ -519,13 +537,13 @@ func (a *ModerationAPIService) GetApiIds(ctx context.Context) ApiGetApiIdsReques
 }
 
 // Execute executes the request
-//  @return ModerationAPIGetCommentIdsResponse
-func (a *ModerationAPIService) GetApiIdsExecute(r ApiGetApiIdsRequest) (*ModerationAPIGetCommentIdsResponse, *http.Response, error) {
+//  @return GetApiIdsResponse
+func (a *ModerationAPIService) GetApiIdsExecute(r ApiGetApiIdsRequest) (*GetApiIdsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPIGetCommentIdsResponse
+		localVarReturnValue  *GetApiIdsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetApiIds")
@@ -557,6 +575,9 @@ func (a *ModerationAPIService) GetApiIdsExecute(r ApiGetApiIdsRequest) (*Moderat
 	if r.demo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "demo", r.demo, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -599,14 +620,6 @@ func (a *ModerationAPIService) GetApiIdsExecute(r ApiGetApiIdsRequest) (*Moderat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -626,7 +639,13 @@ type ApiGetBanUsersFromCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetBanUsersFromCommentRequest) TenantId(tenantId string) ApiGetBanUsersFromCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetBanUsersFromCommentRequest) Sso(sso string) ApiGetBanUsersFromCommentRequest {
@@ -634,7 +653,7 @@ func (r ApiGetBanUsersFromCommentRequest) Sso(sso string) ApiGetBanUsersFromComm
 	return r
 }
 
-func (r ApiGetBanUsersFromCommentRequest) Execute() (*GetBannedUsersFromCommentResponse, *http.Response, error) {
+func (r ApiGetBanUsersFromCommentRequest) Execute() (*GetBanUsersFromCommentResponse, *http.Response, error) {
 	return r.ApiService.GetBanUsersFromCommentExecute(r)
 }
 
@@ -654,13 +673,13 @@ func (a *ModerationAPIService) GetBanUsersFromComment(ctx context.Context, comme
 }
 
 // Execute executes the request
-//  @return GetBannedUsersFromCommentResponse
-func (a *ModerationAPIService) GetBanUsersFromCommentExecute(r ApiGetBanUsersFromCommentRequest) (*GetBannedUsersFromCommentResponse, *http.Response, error) {
+//  @return GetBanUsersFromCommentResponse
+func (a *ModerationAPIService) GetBanUsersFromCommentExecute(r ApiGetBanUsersFromCommentRequest) (*GetBanUsersFromCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetBannedUsersFromCommentResponse
+		localVarReturnValue  *GetBanUsersFromCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetBanUsersFromComment")
@@ -675,6 +694,9 @@ func (a *ModerationAPIService) GetBanUsersFromCommentExecute(r ApiGetBanUsersFro
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -717,14 +739,6 @@ func (a *ModerationAPIService) GetBanUsersFromCommentExecute(r ApiGetBanUsersFro
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -744,7 +758,13 @@ type ApiGetCommentBanStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetCommentBanStatusRequest) TenantId(tenantId string) ApiGetCommentBanStatusRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCommentBanStatusRequest) Sso(sso string) ApiGetCommentBanStatusRequest {
@@ -752,7 +772,7 @@ func (r ApiGetCommentBanStatusRequest) Sso(sso string) ApiGetCommentBanStatusReq
 	return r
 }
 
-func (r ApiGetCommentBanStatusRequest) Execute() (*GetCommentBanStatusResponse, *http.Response, error) {
+func (r ApiGetCommentBanStatusRequest) Execute() (*GetCommentBanStatusResponse1, *http.Response, error) {
 	return r.ApiService.GetCommentBanStatusExecute(r)
 }
 
@@ -772,13 +792,13 @@ func (a *ModerationAPIService) GetCommentBanStatus(ctx context.Context, commentI
 }
 
 // Execute executes the request
-//  @return GetCommentBanStatusResponse
-func (a *ModerationAPIService) GetCommentBanStatusExecute(r ApiGetCommentBanStatusRequest) (*GetCommentBanStatusResponse, *http.Response, error) {
+//  @return GetCommentBanStatusResponse1
+func (a *ModerationAPIService) GetCommentBanStatusExecute(r ApiGetCommentBanStatusRequest) (*GetCommentBanStatusResponse1, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentBanStatusResponse
+		localVarReturnValue  *GetCommentBanStatusResponse1
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetCommentBanStatus")
@@ -793,6 +813,9 @@ func (a *ModerationAPIService) GetCommentBanStatusExecute(r ApiGetCommentBanStat
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -835,14 +858,6 @@ func (a *ModerationAPIService) GetCommentBanStatusExecute(r ApiGetCommentBanStat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -862,7 +877,13 @@ type ApiGetCommentChildrenRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetCommentChildrenRequest) TenantId(tenantId string) ApiGetCommentChildrenRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCommentChildrenRequest) Sso(sso string) ApiGetCommentChildrenRequest {
@@ -870,7 +891,7 @@ func (r ApiGetCommentChildrenRequest) Sso(sso string) ApiGetCommentChildrenReque
 	return r
 }
 
-func (r ApiGetCommentChildrenRequest) Execute() (*ModerationAPIChildCommentsResponse, *http.Response, error) {
+func (r ApiGetCommentChildrenRequest) Execute() (*GetCommentChildrenResponse, *http.Response, error) {
 	return r.ApiService.GetCommentChildrenExecute(r)
 }
 
@@ -890,13 +911,13 @@ func (a *ModerationAPIService) GetCommentChildren(ctx context.Context, commentId
 }
 
 // Execute executes the request
-//  @return ModerationAPIChildCommentsResponse
-func (a *ModerationAPIService) GetCommentChildrenExecute(r ApiGetCommentChildrenRequest) (*ModerationAPIChildCommentsResponse, *http.Response, error) {
+//  @return GetCommentChildrenResponse
+func (a *ModerationAPIService) GetCommentChildrenExecute(r ApiGetCommentChildrenRequest) (*GetCommentChildrenResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPIChildCommentsResponse
+		localVarReturnValue  *GetCommentChildrenResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetCommentChildren")
@@ -911,6 +932,9 @@ func (a *ModerationAPIService) GetCommentChildrenExecute(r ApiGetCommentChildren
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -953,14 +977,6 @@ func (a *ModerationAPIService) GetCommentChildrenExecute(r ApiGetCommentChildren
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -984,6 +1000,7 @@ type ApiGetCountRequest struct {
 	filter *string
 	searchFilters *string
 	demo *bool
+	tenantId *string
 	sso *string
 }
 
@@ -1012,12 +1029,17 @@ func (r ApiGetCountRequest) Demo(demo bool) ApiGetCountRequest {
 	return r
 }
 
+func (r ApiGetCountRequest) TenantId(tenantId string) ApiGetCountRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetCountRequest) Sso(sso string) ApiGetCountRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetCountRequest) Execute() (*ModerationAPICountCommentsResponse, *http.Response, error) {
+func (r ApiGetCountRequest) Execute() (*GetCountResponse, *http.Response, error) {
 	return r.ApiService.GetCountExecute(r)
 }
 
@@ -1035,13 +1057,13 @@ func (a *ModerationAPIService) GetCount(ctx context.Context) ApiGetCountRequest 
 }
 
 // Execute executes the request
-//  @return ModerationAPICountCommentsResponse
-func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*ModerationAPICountCommentsResponse, *http.Response, error) {
+//  @return GetCountResponse
+func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*GetCountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPICountCommentsResponse
+		localVarReturnValue  *GetCountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetCount")
@@ -1070,6 +1092,9 @@ func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*Moderatio
 	if r.demo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "demo", r.demo, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1112,14 +1137,6 @@ func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*Moderatio
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1138,7 +1155,13 @@ func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*Moderatio
 type ApiGetCountsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetCountsRequest) TenantId(tenantId string) ApiGetCountsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCountsRequest) Sso(sso string) ApiGetCountsRequest {
@@ -1146,7 +1169,7 @@ func (r ApiGetCountsRequest) Sso(sso string) ApiGetCountsRequest {
 	return r
 }
 
-func (r ApiGetCountsRequest) Execute() (*GetBannedUsersCountResponse, *http.Response, error) {
+func (r ApiGetCountsRequest) Execute() (*GetCountsResponse, *http.Response, error) {
 	return r.ApiService.GetCountsExecute(r)
 }
 
@@ -1164,13 +1187,13 @@ func (a *ModerationAPIService) GetCounts(ctx context.Context) ApiGetCountsReques
 }
 
 // Execute executes the request
-//  @return GetBannedUsersCountResponse
-func (a *ModerationAPIService) GetCountsExecute(r ApiGetCountsRequest) (*GetBannedUsersCountResponse, *http.Response, error) {
+//  @return GetCountsResponse
+func (a *ModerationAPIService) GetCountsExecute(r ApiGetCountsRequest) (*GetCountsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetBannedUsersCountResponse
+		localVarReturnValue  *GetCountsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetCounts")
@@ -1184,6 +1207,9 @@ func (a *ModerationAPIService) GetCountsExecute(r ApiGetCountsRequest) (*GetBann
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1226,14 +1252,6 @@ func (a *ModerationAPIService) GetCountsExecute(r ApiGetCountsRequest) (*GetBann
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1253,7 +1271,13 @@ type ApiGetLogsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetLogsRequest) TenantId(tenantId string) ApiGetLogsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetLogsRequest) Sso(sso string) ApiGetLogsRequest {
@@ -1261,7 +1285,7 @@ func (r ApiGetLogsRequest) Sso(sso string) ApiGetLogsRequest {
 	return r
 }
 
-func (r ApiGetLogsRequest) Execute() (*ModerationAPIGetLogsResponse, *http.Response, error) {
+func (r ApiGetLogsRequest) Execute() (*GetLogsResponse, *http.Response, error) {
 	return r.ApiService.GetLogsExecute(r)
 }
 
@@ -1281,13 +1305,13 @@ func (a *ModerationAPIService) GetLogs(ctx context.Context, commentId string) Ap
 }
 
 // Execute executes the request
-//  @return ModerationAPIGetLogsResponse
-func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*ModerationAPIGetLogsResponse, *http.Response, error) {
+//  @return GetLogsResponse
+func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*GetLogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPIGetLogsResponse
+		localVarReturnValue  *GetLogsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetLogs")
@@ -1302,6 +1326,9 @@ func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*ModerationA
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1344,14 +1371,6 @@ func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*ModerationA
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1370,7 +1389,13 @@ func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*ModerationA
 type ApiGetManualBadgesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetManualBadgesRequest) TenantId(tenantId string) ApiGetManualBadgesRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetManualBadgesRequest) Sso(sso string) ApiGetManualBadgesRequest {
@@ -1378,7 +1403,7 @@ func (r ApiGetManualBadgesRequest) Sso(sso string) ApiGetManualBadgesRequest {
 	return r
 }
 
-func (r ApiGetManualBadgesRequest) Execute() (*GetTenantManualBadgesResponse, *http.Response, error) {
+func (r ApiGetManualBadgesRequest) Execute() (*GetManualBadgesResponse, *http.Response, error) {
 	return r.ApiService.GetManualBadgesExecute(r)
 }
 
@@ -1396,13 +1421,13 @@ func (a *ModerationAPIService) GetManualBadges(ctx context.Context) ApiGetManual
 }
 
 // Execute executes the request
-//  @return GetTenantManualBadgesResponse
-func (a *ModerationAPIService) GetManualBadgesExecute(r ApiGetManualBadgesRequest) (*GetTenantManualBadgesResponse, *http.Response, error) {
+//  @return GetManualBadgesResponse
+func (a *ModerationAPIService) GetManualBadgesExecute(r ApiGetManualBadgesRequest) (*GetManualBadgesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantManualBadgesResponse
+		localVarReturnValue  *GetManualBadgesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetManualBadges")
@@ -1416,6 +1441,9 @@ func (a *ModerationAPIService) GetManualBadgesExecute(r ApiGetManualBadgesReques
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1458,14 +1486,6 @@ func (a *ModerationAPIService) GetManualBadgesExecute(r ApiGetManualBadgesReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1486,6 +1506,7 @@ type ApiGetManualBadgesForUserRequest struct {
 	ApiService *ModerationAPIService
 	badgesUserId *string
 	commentId *string
+	tenantId *string
 	sso *string
 }
 
@@ -1499,12 +1520,17 @@ func (r ApiGetManualBadgesForUserRequest) CommentId(commentId string) ApiGetManu
 	return r
 }
 
+func (r ApiGetManualBadgesForUserRequest) TenantId(tenantId string) ApiGetManualBadgesForUserRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetManualBadgesForUserRequest) Sso(sso string) ApiGetManualBadgesForUserRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetManualBadgesForUserRequest) Execute() (*GetUserManualBadgesResponse, *http.Response, error) {
+func (r ApiGetManualBadgesForUserRequest) Execute() (*GetManualBadgesForUserResponse, *http.Response, error) {
 	return r.ApiService.GetManualBadgesForUserExecute(r)
 }
 
@@ -1522,13 +1548,13 @@ func (a *ModerationAPIService) GetManualBadgesForUser(ctx context.Context) ApiGe
 }
 
 // Execute executes the request
-//  @return GetUserManualBadgesResponse
-func (a *ModerationAPIService) GetManualBadgesForUserExecute(r ApiGetManualBadgesForUserRequest) (*GetUserManualBadgesResponse, *http.Response, error) {
+//  @return GetManualBadgesForUserResponse
+func (a *ModerationAPIService) GetManualBadgesForUserExecute(r ApiGetManualBadgesForUserRequest) (*GetManualBadgesForUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserManualBadgesResponse
+		localVarReturnValue  *GetManualBadgesForUserResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetManualBadgesForUser")
@@ -1547,6 +1573,9 @@ func (a *ModerationAPIService) GetManualBadgesForUserExecute(r ApiGetManualBadge
 	}
 	if r.commentId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "commentId", r.commentId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -1590,14 +1619,6 @@ func (a *ModerationAPIService) GetManualBadgesForUserExecute(r ApiGetManualBadge
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1619,6 +1640,7 @@ type ApiGetModerationCommentRequest struct {
 	commentId string
 	includeEmail *bool
 	includeIP *bool
+	tenantId *string
 	sso *string
 }
 
@@ -1632,12 +1654,17 @@ func (r ApiGetModerationCommentRequest) IncludeIP(includeIP bool) ApiGetModerati
 	return r
 }
 
+func (r ApiGetModerationCommentRequest) TenantId(tenantId string) ApiGetModerationCommentRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetModerationCommentRequest) Sso(sso string) ApiGetModerationCommentRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetModerationCommentRequest) Execute() (*ModerationAPICommentResponse, *http.Response, error) {
+func (r ApiGetModerationCommentRequest) Execute() (*GetModerationCommentResponse, *http.Response, error) {
 	return r.ApiService.GetModerationCommentExecute(r)
 }
 
@@ -1657,13 +1684,13 @@ func (a *ModerationAPIService) GetModerationComment(ctx context.Context, comment
 }
 
 // Execute executes the request
-//  @return ModerationAPICommentResponse
-func (a *ModerationAPIService) GetModerationCommentExecute(r ApiGetModerationCommentRequest) (*ModerationAPICommentResponse, *http.Response, error) {
+//  @return GetModerationCommentResponse
+func (a *ModerationAPIService) GetModerationCommentExecute(r ApiGetModerationCommentRequest) (*GetModerationCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPICommentResponse
+		localVarReturnValue  *GetModerationCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetModerationComment")
@@ -1684,6 +1711,9 @@ func (a *ModerationAPIService) GetModerationCommentExecute(r ApiGetModerationCom
 	if r.includeIP != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIP", r.includeIP, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1726,14 +1756,6 @@ func (a *ModerationAPIService) GetModerationCommentExecute(r ApiGetModerationCom
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1753,7 +1775,13 @@ type ApiGetModerationCommentTextRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetModerationCommentTextRequest) TenantId(tenantId string) ApiGetModerationCommentTextRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetModerationCommentTextRequest) Sso(sso string) ApiGetModerationCommentTextRequest {
@@ -1761,7 +1789,7 @@ func (r ApiGetModerationCommentTextRequest) Sso(sso string) ApiGetModerationComm
 	return r
 }
 
-func (r ApiGetModerationCommentTextRequest) Execute() (*GetCommentTextResponse, *http.Response, error) {
+func (r ApiGetModerationCommentTextRequest) Execute() (*GetModerationCommentTextResponse, *http.Response, error) {
 	return r.ApiService.GetModerationCommentTextExecute(r)
 }
 
@@ -1781,13 +1809,13 @@ func (a *ModerationAPIService) GetModerationCommentText(ctx context.Context, com
 }
 
 // Execute executes the request
-//  @return GetCommentTextResponse
-func (a *ModerationAPIService) GetModerationCommentTextExecute(r ApiGetModerationCommentTextRequest) (*GetCommentTextResponse, *http.Response, error) {
+//  @return GetModerationCommentTextResponse
+func (a *ModerationAPIService) GetModerationCommentTextExecute(r ApiGetModerationCommentTextRequest) (*GetModerationCommentTextResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentTextResponse
+		localVarReturnValue  *GetModerationCommentTextResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetModerationCommentText")
@@ -1802,6 +1830,9 @@ func (a *ModerationAPIService) GetModerationCommentTextExecute(r ApiGetModeratio
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1844,14 +1875,6 @@ func (a *ModerationAPIService) GetModerationCommentTextExecute(r ApiGetModeratio
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1874,6 +1897,7 @@ type ApiGetPreBanSummaryRequest struct {
 	includeByUserIdAndEmail *bool
 	includeByIP *bool
 	includeByEmailDomain *bool
+	tenantId *string
 	sso *string
 }
 
@@ -1892,12 +1916,17 @@ func (r ApiGetPreBanSummaryRequest) IncludeByEmailDomain(includeByEmailDomain bo
 	return r
 }
 
+func (r ApiGetPreBanSummaryRequest) TenantId(tenantId string) ApiGetPreBanSummaryRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetPreBanSummaryRequest) Sso(sso string) ApiGetPreBanSummaryRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetPreBanSummaryRequest) Execute() (*PreBanSummary, *http.Response, error) {
+func (r ApiGetPreBanSummaryRequest) Execute() (*GetPreBanSummaryResponse, *http.Response, error) {
 	return r.ApiService.GetPreBanSummaryExecute(r)
 }
 
@@ -1917,13 +1946,13 @@ func (a *ModerationAPIService) GetPreBanSummary(ctx context.Context, commentId s
 }
 
 // Execute executes the request
-//  @return PreBanSummary
-func (a *ModerationAPIService) GetPreBanSummaryExecute(r ApiGetPreBanSummaryRequest) (*PreBanSummary, *http.Response, error) {
+//  @return GetPreBanSummaryResponse
+func (a *ModerationAPIService) GetPreBanSummaryExecute(r ApiGetPreBanSummaryRequest) (*GetPreBanSummaryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PreBanSummary
+		localVarReturnValue  *GetPreBanSummaryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetPreBanSummary")
@@ -1947,6 +1976,9 @@ func (a *ModerationAPIService) GetPreBanSummaryExecute(r ApiGetPreBanSummaryRequ
 	if r.includeByEmailDomain != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeByEmailDomain", r.includeByEmailDomain, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1989,14 +2021,6 @@ func (a *ModerationAPIService) GetPreBanSummaryExecute(r ApiGetPreBanSummaryRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2018,6 +2042,7 @@ type ApiGetSearchCommentsSummaryRequest struct {
 	value *string
 	filters *string
 	searchFilters *string
+	tenantId *string
 	sso *string
 }
 
@@ -2036,12 +2061,17 @@ func (r ApiGetSearchCommentsSummaryRequest) SearchFilters(searchFilters string) 
 	return r
 }
 
+func (r ApiGetSearchCommentsSummaryRequest) TenantId(tenantId string) ApiGetSearchCommentsSummaryRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetSearchCommentsSummaryRequest) Sso(sso string) ApiGetSearchCommentsSummaryRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetSearchCommentsSummaryRequest) Execute() (*ModerationCommentSearchResponse, *http.Response, error) {
+func (r ApiGetSearchCommentsSummaryRequest) Execute() (*GetSearchCommentsSummaryResponse, *http.Response, error) {
 	return r.ApiService.GetSearchCommentsSummaryExecute(r)
 }
 
@@ -2059,13 +2089,13 @@ func (a *ModerationAPIService) GetSearchCommentsSummary(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return ModerationCommentSearchResponse
-func (a *ModerationAPIService) GetSearchCommentsSummaryExecute(r ApiGetSearchCommentsSummaryRequest) (*ModerationCommentSearchResponse, *http.Response, error) {
+//  @return GetSearchCommentsSummaryResponse
+func (a *ModerationAPIService) GetSearchCommentsSummaryExecute(r ApiGetSearchCommentsSummaryRequest) (*GetSearchCommentsSummaryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationCommentSearchResponse
+		localVarReturnValue  *GetSearchCommentsSummaryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetSearchCommentsSummary")
@@ -2088,6 +2118,9 @@ func (a *ModerationAPIService) GetSearchCommentsSummaryExecute(r ApiGetSearchCom
 	if r.searchFilters != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "searchFilters", r.searchFilters, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -2130,14 +2163,6 @@ func (a *ModerationAPIService) GetSearchCommentsSummaryExecute(r ApiGetSearchCom
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2157,6 +2182,7 @@ type ApiGetSearchPagesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	value *string
+	tenantId *string
 	sso *string
 }
 
@@ -2165,12 +2191,17 @@ func (r ApiGetSearchPagesRequest) Value(value string) ApiGetSearchPagesRequest {
 	return r
 }
 
+func (r ApiGetSearchPagesRequest) TenantId(tenantId string) ApiGetSearchPagesRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetSearchPagesRequest) Sso(sso string) ApiGetSearchPagesRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetSearchPagesRequest) Execute() (*ModerationPageSearchResponse, *http.Response, error) {
+func (r ApiGetSearchPagesRequest) Execute() (*GetSearchPagesResponse, *http.Response, error) {
 	return r.ApiService.GetSearchPagesExecute(r)
 }
 
@@ -2188,13 +2219,13 @@ func (a *ModerationAPIService) GetSearchPages(ctx context.Context) ApiGetSearchP
 }
 
 // Execute executes the request
-//  @return ModerationPageSearchResponse
-func (a *ModerationAPIService) GetSearchPagesExecute(r ApiGetSearchPagesRequest) (*ModerationPageSearchResponse, *http.Response, error) {
+//  @return GetSearchPagesResponse
+func (a *ModerationAPIService) GetSearchPagesExecute(r ApiGetSearchPagesRequest) (*GetSearchPagesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationPageSearchResponse
+		localVarReturnValue  *GetSearchPagesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetSearchPages")
@@ -2210,6 +2241,9 @@ func (a *ModerationAPIService) GetSearchPagesExecute(r ApiGetSearchPagesRequest)
 
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2253,14 +2287,6 @@ func (a *ModerationAPIService) GetSearchPagesExecute(r ApiGetSearchPagesRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2280,6 +2306,7 @@ type ApiGetSearchSitesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	value *string
+	tenantId *string
 	sso *string
 }
 
@@ -2288,12 +2315,17 @@ func (r ApiGetSearchSitesRequest) Value(value string) ApiGetSearchSitesRequest {
 	return r
 }
 
+func (r ApiGetSearchSitesRequest) TenantId(tenantId string) ApiGetSearchSitesRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetSearchSitesRequest) Sso(sso string) ApiGetSearchSitesRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetSearchSitesRequest) Execute() (*ModerationSiteSearchResponse, *http.Response, error) {
+func (r ApiGetSearchSitesRequest) Execute() (*GetSearchSitesResponse, *http.Response, error) {
 	return r.ApiService.GetSearchSitesExecute(r)
 }
 
@@ -2311,13 +2343,13 @@ func (a *ModerationAPIService) GetSearchSites(ctx context.Context) ApiGetSearchS
 }
 
 // Execute executes the request
-//  @return ModerationSiteSearchResponse
-func (a *ModerationAPIService) GetSearchSitesExecute(r ApiGetSearchSitesRequest) (*ModerationSiteSearchResponse, *http.Response, error) {
+//  @return GetSearchSitesResponse
+func (a *ModerationAPIService) GetSearchSitesExecute(r ApiGetSearchSitesRequest) (*GetSearchSitesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationSiteSearchResponse
+		localVarReturnValue  *GetSearchSitesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetSearchSites")
@@ -2333,6 +2365,9 @@ func (a *ModerationAPIService) GetSearchSitesExecute(r ApiGetSearchSitesRequest)
 
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2376,14 +2411,6 @@ func (a *ModerationAPIService) GetSearchSitesExecute(r ApiGetSearchSitesRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2403,6 +2430,7 @@ type ApiGetSearchSuggestRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	textSearch *string
+	tenantId *string
 	sso *string
 }
 
@@ -2411,12 +2439,17 @@ func (r ApiGetSearchSuggestRequest) TextSearch(textSearch string) ApiGetSearchSu
 	return r
 }
 
+func (r ApiGetSearchSuggestRequest) TenantId(tenantId string) ApiGetSearchSuggestRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetSearchSuggestRequest) Sso(sso string) ApiGetSearchSuggestRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetSearchSuggestRequest) Execute() (*ModerationSuggestResponse, *http.Response, error) {
+func (r ApiGetSearchSuggestRequest) Execute() (*GetSearchSuggestResponse, *http.Response, error) {
 	return r.ApiService.GetSearchSuggestExecute(r)
 }
 
@@ -2434,13 +2467,13 @@ func (a *ModerationAPIService) GetSearchSuggest(ctx context.Context) ApiGetSearc
 }
 
 // Execute executes the request
-//  @return ModerationSuggestResponse
-func (a *ModerationAPIService) GetSearchSuggestExecute(r ApiGetSearchSuggestRequest) (*ModerationSuggestResponse, *http.Response, error) {
+//  @return GetSearchSuggestResponse
+func (a *ModerationAPIService) GetSearchSuggestExecute(r ApiGetSearchSuggestRequest) (*GetSearchSuggestResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationSuggestResponse
+		localVarReturnValue  *GetSearchSuggestResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetSearchSuggest")
@@ -2456,6 +2489,9 @@ func (a *ModerationAPIService) GetSearchSuggestExecute(r ApiGetSearchSuggestRequ
 
 	if r.textSearch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "text-search", r.textSearch, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2499,14 +2535,6 @@ func (a *ModerationAPIService) GetSearchSuggestExecute(r ApiGetSearchSuggestRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2526,6 +2554,7 @@ type ApiGetSearchUsersRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	value *string
+	tenantId *string
 	sso *string
 }
 
@@ -2534,12 +2563,17 @@ func (r ApiGetSearchUsersRequest) Value(value string) ApiGetSearchUsersRequest {
 	return r
 }
 
+func (r ApiGetSearchUsersRequest) TenantId(tenantId string) ApiGetSearchUsersRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetSearchUsersRequest) Sso(sso string) ApiGetSearchUsersRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetSearchUsersRequest) Execute() (*ModerationUserSearchResponse, *http.Response, error) {
+func (r ApiGetSearchUsersRequest) Execute() (*GetSearchUsersResponse, *http.Response, error) {
 	return r.ApiService.GetSearchUsersExecute(r)
 }
 
@@ -2557,13 +2591,13 @@ func (a *ModerationAPIService) GetSearchUsers(ctx context.Context) ApiGetSearchU
 }
 
 // Execute executes the request
-//  @return ModerationUserSearchResponse
-func (a *ModerationAPIService) GetSearchUsersExecute(r ApiGetSearchUsersRequest) (*ModerationUserSearchResponse, *http.Response, error) {
+//  @return GetSearchUsersResponse
+func (a *ModerationAPIService) GetSearchUsersExecute(r ApiGetSearchUsersRequest) (*GetSearchUsersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationUserSearchResponse
+		localVarReturnValue  *GetSearchUsersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetSearchUsers")
@@ -2579,6 +2613,9 @@ func (a *ModerationAPIService) GetSearchUsersExecute(r ApiGetSearchUsersRequest)
 
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2622,14 +2659,6 @@ func (a *ModerationAPIService) GetSearchUsersExecute(r ApiGetSearchUsersRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2649,6 +2678,7 @@ type ApiGetTrustFactorRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	userId *string
+	tenantId *string
 	sso *string
 }
 
@@ -2657,12 +2687,17 @@ func (r ApiGetTrustFactorRequest) UserId(userId string) ApiGetTrustFactorRequest
 	return r
 }
 
+func (r ApiGetTrustFactorRequest) TenantId(tenantId string) ApiGetTrustFactorRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetTrustFactorRequest) Sso(sso string) ApiGetTrustFactorRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetTrustFactorRequest) Execute() (*GetUserTrustFactorResponse, *http.Response, error) {
+func (r ApiGetTrustFactorRequest) Execute() (*GetTrustFactorResponse, *http.Response, error) {
 	return r.ApiService.GetTrustFactorExecute(r)
 }
 
@@ -2680,13 +2715,13 @@ func (a *ModerationAPIService) GetTrustFactor(ctx context.Context) ApiGetTrustFa
 }
 
 // Execute executes the request
-//  @return GetUserTrustFactorResponse
-func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest) (*GetUserTrustFactorResponse, *http.Response, error) {
+//  @return GetTrustFactorResponse
+func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest) (*GetTrustFactorResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserTrustFactorResponse
+		localVarReturnValue  *GetTrustFactorResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetTrustFactor")
@@ -2702,6 +2737,9 @@ func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest)
 
 	if r.userId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2745,14 +2783,6 @@ func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2771,7 +2801,13 @@ func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest)
 type ApiGetUserBanPreferenceRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetUserBanPreferenceRequest) TenantId(tenantId string) ApiGetUserBanPreferenceRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetUserBanPreferenceRequest) Sso(sso string) ApiGetUserBanPreferenceRequest {
@@ -2779,7 +2815,7 @@ func (r ApiGetUserBanPreferenceRequest) Sso(sso string) ApiGetUserBanPreferenceR
 	return r
 }
 
-func (r ApiGetUserBanPreferenceRequest) Execute() (*APIModerateGetUserBanPreferencesResponse, *http.Response, error) {
+func (r ApiGetUserBanPreferenceRequest) Execute() (*GetUserBanPreferenceResponse, *http.Response, error) {
 	return r.ApiService.GetUserBanPreferenceExecute(r)
 }
 
@@ -2797,13 +2833,13 @@ func (a *ModerationAPIService) GetUserBanPreference(ctx context.Context) ApiGetU
 }
 
 // Execute executes the request
-//  @return APIModerateGetUserBanPreferencesResponse
-func (a *ModerationAPIService) GetUserBanPreferenceExecute(r ApiGetUserBanPreferenceRequest) (*APIModerateGetUserBanPreferencesResponse, *http.Response, error) {
+//  @return GetUserBanPreferenceResponse
+func (a *ModerationAPIService) GetUserBanPreferenceExecute(r ApiGetUserBanPreferenceRequest) (*GetUserBanPreferenceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIModerateGetUserBanPreferencesResponse
+		localVarReturnValue  *GetUserBanPreferenceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetUserBanPreference")
@@ -2817,6 +2853,9 @@ func (a *ModerationAPIService) GetUserBanPreferenceExecute(r ApiGetUserBanPrefer
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -2859,14 +2898,6 @@ func (a *ModerationAPIService) GetUserBanPreferenceExecute(r ApiGetUserBanPrefer
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2886,6 +2917,7 @@ type ApiGetUserInternalProfileRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId *string
+	tenantId *string
 	sso *string
 }
 
@@ -2894,12 +2926,17 @@ func (r ApiGetUserInternalProfileRequest) CommentId(commentId string) ApiGetUser
 	return r
 }
 
+func (r ApiGetUserInternalProfileRequest) TenantId(tenantId string) ApiGetUserInternalProfileRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiGetUserInternalProfileRequest) Sso(sso string) ApiGetUserInternalProfileRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiGetUserInternalProfileRequest) Execute() (*GetUserInternalProfileResponse, *http.Response, error) {
+func (r ApiGetUserInternalProfileRequest) Execute() (*GetUserInternalProfileResponse1, *http.Response, error) {
 	return r.ApiService.GetUserInternalProfileExecute(r)
 }
 
@@ -2917,13 +2954,13 @@ func (a *ModerationAPIService) GetUserInternalProfile(ctx context.Context) ApiGe
 }
 
 // Execute executes the request
-//  @return GetUserInternalProfileResponse
-func (a *ModerationAPIService) GetUserInternalProfileExecute(r ApiGetUserInternalProfileRequest) (*GetUserInternalProfileResponse, *http.Response, error) {
+//  @return GetUserInternalProfileResponse1
+func (a *ModerationAPIService) GetUserInternalProfileExecute(r ApiGetUserInternalProfileRequest) (*GetUserInternalProfileResponse1, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserInternalProfileResponse
+		localVarReturnValue  *GetUserInternalProfileResponse1
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.GetUserInternalProfile")
@@ -2939,6 +2976,9 @@ func (a *ModerationAPIService) GetUserInternalProfileExecute(r ApiGetUserInterna
 
 	if r.commentId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "commentId", r.commentId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -2982,14 +3022,6 @@ func (a *ModerationAPIService) GetUserInternalProfileExecute(r ApiGetUserInterna
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3010,6 +3042,8 @@ type ApiPostAdjustCommentVotesRequest struct {
 	ApiService *ModerationAPIService
 	commentId string
 	adjustCommentVotesParams *AdjustCommentVotesParams
+	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -3018,12 +3052,22 @@ func (r ApiPostAdjustCommentVotesRequest) AdjustCommentVotesParams(adjustComment
 	return r
 }
 
+func (r ApiPostAdjustCommentVotesRequest) BroadcastId(broadcastId string) ApiPostAdjustCommentVotesRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostAdjustCommentVotesRequest) TenantId(tenantId string) ApiPostAdjustCommentVotesRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostAdjustCommentVotesRequest) Sso(sso string) ApiPostAdjustCommentVotesRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostAdjustCommentVotesRequest) Execute() (*AdjustVotesResponse, *http.Response, error) {
+func (r ApiPostAdjustCommentVotesRequest) Execute() (*PostAdjustCommentVotesResponse, *http.Response, error) {
 	return r.ApiService.PostAdjustCommentVotesExecute(r)
 }
 
@@ -3043,13 +3087,13 @@ func (a *ModerationAPIService) PostAdjustCommentVotes(ctx context.Context, comme
 }
 
 // Execute executes the request
-//  @return AdjustVotesResponse
-func (a *ModerationAPIService) PostAdjustCommentVotesExecute(r ApiPostAdjustCommentVotesRequest) (*AdjustVotesResponse, *http.Response, error) {
+//  @return PostAdjustCommentVotesResponse
+func (a *ModerationAPIService) PostAdjustCommentVotesExecute(r ApiPostAdjustCommentVotesRequest) (*PostAdjustCommentVotesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AdjustVotesResponse
+		localVarReturnValue  *PostAdjustCommentVotesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostAdjustCommentVotes")
@@ -3067,6 +3111,12 @@ func (a *ModerationAPIService) PostAdjustCommentVotesExecute(r ApiPostAdjustComm
 		return localVarReturnValue, nil, reportError("adjustCommentVotesParams is required and must be specified")
 	}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3111,14 +3161,6 @@ func (a *ModerationAPIService) PostAdjustCommentVotesExecute(r ApiPostAdjustComm
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3142,6 +3184,7 @@ type ApiPostApiExportRequest struct {
 	filters *string
 	searchFilters *string
 	sorts *string
+	tenantId *string
 	sso *string
 }
 
@@ -3170,12 +3213,17 @@ func (r ApiPostApiExportRequest) Sorts(sorts string) ApiPostApiExportRequest {
 	return r
 }
 
+func (r ApiPostApiExportRequest) TenantId(tenantId string) ApiPostApiExportRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostApiExportRequest) Sso(sso string) ApiPostApiExportRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostApiExportRequest) Execute() (*ModerationExportResponse, *http.Response, error) {
+func (r ApiPostApiExportRequest) Execute() (*PostApiExportResponse, *http.Response, error) {
 	return r.ApiService.PostApiExportExecute(r)
 }
 
@@ -3193,13 +3241,13 @@ func (a *ModerationAPIService) PostApiExport(ctx context.Context) ApiPostApiExpo
 }
 
 // Execute executes the request
-//  @return ModerationExportResponse
-func (a *ModerationAPIService) PostApiExportExecute(r ApiPostApiExportRequest) (*ModerationExportResponse, *http.Response, error) {
+//  @return PostApiExportResponse
+func (a *ModerationAPIService) PostApiExportExecute(r ApiPostApiExportRequest) (*PostApiExportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationExportResponse
+		localVarReturnValue  *PostApiExportResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostApiExport")
@@ -3227,6 +3275,9 @@ func (a *ModerationAPIService) PostApiExportExecute(r ApiPostApiExportRequest) (
 	}
 	if r.sorts != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sorts", r.sorts, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -3270,14 +3321,6 @@ func (a *ModerationAPIService) PostApiExportExecute(r ApiPostApiExportRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3305,6 +3348,7 @@ type ApiPostBanUserFromCommentRequest struct {
 	isShadowBan *bool
 	updateId *string
 	banReason *string
+	tenantId *string
 	sso *string
 }
 
@@ -3348,12 +3392,17 @@ func (r ApiPostBanUserFromCommentRequest) BanReason(banReason string) ApiPostBan
 	return r
 }
 
+func (r ApiPostBanUserFromCommentRequest) TenantId(tenantId string) ApiPostBanUserFromCommentRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostBanUserFromCommentRequest) Sso(sso string) ApiPostBanUserFromCommentRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostBanUserFromCommentRequest) Execute() (*BanUserFromCommentResult, *http.Response, error) {
+func (r ApiPostBanUserFromCommentRequest) Execute() (*PostBanUserFromCommentResponse, *http.Response, error) {
 	return r.ApiService.PostBanUserFromCommentExecute(r)
 }
 
@@ -3373,13 +3422,13 @@ func (a *ModerationAPIService) PostBanUserFromComment(ctx context.Context, comme
 }
 
 // Execute executes the request
-//  @return BanUserFromCommentResult
-func (a *ModerationAPIService) PostBanUserFromCommentExecute(r ApiPostBanUserFromCommentRequest) (*BanUserFromCommentResult, *http.Response, error) {
+//  @return PostBanUserFromCommentResponse
+func (a *ModerationAPIService) PostBanUserFromCommentExecute(r ApiPostBanUserFromCommentRequest) (*PostBanUserFromCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BanUserFromCommentResult
+		localVarReturnValue  *PostBanUserFromCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostBanUserFromComment")
@@ -3417,6 +3466,9 @@ func (a *ModerationAPIService) PostBanUserFromCommentExecute(r ApiPostBanUserFro
 	}
 	if r.banReason != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "banReason", r.banReason, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -3460,14 +3512,6 @@ func (a *ModerationAPIService) PostBanUserFromCommentExecute(r ApiPostBanUserFro
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3487,6 +3531,7 @@ type ApiPostBanUserUndoRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	banUserUndoParams *BanUserUndoParams
+	tenantId *string
 	sso *string
 }
 
@@ -3495,12 +3540,17 @@ func (r ApiPostBanUserUndoRequest) BanUserUndoParams(banUserUndoParams BanUserUn
 	return r
 }
 
+func (r ApiPostBanUserUndoRequest) TenantId(tenantId string) ApiPostBanUserUndoRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostBanUserUndoRequest) Sso(sso string) ApiPostBanUserUndoRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostBanUserUndoRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPostBanUserUndoRequest) Execute() (*PostBanUserUndoResponse, *http.Response, error) {
 	return r.ApiService.PostBanUserUndoExecute(r)
 }
 
@@ -3518,13 +3568,13 @@ func (a *ModerationAPIService) PostBanUserUndo(ctx context.Context) ApiPostBanUs
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PostBanUserUndoExecute(r ApiPostBanUserUndoRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PostBanUserUndoResponse
+func (a *ModerationAPIService) PostBanUserUndoExecute(r ApiPostBanUserUndoRequest) (*PostBanUserUndoResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PostBanUserUndoResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostBanUserUndo")
@@ -3541,6 +3591,9 @@ func (a *ModerationAPIService) PostBanUserUndoExecute(r ApiPostBanUserUndoReques
 		return localVarReturnValue, nil, reportError("banUserUndoParams is required and must be specified")
 	}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3585,14 +3638,6 @@ func (a *ModerationAPIService) PostBanUserUndoExecute(r ApiPostBanUserUndoReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3615,6 +3660,7 @@ type ApiPostBulkPreBanSummaryRequest struct {
 	includeByUserIdAndEmail *bool
 	includeByIP *bool
 	includeByEmailDomain *bool
+	tenantId *string
 	sso *string
 }
 
@@ -3638,12 +3684,17 @@ func (r ApiPostBulkPreBanSummaryRequest) IncludeByEmailDomain(includeByEmailDoma
 	return r
 }
 
+func (r ApiPostBulkPreBanSummaryRequest) TenantId(tenantId string) ApiPostBulkPreBanSummaryRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostBulkPreBanSummaryRequest) Sso(sso string) ApiPostBulkPreBanSummaryRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostBulkPreBanSummaryRequest) Execute() (*BulkPreBanSummary, *http.Response, error) {
+func (r ApiPostBulkPreBanSummaryRequest) Execute() (*PostBulkPreBanSummaryResponse, *http.Response, error) {
 	return r.ApiService.PostBulkPreBanSummaryExecute(r)
 }
 
@@ -3661,13 +3712,13 @@ func (a *ModerationAPIService) PostBulkPreBanSummary(ctx context.Context) ApiPos
 }
 
 // Execute executes the request
-//  @return BulkPreBanSummary
-func (a *ModerationAPIService) PostBulkPreBanSummaryExecute(r ApiPostBulkPreBanSummaryRequest) (*BulkPreBanSummary, *http.Response, error) {
+//  @return PostBulkPreBanSummaryResponse
+func (a *ModerationAPIService) PostBulkPreBanSummaryExecute(r ApiPostBulkPreBanSummaryRequest) (*PostBulkPreBanSummaryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BulkPreBanSummary
+		localVarReturnValue  *PostBulkPreBanSummaryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostBulkPreBanSummary")
@@ -3692,6 +3743,9 @@ func (a *ModerationAPIService) PostBulkPreBanSummaryExecute(r ApiPostBulkPreBanS
 	}
 	if r.includeByEmailDomain != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeByEmailDomain", r.includeByEmailDomain, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -3737,14 +3791,6 @@ func (a *ModerationAPIService) PostBulkPreBanSummaryExecute(r ApiPostBulkPreBanS
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3764,6 +3810,7 @@ type ApiPostCommentsByIdsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentsByIdsParams *CommentsByIdsParams
+	tenantId *string
 	sso *string
 }
 
@@ -3772,12 +3819,17 @@ func (r ApiPostCommentsByIdsRequest) CommentsByIdsParams(commentsByIdsParams Com
 	return r
 }
 
+func (r ApiPostCommentsByIdsRequest) TenantId(tenantId string) ApiPostCommentsByIdsRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostCommentsByIdsRequest) Sso(sso string) ApiPostCommentsByIdsRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostCommentsByIdsRequest) Execute() (*ModerationAPIChildCommentsResponse, *http.Response, error) {
+func (r ApiPostCommentsByIdsRequest) Execute() (*PostCommentsByIdsResponse, *http.Response, error) {
 	return r.ApiService.PostCommentsByIdsExecute(r)
 }
 
@@ -3795,13 +3847,13 @@ func (a *ModerationAPIService) PostCommentsByIds(ctx context.Context) ApiPostCom
 }
 
 // Execute executes the request
-//  @return ModerationAPIChildCommentsResponse
-func (a *ModerationAPIService) PostCommentsByIdsExecute(r ApiPostCommentsByIdsRequest) (*ModerationAPIChildCommentsResponse, *http.Response, error) {
+//  @return PostCommentsByIdsResponse
+func (a *ModerationAPIService) PostCommentsByIdsExecute(r ApiPostCommentsByIdsRequest) (*PostCommentsByIdsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ModerationAPIChildCommentsResponse
+		localVarReturnValue  *PostCommentsByIdsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostCommentsByIds")
@@ -3818,6 +3870,9 @@ func (a *ModerationAPIService) PostCommentsByIdsExecute(r ApiPostCommentsByIdsRe
 		return localVarReturnValue, nil, reportError("commentsByIdsParams is required and must be specified")
 	}
 
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3862,14 +3917,6 @@ func (a *ModerationAPIService) PostCommentsByIdsExecute(r ApiPostCommentsByIdsRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3889,7 +3936,19 @@ type ApiPostFlagCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	broadcastId *string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiPostFlagCommentRequest) BroadcastId(broadcastId string) ApiPostFlagCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostFlagCommentRequest) TenantId(tenantId string) ApiPostFlagCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostFlagCommentRequest) Sso(sso string) ApiPostFlagCommentRequest {
@@ -3897,7 +3956,7 @@ func (r ApiPostFlagCommentRequest) Sso(sso string) ApiPostFlagCommentRequest {
 	return r
 }
 
-func (r ApiPostFlagCommentRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPostFlagCommentRequest) Execute() (*PostFlagCommentResponse, *http.Response, error) {
 	return r.ApiService.PostFlagCommentExecute(r)
 }
 
@@ -3917,13 +3976,13 @@ func (a *ModerationAPIService) PostFlagComment(ctx context.Context, commentId st
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PostFlagCommentExecute(r ApiPostFlagCommentRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PostFlagCommentResponse
+func (a *ModerationAPIService) PostFlagCommentExecute(r ApiPostFlagCommentRequest) (*PostFlagCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PostFlagCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostFlagComment")
@@ -3938,6 +3997,12 @@ func (a *ModerationAPIService) PostFlagCommentExecute(r ApiPostFlagCommentReques
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3980,14 +4045,6 @@ func (a *ModerationAPIService) PostFlagCommentExecute(r ApiPostFlagCommentReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4007,7 +4064,19 @@ type ApiPostRemoveCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	broadcastId *string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiPostRemoveCommentRequest) BroadcastId(broadcastId string) ApiPostRemoveCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostRemoveCommentRequest) TenantId(tenantId string) ApiPostRemoveCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostRemoveCommentRequest) Sso(sso string) ApiPostRemoveCommentRequest {
@@ -4056,6 +4125,12 @@ func (a *ModerationAPIService) PostRemoveCommentExecute(r ApiPostRemoveCommentRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4098,14 +4173,6 @@ func (a *ModerationAPIService) PostRemoveCommentExecute(r ApiPostRemoveCommentRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4125,7 +4192,19 @@ type ApiPostRestoreDeletedCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	broadcastId *string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiPostRestoreDeletedCommentRequest) BroadcastId(broadcastId string) ApiPostRestoreDeletedCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostRestoreDeletedCommentRequest) TenantId(tenantId string) ApiPostRestoreDeletedCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostRestoreDeletedCommentRequest) Sso(sso string) ApiPostRestoreDeletedCommentRequest {
@@ -4133,7 +4212,7 @@ func (r ApiPostRestoreDeletedCommentRequest) Sso(sso string) ApiPostRestoreDelet
 	return r
 }
 
-func (r ApiPostRestoreDeletedCommentRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPostRestoreDeletedCommentRequest) Execute() (*PostRestoreDeletedCommentResponse, *http.Response, error) {
 	return r.ApiService.PostRestoreDeletedCommentExecute(r)
 }
 
@@ -4153,13 +4232,13 @@ func (a *ModerationAPIService) PostRestoreDeletedComment(ctx context.Context, co
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PostRestoreDeletedCommentExecute(r ApiPostRestoreDeletedCommentRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PostRestoreDeletedCommentResponse
+func (a *ModerationAPIService) PostRestoreDeletedCommentExecute(r ApiPostRestoreDeletedCommentRequest) (*PostRestoreDeletedCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PostRestoreDeletedCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostRestoreDeletedComment")
@@ -4174,6 +4253,12 @@ func (a *ModerationAPIService) PostRestoreDeletedCommentExecute(r ApiPostRestore
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4216,14 +4301,6 @@ func (a *ModerationAPIService) PostRestoreDeletedCommentExecute(r ApiPostRestore
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4244,6 +4321,8 @@ type ApiPostSetCommentApprovalStatusRequest struct {
 	ApiService *ModerationAPIService
 	commentId string
 	approved *bool
+	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -4252,12 +4331,22 @@ func (r ApiPostSetCommentApprovalStatusRequest) Approved(approved bool) ApiPostS
 	return r
 }
 
+func (r ApiPostSetCommentApprovalStatusRequest) BroadcastId(broadcastId string) ApiPostSetCommentApprovalStatusRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostSetCommentApprovalStatusRequest) TenantId(tenantId string) ApiPostSetCommentApprovalStatusRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostSetCommentApprovalStatusRequest) Sso(sso string) ApiPostSetCommentApprovalStatusRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostSetCommentApprovalStatusRequest) Execute() (*SetCommentApprovedResponse, *http.Response, error) {
+func (r ApiPostSetCommentApprovalStatusRequest) Execute() (*PostSetCommentApprovalStatusResponse, *http.Response, error) {
 	return r.ApiService.PostSetCommentApprovalStatusExecute(r)
 }
 
@@ -4277,13 +4366,13 @@ func (a *ModerationAPIService) PostSetCommentApprovalStatus(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return SetCommentApprovedResponse
-func (a *ModerationAPIService) PostSetCommentApprovalStatusExecute(r ApiPostSetCommentApprovalStatusRequest) (*SetCommentApprovedResponse, *http.Response, error) {
+//  @return PostSetCommentApprovalStatusResponse
+func (a *ModerationAPIService) PostSetCommentApprovalStatusExecute(r ApiPostSetCommentApprovalStatusRequest) (*PostSetCommentApprovalStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SetCommentApprovedResponse
+		localVarReturnValue  *PostSetCommentApprovalStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostSetCommentApprovalStatus")
@@ -4300,6 +4389,12 @@ func (a *ModerationAPIService) PostSetCommentApprovalStatusExecute(r ApiPostSetC
 
 	if r.approved != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "approved", r.approved, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4343,14 +4438,6 @@ func (a *ModerationAPIService) PostSetCommentApprovalStatusExecute(r ApiPostSetC
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4371,6 +4458,8 @@ type ApiPostSetCommentReviewStatusRequest struct {
 	ApiService *ModerationAPIService
 	commentId string
 	reviewed *bool
+	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -4379,12 +4468,22 @@ func (r ApiPostSetCommentReviewStatusRequest) Reviewed(reviewed bool) ApiPostSet
 	return r
 }
 
+func (r ApiPostSetCommentReviewStatusRequest) BroadcastId(broadcastId string) ApiPostSetCommentReviewStatusRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostSetCommentReviewStatusRequest) TenantId(tenantId string) ApiPostSetCommentReviewStatusRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostSetCommentReviewStatusRequest) Sso(sso string) ApiPostSetCommentReviewStatusRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostSetCommentReviewStatusRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPostSetCommentReviewStatusRequest) Execute() (*PostSetCommentReviewStatusResponse, *http.Response, error) {
 	return r.ApiService.PostSetCommentReviewStatusExecute(r)
 }
 
@@ -4404,13 +4503,13 @@ func (a *ModerationAPIService) PostSetCommentReviewStatus(ctx context.Context, c
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PostSetCommentReviewStatusExecute(r ApiPostSetCommentReviewStatusRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PostSetCommentReviewStatusResponse
+func (a *ModerationAPIService) PostSetCommentReviewStatusExecute(r ApiPostSetCommentReviewStatusRequest) (*PostSetCommentReviewStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PostSetCommentReviewStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostSetCommentReviewStatus")
@@ -4427,6 +4526,12 @@ func (a *ModerationAPIService) PostSetCommentReviewStatusExecute(r ApiPostSetCom
 
 	if r.reviewed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "reviewed", r.reviewed, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4470,14 +4575,6 @@ func (a *ModerationAPIService) PostSetCommentReviewStatusExecute(r ApiPostSetCom
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4499,6 +4596,8 @@ type ApiPostSetCommentSpamStatusRequest struct {
 	commentId string
 	spam *bool
 	permNotSpam *bool
+	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -4512,12 +4611,22 @@ func (r ApiPostSetCommentSpamStatusRequest) PermNotSpam(permNotSpam bool) ApiPos
 	return r
 }
 
+func (r ApiPostSetCommentSpamStatusRequest) BroadcastId(broadcastId string) ApiPostSetCommentSpamStatusRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostSetCommentSpamStatusRequest) TenantId(tenantId string) ApiPostSetCommentSpamStatusRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostSetCommentSpamStatusRequest) Sso(sso string) ApiPostSetCommentSpamStatusRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostSetCommentSpamStatusRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPostSetCommentSpamStatusRequest) Execute() (*PostSetCommentSpamStatusResponse, *http.Response, error) {
 	return r.ApiService.PostSetCommentSpamStatusExecute(r)
 }
 
@@ -4537,13 +4646,13 @@ func (a *ModerationAPIService) PostSetCommentSpamStatus(ctx context.Context, com
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PostSetCommentSpamStatusExecute(r ApiPostSetCommentSpamStatusRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PostSetCommentSpamStatusResponse
+func (a *ModerationAPIService) PostSetCommentSpamStatusExecute(r ApiPostSetCommentSpamStatusRequest) (*PostSetCommentSpamStatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PostSetCommentSpamStatusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostSetCommentSpamStatus")
@@ -4563,6 +4672,12 @@ func (a *ModerationAPIService) PostSetCommentSpamStatusExecute(r ApiPostSetComme
 	}
 	if r.permNotSpam != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "permNotSpam", r.permNotSpam, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4606,14 +4721,6 @@ func (a *ModerationAPIService) PostSetCommentSpamStatusExecute(r ApiPostSetComme
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4634,6 +4741,8 @@ type ApiPostSetCommentTextRequest struct {
 	ApiService *ModerationAPIService
 	commentId string
 	setCommentTextParams *SetCommentTextParams
+	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -4642,12 +4751,22 @@ func (r ApiPostSetCommentTextRequest) SetCommentTextParams(setCommentTextParams 
 	return r
 }
 
+func (r ApiPostSetCommentTextRequest) BroadcastId(broadcastId string) ApiPostSetCommentTextRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostSetCommentTextRequest) TenantId(tenantId string) ApiPostSetCommentTextRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostSetCommentTextRequest) Sso(sso string) ApiPostSetCommentTextRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostSetCommentTextRequest) Execute() (*SetCommentTextResponse, *http.Response, error) {
+func (r ApiPostSetCommentTextRequest) Execute() (*PostSetCommentTextResponse, *http.Response, error) {
 	return r.ApiService.PostSetCommentTextExecute(r)
 }
 
@@ -4667,13 +4786,13 @@ func (a *ModerationAPIService) PostSetCommentText(ctx context.Context, commentId
 }
 
 // Execute executes the request
-//  @return SetCommentTextResponse
-func (a *ModerationAPIService) PostSetCommentTextExecute(r ApiPostSetCommentTextRequest) (*SetCommentTextResponse, *http.Response, error) {
+//  @return PostSetCommentTextResponse
+func (a *ModerationAPIService) PostSetCommentTextExecute(r ApiPostSetCommentTextRequest) (*PostSetCommentTextResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SetCommentTextResponse
+		localVarReturnValue  *PostSetCommentTextResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostSetCommentText")
@@ -4691,6 +4810,12 @@ func (a *ModerationAPIService) PostSetCommentTextExecute(r ApiPostSetCommentText
 		return localVarReturnValue, nil, reportError("setCommentTextParams is required and must be specified")
 	}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4735,14 +4860,6 @@ func (a *ModerationAPIService) PostSetCommentTextExecute(r ApiPostSetCommentText
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4762,7 +4879,19 @@ type ApiPostUnFlagCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	commentId string
+	broadcastId *string
+	tenantId *string
 	sso *string
+}
+
+func (r ApiPostUnFlagCommentRequest) BroadcastId(broadcastId string) ApiPostUnFlagCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostUnFlagCommentRequest) TenantId(tenantId string) ApiPostUnFlagCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostUnFlagCommentRequest) Sso(sso string) ApiPostUnFlagCommentRequest {
@@ -4770,7 +4899,7 @@ func (r ApiPostUnFlagCommentRequest) Sso(sso string) ApiPostUnFlagCommentRequest
 	return r
 }
 
-func (r ApiPostUnFlagCommentRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPostUnFlagCommentRequest) Execute() (*PostUnFlagCommentResponse, *http.Response, error) {
 	return r.ApiService.PostUnFlagCommentExecute(r)
 }
 
@@ -4790,13 +4919,13 @@ func (a *ModerationAPIService) PostUnFlagComment(ctx context.Context, commentId 
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PostUnFlagCommentExecute(r ApiPostUnFlagCommentRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PostUnFlagCommentResponse
+func (a *ModerationAPIService) PostUnFlagCommentExecute(r ApiPostUnFlagCommentRequest) (*PostUnFlagCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PostUnFlagCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostUnFlagComment")
@@ -4811,6 +4940,12 @@ func (a *ModerationAPIService) PostUnFlagCommentExecute(r ApiPostUnFlagCommentRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4853,14 +4988,6 @@ func (a *ModerationAPIService) PostUnFlagCommentExecute(r ApiPostUnFlagCommentRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4881,6 +5008,8 @@ type ApiPostVoteRequest struct {
 	ApiService *ModerationAPIService
 	commentId string
 	direction *string
+	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -4889,12 +5018,22 @@ func (r ApiPostVoteRequest) Direction(direction string) ApiPostVoteRequest {
 	return r
 }
 
+func (r ApiPostVoteRequest) BroadcastId(broadcastId string) ApiPostVoteRequest {
+	r.broadcastId = &broadcastId
+	return r
+}
+
+func (r ApiPostVoteRequest) TenantId(tenantId string) ApiPostVoteRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPostVoteRequest) Sso(sso string) ApiPostVoteRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPostVoteRequest) Execute() (*VoteResponse, *http.Response, error) {
+func (r ApiPostVoteRequest) Execute() (*PostVoteResponse, *http.Response, error) {
 	return r.ApiService.PostVoteExecute(r)
 }
 
@@ -4914,13 +5053,13 @@ func (a *ModerationAPIService) PostVote(ctx context.Context, commentId string) A
 }
 
 // Execute executes the request
-//  @return VoteResponse
-func (a *ModerationAPIService) PostVoteExecute(r ApiPostVoteRequest) (*VoteResponse, *http.Response, error) {
+//  @return PostVoteResponse
+func (a *ModerationAPIService) PostVoteExecute(r ApiPostVoteRequest) (*PostVoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *VoteResponse
+		localVarReturnValue  *PostVoteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostVote")
@@ -4937,6 +5076,12 @@ func (a *ModerationAPIService) PostVoteExecute(r ApiPostVoteRequest) (*VoteRespo
 
 	if r.direction != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4980,14 +5125,6 @@ func (a *ModerationAPIService) PostVoteExecute(r ApiPostVoteRequest) (*VoteRespo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5010,6 +5147,7 @@ type ApiPutAwardBadgeRequest struct {
 	userId *string
 	commentId *string
 	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -5033,12 +5171,17 @@ func (r ApiPutAwardBadgeRequest) BroadcastId(broadcastId string) ApiPutAwardBadg
 	return r
 }
 
+func (r ApiPutAwardBadgeRequest) TenantId(tenantId string) ApiPutAwardBadgeRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPutAwardBadgeRequest) Sso(sso string) ApiPutAwardBadgeRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPutAwardBadgeRequest) Execute() (*AwardUserBadgeResponse, *http.Response, error) {
+func (r ApiPutAwardBadgeRequest) Execute() (*PutAwardBadgeResponse, *http.Response, error) {
 	return r.ApiService.PutAwardBadgeExecute(r)
 }
 
@@ -5056,13 +5199,13 @@ func (a *ModerationAPIService) PutAwardBadge(ctx context.Context) ApiPutAwardBad
 }
 
 // Execute executes the request
-//  @return AwardUserBadgeResponse
-func (a *ModerationAPIService) PutAwardBadgeExecute(r ApiPutAwardBadgeRequest) (*AwardUserBadgeResponse, *http.Response, error) {
+//  @return PutAwardBadgeResponse
+func (a *ModerationAPIService) PutAwardBadgeExecute(r ApiPutAwardBadgeRequest) (*PutAwardBadgeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AwardUserBadgeResponse
+		localVarReturnValue  *PutAwardBadgeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PutAwardBadge")
@@ -5089,6 +5232,9 @@ func (a *ModerationAPIService) PutAwardBadgeExecute(r ApiPutAwardBadgeRequest) (
 	if r.broadcastId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -5131,14 +5277,6 @@ func (a *ModerationAPIService) PutAwardBadgeExecute(r ApiPutAwardBadgeRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5158,6 +5296,7 @@ type ApiPutCloseThreadRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	urlId *string
+	tenantId *string
 	sso *string
 }
 
@@ -5166,12 +5305,17 @@ func (r ApiPutCloseThreadRequest) UrlId(urlId string) ApiPutCloseThreadRequest {
 	return r
 }
 
+func (r ApiPutCloseThreadRequest) TenantId(tenantId string) ApiPutCloseThreadRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPutCloseThreadRequest) Sso(sso string) ApiPutCloseThreadRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPutCloseThreadRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPutCloseThreadRequest) Execute() (*PutCloseThreadResponse, *http.Response, error) {
 	return r.ApiService.PutCloseThreadExecute(r)
 }
 
@@ -5189,13 +5333,13 @@ func (a *ModerationAPIService) PutCloseThread(ctx context.Context) ApiPutCloseTh
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PutCloseThreadExecute(r ApiPutCloseThreadRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PutCloseThreadResponse
+func (a *ModerationAPIService) PutCloseThreadExecute(r ApiPutCloseThreadRequest) (*PutCloseThreadResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PutCloseThreadResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PutCloseThread")
@@ -5213,6 +5357,9 @@ func (a *ModerationAPIService) PutCloseThreadExecute(r ApiPutCloseThreadRequest)
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -5255,14 +5402,6 @@ func (a *ModerationAPIService) PutCloseThreadExecute(r ApiPutCloseThreadRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5285,6 +5424,7 @@ type ApiPutRemoveBadgeRequest struct {
 	userId *string
 	commentId *string
 	broadcastId *string
+	tenantId *string
 	sso *string
 }
 
@@ -5308,12 +5448,17 @@ func (r ApiPutRemoveBadgeRequest) BroadcastId(broadcastId string) ApiPutRemoveBa
 	return r
 }
 
+func (r ApiPutRemoveBadgeRequest) TenantId(tenantId string) ApiPutRemoveBadgeRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPutRemoveBadgeRequest) Sso(sso string) ApiPutRemoveBadgeRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPutRemoveBadgeRequest) Execute() (*RemoveUserBadgeResponse, *http.Response, error) {
+func (r ApiPutRemoveBadgeRequest) Execute() (*PutRemoveBadgeResponse, *http.Response, error) {
 	return r.ApiService.PutRemoveBadgeExecute(r)
 }
 
@@ -5331,13 +5476,13 @@ func (a *ModerationAPIService) PutRemoveBadge(ctx context.Context) ApiPutRemoveB
 }
 
 // Execute executes the request
-//  @return RemoveUserBadgeResponse
-func (a *ModerationAPIService) PutRemoveBadgeExecute(r ApiPutRemoveBadgeRequest) (*RemoveUserBadgeResponse, *http.Response, error) {
+//  @return PutRemoveBadgeResponse
+func (a *ModerationAPIService) PutRemoveBadgeExecute(r ApiPutRemoveBadgeRequest) (*PutRemoveBadgeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RemoveUserBadgeResponse
+		localVarReturnValue  *PutRemoveBadgeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PutRemoveBadge")
@@ -5364,6 +5509,9 @@ func (a *ModerationAPIService) PutRemoveBadgeExecute(r ApiPutRemoveBadgeRequest)
 	if r.broadcastId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
 	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -5406,14 +5554,6 @@ func (a *ModerationAPIService) PutRemoveBadgeExecute(r ApiPutRemoveBadgeRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5433,6 +5573,7 @@ type ApiPutReopenThreadRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
 	urlId *string
+	tenantId *string
 	sso *string
 }
 
@@ -5441,12 +5582,17 @@ func (r ApiPutReopenThreadRequest) UrlId(urlId string) ApiPutReopenThreadRequest
 	return r
 }
 
+func (r ApiPutReopenThreadRequest) TenantId(tenantId string) ApiPutReopenThreadRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiPutReopenThreadRequest) Sso(sso string) ApiPutReopenThreadRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiPutReopenThreadRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
+func (r ApiPutReopenThreadRequest) Execute() (*PutReopenThreadResponse, *http.Response, error) {
 	return r.ApiService.PutReopenThreadExecute(r)
 }
 
@@ -5464,13 +5610,13 @@ func (a *ModerationAPIService) PutReopenThread(ctx context.Context) ApiPutReopen
 }
 
 // Execute executes the request
-//  @return APIEmptyResponse
-func (a *ModerationAPIService) PutReopenThreadExecute(r ApiPutReopenThreadRequest) (*APIEmptyResponse, *http.Response, error) {
+//  @return PutReopenThreadResponse
+func (a *ModerationAPIService) PutReopenThreadExecute(r ApiPutReopenThreadRequest) (*PutReopenThreadResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIEmptyResponse
+		localVarReturnValue  *PutReopenThreadResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PutReopenThread")
@@ -5488,6 +5634,9 @@ func (a *ModerationAPIService) PutReopenThreadExecute(r ApiPutReopenThreadReques
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -5530,14 +5679,6 @@ func (a *ModerationAPIService) PutReopenThreadExecute(r ApiPutReopenThreadReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5558,6 +5699,7 @@ type ApiSetTrustFactorRequest struct {
 	ApiService *ModerationAPIService
 	userId *string
 	trustFactor *string
+	tenantId *string
 	sso *string
 }
 
@@ -5571,12 +5713,17 @@ func (r ApiSetTrustFactorRequest) TrustFactor(trustFactor string) ApiSetTrustFac
 	return r
 }
 
+func (r ApiSetTrustFactorRequest) TenantId(tenantId string) ApiSetTrustFactorRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
 func (r ApiSetTrustFactorRequest) Sso(sso string) ApiSetTrustFactorRequest {
 	r.sso = &sso
 	return r
 }
 
-func (r ApiSetTrustFactorRequest) Execute() (*SetUserTrustFactorResponse, *http.Response, error) {
+func (r ApiSetTrustFactorRequest) Execute() (*SetTrustFactorResponse, *http.Response, error) {
 	return r.ApiService.SetTrustFactorExecute(r)
 }
 
@@ -5594,13 +5741,13 @@ func (a *ModerationAPIService) SetTrustFactor(ctx context.Context) ApiSetTrustFa
 }
 
 // Execute executes the request
-//  @return SetUserTrustFactorResponse
-func (a *ModerationAPIService) SetTrustFactorExecute(r ApiSetTrustFactorRequest) (*SetUserTrustFactorResponse, *http.Response, error) {
+//  @return SetTrustFactorResponse
+func (a *ModerationAPIService) SetTrustFactorExecute(r ApiSetTrustFactorRequest) (*SetTrustFactorResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SetUserTrustFactorResponse
+		localVarReturnValue  *SetTrustFactorResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.SetTrustFactor")
@@ -5619,6 +5766,9 @@ func (a *ModerationAPIService) SetTrustFactorExecute(r ApiSetTrustFactorRequest)
 	}
 	if r.trustFactor != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "trustFactor", r.trustFactor, "form", "")
+	}
+	if r.tenantId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -5662,14 +5812,6 @@ func (a *ModerationAPIService) SetTrustFactorExecute(r ApiSetTrustFactorRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

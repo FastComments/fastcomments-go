@@ -18,6 +18,7 @@ import (
 
 // UpdateUserNotificationPageSubscriptionStatusResponse struct for UpdateUserNotificationPageSubscriptionStatusResponse
 type UpdateUserNotificationPageSubscriptionStatusResponse struct {
+	APIError *APIError
 	IgnoredResponse *IgnoredResponse
 	UserNotificationWriteResponse *UserNotificationWriteResponse
 }
@@ -25,6 +26,19 @@ type UpdateUserNotificationPageSubscriptionStatusResponse struct {
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *UpdateUserNotificationPageSubscriptionStatusResponse) UnmarshalJSON(data []byte) error {
 	var err error
+	// try to unmarshal JSON data into APIError
+	err = json.Unmarshal(data, &dst.APIError);
+	if err == nil {
+		jsonAPIError, _ := json.Marshal(dst.APIError)
+		if string(jsonAPIError) == "{}" { // empty struct
+			dst.APIError = nil
+		} else {
+			return nil // data stored in dst.APIError, return on the first match
+		}
+	} else {
+		dst.APIError = nil
+	}
+
 	// try to unmarshal JSON data into IgnoredResponse
 	err = json.Unmarshal(data, &dst.IgnoredResponse);
 	if err == nil {
@@ -56,6 +70,10 @@ func (dst *UpdateUserNotificationPageSubscriptionStatusResponse) UnmarshalJSON(d
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src UpdateUserNotificationPageSubscriptionStatusResponse) MarshalJSON() ([]byte, error) {
+	if src.APIError != nil {
+		return json.Marshal(&src.APIError)
+	}
+
 	if src.IgnoredResponse != nil {
 		return json.Marshal(&src.IgnoredResponse)
 	}

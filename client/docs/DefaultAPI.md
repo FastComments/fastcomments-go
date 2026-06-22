@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ## AddHashTag
 
-> CreateHashTagResponse AddHashTag(ctx).TenantId(tenantId).CreateHashTagBody(createHashTagBody).Execute()
+> AddHashTagResponse AddHashTag(ctx).TenantId(tenantId).CreateHashTagBody(createHashTagBody).Execute()
 
 
 
@@ -216,7 +216,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.AddHashTag``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AddHashTag`: CreateHashTagResponse
+	// response from `AddHashTag`: AddHashTagResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.AddHashTag`: %v\n", resp)
 }
 ```
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateHashTagResponse**](CreateHashTagResponse.md)
+[**AddHashTagResponse**](AddHashTagResponse.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ## AddHashTagsBulk
 
-> BulkCreateHashTagsResponse AddHashTagsBulk(ctx).TenantId(tenantId).BulkCreateHashTagsBody(bulkCreateHashTagsBody).Execute()
+> AddHashTagsBulkResponse AddHashTagsBulk(ctx).TenantId(tenantId).BulkCreateHashTagsBody(bulkCreateHashTagsBody).Execute()
 
 
 
@@ -282,7 +282,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.AddHashTagsBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AddHashTagsBulk`: BulkCreateHashTagsResponse
+	// response from `AddHashTagsBulk`: AddHashTagsBulkResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.AddHashTagsBulk`: %v\n", resp)
 }
 ```
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BulkCreateHashTagsResponse**](BulkCreateHashTagsResponse.md)
+[**AddHashTagsBulkResponse**](AddHashTagsBulkResponse.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 ## AggregateQuestionResults
 
-> AggregateQuestionResultsResponse AggregateQuestionResults(ctx).TenantId(tenantId).QuestionId(questionId).QuestionIds(questionIds).UrlId(urlId).TimeBucket(timeBucket).StartDate(startDate).ForceRecalculate(forceRecalculate).Execute()
+> AggregateQuestionResultsResponse1 AggregateQuestionResults(ctx).TenantId(tenantId).QuestionId(questionId).QuestionIds(questionIds).UrlId(urlId).TimeBucket(timeBucket).StartDate(startDate).ForceRecalculate(forceRecalculate).Execute()
 
 
 
@@ -558,7 +558,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.AggregateQuestionResults``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AggregateQuestionResults`: AggregateQuestionResultsResponse
+	// response from `AggregateQuestionResults`: AggregateQuestionResultsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.AggregateQuestionResults`: %v\n", resp)
 }
 ```
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AggregateQuestionResultsResponse**](AggregateQuestionResultsResponse.md)
+[**AggregateQuestionResultsResponse1**](AggregateQuestionResultsResponse1.md)
 
 ### Authorization
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ## BlockUserFromComment
 
-> BlockSuccess BlockUserFromComment(ctx, id).TenantId(tenantId).BlockFromCommentParams(blockFromCommentParams).UserId(userId).AnonUserId(anonUserId).Execute()
+> BlockUserFromCommentResponse BlockUserFromComment(ctx, id).TenantId(tenantId).BlockFromCommentParams(blockFromCommentParams).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -632,7 +632,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BlockUserFromComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BlockUserFromComment`: BlockSuccess
+	// response from `BlockUserFromComment`: BlockUserFromCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.BlockUserFromComment`: %v\n", resp)
 }
 ```
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockSuccess**](BlockSuccess.md)
+[**BlockUserFromCommentResponse**](BlockUserFromCommentResponse.md)
 
 ### Authorization
 
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 
 ## BulkAggregateQuestionResults
 
-> BulkAggregateQuestionResultsResponse BulkAggregateQuestionResults(ctx).TenantId(tenantId).BulkAggregateQuestionResultsRequest(bulkAggregateQuestionResultsRequest).ForceRecalculate(forceRecalculate).Execute()
+> BulkAggregateQuestionResultsResponse1 BulkAggregateQuestionResults(ctx).TenantId(tenantId).BulkAggregateQuestionResultsRequest(bulkAggregateQuestionResultsRequest).ForceRecalculate(forceRecalculate).Execute()
 
 
 
@@ -706,7 +706,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.BulkAggregateQuestionResults``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BulkAggregateQuestionResults`: BulkAggregateQuestionResultsResponse
+	// response from `BulkAggregateQuestionResults`: BulkAggregateQuestionResultsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.BulkAggregateQuestionResults`: %v\n", resp)
 }
 ```
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BulkAggregateQuestionResultsResponse**](BulkAggregateQuestionResultsResponse.md)
+[**BulkAggregateQuestionResultsResponse1**](BulkAggregateQuestionResultsResponse1.md)
 
 ### Authorization
 
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 
 ## ChangeTicketState
 
-> ChangeTicketStateResponse ChangeTicketState(ctx, id).TenantId(tenantId).UserId(userId).ChangeTicketStateBody(changeTicketStateBody).Execute()
+> ChangeTicketStateResponse1 ChangeTicketState(ctx, id).TenantId(tenantId).UserId(userId).ChangeTicketStateBody(changeTicketStateBody).Execute()
 
 
 
@@ -775,7 +775,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ChangeTicketState``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ChangeTicketState`: ChangeTicketStateResponse
+	// response from `ChangeTicketState`: ChangeTicketStateResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ChangeTicketState`: %v\n", resp)
 }
 ```
@@ -802,7 +802,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeTicketStateResponse**](ChangeTicketStateResponse.md)
+[**ChangeTicketStateResponse1**](ChangeTicketStateResponse1.md)
 
 ### Authorization
 
@@ -820,7 +820,7 @@ Name | Type | Description  | Notes
 
 ## CombineCommentsWithQuestionResults
 
-> CombineQuestionResultsWithCommentsResponse CombineCommentsWithQuestionResults(ctx).TenantId(tenantId).QuestionId(questionId).QuestionIds(questionIds).UrlId(urlId).StartDate(startDate).ForceRecalculate(forceRecalculate).MinValue(minValue).MaxValue(maxValue).Limit(limit).Execute()
+> CombineCommentsWithQuestionResultsResponse CombineCommentsWithQuestionResults(ctx).TenantId(tenantId).QuestionId(questionId).QuestionIds(questionIds).UrlId(urlId).StartDate(startDate).ForceRecalculate(forceRecalculate).MinValue(minValue).MaxValue(maxValue).Limit(limit).Execute()
 
 
 
@@ -855,7 +855,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CombineCommentsWithQuestionResults``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CombineCommentsWithQuestionResults`: CombineQuestionResultsWithCommentsResponse
+	// response from `CombineCommentsWithQuestionResults`: CombineCommentsWithQuestionResultsResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CombineCommentsWithQuestionResults`: %v\n", resp)
 }
 ```
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CombineQuestionResultsWithCommentsResponse**](CombineQuestionResultsWithCommentsResponse.md)
+[**CombineCommentsWithQuestionResultsResponse**](CombineCommentsWithQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -901,7 +901,7 @@ Name | Type | Description  | Notes
 
 ## CreateEmailTemplate
 
-> CreateEmailTemplateResponse CreateEmailTemplate(ctx).TenantId(tenantId).CreateEmailTemplateBody(createEmailTemplateBody).Execute()
+> CreateEmailTemplateResponse1 CreateEmailTemplate(ctx).TenantId(tenantId).CreateEmailTemplateBody(createEmailTemplateBody).Execute()
 
 
 
@@ -928,7 +928,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateEmailTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateEmailTemplate`: CreateEmailTemplateResponse
+	// response from `CreateEmailTemplate`: CreateEmailTemplateResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateEmailTemplate`: %v\n", resp)
 }
 ```
@@ -949,7 +949,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateEmailTemplateResponse**](CreateEmailTemplateResponse.md)
+[**CreateEmailTemplateResponse1**](CreateEmailTemplateResponse1.md)
 
 ### Authorization
 
@@ -967,7 +967,7 @@ Name | Type | Description  | Notes
 
 ## CreateFeedPost
 
-> CreateFeedPostsResponse CreateFeedPost(ctx).TenantId(tenantId).CreateFeedPostParams(createFeedPostParams).BroadcastId(broadcastId).IsLive(isLive).DoSpamCheck(doSpamCheck).SkipDupCheck(skipDupCheck).Execute()
+> CreateFeedPostResponse1 CreateFeedPost(ctx).TenantId(tenantId).CreateFeedPostParams(createFeedPostParams).BroadcastId(broadcastId).IsLive(isLive).DoSpamCheck(doSpamCheck).SkipDupCheck(skipDupCheck).Execute()
 
 
 
@@ -998,7 +998,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateFeedPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateFeedPost`: CreateFeedPostsResponse
+	// response from `CreateFeedPost`: CreateFeedPostResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateFeedPost`: %v\n", resp)
 }
 ```
@@ -1023,7 +1023,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostsResponse**](CreateFeedPostsResponse.md)
+[**CreateFeedPostResponse1**](CreateFeedPostResponse1.md)
 
 ### Authorization
 
@@ -1041,7 +1041,7 @@ Name | Type | Description  | Notes
 
 ## CreateModerator
 
-> CreateModeratorResponse CreateModerator(ctx).TenantId(tenantId).CreateModeratorBody(createModeratorBody).Execute()
+> CreateModeratorResponse1 CreateModerator(ctx).TenantId(tenantId).CreateModeratorBody(createModeratorBody).Execute()
 
 
 
@@ -1068,7 +1068,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateModerator``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateModerator`: CreateModeratorResponse
+	// response from `CreateModerator`: CreateModeratorResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateModerator`: %v\n", resp)
 }
 ```
@@ -1089,7 +1089,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateModeratorResponse**](CreateModeratorResponse.md)
+[**CreateModeratorResponse1**](CreateModeratorResponse1.md)
 
 ### Authorization
 
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 
 ## CreateQuestionConfig
 
-> CreateQuestionConfigResponse CreateQuestionConfig(ctx).TenantId(tenantId).CreateQuestionConfigBody(createQuestionConfigBody).Execute()
+> CreateQuestionConfigResponse1 CreateQuestionConfig(ctx).TenantId(tenantId).CreateQuestionConfigBody(createQuestionConfigBody).Execute()
 
 
 
@@ -1134,7 +1134,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateQuestionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateQuestionConfig`: CreateQuestionConfigResponse
+	// response from `CreateQuestionConfig`: CreateQuestionConfigResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateQuestionConfig`: %v\n", resp)
 }
 ```
@@ -1155,7 +1155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateQuestionConfigResponse**](CreateQuestionConfigResponse.md)
+[**CreateQuestionConfigResponse1**](CreateQuestionConfigResponse1.md)
 
 ### Authorization
 
@@ -1173,7 +1173,7 @@ Name | Type | Description  | Notes
 
 ## CreateQuestionResult
 
-> CreateQuestionResultResponse CreateQuestionResult(ctx).TenantId(tenantId).CreateQuestionResultBody(createQuestionResultBody).Execute()
+> CreateQuestionResultResponse1 CreateQuestionResult(ctx).TenantId(tenantId).CreateQuestionResultBody(createQuestionResultBody).Execute()
 
 
 
@@ -1200,7 +1200,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateQuestionResult``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateQuestionResult`: CreateQuestionResultResponse
+	// response from `CreateQuestionResult`: CreateQuestionResultResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateQuestionResult`: %v\n", resp)
 }
 ```
@@ -1221,7 +1221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateQuestionResultResponse**](CreateQuestionResultResponse.md)
+[**CreateQuestionResultResponse1**](CreateQuestionResultResponse1.md)
 
 ### Authorization
 
@@ -1305,7 +1305,7 @@ Name | Type | Description  | Notes
 
 ## CreateTenant
 
-> CreateTenantResponse CreateTenant(ctx).TenantId(tenantId).CreateTenantBody(createTenantBody).Execute()
+> CreateTenantResponse1 CreateTenant(ctx).TenantId(tenantId).CreateTenantBody(createTenantBody).Execute()
 
 
 
@@ -1333,7 +1333,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTenant``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTenant`: CreateTenantResponse
+	// response from `CreateTenant`: CreateTenantResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateTenant`: %v\n", resp)
 }
 ```
@@ -1354,7 +1354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTenantResponse**](CreateTenantResponse.md)
+[**CreateTenantResponse1**](CreateTenantResponse1.md)
 
 ### Authorization
 
@@ -1372,7 +1372,7 @@ Name | Type | Description  | Notes
 
 ## CreateTenantPackage
 
-> CreateTenantPackageResponse CreateTenantPackage(ctx).TenantId(tenantId).CreateTenantPackageBody(createTenantPackageBody).Execute()
+> CreateTenantPackageResponse1 CreateTenantPackage(ctx).TenantId(tenantId).CreateTenantPackageBody(createTenantPackageBody).Execute()
 
 
 
@@ -1399,7 +1399,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTenantPackage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTenantPackage`: CreateTenantPackageResponse
+	// response from `CreateTenantPackage`: CreateTenantPackageResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateTenantPackage`: %v\n", resp)
 }
 ```
@@ -1420,7 +1420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTenantPackageResponse**](CreateTenantPackageResponse.md)
+[**CreateTenantPackageResponse1**](CreateTenantPackageResponse1.md)
 
 ### Authorization
 
@@ -1438,7 +1438,7 @@ Name | Type | Description  | Notes
 
 ## CreateTenantUser
 
-> CreateTenantUserResponse CreateTenantUser(ctx).TenantId(tenantId).CreateTenantUserBody(createTenantUserBody).Execute()
+> CreateTenantUserResponse1 CreateTenantUser(ctx).TenantId(tenantId).CreateTenantUserBody(createTenantUserBody).Execute()
 
 
 
@@ -1465,7 +1465,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTenantUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTenantUser`: CreateTenantUserResponse
+	// response from `CreateTenantUser`: CreateTenantUserResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateTenantUser`: %v\n", resp)
 }
 ```
@@ -1486,7 +1486,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTenantUserResponse**](CreateTenantUserResponse.md)
+[**CreateTenantUserResponse1**](CreateTenantUserResponse1.md)
 
 ### Authorization
 
@@ -1504,7 +1504,7 @@ Name | Type | Description  | Notes
 
 ## CreateTicket
 
-> CreateTicketResponse CreateTicket(ctx).TenantId(tenantId).UserId(userId).CreateTicketBody(createTicketBody).Execute()
+> CreateTicketResponse1 CreateTicket(ctx).TenantId(tenantId).UserId(userId).CreateTicketBody(createTicketBody).Execute()
 
 
 
@@ -1532,7 +1532,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTicket``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTicket`: CreateTicketResponse
+	// response from `CreateTicket`: CreateTicketResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateTicket`: %v\n", resp)
 }
 ```
@@ -1554,7 +1554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTicketResponse**](CreateTicketResponse.md)
+[**CreateTicketResponse1**](CreateTicketResponse1.md)
 
 ### Authorization
 
@@ -1572,7 +1572,7 @@ Name | Type | Description  | Notes
 
 ## CreateUserBadge
 
-> APICreateUserBadgeResponse CreateUserBadge(ctx).TenantId(tenantId).CreateUserBadgeParams(createUserBadgeParams).Execute()
+> CreateUserBadgeResponse CreateUserBadge(ctx).TenantId(tenantId).CreateUserBadgeParams(createUserBadgeParams).Execute()
 
 
 
@@ -1599,7 +1599,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateUserBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateUserBadge`: APICreateUserBadgeResponse
+	// response from `CreateUserBadge`: CreateUserBadgeResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateUserBadge`: %v\n", resp)
 }
 ```
@@ -1620,7 +1620,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APICreateUserBadgeResponse**](APICreateUserBadgeResponse.md)
+[**CreateUserBadgeResponse**](CreateUserBadgeResponse.md)
 
 ### Authorization
 
@@ -1638,7 +1638,7 @@ Name | Type | Description  | Notes
 
 ## CreateVote
 
-> VoteResponse CreateVote(ctx).TenantId(tenantId).CommentId(commentId).Direction(direction).UserId(userId).AnonUserId(anonUserId).Execute()
+> CreateVoteResponse CreateVote(ctx).TenantId(tenantId).CommentId(commentId).Direction(direction).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -1668,7 +1668,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateVote`: VoteResponse
+	// response from `CreateVote`: CreateVoteResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateVote`: %v\n", resp)
 }
 ```
@@ -1692,7 +1692,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteResponse**](VoteResponse.md)
+[**CreateVoteResponse**](CreateVoteResponse.md)
 
 ### Authorization
 
@@ -1710,7 +1710,7 @@ Name | Type | Description  | Notes
 
 ## DeleteComment
 
-> DeleteCommentResult DeleteComment(ctx, id).TenantId(tenantId).ContextUserId(contextUserId).IsLive(isLive).Execute()
+> DeleteCommentResponse DeleteComment(ctx, id).TenantId(tenantId).ContextUserId(contextUserId).IsLive(isLive).Execute()
 
 
 
@@ -1739,7 +1739,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteComment`: DeleteCommentResult
+	// response from `DeleteComment`: DeleteCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteComment`: %v\n", resp)
 }
 ```
@@ -1766,7 +1766,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteCommentResult**](DeleteCommentResult.md)
+[**DeleteCommentResponse**](DeleteCommentResponse.md)
 
 ### Authorization
 
@@ -1854,7 +1854,7 @@ Name | Type | Description  | Notes
 
 ## DeleteEmailTemplate
 
-> APIEmptyResponse DeleteEmailTemplate(ctx, id).TenantId(tenantId).Execute()
+> DeleteEmailTemplateResponse DeleteEmailTemplate(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -1881,7 +1881,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteEmailTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteEmailTemplate`: APIEmptyResponse
+	// response from `DeleteEmailTemplate`: DeleteEmailTemplateResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteEmailTemplate`: %v\n", resp)
 }
 ```
@@ -1906,7 +1906,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteEmailTemplateResponse**](DeleteEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -1924,7 +1924,7 @@ Name | Type | Description  | Notes
 
 ## DeleteEmailTemplateRenderError
 
-> APIEmptyResponse DeleteEmailTemplateRenderError(ctx, id, errorId).TenantId(tenantId).Execute()
+> DeleteEmailTemplateRenderErrorResponse DeleteEmailTemplateRenderError(ctx, id, errorId).TenantId(tenantId).Execute()
 
 
 
@@ -1952,7 +1952,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteEmailTemplateRenderError``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteEmailTemplateRenderError`: APIEmptyResponse
+	// response from `DeleteEmailTemplateRenderError`: DeleteEmailTemplateRenderErrorResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteEmailTemplateRenderError`: %v\n", resp)
 }
 ```
@@ -1979,7 +1979,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteEmailTemplateRenderErrorResponse**](DeleteEmailTemplateRenderErrorResponse.md)
 
 ### Authorization
 
@@ -1997,7 +1997,7 @@ Name | Type | Description  | Notes
 
 ## DeleteHashTag
 
-> APIEmptyResponse DeleteHashTag(ctx, tag).TenantId(tenantId).DeleteHashTagRequestBody(deleteHashTagRequestBody).Execute()
+> DeleteHashTagResponse DeleteHashTag(ctx, tag).TenantId(tenantId).DeleteHashTagRequestBody(deleteHashTagRequestBody).Execute()
 
 
 
@@ -2025,7 +2025,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteHashTag``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteHashTag`: APIEmptyResponse
+	// response from `DeleteHashTag`: DeleteHashTagResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteHashTag`: %v\n", resp)
 }
 ```
@@ -2051,7 +2051,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteHashTagResponse**](DeleteHashTagResponse.md)
 
 ### Authorization
 
@@ -2069,7 +2069,7 @@ Name | Type | Description  | Notes
 
 ## DeleteModerator
 
-> APIEmptyResponse DeleteModerator(ctx, id).TenantId(tenantId).SendEmail(sendEmail).Execute()
+> DeleteModeratorResponse DeleteModerator(ctx, id).TenantId(tenantId).SendEmail(sendEmail).Execute()
 
 
 
@@ -2097,7 +2097,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteModerator``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteModerator`: APIEmptyResponse
+	// response from `DeleteModerator`: DeleteModeratorResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteModerator`: %v\n", resp)
 }
 ```
@@ -2123,7 +2123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteModeratorResponse**](DeleteModeratorResponse.md)
 
 ### Authorization
 
@@ -2141,7 +2141,7 @@ Name | Type | Description  | Notes
 
 ## DeleteNotificationCount
 
-> APIEmptyResponse DeleteNotificationCount(ctx, id).TenantId(tenantId).Execute()
+> DeleteNotificationCountResponse DeleteNotificationCount(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -2168,7 +2168,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteNotificationCount`: APIEmptyResponse
+	// response from `DeleteNotificationCount`: DeleteNotificationCountResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteNotificationCount`: %v\n", resp)
 }
 ```
@@ -2193,7 +2193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteNotificationCountResponse**](DeleteNotificationCountResponse.md)
 
 ### Authorization
 
@@ -2281,7 +2281,7 @@ Name | Type | Description  | Notes
 
 ## DeletePendingWebhookEvent
 
-> APIEmptyResponse DeletePendingWebhookEvent(ctx, id).TenantId(tenantId).Execute()
+> DeletePendingWebhookEventResponse DeletePendingWebhookEvent(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -2308,7 +2308,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeletePendingWebhookEvent``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeletePendingWebhookEvent`: APIEmptyResponse
+	// response from `DeletePendingWebhookEvent`: DeletePendingWebhookEventResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeletePendingWebhookEvent`: %v\n", resp)
 }
 ```
@@ -2333,7 +2333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeletePendingWebhookEventResponse**](DeletePendingWebhookEventResponse.md)
 
 ### Authorization
 
@@ -2351,7 +2351,7 @@ Name | Type | Description  | Notes
 
 ## DeleteQuestionConfig
 
-> APIEmptyResponse DeleteQuestionConfig(ctx, id).TenantId(tenantId).Execute()
+> DeleteQuestionConfigResponse DeleteQuestionConfig(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -2378,7 +2378,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteQuestionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteQuestionConfig`: APIEmptyResponse
+	// response from `DeleteQuestionConfig`: DeleteQuestionConfigResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteQuestionConfig`: %v\n", resp)
 }
 ```
@@ -2403,7 +2403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteQuestionConfigResponse**](DeleteQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -2421,7 +2421,7 @@ Name | Type | Description  | Notes
 
 ## DeleteQuestionResult
 
-> APIEmptyResponse DeleteQuestionResult(ctx, id).TenantId(tenantId).Execute()
+> DeleteQuestionResultResponse DeleteQuestionResult(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -2448,7 +2448,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteQuestionResult``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteQuestionResult`: APIEmptyResponse
+	// response from `DeleteQuestionResult`: DeleteQuestionResultResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteQuestionResult`: %v\n", resp)
 }
 ```
@@ -2473,7 +2473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteQuestionResultResponse**](DeleteQuestionResultResponse.md)
 
 ### Authorization
 
@@ -2637,7 +2637,7 @@ Name | Type | Description  | Notes
 
 ## DeleteTenant
 
-> APIEmptyResponse DeleteTenant(ctx, id).TenantId(tenantId).Sure(sure).Execute()
+> DeleteTenantResponse DeleteTenant(ctx, id).TenantId(tenantId).Sure(sure).Execute()
 
 
 
@@ -2665,7 +2665,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteTenant``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteTenant`: APIEmptyResponse
+	// response from `DeleteTenant`: DeleteTenantResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteTenant`: %v\n", resp)
 }
 ```
@@ -2691,7 +2691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteTenantResponse**](DeleteTenantResponse.md)
 
 ### Authorization
 
@@ -2709,7 +2709,7 @@ Name | Type | Description  | Notes
 
 ## DeleteTenantPackage
 
-> APIEmptyResponse DeleteTenantPackage(ctx, id).TenantId(tenantId).Execute()
+> DeleteTenantPackageResponse DeleteTenantPackage(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -2736,7 +2736,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteTenantPackage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteTenantPackage`: APIEmptyResponse
+	// response from `DeleteTenantPackage`: DeleteTenantPackageResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteTenantPackage`: %v\n", resp)
 }
 ```
@@ -2761,7 +2761,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteTenantPackageResponse**](DeleteTenantPackageResponse.md)
 
 ### Authorization
 
@@ -2779,7 +2779,7 @@ Name | Type | Description  | Notes
 
 ## DeleteTenantUser
 
-> APIEmptyResponse DeleteTenantUser(ctx, id).TenantId(tenantId).DeleteComments(deleteComments).CommentDeleteMode(commentDeleteMode).Execute()
+> DeleteTenantUserResponse DeleteTenantUser(ctx, id).TenantId(tenantId).DeleteComments(deleteComments).CommentDeleteMode(commentDeleteMode).Execute()
 
 
 
@@ -2808,7 +2808,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteTenantUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteTenantUser`: APIEmptyResponse
+	// response from `DeleteTenantUser`: DeleteTenantUserResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteTenantUser`: %v\n", resp)
 }
 ```
@@ -2835,7 +2835,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteTenantUserResponse**](DeleteTenantUserResponse.md)
 
 ### Authorization
 
@@ -2853,7 +2853,7 @@ Name | Type | Description  | Notes
 
 ## DeleteUserBadge
 
-> APIEmptySuccessResponse DeleteUserBadge(ctx, id).TenantId(tenantId).Execute()
+> DeleteUserBadgeResponse DeleteUserBadge(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -2880,7 +2880,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteUserBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteUserBadge`: APIEmptySuccessResponse
+	// response from `DeleteUserBadge`: DeleteUserBadgeResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteUserBadge`: %v\n", resp)
 }
 ```
@@ -2905,7 +2905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptySuccessResponse**](APIEmptySuccessResponse.md)
+[**DeleteUserBadgeResponse**](DeleteUserBadgeResponse.md)
 
 ### Authorization
 
@@ -2923,7 +2923,7 @@ Name | Type | Description  | Notes
 
 ## DeleteVote
 
-> VoteDeleteResponse DeleteVote(ctx, id).TenantId(tenantId).EditKey(editKey).Execute()
+> DeleteVoteResponse DeleteVote(ctx, id).TenantId(tenantId).EditKey(editKey).Execute()
 
 
 
@@ -2951,7 +2951,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.DeleteVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteVote`: VoteDeleteResponse
+	// response from `DeleteVote`: DeleteVoteResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.DeleteVote`: %v\n", resp)
 }
 ```
@@ -2977,7 +2977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteDeleteResponse**](VoteDeleteResponse.md)
+[**DeleteVoteResponse**](DeleteVoteResponse.md)
 
 ### Authorization
 
@@ -2995,7 +2995,7 @@ Name | Type | Description  | Notes
 
 ## FlagComment
 
-> FlagCommentResponse FlagComment(ctx, id).TenantId(tenantId).UserId(userId).AnonUserId(anonUserId).Execute()
+> FlagCommentResponse1 FlagComment(ctx, id).TenantId(tenantId).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -3024,7 +3024,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.FlagComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FlagComment`: FlagCommentResponse
+	// response from `FlagComment`: FlagCommentResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.FlagComment`: %v\n", resp)
 }
 ```
@@ -3051,7 +3051,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlagCommentResponse**](FlagCommentResponse.md)
+[**FlagCommentResponse1**](FlagCommentResponse1.md)
 
 ### Authorization
 
@@ -3069,7 +3069,7 @@ Name | Type | Description  | Notes
 
 ## GetAuditLogs
 
-> GetAuditLogsResponse GetAuditLogs(ctx).TenantId(tenantId).Limit(limit).Skip(skip).Order(order).After(after).Before(before).Execute()
+> GetAuditLogsResponse1 GetAuditLogs(ctx).TenantId(tenantId).Limit(limit).Skip(skip).Order(order).After(after).Before(before).Execute()
 
 
 
@@ -3100,7 +3100,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetAuditLogs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAuditLogs`: GetAuditLogsResponse
+	// response from `GetAuditLogs`: GetAuditLogsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetAuditLogs`: %v\n", resp)
 }
 ```
@@ -3125,7 +3125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAuditLogsResponse**](GetAuditLogsResponse.md)
+[**GetAuditLogsResponse1**](GetAuditLogsResponse1.md)
 
 ### Authorization
 
@@ -3143,7 +3143,7 @@ Name | Type | Description  | Notes
 
 ## GetCachedNotificationCount
 
-> GetCachedNotificationCountResponse GetCachedNotificationCount(ctx, id).TenantId(tenantId).Execute()
+> GetCachedNotificationCountResponse1 GetCachedNotificationCount(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -3170,7 +3170,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetCachedNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCachedNotificationCount`: GetCachedNotificationCountResponse
+	// response from `GetCachedNotificationCount`: GetCachedNotificationCountResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetCachedNotificationCount`: %v\n", resp)
 }
 ```
@@ -3195,7 +3195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCachedNotificationCountResponse**](GetCachedNotificationCountResponse.md)
+[**GetCachedNotificationCountResponse1**](GetCachedNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -3213,7 +3213,7 @@ Name | Type | Description  | Notes
 
 ## GetComment
 
-> APIGetCommentResponse GetComment(ctx, id).TenantId(tenantId).Execute()
+> GetCommentResponse GetComment(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -3240,7 +3240,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetComment`: APIGetCommentResponse
+	// response from `GetComment`: GetCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetComment`: %v\n", resp)
 }
 ```
@@ -3265,7 +3265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetCommentResponse**](APIGetCommentResponse.md)
+[**GetCommentResponse**](GetCommentResponse.md)
 
 ### Authorization
 
@@ -3283,7 +3283,7 @@ Name | Type | Description  | Notes
 
 ## GetComments
 
-> APIGetCommentsResponse GetComments(ctx).TenantId(tenantId).Page(page).Limit(limit).Skip(skip).AsTree(asTree).SkipChildren(skipChildren).LimitChildren(limitChildren).MaxTreeDepth(maxTreeDepth).UrlId(urlId).UserId(userId).AnonUserId(anonUserId).ContextUserId(contextUserId).HashTag(hashTag).ParentId(parentId).Direction(direction).FromDate(fromDate).ToDate(toDate).Execute()
+> GetCommentsResponse GetComments(ctx).TenantId(tenantId).Page(page).Limit(limit).Skip(skip).AsTree(asTree).SkipChildren(skipChildren).LimitChildren(limitChildren).MaxTreeDepth(maxTreeDepth).UrlId(urlId).UserId(userId).AnonUserId(anonUserId).ContextUserId(contextUserId).HashTag(hashTag).ParentId(parentId).Direction(direction).FromDate(fromDate).ToDate(toDate).Execute()
 
 
 
@@ -3325,7 +3325,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetComments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetComments`: APIGetCommentsResponse
+	// response from `GetComments`: GetCommentsResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetComments`: %v\n", resp)
 }
 ```
@@ -3361,7 +3361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetCommentsResponse**](APIGetCommentsResponse.md)
+[**GetCommentsResponse**](GetCommentsResponse.md)
 
 ### Authorization
 
@@ -3513,7 +3513,7 @@ Name | Type | Description  | Notes
 
 ## GetEmailTemplate
 
-> GetEmailTemplateResponse GetEmailTemplate(ctx, id).TenantId(tenantId).Execute()
+> GetEmailTemplateResponse1 GetEmailTemplate(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -3540,7 +3540,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetEmailTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEmailTemplate`: GetEmailTemplateResponse
+	// response from `GetEmailTemplate`: GetEmailTemplateResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetEmailTemplate`: %v\n", resp)
 }
 ```
@@ -3565,7 +3565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplateResponse**](GetEmailTemplateResponse.md)
+[**GetEmailTemplateResponse1**](GetEmailTemplateResponse1.md)
 
 ### Authorization
 
@@ -3583,7 +3583,7 @@ Name | Type | Description  | Notes
 
 ## GetEmailTemplateDefinitions
 
-> GetEmailTemplateDefinitionsResponse GetEmailTemplateDefinitions(ctx).TenantId(tenantId).Execute()
+> GetEmailTemplateDefinitionsResponse1 GetEmailTemplateDefinitions(ctx).TenantId(tenantId).Execute()
 
 
 
@@ -3609,7 +3609,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetEmailTemplateDefinitions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEmailTemplateDefinitions`: GetEmailTemplateDefinitionsResponse
+	// response from `GetEmailTemplateDefinitions`: GetEmailTemplateDefinitionsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetEmailTemplateDefinitions`: %v\n", resp)
 }
 ```
@@ -3629,7 +3629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplateDefinitionsResponse**](GetEmailTemplateDefinitionsResponse.md)
+[**GetEmailTemplateDefinitionsResponse1**](GetEmailTemplateDefinitionsResponse1.md)
 
 ### Authorization
 
@@ -3647,7 +3647,7 @@ Name | Type | Description  | Notes
 
 ## GetEmailTemplateRenderErrors
 
-> GetEmailTemplateRenderErrorsResponse GetEmailTemplateRenderErrors(ctx, id).TenantId(tenantId).Skip(skip).Execute()
+> GetEmailTemplateRenderErrorsResponse1 GetEmailTemplateRenderErrors(ctx, id).TenantId(tenantId).Skip(skip).Execute()
 
 
 
@@ -3675,7 +3675,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetEmailTemplateRenderErrors``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEmailTemplateRenderErrors`: GetEmailTemplateRenderErrorsResponse
+	// response from `GetEmailTemplateRenderErrors`: GetEmailTemplateRenderErrorsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetEmailTemplateRenderErrors`: %v\n", resp)
 }
 ```
@@ -3701,7 +3701,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplateRenderErrorsResponse**](GetEmailTemplateRenderErrorsResponse.md)
+[**GetEmailTemplateRenderErrorsResponse1**](GetEmailTemplateRenderErrorsResponse1.md)
 
 ### Authorization
 
@@ -3719,7 +3719,7 @@ Name | Type | Description  | Notes
 
 ## GetEmailTemplates
 
-> GetEmailTemplatesResponse GetEmailTemplates(ctx).TenantId(tenantId).Skip(skip).Execute()
+> GetEmailTemplatesResponse1 GetEmailTemplates(ctx).TenantId(tenantId).Skip(skip).Execute()
 
 
 
@@ -3746,7 +3746,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetEmailTemplates``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEmailTemplates`: GetEmailTemplatesResponse
+	// response from `GetEmailTemplates`: GetEmailTemplatesResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetEmailTemplates`: %v\n", resp)
 }
 ```
@@ -3767,7 +3767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplatesResponse**](GetEmailTemplatesResponse.md)
+[**GetEmailTemplatesResponse1**](GetEmailTemplatesResponse1.md)
 
 ### Authorization
 
@@ -3785,7 +3785,7 @@ Name | Type | Description  | Notes
 
 ## GetFeedPosts
 
-> GetFeedPostsResponse GetFeedPosts(ctx).TenantId(tenantId).AfterId(afterId).Limit(limit).Tags(tags).Execute()
+> GetFeedPostsResponse1 GetFeedPosts(ctx).TenantId(tenantId).AfterId(afterId).Limit(limit).Tags(tags).Execute()
 
 
 
@@ -3816,7 +3816,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetFeedPosts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetFeedPosts`: GetFeedPostsResponse
+	// response from `GetFeedPosts`: GetFeedPostsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetFeedPosts`: %v\n", resp)
 }
 ```
@@ -3839,7 +3839,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeedPostsResponse**](GetFeedPostsResponse.md)
+[**GetFeedPostsResponse1**](GetFeedPostsResponse1.md)
 
 ### Authorization
 
@@ -3857,7 +3857,7 @@ Name | Type | Description  | Notes
 
 ## GetHashTags
 
-> GetHashTagsResponse GetHashTags(ctx).TenantId(tenantId).Page(page).Execute()
+> GetHashTagsResponse1 GetHashTags(ctx).TenantId(tenantId).Page(page).Execute()
 
 
 
@@ -3884,7 +3884,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetHashTags``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetHashTags`: GetHashTagsResponse
+	// response from `GetHashTags`: GetHashTagsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetHashTags`: %v\n", resp)
 }
 ```
@@ -3905,7 +3905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetHashTagsResponse**](GetHashTagsResponse.md)
+[**GetHashTagsResponse1**](GetHashTagsResponse1.md)
 
 ### Authorization
 
@@ -3923,7 +3923,7 @@ Name | Type | Description  | Notes
 
 ## GetModerator
 
-> GetModeratorResponse GetModerator(ctx, id).TenantId(tenantId).Execute()
+> GetModeratorResponse1 GetModerator(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -3950,7 +3950,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetModerator``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetModerator`: GetModeratorResponse
+	// response from `GetModerator`: GetModeratorResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetModerator`: %v\n", resp)
 }
 ```
@@ -3975,7 +3975,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModeratorResponse**](GetModeratorResponse.md)
+[**GetModeratorResponse1**](GetModeratorResponse1.md)
 
 ### Authorization
 
@@ -3993,7 +3993,7 @@ Name | Type | Description  | Notes
 
 ## GetModerators
 
-> GetModeratorsResponse GetModerators(ctx).TenantId(tenantId).Skip(skip).Execute()
+> GetModeratorsResponse1 GetModerators(ctx).TenantId(tenantId).Skip(skip).Execute()
 
 
 
@@ -4020,7 +4020,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetModerators``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetModerators`: GetModeratorsResponse
+	// response from `GetModerators`: GetModeratorsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetModerators`: %v\n", resp)
 }
 ```
@@ -4041,7 +4041,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModeratorsResponse**](GetModeratorsResponse.md)
+[**GetModeratorsResponse1**](GetModeratorsResponse1.md)
 
 ### Authorization
 
@@ -4059,7 +4059,7 @@ Name | Type | Description  | Notes
 
 ## GetNotificationCount
 
-> GetNotificationCountResponse GetNotificationCount(ctx).TenantId(tenantId).UserId(userId).UrlId(urlId).FromCommentId(fromCommentId).Viewed(viewed).Type_(type_).Execute()
+> GetNotificationCountResponse1 GetNotificationCount(ctx).TenantId(tenantId).UserId(userId).UrlId(urlId).FromCommentId(fromCommentId).Viewed(viewed).Type_(type_).Execute()
 
 
 
@@ -4090,7 +4090,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetNotificationCount`: GetNotificationCountResponse
+	// response from `GetNotificationCount`: GetNotificationCountResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetNotificationCount`: %v\n", resp)
 }
 ```
@@ -4115,7 +4115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetNotificationCountResponse**](GetNotificationCountResponse.md)
+[**GetNotificationCountResponse1**](GetNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -4133,7 +4133,7 @@ Name | Type | Description  | Notes
 
 ## GetNotifications
 
-> GetNotificationsResponse GetNotifications(ctx).TenantId(tenantId).UserId(userId).UrlId(urlId).FromCommentId(fromCommentId).Viewed(viewed).Type_(type_).Skip(skip).Execute()
+> GetNotificationsResponse1 GetNotifications(ctx).TenantId(tenantId).UserId(userId).UrlId(urlId).FromCommentId(fromCommentId).Viewed(viewed).Type_(type_).Skip(skip).Execute()
 
 
 
@@ -4165,7 +4165,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetNotifications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetNotifications`: GetNotificationsResponse
+	// response from `GetNotifications`: GetNotificationsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetNotifications`: %v\n", resp)
 }
 ```
@@ -4191,7 +4191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetNotificationsResponse**](GetNotificationsResponse.md)
+[**GetNotificationsResponse1**](GetNotificationsResponse1.md)
 
 ### Authorization
 
@@ -4339,7 +4339,7 @@ Name | Type | Description  | Notes
 
 ## GetPendingWebhookEventCount
 
-> GetPendingWebhookEventCountResponse GetPendingWebhookEventCount(ctx).TenantId(tenantId).CommentId(commentId).ExternalId(externalId).EventType(eventType).Type_(type_).Domain(domain).AttemptCountGT(attemptCountGT).Execute()
+> GetPendingWebhookEventCountResponse1 GetPendingWebhookEventCount(ctx).TenantId(tenantId).CommentId(commentId).ExternalId(externalId).EventType(eventType).Type_(type_).Domain(domain).AttemptCountGT(attemptCountGT).Execute()
 
 
 
@@ -4371,7 +4371,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetPendingWebhookEventCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetPendingWebhookEventCount`: GetPendingWebhookEventCountResponse
+	// response from `GetPendingWebhookEventCount`: GetPendingWebhookEventCountResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetPendingWebhookEventCount`: %v\n", resp)
 }
 ```
@@ -4397,7 +4397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPendingWebhookEventCountResponse**](GetPendingWebhookEventCountResponse.md)
+[**GetPendingWebhookEventCountResponse1**](GetPendingWebhookEventCountResponse1.md)
 
 ### Authorization
 
@@ -4415,7 +4415,7 @@ Name | Type | Description  | Notes
 
 ## GetPendingWebhookEvents
 
-> GetPendingWebhookEventsResponse GetPendingWebhookEvents(ctx).TenantId(tenantId).CommentId(commentId).ExternalId(externalId).EventType(eventType).Type_(type_).Domain(domain).AttemptCountGT(attemptCountGT).Skip(skip).Execute()
+> GetPendingWebhookEventsResponse1 GetPendingWebhookEvents(ctx).TenantId(tenantId).CommentId(commentId).ExternalId(externalId).EventType(eventType).Type_(type_).Domain(domain).AttemptCountGT(attemptCountGT).Skip(skip).Execute()
 
 
 
@@ -4448,7 +4448,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetPendingWebhookEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetPendingWebhookEvents`: GetPendingWebhookEventsResponse
+	// response from `GetPendingWebhookEvents`: GetPendingWebhookEventsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetPendingWebhookEvents`: %v\n", resp)
 }
 ```
@@ -4475,7 +4475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPendingWebhookEventsResponse**](GetPendingWebhookEventsResponse.md)
+[**GetPendingWebhookEventsResponse1**](GetPendingWebhookEventsResponse1.md)
 
 ### Authorization
 
@@ -4493,7 +4493,7 @@ Name | Type | Description  | Notes
 
 ## GetQuestionConfig
 
-> GetQuestionConfigResponse GetQuestionConfig(ctx, id).TenantId(tenantId).Execute()
+> GetQuestionConfigResponse1 GetQuestionConfig(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -4520,7 +4520,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetQuestionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetQuestionConfig`: GetQuestionConfigResponse
+	// response from `GetQuestionConfig`: GetQuestionConfigResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetQuestionConfig`: %v\n", resp)
 }
 ```
@@ -4545,7 +4545,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionConfigResponse**](GetQuestionConfigResponse.md)
+[**GetQuestionConfigResponse1**](GetQuestionConfigResponse1.md)
 
 ### Authorization
 
@@ -4563,7 +4563,7 @@ Name | Type | Description  | Notes
 
 ## GetQuestionConfigs
 
-> GetQuestionConfigsResponse GetQuestionConfigs(ctx).TenantId(tenantId).Skip(skip).Execute()
+> GetQuestionConfigsResponse1 GetQuestionConfigs(ctx).TenantId(tenantId).Skip(skip).Execute()
 
 
 
@@ -4590,7 +4590,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetQuestionConfigs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetQuestionConfigs`: GetQuestionConfigsResponse
+	// response from `GetQuestionConfigs`: GetQuestionConfigsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetQuestionConfigs`: %v\n", resp)
 }
 ```
@@ -4611,7 +4611,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionConfigsResponse**](GetQuestionConfigsResponse.md)
+[**GetQuestionConfigsResponse1**](GetQuestionConfigsResponse1.md)
 
 ### Authorization
 
@@ -4629,7 +4629,7 @@ Name | Type | Description  | Notes
 
 ## GetQuestionResult
 
-> GetQuestionResultResponse GetQuestionResult(ctx, id).TenantId(tenantId).Execute()
+> GetQuestionResultResponse1 GetQuestionResult(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -4656,7 +4656,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetQuestionResult``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetQuestionResult`: GetQuestionResultResponse
+	// response from `GetQuestionResult`: GetQuestionResultResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetQuestionResult`: %v\n", resp)
 }
 ```
@@ -4681,7 +4681,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionResultResponse**](GetQuestionResultResponse.md)
+[**GetQuestionResultResponse1**](GetQuestionResultResponse1.md)
 
 ### Authorization
 
@@ -4699,7 +4699,7 @@ Name | Type | Description  | Notes
 
 ## GetQuestionResults
 
-> GetQuestionResultsResponse GetQuestionResults(ctx).TenantId(tenantId).UrlId(urlId).UserId(userId).StartDate(startDate).QuestionId(questionId).QuestionIds(questionIds).Skip(skip).Execute()
+> GetQuestionResultsResponse1 GetQuestionResults(ctx).TenantId(tenantId).UrlId(urlId).UserId(userId).StartDate(startDate).QuestionId(questionId).QuestionIds(questionIds).Skip(skip).Execute()
 
 
 
@@ -4731,7 +4731,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetQuestionResults``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetQuestionResults`: GetQuestionResultsResponse
+	// response from `GetQuestionResults`: GetQuestionResultsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetQuestionResults`: %v\n", resp)
 }
 ```
@@ -4757,7 +4757,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionResultsResponse**](GetQuestionResultsResponse.md)
+[**GetQuestionResultsResponse1**](GetQuestionResultsResponse1.md)
 
 ### Authorization
 
@@ -5047,7 +5047,7 @@ Name | Type | Description  | Notes
 
 ## GetTenant
 
-> GetTenantResponse GetTenant(ctx, id).TenantId(tenantId).Execute()
+> GetTenantResponse1 GetTenant(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -5074,7 +5074,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenant``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenant`: GetTenantResponse
+	// response from `GetTenant`: GetTenantResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenant`: %v\n", resp)
 }
 ```
@@ -5099,7 +5099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantResponse**](GetTenantResponse.md)
+[**GetTenantResponse1**](GetTenantResponse1.md)
 
 ### Authorization
 
@@ -5117,7 +5117,7 @@ Name | Type | Description  | Notes
 
 ## GetTenantDailyUsages
 
-> GetTenantDailyUsagesResponse GetTenantDailyUsages(ctx).TenantId(tenantId).YearNumber(yearNumber).MonthNumber(monthNumber).DayNumber(dayNumber).Skip(skip).Execute()
+> GetTenantDailyUsagesResponse1 GetTenantDailyUsages(ctx).TenantId(tenantId).YearNumber(yearNumber).MonthNumber(monthNumber).DayNumber(dayNumber).Skip(skip).Execute()
 
 
 
@@ -5147,7 +5147,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenantDailyUsages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenantDailyUsages`: GetTenantDailyUsagesResponse
+	// response from `GetTenantDailyUsages`: GetTenantDailyUsagesResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenantDailyUsages`: %v\n", resp)
 }
 ```
@@ -5171,7 +5171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantDailyUsagesResponse**](GetTenantDailyUsagesResponse.md)
+[**GetTenantDailyUsagesResponse1**](GetTenantDailyUsagesResponse1.md)
 
 ### Authorization
 
@@ -5189,7 +5189,7 @@ Name | Type | Description  | Notes
 
 ## GetTenantPackage
 
-> GetTenantPackageResponse GetTenantPackage(ctx, id).TenantId(tenantId).Execute()
+> GetTenantPackageResponse1 GetTenantPackage(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -5216,7 +5216,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenantPackage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenantPackage`: GetTenantPackageResponse
+	// response from `GetTenantPackage`: GetTenantPackageResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenantPackage`: %v\n", resp)
 }
 ```
@@ -5241,7 +5241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantPackageResponse**](GetTenantPackageResponse.md)
+[**GetTenantPackageResponse1**](GetTenantPackageResponse1.md)
 
 ### Authorization
 
@@ -5259,7 +5259,7 @@ Name | Type | Description  | Notes
 
 ## GetTenantPackages
 
-> GetTenantPackagesResponse GetTenantPackages(ctx).TenantId(tenantId).Skip(skip).Execute()
+> GetTenantPackagesResponse1 GetTenantPackages(ctx).TenantId(tenantId).Skip(skip).Execute()
 
 
 
@@ -5286,7 +5286,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenantPackages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenantPackages`: GetTenantPackagesResponse
+	// response from `GetTenantPackages`: GetTenantPackagesResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenantPackages`: %v\n", resp)
 }
 ```
@@ -5307,7 +5307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantPackagesResponse**](GetTenantPackagesResponse.md)
+[**GetTenantPackagesResponse1**](GetTenantPackagesResponse1.md)
 
 ### Authorization
 
@@ -5325,7 +5325,7 @@ Name | Type | Description  | Notes
 
 ## GetTenantUser
 
-> GetTenantUserResponse GetTenantUser(ctx, id).TenantId(tenantId).Execute()
+> GetTenantUserResponse1 GetTenantUser(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -5352,7 +5352,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenantUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenantUser`: GetTenantUserResponse
+	// response from `GetTenantUser`: GetTenantUserResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenantUser`: %v\n", resp)
 }
 ```
@@ -5377,7 +5377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantUserResponse**](GetTenantUserResponse.md)
+[**GetTenantUserResponse1**](GetTenantUserResponse1.md)
 
 ### Authorization
 
@@ -5395,7 +5395,7 @@ Name | Type | Description  | Notes
 
 ## GetTenantUsers
 
-> GetTenantUsersResponse GetTenantUsers(ctx).TenantId(tenantId).Skip(skip).Execute()
+> GetTenantUsersResponse1 GetTenantUsers(ctx).TenantId(tenantId).Skip(skip).Execute()
 
 
 
@@ -5422,7 +5422,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenantUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenantUsers`: GetTenantUsersResponse
+	// response from `GetTenantUsers`: GetTenantUsersResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenantUsers`: %v\n", resp)
 }
 ```
@@ -5443,7 +5443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantUsersResponse**](GetTenantUsersResponse.md)
+[**GetTenantUsersResponse1**](GetTenantUsersResponse1.md)
 
 ### Authorization
 
@@ -5461,7 +5461,7 @@ Name | Type | Description  | Notes
 
 ## GetTenants
 
-> GetTenantsResponse GetTenants(ctx).TenantId(tenantId).Meta(meta).Skip(skip).Execute()
+> GetTenantsResponse1 GetTenants(ctx).TenantId(tenantId).Meta(meta).Skip(skip).Execute()
 
 
 
@@ -5489,7 +5489,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTenants``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTenants`: GetTenantsResponse
+	// response from `GetTenants`: GetTenantsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTenants`: %v\n", resp)
 }
 ```
@@ -5511,7 +5511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantsResponse**](GetTenantsResponse.md)
+[**GetTenantsResponse1**](GetTenantsResponse1.md)
 
 ### Authorization
 
@@ -5529,7 +5529,7 @@ Name | Type | Description  | Notes
 
 ## GetTicket
 
-> GetTicketResponse GetTicket(ctx, id).TenantId(tenantId).UserId(userId).Execute()
+> GetTicketResponse1 GetTicket(ctx, id).TenantId(tenantId).UserId(userId).Execute()
 
 
 
@@ -5557,7 +5557,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTicket``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTicket`: GetTicketResponse
+	// response from `GetTicket`: GetTicketResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTicket`: %v\n", resp)
 }
 ```
@@ -5583,7 +5583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTicketResponse**](GetTicketResponse.md)
+[**GetTicketResponse1**](GetTicketResponse1.md)
 
 ### Authorization
 
@@ -5601,7 +5601,7 @@ Name | Type | Description  | Notes
 
 ## GetTickets
 
-> GetTicketsResponse GetTickets(ctx).TenantId(tenantId).UserId(userId).State(state).Skip(skip).Limit(limit).Execute()
+> GetTicketsResponse1 GetTickets(ctx).TenantId(tenantId).UserId(userId).State(state).Skip(skip).Limit(limit).Execute()
 
 
 
@@ -5631,7 +5631,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetTickets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTickets`: GetTicketsResponse
+	// response from `GetTickets`: GetTicketsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetTickets`: %v\n", resp)
 }
 ```
@@ -5655,7 +5655,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTicketsResponse**](GetTicketsResponse.md)
+[**GetTicketsResponse1**](GetTicketsResponse1.md)
 
 ### Authorization
 
@@ -5673,7 +5673,7 @@ Name | Type | Description  | Notes
 
 ## GetUser
 
-> GetUserResponse GetUser(ctx, id).TenantId(tenantId).Execute()
+> GetUserResponse1 GetUser(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -5700,7 +5700,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUser`: GetUserResponse
+	// response from `GetUser`: GetUserResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetUser`: %v\n", resp)
 }
 ```
@@ -5725,7 +5725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserResponse**](GetUserResponse.md)
+[**GetUserResponse1**](GetUserResponse1.md)
 
 ### Authorization
 
@@ -5743,7 +5743,7 @@ Name | Type | Description  | Notes
 
 ## GetUserBadge
 
-> APIGetUserBadgeResponse GetUserBadge(ctx, id).TenantId(tenantId).Execute()
+> GetUserBadgeResponse GetUserBadge(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -5770,7 +5770,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetUserBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserBadge`: APIGetUserBadgeResponse
+	// response from `GetUserBadge`: GetUserBadgeResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetUserBadge`: %v\n", resp)
 }
 ```
@@ -5795,7 +5795,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetUserBadgeResponse**](APIGetUserBadgeResponse.md)
+[**GetUserBadgeResponse**](GetUserBadgeResponse.md)
 
 ### Authorization
 
@@ -5813,7 +5813,7 @@ Name | Type | Description  | Notes
 
 ## GetUserBadgeProgressById
 
-> APIGetUserBadgeProgressResponse GetUserBadgeProgressById(ctx, id).TenantId(tenantId).Execute()
+> GetUserBadgeProgressByIdResponse GetUserBadgeProgressById(ctx, id).TenantId(tenantId).Execute()
 
 
 
@@ -5840,7 +5840,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetUserBadgeProgressById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserBadgeProgressById`: APIGetUserBadgeProgressResponse
+	// response from `GetUserBadgeProgressById`: GetUserBadgeProgressByIdResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetUserBadgeProgressById`: %v\n", resp)
 }
 ```
@@ -5865,7 +5865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
+[**GetUserBadgeProgressByIdResponse**](GetUserBadgeProgressByIdResponse.md)
 
 ### Authorization
 
@@ -5883,7 +5883,7 @@ Name | Type | Description  | Notes
 
 ## GetUserBadgeProgressByUserId
 
-> APIGetUserBadgeProgressResponse GetUserBadgeProgressByUserId(ctx, userId).TenantId(tenantId).Execute()
+> GetUserBadgeProgressByUserIdResponse GetUserBadgeProgressByUserId(ctx, userId).TenantId(tenantId).Execute()
 
 
 
@@ -5910,7 +5910,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetUserBadgeProgressByUserId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserBadgeProgressByUserId`: APIGetUserBadgeProgressResponse
+	// response from `GetUserBadgeProgressByUserId`: GetUserBadgeProgressByUserIdResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetUserBadgeProgressByUserId`: %v\n", resp)
 }
 ```
@@ -5935,7 +5935,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
+[**GetUserBadgeProgressByUserIdResponse**](GetUserBadgeProgressByUserIdResponse.md)
 
 ### Authorization
 
@@ -5953,7 +5953,7 @@ Name | Type | Description  | Notes
 
 ## GetUserBadgeProgressList
 
-> APIGetUserBadgeProgressListResponse GetUserBadgeProgressList(ctx).TenantId(tenantId).UserId(userId).Limit(limit).Skip(skip).Execute()
+> GetUserBadgeProgressListResponse GetUserBadgeProgressList(ctx).TenantId(tenantId).UserId(userId).Limit(limit).Skip(skip).Execute()
 
 
 
@@ -5982,7 +5982,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetUserBadgeProgressList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserBadgeProgressList`: APIGetUserBadgeProgressListResponse
+	// response from `GetUserBadgeProgressList`: GetUserBadgeProgressListResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetUserBadgeProgressList`: %v\n", resp)
 }
 ```
@@ -6005,7 +6005,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetUserBadgeProgressListResponse**](APIGetUserBadgeProgressListResponse.md)
+[**GetUserBadgeProgressListResponse**](GetUserBadgeProgressListResponse.md)
 
 ### Authorization
 
@@ -6023,7 +6023,7 @@ Name | Type | Description  | Notes
 
 ## GetUserBadges
 
-> APIGetUserBadgesResponse GetUserBadges(ctx).TenantId(tenantId).UserId(userId).BadgeId(badgeId).Type_(type_).DisplayedOnComments(displayedOnComments).Limit(limit).Skip(skip).Execute()
+> GetUserBadgesResponse GetUserBadges(ctx).TenantId(tenantId).UserId(userId).BadgeId(badgeId).Type_(type_).DisplayedOnComments(displayedOnComments).Limit(limit).Skip(skip).Execute()
 
 
 
@@ -6055,7 +6055,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetUserBadges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserBadges`: APIGetUserBadgesResponse
+	// response from `GetUserBadges`: GetUserBadgesResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetUserBadges`: %v\n", resp)
 }
 ```
@@ -6081,7 +6081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIGetUserBadgesResponse**](APIGetUserBadgesResponse.md)
+[**GetUserBadgesResponse**](GetUserBadgesResponse.md)
 
 ### Authorization
 
@@ -6099,7 +6099,7 @@ Name | Type | Description  | Notes
 
 ## GetVotes
 
-> GetVotesResponse GetVotes(ctx).TenantId(tenantId).UrlId(urlId).Execute()
+> GetVotesResponse1 GetVotes(ctx).TenantId(tenantId).UrlId(urlId).Execute()
 
 
 
@@ -6126,7 +6126,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetVotes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetVotes`: GetVotesResponse
+	// response from `GetVotes`: GetVotesResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetVotes`: %v\n", resp)
 }
 ```
@@ -6147,7 +6147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetVotesResponse**](GetVotesResponse.md)
+[**GetVotesResponse1**](GetVotesResponse1.md)
 
 ### Authorization
 
@@ -6165,7 +6165,7 @@ Name | Type | Description  | Notes
 
 ## GetVotesForUser
 
-> GetVotesForUserResponse GetVotesForUser(ctx).TenantId(tenantId).UrlId(urlId).UserId(userId).AnonUserId(anonUserId).Execute()
+> GetVotesForUserResponse1 GetVotesForUser(ctx).TenantId(tenantId).UrlId(urlId).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -6194,7 +6194,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetVotesForUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetVotesForUser`: GetVotesForUserResponse
+	// response from `GetVotesForUser`: GetVotesForUserResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetVotesForUser`: %v\n", resp)
 }
 ```
@@ -6217,7 +6217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetVotesForUserResponse**](GetVotesForUserResponse.md)
+[**GetVotesForUserResponse1**](GetVotesForUserResponse1.md)
 
 ### Authorization
 
@@ -6307,7 +6307,7 @@ Name | Type | Description  | Notes
 
 ## PatchHashTag
 
-> UpdateHashTagResponse PatchHashTag(ctx, tag).TenantId(tenantId).UpdateHashTagBody(updateHashTagBody).Execute()
+> PatchHashTagResponse PatchHashTag(ctx, tag).TenantId(tenantId).UpdateHashTagBody(updateHashTagBody).Execute()
 
 
 
@@ -6335,7 +6335,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.PatchHashTag``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchHashTag`: UpdateHashTagResponse
+	// response from `PatchHashTag`: PatchHashTagResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.PatchHashTag`: %v\n", resp)
 }
 ```
@@ -6361,7 +6361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateHashTagResponse**](UpdateHashTagResponse.md)
+[**PatchHashTagResponse**](PatchHashTagResponse.md)
 
 ### Authorization
 
@@ -6671,7 +6671,7 @@ Name | Type | Description  | Notes
 
 ## RenderEmailTemplate
 
-> RenderEmailTemplateResponse RenderEmailTemplate(ctx).TenantId(tenantId).RenderEmailTemplateBody(renderEmailTemplateBody).Locale(locale).Execute()
+> RenderEmailTemplateResponse1 RenderEmailTemplate(ctx).TenantId(tenantId).RenderEmailTemplateBody(renderEmailTemplateBody).Locale(locale).Execute()
 
 
 
@@ -6699,7 +6699,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.RenderEmailTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RenderEmailTemplate`: RenderEmailTemplateResponse
+	// response from `RenderEmailTemplate`: RenderEmailTemplateResponse1
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.RenderEmailTemplate`: %v\n", resp)
 }
 ```
@@ -6721,7 +6721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RenderEmailTemplateResponse**](RenderEmailTemplateResponse.md)
+[**RenderEmailTemplateResponse1**](RenderEmailTemplateResponse1.md)
 
 ### Authorization
 
@@ -6739,7 +6739,7 @@ Name | Type | Description  | Notes
 
 ## ReplaceTenantPackage
 
-> APIEmptyResponse ReplaceTenantPackage(ctx, id).TenantId(tenantId).ReplaceTenantPackageBody(replaceTenantPackageBody).Execute()
+> ReplaceTenantPackageResponse ReplaceTenantPackage(ctx, id).TenantId(tenantId).ReplaceTenantPackageBody(replaceTenantPackageBody).Execute()
 
 
 
@@ -6767,7 +6767,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ReplaceTenantPackage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ReplaceTenantPackage`: APIEmptyResponse
+	// response from `ReplaceTenantPackage`: ReplaceTenantPackageResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ReplaceTenantPackage`: %v\n", resp)
 }
 ```
@@ -6793,7 +6793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**ReplaceTenantPackageResponse**](ReplaceTenantPackageResponse.md)
 
 ### Authorization
 
@@ -6811,7 +6811,7 @@ Name | Type | Description  | Notes
 
 ## ReplaceTenantUser
 
-> APIEmptyResponse ReplaceTenantUser(ctx, id).TenantId(tenantId).ReplaceTenantUserBody(replaceTenantUserBody).UpdateComments(updateComments).Execute()
+> ReplaceTenantUserResponse ReplaceTenantUser(ctx, id).TenantId(tenantId).ReplaceTenantUserBody(replaceTenantUserBody).UpdateComments(updateComments).Execute()
 
 
 
@@ -6840,7 +6840,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ReplaceTenantUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ReplaceTenantUser`: APIEmptyResponse
+	// response from `ReplaceTenantUser`: ReplaceTenantUserResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ReplaceTenantUser`: %v\n", resp)
 }
 ```
@@ -6867,7 +6867,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**ReplaceTenantUserResponse**](ReplaceTenantUserResponse.md)
 
 ### Authorization
 
@@ -6885,7 +6885,7 @@ Name | Type | Description  | Notes
 
 ## SaveComment
 
-> APISaveCommentResponse SaveComment(ctx).TenantId(tenantId).CreateCommentParams(createCommentParams).IsLive(isLive).DoSpamCheck(doSpamCheck).SendEmails(sendEmails).PopulateNotifications(populateNotifications).Execute()
+> SaveCommentResponse SaveComment(ctx).TenantId(tenantId).CreateCommentParams(createCommentParams).IsLive(isLive).DoSpamCheck(doSpamCheck).SendEmails(sendEmails).PopulateNotifications(populateNotifications).Execute()
 
 
 
@@ -6916,7 +6916,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.SaveComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SaveComment`: APISaveCommentResponse
+	// response from `SaveComment`: SaveCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.SaveComment`: %v\n", resp)
 }
 ```
@@ -6941,7 +6941,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APISaveCommentResponse**](APISaveCommentResponse.md)
+[**SaveCommentResponse**](SaveCommentResponse.md)
 
 ### Authorization
 
@@ -7033,7 +7033,7 @@ Name | Type | Description  | Notes
 
 ## SendInvite
 
-> APIEmptyResponse SendInvite(ctx, id).TenantId(tenantId).FromName(fromName).Execute()
+> SendInviteResponse SendInvite(ctx, id).TenantId(tenantId).FromName(fromName).Execute()
 
 
 
@@ -7061,7 +7061,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.SendInvite``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SendInvite`: APIEmptyResponse
+	// response from `SendInvite`: SendInviteResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.SendInvite`: %v\n", resp)
 }
 ```
@@ -7087,7 +7087,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**SendInviteResponse**](SendInviteResponse.md)
 
 ### Authorization
 
@@ -7105,7 +7105,7 @@ Name | Type | Description  | Notes
 
 ## SendLoginLink
 
-> APIEmptyResponse SendLoginLink(ctx, id).TenantId(tenantId).RedirectURL(redirectURL).Execute()
+> SendLoginLinkResponse SendLoginLink(ctx, id).TenantId(tenantId).RedirectURL(redirectURL).Execute()
 
 
 
@@ -7133,7 +7133,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.SendLoginLink``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SendLoginLink`: APIEmptyResponse
+	// response from `SendLoginLink`: SendLoginLinkResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.SendLoginLink`: %v\n", resp)
 }
 ```
@@ -7159,7 +7159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**SendLoginLinkResponse**](SendLoginLinkResponse.md)
 
 ### Authorization
 
@@ -7177,7 +7177,7 @@ Name | Type | Description  | Notes
 
 ## UnBlockUserFromComment
 
-> UnblockSuccess UnBlockUserFromComment(ctx, id).TenantId(tenantId).UnBlockFromCommentParams(unBlockFromCommentParams).UserId(userId).AnonUserId(anonUserId).Execute()
+> UnBlockUserFromCommentResponse UnBlockUserFromComment(ctx, id).TenantId(tenantId).UnBlockFromCommentParams(unBlockFromCommentParams).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -7207,7 +7207,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UnBlockUserFromComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnBlockUserFromComment`: UnblockSuccess
+	// response from `UnBlockUserFromComment`: UnBlockUserFromCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UnBlockUserFromComment`: %v\n", resp)
 }
 ```
@@ -7235,7 +7235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnblockSuccess**](UnblockSuccess.md)
+[**UnBlockUserFromCommentResponse**](UnBlockUserFromCommentResponse.md)
 
 ### Authorization
 
@@ -7253,7 +7253,7 @@ Name | Type | Description  | Notes
 
 ## UnFlagComment
 
-> FlagCommentResponse UnFlagComment(ctx, id).TenantId(tenantId).UserId(userId).AnonUserId(anonUserId).Execute()
+> UnFlagCommentResponse UnFlagComment(ctx, id).TenantId(tenantId).UserId(userId).AnonUserId(anonUserId).Execute()
 
 
 
@@ -7282,7 +7282,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UnFlagComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnFlagComment`: FlagCommentResponse
+	// response from `UnFlagComment`: UnFlagCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UnFlagComment`: %v\n", resp)
 }
 ```
@@ -7309,7 +7309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlagCommentResponse**](FlagCommentResponse.md)
+[**UnFlagCommentResponse**](UnFlagCommentResponse.md)
 
 ### Authorization
 
@@ -7327,7 +7327,7 @@ Name | Type | Description  | Notes
 
 ## UpdateComment
 
-> APIEmptyResponse UpdateComment(ctx, id).TenantId(tenantId).UpdatableCommentParams(updatableCommentParams).ContextUserId(contextUserId).DoSpamCheck(doSpamCheck).IsLive(isLive).Execute()
+> UpdateCommentResponse UpdateComment(ctx, id).TenantId(tenantId).UpdatableCommentParams(updatableCommentParams).ContextUserId(contextUserId).DoSpamCheck(doSpamCheck).IsLive(isLive).Execute()
 
 
 
@@ -7358,7 +7358,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateComment`: APIEmptyResponse
+	// response from `UpdateComment`: UpdateCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateComment`: %v\n", resp)
 }
 ```
@@ -7387,7 +7387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateCommentResponse**](UpdateCommentResponse.md)
 
 ### Authorization
 
@@ -7405,7 +7405,7 @@ Name | Type | Description  | Notes
 
 ## UpdateEmailTemplate
 
-> APIEmptyResponse UpdateEmailTemplate(ctx, id).TenantId(tenantId).UpdateEmailTemplateBody(updateEmailTemplateBody).Execute()
+> UpdateEmailTemplateResponse UpdateEmailTemplate(ctx, id).TenantId(tenantId).UpdateEmailTemplateBody(updateEmailTemplateBody).Execute()
 
 
 
@@ -7433,7 +7433,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateEmailTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateEmailTemplate`: APIEmptyResponse
+	// response from `UpdateEmailTemplate`: UpdateEmailTemplateResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateEmailTemplate`: %v\n", resp)
 }
 ```
@@ -7459,7 +7459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateEmailTemplateResponse**](UpdateEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -7477,7 +7477,7 @@ Name | Type | Description  | Notes
 
 ## UpdateFeedPost
 
-> APIEmptyResponse UpdateFeedPost(ctx, id).TenantId(tenantId).FeedPost(feedPost).Execute()
+> UpdateFeedPostResponse UpdateFeedPost(ctx, id).TenantId(tenantId).FeedPost(feedPost).Execute()
 
 
 
@@ -7506,7 +7506,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateFeedPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateFeedPost`: APIEmptyResponse
+	// response from `UpdateFeedPost`: UpdateFeedPostResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateFeedPost`: %v\n", resp)
 }
 ```
@@ -7532,7 +7532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateFeedPostResponse**](UpdateFeedPostResponse.md)
 
 ### Authorization
 
@@ -7550,7 +7550,7 @@ Name | Type | Description  | Notes
 
 ## UpdateModerator
 
-> APIEmptyResponse UpdateModerator(ctx, id).TenantId(tenantId).UpdateModeratorBody(updateModeratorBody).Execute()
+> UpdateModeratorResponse UpdateModerator(ctx, id).TenantId(tenantId).UpdateModeratorBody(updateModeratorBody).Execute()
 
 
 
@@ -7578,7 +7578,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateModerator``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateModerator`: APIEmptyResponse
+	// response from `UpdateModerator`: UpdateModeratorResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateModerator`: %v\n", resp)
 }
 ```
@@ -7604,7 +7604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateModeratorResponse**](UpdateModeratorResponse.md)
 
 ### Authorization
 
@@ -7622,7 +7622,7 @@ Name | Type | Description  | Notes
 
 ## UpdateNotification
 
-> APIEmptyResponse UpdateNotification(ctx, id).TenantId(tenantId).UpdateNotificationBody(updateNotificationBody).UserId(userId).Execute()
+> UpdateNotificationResponse UpdateNotification(ctx, id).TenantId(tenantId).UpdateNotificationBody(updateNotificationBody).UserId(userId).Execute()
 
 
 
@@ -7651,7 +7651,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateNotification``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateNotification`: APIEmptyResponse
+	// response from `UpdateNotification`: UpdateNotificationResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateNotification`: %v\n", resp)
 }
 ```
@@ -7678,7 +7678,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateNotificationResponse**](UpdateNotificationResponse.md)
 
 ### Authorization
 
@@ -7696,7 +7696,7 @@ Name | Type | Description  | Notes
 
 ## UpdateQuestionConfig
 
-> APIEmptyResponse UpdateQuestionConfig(ctx, id).TenantId(tenantId).UpdateQuestionConfigBody(updateQuestionConfigBody).Execute()
+> UpdateQuestionConfigResponse UpdateQuestionConfig(ctx, id).TenantId(tenantId).UpdateQuestionConfigBody(updateQuestionConfigBody).Execute()
 
 
 
@@ -7724,7 +7724,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateQuestionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateQuestionConfig`: APIEmptyResponse
+	// response from `UpdateQuestionConfig`: UpdateQuestionConfigResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateQuestionConfig`: %v\n", resp)
 }
 ```
@@ -7750,7 +7750,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateQuestionConfigResponse**](UpdateQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -7768,7 +7768,7 @@ Name | Type | Description  | Notes
 
 ## UpdateQuestionResult
 
-> APIEmptyResponse UpdateQuestionResult(ctx, id).TenantId(tenantId).UpdateQuestionResultBody(updateQuestionResultBody).Execute()
+> UpdateQuestionResultResponse UpdateQuestionResult(ctx, id).TenantId(tenantId).UpdateQuestionResultBody(updateQuestionResultBody).Execute()
 
 
 
@@ -7796,7 +7796,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateQuestionResult``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateQuestionResult`: APIEmptyResponse
+	// response from `UpdateQuestionResult`: UpdateQuestionResultResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateQuestionResult`: %v\n", resp)
 }
 ```
@@ -7822,7 +7822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateQuestionResultResponse**](UpdateQuestionResultResponse.md)
 
 ### Authorization
 
@@ -7914,7 +7914,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTenant
 
-> APIEmptyResponse UpdateTenant(ctx, id).TenantId(tenantId).UpdateTenantBody(updateTenantBody).Execute()
+> UpdateTenantResponse UpdateTenant(ctx, id).TenantId(tenantId).UpdateTenantBody(updateTenantBody).Execute()
 
 
 
@@ -7942,7 +7942,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateTenant``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTenant`: APIEmptyResponse
+	// response from `UpdateTenant`: UpdateTenantResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateTenant`: %v\n", resp)
 }
 ```
@@ -7968,7 +7968,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateTenantResponse**](UpdateTenantResponse.md)
 
 ### Authorization
 
@@ -7986,7 +7986,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTenantPackage
 
-> APIEmptyResponse UpdateTenantPackage(ctx, id).TenantId(tenantId).UpdateTenantPackageBody(updateTenantPackageBody).Execute()
+> UpdateTenantPackageResponse UpdateTenantPackage(ctx, id).TenantId(tenantId).UpdateTenantPackageBody(updateTenantPackageBody).Execute()
 
 
 
@@ -8014,7 +8014,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateTenantPackage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTenantPackage`: APIEmptyResponse
+	// response from `UpdateTenantPackage`: UpdateTenantPackageResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateTenantPackage`: %v\n", resp)
 }
 ```
@@ -8040,7 +8040,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateTenantPackageResponse**](UpdateTenantPackageResponse.md)
 
 ### Authorization
 
@@ -8058,7 +8058,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTenantUser
 
-> APIEmptyResponse UpdateTenantUser(ctx, id).TenantId(tenantId).UpdateTenantUserBody(updateTenantUserBody).UpdateComments(updateComments).Execute()
+> UpdateTenantUserResponse UpdateTenantUser(ctx, id).TenantId(tenantId).UpdateTenantUserBody(updateTenantUserBody).UpdateComments(updateComments).Execute()
 
 
 
@@ -8087,7 +8087,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateTenantUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTenantUser`: APIEmptyResponse
+	// response from `UpdateTenantUser`: UpdateTenantUserResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateTenantUser`: %v\n", resp)
 }
 ```
@@ -8114,7 +8114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateTenantUserResponse**](UpdateTenantUserResponse.md)
 
 ### Authorization
 
@@ -8132,7 +8132,7 @@ Name | Type | Description  | Notes
 
 ## UpdateUserBadge
 
-> APIEmptySuccessResponse UpdateUserBadge(ctx, id).TenantId(tenantId).UpdateUserBadgeParams(updateUserBadgeParams).Execute()
+> UpdateUserBadgeResponse UpdateUserBadge(ctx, id).TenantId(tenantId).UpdateUserBadgeParams(updateUserBadgeParams).Execute()
 
 
 
@@ -8160,7 +8160,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.UpdateUserBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateUserBadge`: APIEmptySuccessResponse
+	// response from `UpdateUserBadge`: UpdateUserBadgeResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.UpdateUserBadge`: %v\n", resp)
 }
 ```
@@ -8186,7 +8186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptySuccessResponse**](APIEmptySuccessResponse.md)
+[**UpdateUserBadgeResponse**](UpdateUserBadgeResponse.md)
 
 ### Authorization
 

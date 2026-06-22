@@ -61,7 +61,7 @@ Method | HTTP request | Description
 
 ## BlockFromCommentPublic
 
-> BlockSuccess BlockFromCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
+> BlockFromCommentPublicResponse BlockFromCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
 
 
 
@@ -90,7 +90,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.BlockFromCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BlockFromCommentPublic`: BlockSuccess
+	// response from `BlockFromCommentPublic`: BlockFromCommentPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.BlockFromCommentPublic`: %v\n", resp)
 }
 ```
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockSuccess**](BlockSuccess.md)
+[**BlockFromCommentPublicResponse**](BlockFromCommentPublicResponse.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ No authorization required
 
 ## CheckedCommentsForBlocked
 
-> CheckBlockedCommentsResponse CheckedCommentsForBlocked(ctx).TenantId(tenantId).CommentIds(commentIds).Sso(sso).Execute()
+> CheckedCommentsForBlockedResponse CheckedCommentsForBlocked(ctx).TenantId(tenantId).CommentIds(commentIds).Sso(sso).Execute()
 
 
 
@@ -163,7 +163,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CheckedCommentsForBlocked``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CheckedCommentsForBlocked`: CheckBlockedCommentsResponse
+	// response from `CheckedCommentsForBlocked`: CheckedCommentsForBlockedResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CheckedCommentsForBlocked`: %v\n", resp)
 }
 ```
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckBlockedCommentsResponse**](CheckBlockedCommentsResponse.md)
+[**CheckedCommentsForBlockedResponse**](CheckedCommentsForBlockedResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ No authorization required
 
 ## CreateCommentPublic
 
-> SaveCommentsResponseWithPresence CreateCommentPublic(ctx, tenantId).UrlId(urlId).BroadcastId(broadcastId).CommentData(commentData).SessionId(sessionId).Sso(sso).Execute()
+> CreateCommentPublicResponse CreateCommentPublic(ctx, tenantId).UrlId(urlId).BroadcastId(broadcastId).CommentData(commentData).SessionId(sessionId).Sso(sso).Execute()
 
 
 
@@ -234,7 +234,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateCommentPublic`: SaveCommentsResponseWithPresence
+	// response from `CreateCommentPublic`: CreateCommentPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateCommentPublic`: %v\n", resp)
 }
 ```
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SaveCommentsResponseWithPresence**](SaveCommentsResponseWithPresence.md)
+[**CreateCommentPublicResponse**](CreateCommentPublicResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ No authorization required
 
 ## CreateFeedPostPublic
 
-> CreateFeedPostResponse CreateFeedPostPublic(ctx, tenantId).CreateFeedPostParams(createFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
+> CreateFeedPostPublicResponse CreateFeedPostPublic(ctx, tenantId).CreateFeedPostParams(createFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -310,7 +310,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateFeedPostPublic`: CreateFeedPostResponse
+	// response from `CreateFeedPostPublic`: CreateFeedPostPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**CreateFeedPostPublicResponse**](CreateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -355,7 +355,7 @@ No authorization required
 
 ## CreateV1PageReact
 
-> CreateV1PageReact CreateV1PageReact(ctx, tenantId).UrlId(urlId).Title(title).Execute()
+> CreateV1PageReactResponse CreateV1PageReact(ctx, tenantId).UrlId(urlId).Title(title).Execute()
 
 
 
@@ -383,7 +383,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateV1PageReact``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateV1PageReact`: CreateV1PageReact
+	// response from `CreateV1PageReact`: CreateV1PageReactResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateV1PageReact`: %v\n", resp)
 }
 ```
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**CreateV1PageReactResponse**](CreateV1PageReactResponse.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ No authorization required
 
 ## CreateV2PageReact
 
-> CreateV1PageReact CreateV2PageReact(ctx, tenantId).UrlId(urlId).Id(id).Title(title).Execute()
+> CreateV2PageReactResponse CreateV2PageReact(ctx, tenantId).UrlId(urlId).Id(id).Title(title).Execute()
 
 
 
@@ -456,7 +456,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.CreateV2PageReact``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateV2PageReact`: CreateV1PageReact
+	// response from `CreateV2PageReact`: CreateV2PageReactResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.CreateV2PageReact`: %v\n", resp)
 }
 ```
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**CreateV2PageReactResponse**](CreateV2PageReactResponse.md)
 
 ### Authorization
 
@@ -501,7 +501,7 @@ No authorization required
 
 ## DeleteCommentPublic
 
-> PublicAPIDeleteCommentResponse DeleteCommentPublic(ctx, tenantId, commentId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
+> DeleteCommentPublicResponse DeleteCommentPublic(ctx, tenantId, commentId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -531,7 +531,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteCommentPublic`: PublicAPIDeleteCommentResponse
+	// response from `DeleteCommentPublic`: DeleteCommentPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteCommentPublic`: %v\n", resp)
 }
 ```
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAPIDeleteCommentResponse**](PublicAPIDeleteCommentResponse.md)
+[**DeleteCommentPublicResponse**](DeleteCommentPublicResponse.md)
 
 ### Authorization
 
@@ -578,7 +578,7 @@ No authorization required
 
 ## DeleteCommentVote
 
-> VoteDeleteResponse DeleteCommentVote(ctx, tenantId, commentId, voteId).UrlId(urlId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
+> DeleteCommentVoteResponse DeleteCommentVote(ctx, tenantId, commentId, voteId).UrlId(urlId).BroadcastId(broadcastId).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -610,7 +610,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteCommentVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteCommentVote`: VoteDeleteResponse
+	// response from `DeleteCommentVote`: DeleteCommentVoteResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteCommentVote`: %v\n", resp)
 }
 ```
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteDeleteResponse**](VoteDeleteResponse.md)
+[**DeleteCommentVoteResponse**](DeleteCommentVoteResponse.md)
 
 ### Authorization
 
@@ -735,7 +735,7 @@ No authorization required
 
 ## DeleteV1PageReact
 
-> CreateV1PageReact DeleteV1PageReact(ctx, tenantId).UrlId(urlId).Execute()
+> DeleteV1PageReactResponse DeleteV1PageReact(ctx, tenantId).UrlId(urlId).Execute()
 
 
 
@@ -762,7 +762,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteV1PageReact``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteV1PageReact`: CreateV1PageReact
+	// response from `DeleteV1PageReact`: DeleteV1PageReactResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteV1PageReact`: %v\n", resp)
 }
 ```
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**DeleteV1PageReactResponse**](DeleteV1PageReactResponse.md)
 
 ### Authorization
 
@@ -805,7 +805,7 @@ No authorization required
 
 ## DeleteV2PageReact
 
-> CreateV1PageReact DeleteV2PageReact(ctx, tenantId).UrlId(urlId).Id(id).Execute()
+> DeleteV2PageReactResponse DeleteV2PageReact(ctx, tenantId).UrlId(urlId).Id(id).Execute()
 
 
 
@@ -833,7 +833,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.DeleteV2PageReact``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteV2PageReact`: CreateV1PageReact
+	// response from `DeleteV2PageReact`: DeleteV2PageReactResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.DeleteV2PageReact`: %v\n", resp)
 }
 ```
@@ -859,7 +859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**DeleteV2PageReactResponse**](DeleteV2PageReactResponse.md)
 
 ### Authorization
 
@@ -877,7 +877,7 @@ No authorization required
 
 ## FlagCommentPublic
 
-> APIEmptyResponse FlagCommentPublic(ctx, commentId).TenantId(tenantId).IsFlagged(isFlagged).Sso(sso).Execute()
+> FlagCommentPublicResponse FlagCommentPublic(ctx, commentId).TenantId(tenantId).IsFlagged(isFlagged).Sso(sso).Execute()
 
 
 
@@ -906,7 +906,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.FlagCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FlagCommentPublic`: APIEmptyResponse
+	// response from `FlagCommentPublic`: FlagCommentPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.FlagCommentPublic`: %v\n", resp)
 }
 ```
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**FlagCommentPublicResponse**](FlagCommentPublicResponse.md)
 
 ### Authorization
 
@@ -951,7 +951,7 @@ No authorization required
 
 ## GetCommentText
 
-> PublicAPIGetCommentTextResponse GetCommentText(ctx, tenantId, commentId).EditKey(editKey).Sso(sso).Execute()
+> GetCommentTextResponse1 GetCommentText(ctx, tenantId, commentId).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -980,7 +980,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentText`: PublicAPIGetCommentTextResponse
+	// response from `GetCommentText`: GetCommentTextResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentText`: %v\n", resp)
 }
 ```
@@ -1008,7 +1008,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAPIGetCommentTextResponse**](PublicAPIGetCommentTextResponse.md)
+[**GetCommentTextResponse1**](GetCommentTextResponse1.md)
 
 ### Authorization
 
@@ -1026,7 +1026,7 @@ No authorization required
 
 ## GetCommentVoteUserNames
 
-> GetCommentVoteUserNamesSuccessResponse GetCommentVoteUserNames(ctx, tenantId, commentId).Dir(dir).Sso(sso).Execute()
+> GetCommentVoteUserNamesResponse GetCommentVoteUserNames(ctx, tenantId, commentId).Dir(dir).Sso(sso).Execute()
 
 
 
@@ -1055,7 +1055,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentVoteUserNames``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentVoteUserNames`: GetCommentVoteUserNamesSuccessResponse
+	// response from `GetCommentVoteUserNames`: GetCommentVoteUserNamesResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentVoteUserNames`: %v\n", resp)
 }
 ```
@@ -1083,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentVoteUserNamesSuccessResponse**](GetCommentVoteUserNamesSuccessResponse.md)
+[**GetCommentVoteUserNamesResponse**](GetCommentVoteUserNamesResponse.md)
 
 ### Authorization
 
@@ -1101,7 +1101,7 @@ No authorization required
 
 ## GetCommentsForUser
 
-> GetCommentsForUserResponse GetCommentsForUser(ctx).UserId(userId).Direction(direction).RepliesToUserId(repliesToUserId).Page(page).Includei10n(includei10n).Locale(locale).IsCrawler(isCrawler).Execute()
+> GetCommentsForUserResponse1 GetCommentsForUser(ctx).UserId(userId).Direction(direction).RepliesToUserId(repliesToUserId).Page(page).Includei10n(includei10n).Locale(locale).IsCrawler(isCrawler).Execute()
 
 
 
@@ -1133,7 +1133,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentsForUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentsForUser`: GetCommentsForUserResponse
+	// response from `GetCommentsForUser`: GetCommentsForUserResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentsForUser`: %v\n", resp)
 }
 ```
@@ -1159,7 +1159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentsForUserResponse**](GetCommentsForUserResponse.md)
+[**GetCommentsForUserResponse1**](GetCommentsForUserResponse1.md)
 
 ### Authorization
 
@@ -1177,7 +1177,7 @@ No authorization required
 
 ## GetCommentsPublic
 
-> GetCommentsResponseWithPresencePublicComment GetCommentsPublic(ctx, tenantId).UrlId(urlId).Page(page).Direction(direction).Sso(sso).Skip(skip).SkipChildren(skipChildren).Limit(limit).LimitChildren(limitChildren).CountChildren(countChildren).FetchPageForCommentId(fetchPageForCommentId).IncludeConfig(includeConfig).CountAll(countAll).Includei10n(includei10n).Locale(locale).Modules(modules).IsCrawler(isCrawler).IncludeNotificationCount(includeNotificationCount).AsTree(asTree).MaxTreeDepth(maxTreeDepth).UseFullTranslationIds(useFullTranslationIds).ParentId(parentId).SearchText(searchText).HashTags(hashTags).UserId(userId).CustomConfigStr(customConfigStr).AfterCommentId(afterCommentId).BeforeCommentId(beforeCommentId).Execute()
+> GetCommentsPublicResponse GetCommentsPublic(ctx, tenantId).UrlId(urlId).Page(page).Direction(direction).Sso(sso).Skip(skip).SkipChildren(skipChildren).Limit(limit).LimitChildren(limitChildren).CountChildren(countChildren).FetchPageForCommentId(fetchPageForCommentId).IncludeConfig(includeConfig).CountAll(countAll).Includei10n(includei10n).Locale(locale).Modules(modules).IsCrawler(isCrawler).IncludeNotificationCount(includeNotificationCount).AsTree(asTree).MaxTreeDepth(maxTreeDepth).UseFullTranslationIds(useFullTranslationIds).ParentId(parentId).SearchText(searchText).HashTags(hashTags).UserId(userId).CustomConfigStr(customConfigStr).AfterCommentId(afterCommentId).BeforeCommentId(beforeCommentId).Execute()
 
 
 
@@ -1232,7 +1232,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetCommentsPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentsPublic`: GetCommentsResponseWithPresencePublicComment
+	// response from `GetCommentsPublic`: GetCommentsPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetCommentsPublic`: %v\n", resp)
 }
 ```
@@ -1283,7 +1283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentsResponseWithPresencePublicComment**](GetCommentsResponseWithPresencePublicComment.md)
+[**GetCommentsPublicResponse**](GetCommentsPublicResponse.md)
 
 ### Authorization
 
@@ -1301,7 +1301,7 @@ No authorization required
 
 ## GetEventLog
 
-> GetEventLogResponse GetEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
+> GetEventLogResponse1 GetEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
 
 
 
@@ -1333,7 +1333,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetEventLog``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEventLog`: GetEventLogResponse
+	// response from `GetEventLog`: GetEventLogResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetEventLog`: %v\n", resp)
 }
 ```
@@ -1361,7 +1361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEventLogResponse**](GetEventLogResponse.md)
+[**GetEventLogResponse1**](GetEventLogResponse1.md)
 
 ### Authorization
 
@@ -1379,7 +1379,7 @@ No authorization required
 
 ## GetFeedPostsPublic
 
-> PublicFeedPostsResponse GetFeedPostsPublic(ctx, tenantId).AfterId(afterId).Limit(limit).Tags(tags).Sso(sso).IsCrawler(isCrawler).IncludeUserInfo(includeUserInfo).Execute()
+> GetFeedPostsPublicResponse GetFeedPostsPublic(ctx, tenantId).AfterId(afterId).Limit(limit).Tags(tags).Sso(sso).IsCrawler(isCrawler).IncludeUserInfo(includeUserInfo).Execute()
 
 
 
@@ -1413,7 +1413,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetFeedPostsPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetFeedPostsPublic`: PublicFeedPostsResponse
+	// response from `GetFeedPostsPublic`: GetFeedPostsPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetFeedPostsPublic`: %v\n", resp)
 }
 ```
@@ -1443,7 +1443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicFeedPostsResponse**](PublicFeedPostsResponse.md)
+[**GetFeedPostsPublicResponse**](GetFeedPostsPublicResponse.md)
 
 ### Authorization
 
@@ -1461,7 +1461,7 @@ No authorization required
 
 ## GetFeedPostsStats
 
-> FeedPostsStatsResponse GetFeedPostsStats(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
+> GetFeedPostsStatsResponse GetFeedPostsStats(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
 
 
 
@@ -1489,7 +1489,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetFeedPostsStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetFeedPostsStats`: FeedPostsStatsResponse
+	// response from `GetFeedPostsStats`: GetFeedPostsStatsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetFeedPostsStats`: %v\n", resp)
 }
 ```
@@ -1515,7 +1515,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FeedPostsStatsResponse**](FeedPostsStatsResponse.md)
+[**GetFeedPostsStatsResponse**](GetFeedPostsStatsResponse.md)
 
 ### Authorization
 
@@ -1533,7 +1533,7 @@ No authorization required
 
 ## GetGifLarge
 
-> GifGetLargeResponse GetGifLarge(ctx, tenantId).LargeInternalURLSanitized(largeInternalURLSanitized).Execute()
+> GetGifLargeResponse GetGifLarge(ctx, tenantId).LargeInternalURLSanitized(largeInternalURLSanitized).Execute()
 
 
 
@@ -1560,7 +1560,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetGifLarge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetGifLarge`: GifGetLargeResponse
+	// response from `GetGifLarge`: GetGifLargeResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetGifLarge`: %v\n", resp)
 }
 ```
@@ -1585,7 +1585,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GifGetLargeResponse**](GifGetLargeResponse.md)
+[**GetGifLargeResponse**](GetGifLargeResponse.md)
 
 ### Authorization
 
@@ -1753,7 +1753,7 @@ No authorization required
 
 ## GetGlobalEventLog
 
-> GetEventLogResponse GetGlobalEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
+> GetGlobalEventLogResponse GetGlobalEventLog(ctx, tenantId).UrlId(urlId).UserIdWS(userIdWS).StartTime(startTime).EndTime(endTime).Execute()
 
 
 
@@ -1785,7 +1785,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetGlobalEventLog``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetGlobalEventLog`: GetEventLogResponse
+	// response from `GetGlobalEventLog`: GetGlobalEventLogResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetGlobalEventLog`: %v\n", resp)
 }
 ```
@@ -1813,7 +1813,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEventLogResponse**](GetEventLogResponse.md)
+[**GetGlobalEventLogResponse**](GetGlobalEventLogResponse.md)
 
 ### Authorization
 
@@ -1831,7 +1831,7 @@ No authorization required
 
 ## GetOfflineUsers
 
-> PageUsersOfflineResponse GetOfflineUsers(ctx, tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
+> GetOfflineUsersResponse GetOfflineUsers(ctx, tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
 
 
 
@@ -1862,7 +1862,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetOfflineUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetOfflineUsers`: PageUsersOfflineResponse
+	// response from `GetOfflineUsers`: GetOfflineUsersResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetOfflineUsers`: %v\n", resp)
 }
 ```
@@ -1889,7 +1889,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageUsersOfflineResponse**](PageUsersOfflineResponse.md)
+[**GetOfflineUsersResponse**](GetOfflineUsersResponse.md)
 
 ### Authorization
 
@@ -1907,7 +1907,7 @@ No authorization required
 
 ## GetOnlineUsers
 
-> PageUsersOnlineResponse GetOnlineUsers(ctx, tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
+> GetOnlineUsersResponse GetOnlineUsers(ctx, tenantId).UrlId(urlId).AfterName(afterName).AfterUserId(afterUserId).Execute()
 
 
 
@@ -1938,7 +1938,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetOnlineUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetOnlineUsers`: PageUsersOnlineResponse
+	// response from `GetOnlineUsers`: GetOnlineUsersResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetOnlineUsers`: %v\n", resp)
 }
 ```
@@ -1965,7 +1965,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageUsersOnlineResponse**](PageUsersOnlineResponse.md)
+[**GetOnlineUsersResponse**](GetOnlineUsersResponse.md)
 
 ### Authorization
 
@@ -1983,7 +1983,7 @@ No authorization required
 
 ## GetPagesPublic
 
-> GetPublicPagesResponse GetPagesPublic(ctx, tenantId).Cursor(cursor).Limit(limit).Q(q).SortBy(sortBy).HasComments(hasComments).Execute()
+> GetPagesPublicResponse GetPagesPublic(ctx, tenantId).Cursor(cursor).Limit(limit).Q(q).SortBy(sortBy).HasComments(hasComments).Execute()
 
 
 
@@ -2016,7 +2016,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetPagesPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetPagesPublic`: GetPublicPagesResponse
+	// response from `GetPagesPublic`: GetPagesPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetPagesPublic`: %v\n", resp)
 }
 ```
@@ -2045,7 +2045,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPublicPagesResponse**](GetPublicPagesResponse.md)
+[**GetPagesPublicResponse**](GetPagesPublicResponse.md)
 
 ### Authorization
 
@@ -2063,7 +2063,7 @@ No authorization required
 
 ## GetTranslations
 
-> GetTranslationsResponse GetTranslations(ctx, namespace, component).Locale(locale).UseFullTranslationIds(useFullTranslationIds).Execute()
+> GetTranslationsResponse1 GetTranslations(ctx, namespace, component).Locale(locale).UseFullTranslationIds(useFullTranslationIds).Execute()
 
 
 
@@ -2092,7 +2092,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetTranslations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTranslations`: GetTranslationsResponse
+	// response from `GetTranslations`: GetTranslationsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetTranslations`: %v\n", resp)
 }
 ```
@@ -2120,7 +2120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTranslationsResponse**](GetTranslationsResponse.md)
+[**GetTranslationsResponse1**](GetTranslationsResponse1.md)
 
 ### Authorization
 
@@ -2138,7 +2138,7 @@ No authorization required
 
 ## GetUserNotificationCount
 
-> GetUserNotificationCountResponse GetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
+> GetUserNotificationCountResponse1 GetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2165,7 +2165,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserNotificationCount`: GetUserNotificationCountResponse
+	// response from `GetUserNotificationCount`: GetUserNotificationCountResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserNotificationCount`: %v\n", resp)
 }
 ```
@@ -2186,7 +2186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserNotificationCountResponse**](GetUserNotificationCountResponse.md)
+[**GetUserNotificationCountResponse1**](GetUserNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -2204,7 +2204,7 @@ No authorization required
 
 ## GetUserNotifications
 
-> GetMyNotificationsResponse GetUserNotifications(ctx).TenantId(tenantId).UrlId(urlId).PageSize(pageSize).AfterId(afterId).IncludeContext(includeContext).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).IncludeTranslations(includeTranslations).IncludeTenantNotifications(includeTenantNotifications).Sso(sso).Execute()
+> GetUserNotificationsResponse GetUserNotifications(ctx).TenantId(tenantId).UrlId(urlId).PageSize(pageSize).AfterId(afterId).IncludeContext(includeContext).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).IncludeTranslations(includeTranslations).IncludeTenantNotifications(includeTenantNotifications).Sso(sso).Execute()
 
 
 
@@ -2241,7 +2241,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserNotifications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserNotifications`: GetMyNotificationsResponse
+	// response from `GetUserNotifications`: GetUserNotificationsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserNotifications`: %v\n", resp)
 }
 ```
@@ -2272,7 +2272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMyNotificationsResponse**](GetMyNotificationsResponse.md)
+[**GetUserNotificationsResponse**](GetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -2290,7 +2290,7 @@ No authorization required
 
 ## GetUserPresenceStatuses
 
-> GetUserPresenceStatusesResponse GetUserPresenceStatuses(ctx).TenantId(tenantId).UrlIdWS(urlIdWS).UserIds(userIds).Execute()
+> GetUserPresenceStatusesResponse1 GetUserPresenceStatuses(ctx).TenantId(tenantId).UrlIdWS(urlIdWS).UserIds(userIds).Execute()
 
 
 
@@ -2318,7 +2318,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserPresenceStatuses``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserPresenceStatuses`: GetUserPresenceStatusesResponse
+	// response from `GetUserPresenceStatuses`: GetUserPresenceStatusesResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserPresenceStatuses`: %v\n", resp)
 }
 ```
@@ -2340,7 +2340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserPresenceStatusesResponse**](GetUserPresenceStatusesResponse.md)
+[**GetUserPresenceStatusesResponse1**](GetUserPresenceStatusesResponse1.md)
 
 ### Authorization
 
@@ -2358,7 +2358,7 @@ No authorization required
 
 ## GetUserReactsPublic
 
-> UserReactsResponse GetUserReactsPublic(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
+> GetUserReactsPublicResponse GetUserReactsPublic(ctx, tenantId).PostIds(postIds).Sso(sso).Execute()
 
 
 
@@ -2386,7 +2386,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUserReactsPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserReactsPublic`: UserReactsResponse
+	// response from `GetUserReactsPublic`: GetUserReactsPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUserReactsPublic`: %v\n", resp)
 }
 ```
@@ -2412,7 +2412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserReactsResponse**](UserReactsResponse.md)
+[**GetUserReactsPublicResponse**](GetUserReactsPublicResponse.md)
 
 ### Authorization
 
@@ -2430,7 +2430,7 @@ No authorization required
 
 ## GetUsersInfo
 
-> PageUsersInfoResponse GetUsersInfo(ctx, tenantId).Ids(ids).Execute()
+> GetUsersInfoResponse GetUsersInfo(ctx, tenantId).Ids(ids).Execute()
 
 
 
@@ -2459,7 +2459,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetUsersInfo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUsersInfo`: PageUsersInfoResponse
+	// response from `GetUsersInfo`: GetUsersInfoResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetUsersInfo`: %v\n", resp)
 }
 ```
@@ -2484,7 +2484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageUsersInfoResponse**](PageUsersInfoResponse.md)
+[**GetUsersInfoResponse**](GetUsersInfoResponse.md)
 
 ### Authorization
 
@@ -2502,7 +2502,7 @@ No authorization required
 
 ## GetV1PageLikes
 
-> GetV1PageLikes GetV1PageLikes(ctx, tenantId).UrlId(urlId).Execute()
+> GetV1PageLikesResponse GetV1PageLikes(ctx, tenantId).UrlId(urlId).Execute()
 
 
 
@@ -2529,7 +2529,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetV1PageLikes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetV1PageLikes`: GetV1PageLikes
+	// response from `GetV1PageLikes`: GetV1PageLikesResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetV1PageLikes`: %v\n", resp)
 }
 ```
@@ -2554,7 +2554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetV1PageLikes**](GetV1PageLikes.md)
+[**GetV1PageLikesResponse**](GetV1PageLikesResponse.md)
 
 ### Authorization
 
@@ -2572,7 +2572,7 @@ No authorization required
 
 ## GetV2PageReactUsers
 
-> GetV2PageReactUsersResponse GetV2PageReactUsers(ctx, tenantId).UrlId(urlId).Id(id).Execute()
+> GetV2PageReactUsersResponse1 GetV2PageReactUsers(ctx, tenantId).UrlId(urlId).Id(id).Execute()
 
 
 
@@ -2600,7 +2600,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetV2PageReactUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetV2PageReactUsers`: GetV2PageReactUsersResponse
+	// response from `GetV2PageReactUsers`: GetV2PageReactUsersResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetV2PageReactUsers`: %v\n", resp)
 }
 ```
@@ -2626,7 +2626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetV2PageReactUsersResponse**](GetV2PageReactUsersResponse.md)
+[**GetV2PageReactUsersResponse1**](GetV2PageReactUsersResponse1.md)
 
 ### Authorization
 
@@ -2644,7 +2644,7 @@ No authorization required
 
 ## GetV2PageReacts
 
-> GetV2PageReacts GetV2PageReacts(ctx, tenantId).UrlId(urlId).Execute()
+> GetV2PageReactsResponse GetV2PageReacts(ctx, tenantId).UrlId(urlId).Execute()
 
 
 
@@ -2671,7 +2671,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetV2PageReacts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetV2PageReacts`: GetV2PageReacts
+	// response from `GetV2PageReacts`: GetV2PageReactsResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetV2PageReacts`: %v\n", resp)
 }
 ```
@@ -2696,7 +2696,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetV2PageReacts**](GetV2PageReacts.md)
+[**GetV2PageReactsResponse**](GetV2PageReactsResponse.md)
 
 ### Authorization
 
@@ -2714,7 +2714,7 @@ No authorization required
 
 ## LockComment
 
-> APIEmptyResponse LockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> LockCommentResponse LockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2743,7 +2743,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.LockComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `LockComment`: APIEmptyResponse
+	// response from `LockComment`: LockCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.LockComment`: %v\n", resp)
 }
 ```
@@ -2771,7 +2771,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**LockCommentResponse**](LockCommentResponse.md)
 
 ### Authorization
 
@@ -2848,7 +2848,7 @@ No authorization required
 
 ## PinComment
 
-> ChangeCommentPinStatusResponse PinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> PinCommentResponse PinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2877,7 +2877,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.PinComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PinComment`: ChangeCommentPinStatusResponse
+	// response from `PinComment`: PinCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.PinComment`: %v\n", resp)
 }
 ```
@@ -2905,7 +2905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**PinCommentResponse**](PinCommentResponse.md)
 
 ### Authorization
 
@@ -2923,7 +2923,7 @@ No authorization required
 
 ## ReactFeedPostPublic
 
-> ReactFeedPostResponse ReactFeedPostPublic(ctx, tenantId, postId).ReactBodyParams(reactBodyParams).IsUndo(isUndo).BroadcastId(broadcastId).Sso(sso).Execute()
+> ReactFeedPostPublicResponse ReactFeedPostPublic(ctx, tenantId, postId).ReactBodyParams(reactBodyParams).IsUndo(isUndo).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2954,7 +2954,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.ReactFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ReactFeedPostPublic`: ReactFeedPostResponse
+	// response from `ReactFeedPostPublic`: ReactFeedPostPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.ReactFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -2984,7 +2984,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReactFeedPostResponse**](ReactFeedPostResponse.md)
+[**ReactFeedPostPublicResponse**](ReactFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -3002,7 +3002,7 @@ No authorization required
 
 ## ResetUserNotificationCount
 
-> ResetUserNotificationsResponse ResetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
+> ResetUserNotificationCountResponse ResetUserNotificationCount(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -3029,7 +3029,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.ResetUserNotificationCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResetUserNotificationCount`: ResetUserNotificationsResponse
+	// response from `ResetUserNotificationCount`: ResetUserNotificationCountResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.ResetUserNotificationCount`: %v\n", resp)
 }
 ```
@@ -3050,7 +3050,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**ResetUserNotificationCountResponse**](ResetUserNotificationCountResponse.md)
 
 ### Authorization
 
@@ -3068,7 +3068,7 @@ No authorization required
 
 ## ResetUserNotifications
 
-> ResetUserNotificationsResponse ResetUserNotifications(ctx).TenantId(tenantId).AfterId(afterId).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).Sso(sso).Execute()
+> ResetUserNotificationsResponse1 ResetUserNotifications(ctx).TenantId(tenantId).AfterId(afterId).AfterCreatedAt(afterCreatedAt).UnreadOnly(unreadOnly).DmOnly(dmOnly).NoDm(noDm).Sso(sso).Execute()
 
 
 
@@ -3100,7 +3100,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.ResetUserNotifications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResetUserNotifications`: ResetUserNotificationsResponse
+	// response from `ResetUserNotifications`: ResetUserNotificationsResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.ResetUserNotifications`: %v\n", resp)
 }
 ```
@@ -3126,7 +3126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**ResetUserNotificationsResponse1**](ResetUserNotificationsResponse1.md)
 
 ### Authorization
 
@@ -3144,7 +3144,7 @@ No authorization required
 
 ## SearchUsers
 
-> SearchUsersResult SearchUsers(ctx, tenantId).UrlId(urlId).UsernameStartsWith(usernameStartsWith).MentionGroupIds(mentionGroupIds).Sso(sso).SearchSection(searchSection).Execute()
+> SearchUsersResponse1 SearchUsers(ctx, tenantId).UrlId(urlId).UsernameStartsWith(usernameStartsWith).MentionGroupIds(mentionGroupIds).Sso(sso).SearchSection(searchSection).Execute()
 
 
 
@@ -3175,7 +3175,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.SearchUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SearchUsers`: SearchUsersResult
+	// response from `SearchUsers`: SearchUsersResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.SearchUsers`: %v\n", resp)
 }
 ```
@@ -3204,7 +3204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchUsersResult**](SearchUsersResult.md)
+[**SearchUsersResponse1**](SearchUsersResponse1.md)
 
 ### Authorization
 
@@ -3222,7 +3222,7 @@ No authorization required
 
 ## SetCommentText
 
-> PublicAPISetCommentTextResponse SetCommentText(ctx, tenantId, commentId).BroadcastId(broadcastId).CommentTextUpdateRequest(commentTextUpdateRequest).EditKey(editKey).Sso(sso).Execute()
+> SetCommentTextResponse1 SetCommentText(ctx, tenantId, commentId).BroadcastId(broadcastId).CommentTextUpdateRequest(commentTextUpdateRequest).EditKey(editKey).Sso(sso).Execute()
 
 
 
@@ -3253,7 +3253,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.SetCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SetCommentText`: PublicAPISetCommentTextResponse
+	// response from `SetCommentText`: SetCommentTextResponse1
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.SetCommentText`: %v\n", resp)
 }
 ```
@@ -3283,7 +3283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAPISetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
+[**SetCommentTextResponse1**](SetCommentTextResponse1.md)
 
 ### Authorization
 
@@ -3301,7 +3301,7 @@ No authorization required
 
 ## UnBlockCommentPublic
 
-> UnblockSuccess UnBlockCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
+> UnBlockCommentPublicResponse UnBlockCommentPublic(ctx, commentId).TenantId(tenantId).PublicBlockFromCommentParams(publicBlockFromCommentParams).Sso(sso).Execute()
 
 
 
@@ -3330,7 +3330,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UnBlockCommentPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnBlockCommentPublic`: UnblockSuccess
+	// response from `UnBlockCommentPublic`: UnBlockCommentPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UnBlockCommentPublic`: %v\n", resp)
 }
 ```
@@ -3357,7 +3357,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnblockSuccess**](UnblockSuccess.md)
+[**UnBlockCommentPublicResponse**](UnBlockCommentPublicResponse.md)
 
 ### Authorization
 
@@ -3375,7 +3375,7 @@ No authorization required
 
 ## UnLockComment
 
-> APIEmptyResponse UnLockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> UnLockCommentResponse UnLockComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -3404,7 +3404,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UnLockComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnLockComment`: APIEmptyResponse
+	// response from `UnLockComment`: UnLockCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UnLockComment`: %v\n", resp)
 }
 ```
@@ -3432,7 +3432,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UnLockCommentResponse**](UnLockCommentResponse.md)
 
 ### Authorization
 
@@ -3450,7 +3450,7 @@ No authorization required
 
 ## UnPinComment
 
-> ChangeCommentPinStatusResponse UnPinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
+> UnPinCommentResponse UnPinComment(ctx, tenantId, commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -3479,7 +3479,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UnPinComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UnPinComment`: ChangeCommentPinStatusResponse
+	// response from `UnPinComment`: UnPinCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UnPinComment`: %v\n", resp)
 }
 ```
@@ -3507,7 +3507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**UnPinCommentResponse**](UnPinCommentResponse.md)
 
 ### Authorization
 
@@ -3525,7 +3525,7 @@ No authorization required
 
 ## UpdateFeedPostPublic
 
-> CreateFeedPostResponse UpdateFeedPostPublic(ctx, tenantId, postId).UpdateFeedPostParams(updateFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
+> UpdateFeedPostPublicResponse UpdateFeedPostPublic(ctx, tenantId, postId).UpdateFeedPostParams(updateFeedPostParams).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -3555,7 +3555,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.UpdateFeedPostPublic``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateFeedPostPublic`: CreateFeedPostResponse
+	// response from `UpdateFeedPostPublic`: UpdateFeedPostPublicResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.UpdateFeedPostPublic`: %v\n", resp)
 }
 ```
@@ -3584,7 +3584,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**UpdateFeedPostPublicResponse**](UpdateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -3912,7 +3912,7 @@ No authorization required
 
 ## VoteComment
 
-> VoteResponse VoteComment(ctx, tenantId, commentId).UrlId(urlId).BroadcastId(broadcastId).VoteBodyParams(voteBodyParams).SessionId(sessionId).Sso(sso).Execute()
+> VoteCommentResponse VoteComment(ctx, tenantId, commentId).UrlId(urlId).BroadcastId(broadcastId).VoteBodyParams(voteBodyParams).SessionId(sessionId).Sso(sso).Execute()
 
 
 
@@ -3944,7 +3944,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.VoteComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VoteComment`: VoteResponse
+	// response from `VoteComment`: VoteCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.VoteComment`: %v\n", resp)
 }
 ```
@@ -3975,7 +3975,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteResponse**](VoteResponse.md)
+[**VoteCommentResponse**](VoteCommentResponse.md)
 
 ### Authorization
 
