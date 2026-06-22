@@ -18,7 +18,6 @@ import (
 
 // PostRemoveCommentResponse struct for PostRemoveCommentResponse
 type PostRemoveCommentResponse struct {
-	APIError *APIError
 	DeleteCommentResult *DeleteCommentResult
 	RemoveCommentActionResponse *RemoveCommentActionResponse
 }
@@ -26,19 +25,6 @@ type PostRemoveCommentResponse struct {
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *PostRemoveCommentResponse) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into APIError
-	err = json.Unmarshal(data, &dst.APIError);
-	if err == nil {
-		jsonAPIError, _ := json.Marshal(dst.APIError)
-		if string(jsonAPIError) == "{}" { // empty struct
-			dst.APIError = nil
-		} else {
-			return nil // data stored in dst.APIError, return on the first match
-		}
-	} else {
-		dst.APIError = nil
-	}
-
 	// try to unmarshal JSON data into DeleteCommentResult
 	err = json.Unmarshal(data, &dst.DeleteCommentResult);
 	if err == nil {
@@ -70,10 +56,6 @@ func (dst *PostRemoveCommentResponse) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src PostRemoveCommentResponse) MarshalJSON() ([]byte, error) {
-	if src.APIError != nil {
-		return json.Marshal(&src.APIError)
-	}
-
 	if src.DeleteCommentResult != nil {
 		return json.Marshal(&src.DeleteCommentResult)
 	}

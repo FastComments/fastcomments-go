@@ -174,7 +174,7 @@ func (r ApiAddHashTagRequest) CreateHashTagBody(createHashTagBody CreateHashTagB
 	return r
 }
 
-func (r ApiAddHashTagRequest) Execute() (*AddHashTagResponse, *http.Response, error) {
+func (r ApiAddHashTagRequest) Execute() (*CreateHashTagResponse, *http.Response, error) {
 	return r.ApiService.AddHashTagExecute(r)
 }
 
@@ -192,13 +192,13 @@ func (a *DefaultAPIService) AddHashTag(ctx context.Context) ApiAddHashTagRequest
 }
 
 // Execute executes the request
-//  @return AddHashTagResponse
-func (a *DefaultAPIService) AddHashTagExecute(r ApiAddHashTagRequest) (*AddHashTagResponse, *http.Response, error) {
+//  @return CreateHashTagResponse
+func (a *DefaultAPIService) AddHashTagExecute(r ApiAddHashTagRequest) (*CreateHashTagResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AddHashTagResponse
+		localVarReturnValue  *CreateHashTagResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.AddHashTag")
@@ -270,6 +270,14 @@ func (a *DefaultAPIService) AddHashTagExecute(r ApiAddHashTagRequest) (*AddHashT
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -302,7 +310,7 @@ func (r ApiAddHashTagsBulkRequest) BulkCreateHashTagsBody(bulkCreateHashTagsBody
 	return r
 }
 
-func (r ApiAddHashTagsBulkRequest) Execute() (*AddHashTagsBulkResponse, *http.Response, error) {
+func (r ApiAddHashTagsBulkRequest) Execute() (*BulkCreateHashTagsResponse, *http.Response, error) {
 	return r.ApiService.AddHashTagsBulkExecute(r)
 }
 
@@ -320,13 +328,13 @@ func (a *DefaultAPIService) AddHashTagsBulk(ctx context.Context) ApiAddHashTagsB
 }
 
 // Execute executes the request
-//  @return AddHashTagsBulkResponse
-func (a *DefaultAPIService) AddHashTagsBulkExecute(r ApiAddHashTagsBulkRequest) (*AddHashTagsBulkResponse, *http.Response, error) {
+//  @return BulkCreateHashTagsResponse
+func (a *DefaultAPIService) AddHashTagsBulkExecute(r ApiAddHashTagsBulkRequest) (*BulkCreateHashTagsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AddHashTagsBulkResponse
+		localVarReturnValue  *BulkCreateHashTagsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.AddHashTagsBulk")
@@ -398,6 +406,14 @@ func (a *DefaultAPIService) AddHashTagsBulkExecute(r ApiAddHashTagsBulkRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -877,7 +893,7 @@ func (r ApiAggregateQuestionResultsRequest) ForceRecalculate(forceRecalculate bo
 	return r
 }
 
-func (r ApiAggregateQuestionResultsRequest) Execute() (*AggregateQuestionResultsResponse1, *http.Response, error) {
+func (r ApiAggregateQuestionResultsRequest) Execute() (*AggregateQuestionResultsResponse, *http.Response, error) {
 	return r.ApiService.AggregateQuestionResultsExecute(r)
 }
 
@@ -895,13 +911,13 @@ func (a *DefaultAPIService) AggregateQuestionResults(ctx context.Context) ApiAgg
 }
 
 // Execute executes the request
-//  @return AggregateQuestionResultsResponse1
-func (a *DefaultAPIService) AggregateQuestionResultsExecute(r ApiAggregateQuestionResultsRequest) (*AggregateQuestionResultsResponse1, *http.Response, error) {
+//  @return AggregateQuestionResultsResponse
+func (a *DefaultAPIService) AggregateQuestionResultsExecute(r ApiAggregateQuestionResultsRequest) (*AggregateQuestionResultsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AggregateQuestionResultsResponse1
+		localVarReturnValue  *AggregateQuestionResultsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.AggregateQuestionResults")
@@ -998,6 +1014,14 @@ func (a *DefaultAPIService) AggregateQuestionResultsExecute(r ApiAggregateQuesti
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1043,7 +1067,7 @@ func (r ApiBlockUserFromCommentRequest) AnonUserId(anonUserId string) ApiBlockUs
 	return r
 }
 
-func (r ApiBlockUserFromCommentRequest) Execute() (*BlockUserFromCommentResponse, *http.Response, error) {
+func (r ApiBlockUserFromCommentRequest) Execute() (*BlockSuccess, *http.Response, error) {
 	return r.ApiService.BlockUserFromCommentExecute(r)
 }
 
@@ -1063,13 +1087,13 @@ func (a *DefaultAPIService) BlockUserFromComment(ctx context.Context, id string)
 }
 
 // Execute executes the request
-//  @return BlockUserFromCommentResponse
-func (a *DefaultAPIService) BlockUserFromCommentExecute(r ApiBlockUserFromCommentRequest) (*BlockUserFromCommentResponse, *http.Response, error) {
+//  @return BlockSuccess
+func (a *DefaultAPIService) BlockUserFromCommentExecute(r ApiBlockUserFromCommentRequest) (*BlockSuccess, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BlockUserFromCommentResponse
+		localVarReturnValue  *BlockSuccess
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.BlockUserFromComment")
@@ -1152,6 +1176,14 @@ func (a *DefaultAPIService) BlockUserFromCommentExecute(r ApiBlockUserFromCommen
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1190,7 +1222,7 @@ func (r ApiBulkAggregateQuestionResultsRequest) ForceRecalculate(forceRecalculat
 	return r
 }
 
-func (r ApiBulkAggregateQuestionResultsRequest) Execute() (*BulkAggregateQuestionResultsResponse1, *http.Response, error) {
+func (r ApiBulkAggregateQuestionResultsRequest) Execute() (*BulkAggregateQuestionResultsResponse, *http.Response, error) {
 	return r.ApiService.BulkAggregateQuestionResultsExecute(r)
 }
 
@@ -1208,13 +1240,13 @@ func (a *DefaultAPIService) BulkAggregateQuestionResults(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return BulkAggregateQuestionResultsResponse1
-func (a *DefaultAPIService) BulkAggregateQuestionResultsExecute(r ApiBulkAggregateQuestionResultsRequest) (*BulkAggregateQuestionResultsResponse1, *http.Response, error) {
+//  @return BulkAggregateQuestionResultsResponse
+func (a *DefaultAPIService) BulkAggregateQuestionResultsExecute(r ApiBulkAggregateQuestionResultsRequest) (*BulkAggregateQuestionResultsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BulkAggregateQuestionResultsResponse1
+		localVarReturnValue  *BulkAggregateQuestionResultsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.BulkAggregateQuestionResults")
@@ -1293,6 +1325,14 @@ func (a *DefaultAPIService) BulkAggregateQuestionResultsExecute(r ApiBulkAggrega
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1332,7 +1372,7 @@ func (r ApiChangeTicketStateRequest) ChangeTicketStateBody(changeTicketStateBody
 	return r
 }
 
-func (r ApiChangeTicketStateRequest) Execute() (*ChangeTicketStateResponse1, *http.Response, error) {
+func (r ApiChangeTicketStateRequest) Execute() (*ChangeTicketStateResponse, *http.Response, error) {
 	return r.ApiService.ChangeTicketStateExecute(r)
 }
 
@@ -1352,13 +1392,13 @@ func (a *DefaultAPIService) ChangeTicketState(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return ChangeTicketStateResponse1
-func (a *DefaultAPIService) ChangeTicketStateExecute(r ApiChangeTicketStateRequest) (*ChangeTicketStateResponse1, *http.Response, error) {
+//  @return ChangeTicketStateResponse
+func (a *DefaultAPIService) ChangeTicketStateExecute(r ApiChangeTicketStateRequest) (*ChangeTicketStateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ChangeTicketStateResponse1
+		localVarReturnValue  *ChangeTicketStateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ChangeTicketState")
@@ -1439,6 +1479,14 @@ func (a *DefaultAPIService) ChangeTicketStateExecute(r ApiChangeTicketStateReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1513,7 +1561,7 @@ func (r ApiCombineCommentsWithQuestionResultsRequest) Limit(limit float64) ApiCo
 	return r
 }
 
-func (r ApiCombineCommentsWithQuestionResultsRequest) Execute() (*CombineCommentsWithQuestionResultsResponse, *http.Response, error) {
+func (r ApiCombineCommentsWithQuestionResultsRequest) Execute() (*CombineQuestionResultsWithCommentsResponse, *http.Response, error) {
 	return r.ApiService.CombineCommentsWithQuestionResultsExecute(r)
 }
 
@@ -1531,13 +1579,13 @@ func (a *DefaultAPIService) CombineCommentsWithQuestionResults(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return CombineCommentsWithQuestionResultsResponse
-func (a *DefaultAPIService) CombineCommentsWithQuestionResultsExecute(r ApiCombineCommentsWithQuestionResultsRequest) (*CombineCommentsWithQuestionResultsResponse, *http.Response, error) {
+//  @return CombineQuestionResultsWithCommentsResponse
+func (a *DefaultAPIService) CombineCommentsWithQuestionResultsExecute(r ApiCombineCommentsWithQuestionResultsRequest) (*CombineQuestionResultsWithCommentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CombineCommentsWithQuestionResultsResponse
+		localVarReturnValue  *CombineQuestionResultsWithCommentsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CombineCommentsWithQuestionResults")
@@ -1640,6 +1688,14 @@ func (a *DefaultAPIService) CombineCommentsWithQuestionResultsExecute(r ApiCombi
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1672,7 +1728,7 @@ func (r ApiCreateEmailTemplateRequest) CreateEmailTemplateBody(createEmailTempla
 	return r
 }
 
-func (r ApiCreateEmailTemplateRequest) Execute() (*CreateEmailTemplateResponse1, *http.Response, error) {
+func (r ApiCreateEmailTemplateRequest) Execute() (*CreateEmailTemplateResponse, *http.Response, error) {
 	return r.ApiService.CreateEmailTemplateExecute(r)
 }
 
@@ -1690,13 +1746,13 @@ func (a *DefaultAPIService) CreateEmailTemplate(ctx context.Context) ApiCreateEm
 }
 
 // Execute executes the request
-//  @return CreateEmailTemplateResponse1
-func (a *DefaultAPIService) CreateEmailTemplateExecute(r ApiCreateEmailTemplateRequest) (*CreateEmailTemplateResponse1, *http.Response, error) {
+//  @return CreateEmailTemplateResponse
+func (a *DefaultAPIService) CreateEmailTemplateExecute(r ApiCreateEmailTemplateRequest) (*CreateEmailTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateEmailTemplateResponse1
+		localVarReturnValue  *CreateEmailTemplateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateEmailTemplate")
@@ -1772,6 +1828,14 @@ func (a *DefaultAPIService) CreateEmailTemplateExecute(r ApiCreateEmailTemplateR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1828,7 +1892,7 @@ func (r ApiCreateFeedPostRequest) SkipDupCheck(skipDupCheck bool) ApiCreateFeedP
 	return r
 }
 
-func (r ApiCreateFeedPostRequest) Execute() (*CreateFeedPostResponse1, *http.Response, error) {
+func (r ApiCreateFeedPostRequest) Execute() (*CreateFeedPostsResponse, *http.Response, error) {
 	return r.ApiService.CreateFeedPostExecute(r)
 }
 
@@ -1846,13 +1910,13 @@ func (a *DefaultAPIService) CreateFeedPost(ctx context.Context) ApiCreateFeedPos
 }
 
 // Execute executes the request
-//  @return CreateFeedPostResponse1
-func (a *DefaultAPIService) CreateFeedPostExecute(r ApiCreateFeedPostRequest) (*CreateFeedPostResponse1, *http.Response, error) {
+//  @return CreateFeedPostsResponse
+func (a *DefaultAPIService) CreateFeedPostExecute(r ApiCreateFeedPostRequest) (*CreateFeedPostsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateFeedPostResponse1
+		localVarReturnValue  *CreateFeedPostsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateFeedPost")
@@ -1940,6 +2004,14 @@ func (a *DefaultAPIService) CreateFeedPostExecute(r ApiCreateFeedPostRequest) (*
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1972,7 +2044,7 @@ func (r ApiCreateModeratorRequest) CreateModeratorBody(createModeratorBody Creat
 	return r
 }
 
-func (r ApiCreateModeratorRequest) Execute() (*CreateModeratorResponse1, *http.Response, error) {
+func (r ApiCreateModeratorRequest) Execute() (*CreateModeratorResponse, *http.Response, error) {
 	return r.ApiService.CreateModeratorExecute(r)
 }
 
@@ -1990,13 +2062,13 @@ func (a *DefaultAPIService) CreateModerator(ctx context.Context) ApiCreateModera
 }
 
 // Execute executes the request
-//  @return CreateModeratorResponse1
-func (a *DefaultAPIService) CreateModeratorExecute(r ApiCreateModeratorRequest) (*CreateModeratorResponse1, *http.Response, error) {
+//  @return CreateModeratorResponse
+func (a *DefaultAPIService) CreateModeratorExecute(r ApiCreateModeratorRequest) (*CreateModeratorResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateModeratorResponse1
+		localVarReturnValue  *CreateModeratorResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateModerator")
@@ -2072,6 +2144,14 @@ func (a *DefaultAPIService) CreateModeratorExecute(r ApiCreateModeratorRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2104,7 +2184,7 @@ func (r ApiCreateQuestionConfigRequest) CreateQuestionConfigBody(createQuestionC
 	return r
 }
 
-func (r ApiCreateQuestionConfigRequest) Execute() (*CreateQuestionConfigResponse1, *http.Response, error) {
+func (r ApiCreateQuestionConfigRequest) Execute() (*CreateQuestionConfigResponse, *http.Response, error) {
 	return r.ApiService.CreateQuestionConfigExecute(r)
 }
 
@@ -2122,13 +2202,13 @@ func (a *DefaultAPIService) CreateQuestionConfig(ctx context.Context) ApiCreateQ
 }
 
 // Execute executes the request
-//  @return CreateQuestionConfigResponse1
-func (a *DefaultAPIService) CreateQuestionConfigExecute(r ApiCreateQuestionConfigRequest) (*CreateQuestionConfigResponse1, *http.Response, error) {
+//  @return CreateQuestionConfigResponse
+func (a *DefaultAPIService) CreateQuestionConfigExecute(r ApiCreateQuestionConfigRequest) (*CreateQuestionConfigResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateQuestionConfigResponse1
+		localVarReturnValue  *CreateQuestionConfigResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateQuestionConfig")
@@ -2204,6 +2284,14 @@ func (a *DefaultAPIService) CreateQuestionConfigExecute(r ApiCreateQuestionConfi
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2236,7 +2324,7 @@ func (r ApiCreateQuestionResultRequest) CreateQuestionResultBody(createQuestionR
 	return r
 }
 
-func (r ApiCreateQuestionResultRequest) Execute() (*CreateQuestionResultResponse1, *http.Response, error) {
+func (r ApiCreateQuestionResultRequest) Execute() (*CreateQuestionResultResponse, *http.Response, error) {
 	return r.ApiService.CreateQuestionResultExecute(r)
 }
 
@@ -2254,13 +2342,13 @@ func (a *DefaultAPIService) CreateQuestionResult(ctx context.Context) ApiCreateQ
 }
 
 // Execute executes the request
-//  @return CreateQuestionResultResponse1
-func (a *DefaultAPIService) CreateQuestionResultExecute(r ApiCreateQuestionResultRequest) (*CreateQuestionResultResponse1, *http.Response, error) {
+//  @return CreateQuestionResultResponse
+func (a *DefaultAPIService) CreateQuestionResultExecute(r ApiCreateQuestionResultRequest) (*CreateQuestionResultResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateQuestionResultResponse1
+		localVarReturnValue  *CreateQuestionResultResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateQuestionResult")
@@ -2336,6 +2424,14 @@ func (a *DefaultAPIService) CreateQuestionResultExecute(r ApiCreateQuestionResul
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2500,7 +2596,7 @@ func (r ApiCreateTenantRequest) CreateTenantBody(createTenantBody CreateTenantBo
 	return r
 }
 
-func (r ApiCreateTenantRequest) Execute() (*CreateTenantResponse1, *http.Response, error) {
+func (r ApiCreateTenantRequest) Execute() (*CreateTenantResponse, *http.Response, error) {
 	return r.ApiService.CreateTenantExecute(r)
 }
 
@@ -2518,13 +2614,13 @@ func (a *DefaultAPIService) CreateTenant(ctx context.Context) ApiCreateTenantReq
 }
 
 // Execute executes the request
-//  @return CreateTenantResponse1
-func (a *DefaultAPIService) CreateTenantExecute(r ApiCreateTenantRequest) (*CreateTenantResponse1, *http.Response, error) {
+//  @return CreateTenantResponse
+func (a *DefaultAPIService) CreateTenantExecute(r ApiCreateTenantRequest) (*CreateTenantResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateTenantResponse1
+		localVarReturnValue  *CreateTenantResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateTenant")
@@ -2600,6 +2696,14 @@ func (a *DefaultAPIService) CreateTenantExecute(r ApiCreateTenantRequest) (*Crea
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2632,7 +2736,7 @@ func (r ApiCreateTenantPackageRequest) CreateTenantPackageBody(createTenantPacka
 	return r
 }
 
-func (r ApiCreateTenantPackageRequest) Execute() (*CreateTenantPackageResponse1, *http.Response, error) {
+func (r ApiCreateTenantPackageRequest) Execute() (*CreateTenantPackageResponse, *http.Response, error) {
 	return r.ApiService.CreateTenantPackageExecute(r)
 }
 
@@ -2650,13 +2754,13 @@ func (a *DefaultAPIService) CreateTenantPackage(ctx context.Context) ApiCreateTe
 }
 
 // Execute executes the request
-//  @return CreateTenantPackageResponse1
-func (a *DefaultAPIService) CreateTenantPackageExecute(r ApiCreateTenantPackageRequest) (*CreateTenantPackageResponse1, *http.Response, error) {
+//  @return CreateTenantPackageResponse
+func (a *DefaultAPIService) CreateTenantPackageExecute(r ApiCreateTenantPackageRequest) (*CreateTenantPackageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateTenantPackageResponse1
+		localVarReturnValue  *CreateTenantPackageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateTenantPackage")
@@ -2732,6 +2836,14 @@ func (a *DefaultAPIService) CreateTenantPackageExecute(r ApiCreateTenantPackageR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2764,7 +2876,7 @@ func (r ApiCreateTenantUserRequest) CreateTenantUserBody(createTenantUserBody Cr
 	return r
 }
 
-func (r ApiCreateTenantUserRequest) Execute() (*CreateTenantUserResponse1, *http.Response, error) {
+func (r ApiCreateTenantUserRequest) Execute() (*CreateTenantUserResponse, *http.Response, error) {
 	return r.ApiService.CreateTenantUserExecute(r)
 }
 
@@ -2782,13 +2894,13 @@ func (a *DefaultAPIService) CreateTenantUser(ctx context.Context) ApiCreateTenan
 }
 
 // Execute executes the request
-//  @return CreateTenantUserResponse1
-func (a *DefaultAPIService) CreateTenantUserExecute(r ApiCreateTenantUserRequest) (*CreateTenantUserResponse1, *http.Response, error) {
+//  @return CreateTenantUserResponse
+func (a *DefaultAPIService) CreateTenantUserExecute(r ApiCreateTenantUserRequest) (*CreateTenantUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateTenantUserResponse1
+		localVarReturnValue  *CreateTenantUserResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateTenantUser")
@@ -2864,6 +2976,14 @@ func (a *DefaultAPIService) CreateTenantUserExecute(r ApiCreateTenantUserRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2902,7 +3022,7 @@ func (r ApiCreateTicketRequest) CreateTicketBody(createTicketBody CreateTicketBo
 	return r
 }
 
-func (r ApiCreateTicketRequest) Execute() (*CreateTicketResponse1, *http.Response, error) {
+func (r ApiCreateTicketRequest) Execute() (*CreateTicketResponse, *http.Response, error) {
 	return r.ApiService.CreateTicketExecute(r)
 }
 
@@ -2920,13 +3040,13 @@ func (a *DefaultAPIService) CreateTicket(ctx context.Context) ApiCreateTicketReq
 }
 
 // Execute executes the request
-//  @return CreateTicketResponse1
-func (a *DefaultAPIService) CreateTicketExecute(r ApiCreateTicketRequest) (*CreateTicketResponse1, *http.Response, error) {
+//  @return CreateTicketResponse
+func (a *DefaultAPIService) CreateTicketExecute(r ApiCreateTicketRequest) (*CreateTicketResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateTicketResponse1
+		localVarReturnValue  *CreateTicketResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateTicket")
@@ -3006,6 +3126,14 @@ func (a *DefaultAPIService) CreateTicketExecute(r ApiCreateTicketRequest) (*Crea
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3038,7 +3166,7 @@ func (r ApiCreateUserBadgeRequest) CreateUserBadgeParams(createUserBadgeParams C
 	return r
 }
 
-func (r ApiCreateUserBadgeRequest) Execute() (*CreateUserBadgeResponse, *http.Response, error) {
+func (r ApiCreateUserBadgeRequest) Execute() (*APICreateUserBadgeResponse, *http.Response, error) {
 	return r.ApiService.CreateUserBadgeExecute(r)
 }
 
@@ -3056,13 +3184,13 @@ func (a *DefaultAPIService) CreateUserBadge(ctx context.Context) ApiCreateUserBa
 }
 
 // Execute executes the request
-//  @return CreateUserBadgeResponse
-func (a *DefaultAPIService) CreateUserBadgeExecute(r ApiCreateUserBadgeRequest) (*CreateUserBadgeResponse, *http.Response, error) {
+//  @return APICreateUserBadgeResponse
+func (a *DefaultAPIService) CreateUserBadgeExecute(r ApiCreateUserBadgeRequest) (*APICreateUserBadgeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateUserBadgeResponse
+		localVarReturnValue  *APICreateUserBadgeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateUserBadge")
@@ -3138,6 +3266,14 @@ func (a *DefaultAPIService) CreateUserBadgeExecute(r ApiCreateUserBadgeRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3188,7 +3324,7 @@ func (r ApiCreateVoteRequest) AnonUserId(anonUserId string) ApiCreateVoteRequest
 	return r
 }
 
-func (r ApiCreateVoteRequest) Execute() (*CreateVoteResponse, *http.Response, error) {
+func (r ApiCreateVoteRequest) Execute() (*VoteResponse, *http.Response, error) {
 	return r.ApiService.CreateVoteExecute(r)
 }
 
@@ -3206,13 +3342,13 @@ func (a *DefaultAPIService) CreateVote(ctx context.Context) ApiCreateVoteRequest
 }
 
 // Execute executes the request
-//  @return CreateVoteResponse
-func (a *DefaultAPIService) CreateVoteExecute(r ApiCreateVoteRequest) (*CreateVoteResponse, *http.Response, error) {
+//  @return VoteResponse
+func (a *DefaultAPIService) CreateVoteExecute(r ApiCreateVoteRequest) (*VoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateVoteResponse
+		localVarReturnValue  *VoteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateVote")
@@ -3297,6 +3433,14 @@ func (a *DefaultAPIService) CreateVoteExecute(r ApiCreateVoteRequest) (*CreateVo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3336,7 +3480,7 @@ func (r ApiDeleteCommentRequest) IsLive(isLive bool) ApiDeleteCommentRequest {
 	return r
 }
 
-func (r ApiDeleteCommentRequest) Execute() (*DeleteCommentResponse, *http.Response, error) {
+func (r ApiDeleteCommentRequest) Execute() (*DeleteCommentResult, *http.Response, error) {
 	return r.ApiService.DeleteCommentExecute(r)
 }
 
@@ -3356,13 +3500,13 @@ func (a *DefaultAPIService) DeleteComment(ctx context.Context, id string) ApiDel
 }
 
 // Execute executes the request
-//  @return DeleteCommentResponse
-func (a *DefaultAPIService) DeleteCommentExecute(r ApiDeleteCommentRequest) (*DeleteCommentResponse, *http.Response, error) {
+//  @return DeleteCommentResult
+func (a *DefaultAPIService) DeleteCommentExecute(r ApiDeleteCommentRequest) (*DeleteCommentResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteCommentResponse
+		localVarReturnValue  *DeleteCommentResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteComment")
@@ -3440,6 +3584,14 @@ func (a *DefaultAPIService) DeleteCommentExecute(r ApiDeleteCommentRequest) (*De
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3592,7 +3744,7 @@ func (r ApiDeleteEmailTemplateRequest) TenantId(tenantId string) ApiDeleteEmailT
 	return r
 }
 
-func (r ApiDeleteEmailTemplateRequest) Execute() (*DeleteEmailTemplateResponse, *http.Response, error) {
+func (r ApiDeleteEmailTemplateRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteEmailTemplateExecute(r)
 }
 
@@ -3612,13 +3764,13 @@ func (a *DefaultAPIService) DeleteEmailTemplate(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return DeleteEmailTemplateResponse
-func (a *DefaultAPIService) DeleteEmailTemplateExecute(r ApiDeleteEmailTemplateRequest) (*DeleteEmailTemplateResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteEmailTemplateExecute(r ApiDeleteEmailTemplateRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteEmailTemplateResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteEmailTemplate")
@@ -3690,6 +3842,14 @@ func (a *DefaultAPIService) DeleteEmailTemplateExecute(r ApiDeleteEmailTemplateR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3718,7 +3878,7 @@ func (r ApiDeleteEmailTemplateRenderErrorRequest) TenantId(tenantId string) ApiD
 	return r
 }
 
-func (r ApiDeleteEmailTemplateRenderErrorRequest) Execute() (*DeleteEmailTemplateRenderErrorResponse, *http.Response, error) {
+func (r ApiDeleteEmailTemplateRenderErrorRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteEmailTemplateRenderErrorExecute(r)
 }
 
@@ -3740,13 +3900,13 @@ func (a *DefaultAPIService) DeleteEmailTemplateRenderError(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return DeleteEmailTemplateRenderErrorResponse
-func (a *DefaultAPIService) DeleteEmailTemplateRenderErrorExecute(r ApiDeleteEmailTemplateRenderErrorRequest) (*DeleteEmailTemplateRenderErrorResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteEmailTemplateRenderErrorExecute(r ApiDeleteEmailTemplateRenderErrorRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteEmailTemplateRenderErrorResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteEmailTemplateRenderError")
@@ -3819,6 +3979,14 @@ func (a *DefaultAPIService) DeleteEmailTemplateRenderErrorExecute(r ApiDeleteEma
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3852,7 +4020,7 @@ func (r ApiDeleteHashTagRequest) DeleteHashTagRequestBody(deleteHashTagRequestBo
 	return r
 }
 
-func (r ApiDeleteHashTagRequest) Execute() (*DeleteHashTagResponse, *http.Response, error) {
+func (r ApiDeleteHashTagRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteHashTagExecute(r)
 }
 
@@ -3872,13 +4040,13 @@ func (a *DefaultAPIService) DeleteHashTag(ctx context.Context, tag string) ApiDe
 }
 
 // Execute executes the request
-//  @return DeleteHashTagResponse
-func (a *DefaultAPIService) DeleteHashTagExecute(r ApiDeleteHashTagRequest) (*DeleteHashTagResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteHashTagExecute(r ApiDeleteHashTagRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteHashTagResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteHashTag")
@@ -3951,6 +4119,14 @@ func (a *DefaultAPIService) DeleteHashTagExecute(r ApiDeleteHashTagRequest) (*De
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3984,7 +4160,7 @@ func (r ApiDeleteModeratorRequest) SendEmail(sendEmail string) ApiDeleteModerato
 	return r
 }
 
-func (r ApiDeleteModeratorRequest) Execute() (*DeleteModeratorResponse, *http.Response, error) {
+func (r ApiDeleteModeratorRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteModeratorExecute(r)
 }
 
@@ -4004,13 +4180,13 @@ func (a *DefaultAPIService) DeleteModerator(ctx context.Context, id string) ApiD
 }
 
 // Execute executes the request
-//  @return DeleteModeratorResponse
-func (a *DefaultAPIService) DeleteModeratorExecute(r ApiDeleteModeratorRequest) (*DeleteModeratorResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteModeratorExecute(r ApiDeleteModeratorRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteModeratorResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteModerator")
@@ -4085,6 +4261,14 @@ func (a *DefaultAPIService) DeleteModeratorExecute(r ApiDeleteModeratorRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4112,7 +4296,7 @@ func (r ApiDeleteNotificationCountRequest) TenantId(tenantId string) ApiDeleteNo
 	return r
 }
 
-func (r ApiDeleteNotificationCountRequest) Execute() (*DeleteNotificationCountResponse, *http.Response, error) {
+func (r ApiDeleteNotificationCountRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteNotificationCountExecute(r)
 }
 
@@ -4132,13 +4316,13 @@ func (a *DefaultAPIService) DeleteNotificationCount(ctx context.Context, id stri
 }
 
 // Execute executes the request
-//  @return DeleteNotificationCountResponse
-func (a *DefaultAPIService) DeleteNotificationCountExecute(r ApiDeleteNotificationCountRequest) (*DeleteNotificationCountResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteNotificationCountExecute(r ApiDeleteNotificationCountRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteNotificationCountResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteNotificationCount")
@@ -4210,6 +4394,14 @@ func (a *DefaultAPIService) DeleteNotificationCountExecute(r ApiDeleteNotificati
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4362,7 +4554,7 @@ func (r ApiDeletePendingWebhookEventRequest) TenantId(tenantId string) ApiDelete
 	return r
 }
 
-func (r ApiDeletePendingWebhookEventRequest) Execute() (*DeletePendingWebhookEventResponse, *http.Response, error) {
+func (r ApiDeletePendingWebhookEventRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeletePendingWebhookEventExecute(r)
 }
 
@@ -4382,13 +4574,13 @@ func (a *DefaultAPIService) DeletePendingWebhookEvent(ctx context.Context, id st
 }
 
 // Execute executes the request
-//  @return DeletePendingWebhookEventResponse
-func (a *DefaultAPIService) DeletePendingWebhookEventExecute(r ApiDeletePendingWebhookEventRequest) (*DeletePendingWebhookEventResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeletePendingWebhookEventExecute(r ApiDeletePendingWebhookEventRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeletePendingWebhookEventResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeletePendingWebhookEvent")
@@ -4460,6 +4652,14 @@ func (a *DefaultAPIService) DeletePendingWebhookEventExecute(r ApiDeletePendingW
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4487,7 +4687,7 @@ func (r ApiDeleteQuestionConfigRequest) TenantId(tenantId string) ApiDeleteQuest
 	return r
 }
 
-func (r ApiDeleteQuestionConfigRequest) Execute() (*DeleteQuestionConfigResponse, *http.Response, error) {
+func (r ApiDeleteQuestionConfigRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteQuestionConfigExecute(r)
 }
 
@@ -4507,13 +4707,13 @@ func (a *DefaultAPIService) DeleteQuestionConfig(ctx context.Context, id string)
 }
 
 // Execute executes the request
-//  @return DeleteQuestionConfigResponse
-func (a *DefaultAPIService) DeleteQuestionConfigExecute(r ApiDeleteQuestionConfigRequest) (*DeleteQuestionConfigResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteQuestionConfigExecute(r ApiDeleteQuestionConfigRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteQuestionConfigResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteQuestionConfig")
@@ -4585,6 +4785,14 @@ func (a *DefaultAPIService) DeleteQuestionConfigExecute(r ApiDeleteQuestionConfi
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4612,7 +4820,7 @@ func (r ApiDeleteQuestionResultRequest) TenantId(tenantId string) ApiDeleteQuest
 	return r
 }
 
-func (r ApiDeleteQuestionResultRequest) Execute() (*DeleteQuestionResultResponse, *http.Response, error) {
+func (r ApiDeleteQuestionResultRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteQuestionResultExecute(r)
 }
 
@@ -4632,13 +4840,13 @@ func (a *DefaultAPIService) DeleteQuestionResult(ctx context.Context, id string)
 }
 
 // Execute executes the request
-//  @return DeleteQuestionResultResponse
-func (a *DefaultAPIService) DeleteQuestionResultExecute(r ApiDeleteQuestionResultRequest) (*DeleteQuestionResultResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteQuestionResultExecute(r ApiDeleteQuestionResultRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteQuestionResultResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteQuestionResult")
@@ -4710,6 +4918,14 @@ func (a *DefaultAPIService) DeleteQuestionResultExecute(r ApiDeleteQuestionResul
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5020,7 +5236,7 @@ func (r ApiDeleteTenantRequest) Sure(sure string) ApiDeleteTenantRequest {
 	return r
 }
 
-func (r ApiDeleteTenantRequest) Execute() (*DeleteTenantResponse, *http.Response, error) {
+func (r ApiDeleteTenantRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteTenantExecute(r)
 }
 
@@ -5040,13 +5256,13 @@ func (a *DefaultAPIService) DeleteTenant(ctx context.Context, id string) ApiDele
 }
 
 // Execute executes the request
-//  @return DeleteTenantResponse
-func (a *DefaultAPIService) DeleteTenantExecute(r ApiDeleteTenantRequest) (*DeleteTenantResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteTenantExecute(r ApiDeleteTenantRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteTenantResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteTenant")
@@ -5121,6 +5337,14 @@ func (a *DefaultAPIService) DeleteTenantExecute(r ApiDeleteTenantRequest) (*Dele
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5148,7 +5372,7 @@ func (r ApiDeleteTenantPackageRequest) TenantId(tenantId string) ApiDeleteTenant
 	return r
 }
 
-func (r ApiDeleteTenantPackageRequest) Execute() (*DeleteTenantPackageResponse, *http.Response, error) {
+func (r ApiDeleteTenantPackageRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteTenantPackageExecute(r)
 }
 
@@ -5168,13 +5392,13 @@ func (a *DefaultAPIService) DeleteTenantPackage(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return DeleteTenantPackageResponse
-func (a *DefaultAPIService) DeleteTenantPackageExecute(r ApiDeleteTenantPackageRequest) (*DeleteTenantPackageResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteTenantPackageExecute(r ApiDeleteTenantPackageRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteTenantPackageResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteTenantPackage")
@@ -5246,6 +5470,14 @@ func (a *DefaultAPIService) DeleteTenantPackageExecute(r ApiDeleteTenantPackageR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5285,7 +5517,7 @@ func (r ApiDeleteTenantUserRequest) CommentDeleteMode(commentDeleteMode string) 
 	return r
 }
 
-func (r ApiDeleteTenantUserRequest) Execute() (*DeleteTenantUserResponse, *http.Response, error) {
+func (r ApiDeleteTenantUserRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.DeleteTenantUserExecute(r)
 }
 
@@ -5305,13 +5537,13 @@ func (a *DefaultAPIService) DeleteTenantUser(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-//  @return DeleteTenantUserResponse
-func (a *DefaultAPIService) DeleteTenantUserExecute(r ApiDeleteTenantUserRequest) (*DeleteTenantUserResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) DeleteTenantUserExecute(r ApiDeleteTenantUserRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteTenantUserResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteTenantUser")
@@ -5389,6 +5621,14 @@ func (a *DefaultAPIService) DeleteTenantUserExecute(r ApiDeleteTenantUserRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5416,7 +5656,7 @@ func (r ApiDeleteUserBadgeRequest) TenantId(tenantId string) ApiDeleteUserBadgeR
 	return r
 }
 
-func (r ApiDeleteUserBadgeRequest) Execute() (*DeleteUserBadgeResponse, *http.Response, error) {
+func (r ApiDeleteUserBadgeRequest) Execute() (*APIEmptySuccessResponse, *http.Response, error) {
 	return r.ApiService.DeleteUserBadgeExecute(r)
 }
 
@@ -5436,13 +5676,13 @@ func (a *DefaultAPIService) DeleteUserBadge(ctx context.Context, id string) ApiD
 }
 
 // Execute executes the request
-//  @return DeleteUserBadgeResponse
-func (a *DefaultAPIService) DeleteUserBadgeExecute(r ApiDeleteUserBadgeRequest) (*DeleteUserBadgeResponse, *http.Response, error) {
+//  @return APIEmptySuccessResponse
+func (a *DefaultAPIService) DeleteUserBadgeExecute(r ApiDeleteUserBadgeRequest) (*APIEmptySuccessResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteUserBadgeResponse
+		localVarReturnValue  *APIEmptySuccessResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteUserBadge")
@@ -5514,6 +5754,14 @@ func (a *DefaultAPIService) DeleteUserBadgeExecute(r ApiDeleteUserBadgeRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5547,7 +5795,7 @@ func (r ApiDeleteVoteRequest) EditKey(editKey string) ApiDeleteVoteRequest {
 	return r
 }
 
-func (r ApiDeleteVoteRequest) Execute() (*DeleteVoteResponse, *http.Response, error) {
+func (r ApiDeleteVoteRequest) Execute() (*VoteDeleteResponse, *http.Response, error) {
 	return r.ApiService.DeleteVoteExecute(r)
 }
 
@@ -5567,13 +5815,13 @@ func (a *DefaultAPIService) DeleteVote(ctx context.Context, id string) ApiDelete
 }
 
 // Execute executes the request
-//  @return DeleteVoteResponse
-func (a *DefaultAPIService) DeleteVoteExecute(r ApiDeleteVoteRequest) (*DeleteVoteResponse, *http.Response, error) {
+//  @return VoteDeleteResponse
+func (a *DefaultAPIService) DeleteVoteExecute(r ApiDeleteVoteRequest) (*VoteDeleteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteVoteResponse
+		localVarReturnValue  *VoteDeleteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.DeleteVote")
@@ -5648,6 +5896,14 @@ func (a *DefaultAPIService) DeleteVoteExecute(r ApiDeleteVoteRequest) (*DeleteVo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5687,7 +5943,7 @@ func (r ApiFlagCommentRequest) AnonUserId(anonUserId string) ApiFlagCommentReque
 	return r
 }
 
-func (r ApiFlagCommentRequest) Execute() (*FlagCommentResponse1, *http.Response, error) {
+func (r ApiFlagCommentRequest) Execute() (*FlagCommentResponse, *http.Response, error) {
 	return r.ApiService.FlagCommentExecute(r)
 }
 
@@ -5707,13 +5963,13 @@ func (a *DefaultAPIService) FlagComment(ctx context.Context, id string) ApiFlagC
 }
 
 // Execute executes the request
-//  @return FlagCommentResponse1
-func (a *DefaultAPIService) FlagCommentExecute(r ApiFlagCommentRequest) (*FlagCommentResponse1, *http.Response, error) {
+//  @return FlagCommentResponse
+func (a *DefaultAPIService) FlagCommentExecute(r ApiFlagCommentRequest) (*FlagCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FlagCommentResponse1
+		localVarReturnValue  *FlagCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.FlagComment")
@@ -5791,6 +6047,14 @@ func (a *DefaultAPIService) FlagCommentExecute(r ApiFlagCommentRequest) (*FlagCo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5847,7 +6111,7 @@ func (r ApiGetAuditLogsRequest) Before(before float64) ApiGetAuditLogsRequest {
 	return r
 }
 
-func (r ApiGetAuditLogsRequest) Execute() (*GetAuditLogsResponse1, *http.Response, error) {
+func (r ApiGetAuditLogsRequest) Execute() (*GetAuditLogsResponse, *http.Response, error) {
 	return r.ApiService.GetAuditLogsExecute(r)
 }
 
@@ -5865,13 +6129,13 @@ func (a *DefaultAPIService) GetAuditLogs(ctx context.Context) ApiGetAuditLogsReq
 }
 
 // Execute executes the request
-//  @return GetAuditLogsResponse1
-func (a *DefaultAPIService) GetAuditLogsExecute(r ApiGetAuditLogsRequest) (*GetAuditLogsResponse1, *http.Response, error) {
+//  @return GetAuditLogsResponse
+func (a *DefaultAPIService) GetAuditLogsExecute(r ApiGetAuditLogsRequest) (*GetAuditLogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetAuditLogsResponse1
+		localVarReturnValue  *GetAuditLogsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetAuditLogs")
@@ -5957,6 +6221,14 @@ func (a *DefaultAPIService) GetAuditLogsExecute(r ApiGetAuditLogsRequest) (*GetA
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5984,7 +6256,7 @@ func (r ApiGetCachedNotificationCountRequest) TenantId(tenantId string) ApiGetCa
 	return r
 }
 
-func (r ApiGetCachedNotificationCountRequest) Execute() (*GetCachedNotificationCountResponse1, *http.Response, error) {
+func (r ApiGetCachedNotificationCountRequest) Execute() (*GetCachedNotificationCountResponse, *http.Response, error) {
 	return r.ApiService.GetCachedNotificationCountExecute(r)
 }
 
@@ -6004,13 +6276,13 @@ func (a *DefaultAPIService) GetCachedNotificationCount(ctx context.Context, id s
 }
 
 // Execute executes the request
-//  @return GetCachedNotificationCountResponse1
-func (a *DefaultAPIService) GetCachedNotificationCountExecute(r ApiGetCachedNotificationCountRequest) (*GetCachedNotificationCountResponse1, *http.Response, error) {
+//  @return GetCachedNotificationCountResponse
+func (a *DefaultAPIService) GetCachedNotificationCountExecute(r ApiGetCachedNotificationCountRequest) (*GetCachedNotificationCountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCachedNotificationCountResponse1
+		localVarReturnValue  *GetCachedNotificationCountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetCachedNotificationCount")
@@ -6082,6 +6354,14 @@ func (a *DefaultAPIService) GetCachedNotificationCountExecute(r ApiGetCachedNoti
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6109,7 +6389,7 @@ func (r ApiGetCommentRequest) TenantId(tenantId string) ApiGetCommentRequest {
 	return r
 }
 
-func (r ApiGetCommentRequest) Execute() (*GetCommentResponse, *http.Response, error) {
+func (r ApiGetCommentRequest) Execute() (*APIGetCommentResponse, *http.Response, error) {
 	return r.ApiService.GetCommentExecute(r)
 }
 
@@ -6129,13 +6409,13 @@ func (a *DefaultAPIService) GetComment(ctx context.Context, id string) ApiGetCom
 }
 
 // Execute executes the request
-//  @return GetCommentResponse
-func (a *DefaultAPIService) GetCommentExecute(r ApiGetCommentRequest) (*GetCommentResponse, *http.Response, error) {
+//  @return APIGetCommentResponse
+func (a *DefaultAPIService) GetCommentExecute(r ApiGetCommentRequest) (*APIGetCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentResponse
+		localVarReturnValue  *APIGetCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetComment")
@@ -6207,6 +6487,14 @@ func (a *DefaultAPIService) GetCommentExecute(r ApiGetCommentRequest) (*GetComme
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6329,7 +6617,7 @@ func (r ApiGetCommentsRequest) ToDate(toDate int64) ApiGetCommentsRequest {
 	return r
 }
 
-func (r ApiGetCommentsRequest) Execute() (*GetCommentsResponse, *http.Response, error) {
+func (r ApiGetCommentsRequest) Execute() (*APIGetCommentsResponse, *http.Response, error) {
 	return r.ApiService.GetCommentsExecute(r)
 }
 
@@ -6347,13 +6635,13 @@ func (a *DefaultAPIService) GetComments(ctx context.Context) ApiGetCommentsReque
 }
 
 // Execute executes the request
-//  @return GetCommentsResponse
-func (a *DefaultAPIService) GetCommentsExecute(r ApiGetCommentsRequest) (*GetCommentsResponse, *http.Response, error) {
+//  @return APIGetCommentsResponse
+func (a *DefaultAPIService) GetCommentsExecute(r ApiGetCommentsRequest) (*APIGetCommentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCommentsResponse
+		localVarReturnValue  *APIGetCommentsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetComments")
@@ -6472,6 +6760,14 @@ func (a *DefaultAPIService) GetCommentsExecute(r ApiGetCommentsRequest) (*GetCom
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6745,7 +7041,7 @@ func (r ApiGetEmailTemplateRequest) TenantId(tenantId string) ApiGetEmailTemplat
 	return r
 }
 
-func (r ApiGetEmailTemplateRequest) Execute() (*GetEmailTemplateResponse1, *http.Response, error) {
+func (r ApiGetEmailTemplateRequest) Execute() (*GetEmailTemplateResponse, *http.Response, error) {
 	return r.ApiService.GetEmailTemplateExecute(r)
 }
 
@@ -6765,13 +7061,13 @@ func (a *DefaultAPIService) GetEmailTemplate(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-//  @return GetEmailTemplateResponse1
-func (a *DefaultAPIService) GetEmailTemplateExecute(r ApiGetEmailTemplateRequest) (*GetEmailTemplateResponse1, *http.Response, error) {
+//  @return GetEmailTemplateResponse
+func (a *DefaultAPIService) GetEmailTemplateExecute(r ApiGetEmailTemplateRequest) (*GetEmailTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetEmailTemplateResponse1
+		localVarReturnValue  *GetEmailTemplateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetEmailTemplate")
@@ -6843,6 +7139,14 @@ func (a *DefaultAPIService) GetEmailTemplateExecute(r ApiGetEmailTemplateRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6869,7 +7173,7 @@ func (r ApiGetEmailTemplateDefinitionsRequest) TenantId(tenantId string) ApiGetE
 	return r
 }
 
-func (r ApiGetEmailTemplateDefinitionsRequest) Execute() (*GetEmailTemplateDefinitionsResponse1, *http.Response, error) {
+func (r ApiGetEmailTemplateDefinitionsRequest) Execute() (*GetEmailTemplateDefinitionsResponse, *http.Response, error) {
 	return r.ApiService.GetEmailTemplateDefinitionsExecute(r)
 }
 
@@ -6887,13 +7191,13 @@ func (a *DefaultAPIService) GetEmailTemplateDefinitions(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return GetEmailTemplateDefinitionsResponse1
-func (a *DefaultAPIService) GetEmailTemplateDefinitionsExecute(r ApiGetEmailTemplateDefinitionsRequest) (*GetEmailTemplateDefinitionsResponse1, *http.Response, error) {
+//  @return GetEmailTemplateDefinitionsResponse
+func (a *DefaultAPIService) GetEmailTemplateDefinitionsExecute(r ApiGetEmailTemplateDefinitionsRequest) (*GetEmailTemplateDefinitionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetEmailTemplateDefinitionsResponse1
+		localVarReturnValue  *GetEmailTemplateDefinitionsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetEmailTemplateDefinitions")
@@ -6964,6 +7268,14 @@ func (a *DefaultAPIService) GetEmailTemplateDefinitionsExecute(r ApiGetEmailTemp
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -6997,7 +7309,7 @@ func (r ApiGetEmailTemplateRenderErrorsRequest) Skip(skip float64) ApiGetEmailTe
 	return r
 }
 
-func (r ApiGetEmailTemplateRenderErrorsRequest) Execute() (*GetEmailTemplateRenderErrorsResponse1, *http.Response, error) {
+func (r ApiGetEmailTemplateRenderErrorsRequest) Execute() (*GetEmailTemplateRenderErrorsResponse, *http.Response, error) {
 	return r.ApiService.GetEmailTemplateRenderErrorsExecute(r)
 }
 
@@ -7017,13 +7329,13 @@ func (a *DefaultAPIService) GetEmailTemplateRenderErrors(ctx context.Context, id
 }
 
 // Execute executes the request
-//  @return GetEmailTemplateRenderErrorsResponse1
-func (a *DefaultAPIService) GetEmailTemplateRenderErrorsExecute(r ApiGetEmailTemplateRenderErrorsRequest) (*GetEmailTemplateRenderErrorsResponse1, *http.Response, error) {
+//  @return GetEmailTemplateRenderErrorsResponse
+func (a *DefaultAPIService) GetEmailTemplateRenderErrorsExecute(r ApiGetEmailTemplateRenderErrorsRequest) (*GetEmailTemplateRenderErrorsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetEmailTemplateRenderErrorsResponse1
+		localVarReturnValue  *GetEmailTemplateRenderErrorsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetEmailTemplateRenderErrors")
@@ -7098,6 +7410,14 @@ func (a *DefaultAPIService) GetEmailTemplateRenderErrorsExecute(r ApiGetEmailTem
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7130,7 +7450,7 @@ func (r ApiGetEmailTemplatesRequest) Skip(skip float64) ApiGetEmailTemplatesRequ
 	return r
 }
 
-func (r ApiGetEmailTemplatesRequest) Execute() (*GetEmailTemplatesResponse1, *http.Response, error) {
+func (r ApiGetEmailTemplatesRequest) Execute() (*GetEmailTemplatesResponse, *http.Response, error) {
 	return r.ApiService.GetEmailTemplatesExecute(r)
 }
 
@@ -7148,13 +7468,13 @@ func (a *DefaultAPIService) GetEmailTemplates(ctx context.Context) ApiGetEmailTe
 }
 
 // Execute executes the request
-//  @return GetEmailTemplatesResponse1
-func (a *DefaultAPIService) GetEmailTemplatesExecute(r ApiGetEmailTemplatesRequest) (*GetEmailTemplatesResponse1, *http.Response, error) {
+//  @return GetEmailTemplatesResponse
+func (a *DefaultAPIService) GetEmailTemplatesExecute(r ApiGetEmailTemplatesRequest) (*GetEmailTemplatesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetEmailTemplatesResponse1
+		localVarReturnValue  *GetEmailTemplatesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetEmailTemplates")
@@ -7228,6 +7548,14 @@ func (a *DefaultAPIService) GetEmailTemplatesExecute(r ApiGetEmailTemplatesReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7272,7 +7600,7 @@ func (r ApiGetFeedPostsRequest) Tags(tags []string) ApiGetFeedPostsRequest {
 	return r
 }
 
-func (r ApiGetFeedPostsRequest) Execute() (*GetFeedPostsResponse1, *http.Response, error) {
+func (r ApiGetFeedPostsRequest) Execute() (*GetFeedPostsResponse, *http.Response, error) {
 	return r.ApiService.GetFeedPostsExecute(r)
 }
 
@@ -7295,13 +7623,13 @@ func (a *DefaultAPIService) GetFeedPosts(ctx context.Context) ApiGetFeedPostsReq
 }
 
 // Execute executes the request
-//  @return GetFeedPostsResponse1
-func (a *DefaultAPIService) GetFeedPostsExecute(r ApiGetFeedPostsRequest) (*GetFeedPostsResponse1, *http.Response, error) {
+//  @return GetFeedPostsResponse
+func (a *DefaultAPIService) GetFeedPostsExecute(r ApiGetFeedPostsRequest) (*GetFeedPostsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetFeedPostsResponse1
+		localVarReturnValue  *GetFeedPostsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetFeedPosts")
@@ -7389,6 +7717,14 @@ func (a *DefaultAPIService) GetFeedPostsExecute(r ApiGetFeedPostsRequest) (*GetF
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7421,7 +7757,7 @@ func (r ApiGetHashTagsRequest) Page(page float64) ApiGetHashTagsRequest {
 	return r
 }
 
-func (r ApiGetHashTagsRequest) Execute() (*GetHashTagsResponse1, *http.Response, error) {
+func (r ApiGetHashTagsRequest) Execute() (*GetHashTagsResponse, *http.Response, error) {
 	return r.ApiService.GetHashTagsExecute(r)
 }
 
@@ -7439,13 +7775,13 @@ func (a *DefaultAPIService) GetHashTags(ctx context.Context) ApiGetHashTagsReque
 }
 
 // Execute executes the request
-//  @return GetHashTagsResponse1
-func (a *DefaultAPIService) GetHashTagsExecute(r ApiGetHashTagsRequest) (*GetHashTagsResponse1, *http.Response, error) {
+//  @return GetHashTagsResponse
+func (a *DefaultAPIService) GetHashTagsExecute(r ApiGetHashTagsRequest) (*GetHashTagsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetHashTagsResponse1
+		localVarReturnValue  *GetHashTagsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetHashTags")
@@ -7519,6 +7855,14 @@ func (a *DefaultAPIService) GetHashTagsExecute(r ApiGetHashTagsRequest) (*GetHas
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7546,7 +7890,7 @@ func (r ApiGetModeratorRequest) TenantId(tenantId string) ApiGetModeratorRequest
 	return r
 }
 
-func (r ApiGetModeratorRequest) Execute() (*GetModeratorResponse1, *http.Response, error) {
+func (r ApiGetModeratorRequest) Execute() (*GetModeratorResponse, *http.Response, error) {
 	return r.ApiService.GetModeratorExecute(r)
 }
 
@@ -7566,13 +7910,13 @@ func (a *DefaultAPIService) GetModerator(ctx context.Context, id string) ApiGetM
 }
 
 // Execute executes the request
-//  @return GetModeratorResponse1
-func (a *DefaultAPIService) GetModeratorExecute(r ApiGetModeratorRequest) (*GetModeratorResponse1, *http.Response, error) {
+//  @return GetModeratorResponse
+func (a *DefaultAPIService) GetModeratorExecute(r ApiGetModeratorRequest) (*GetModeratorResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetModeratorResponse1
+		localVarReturnValue  *GetModeratorResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetModerator")
@@ -7644,6 +7988,14 @@ func (a *DefaultAPIService) GetModeratorExecute(r ApiGetModeratorRequest) (*GetM
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7676,7 +8028,7 @@ func (r ApiGetModeratorsRequest) Skip(skip float64) ApiGetModeratorsRequest {
 	return r
 }
 
-func (r ApiGetModeratorsRequest) Execute() (*GetModeratorsResponse1, *http.Response, error) {
+func (r ApiGetModeratorsRequest) Execute() (*GetModeratorsResponse, *http.Response, error) {
 	return r.ApiService.GetModeratorsExecute(r)
 }
 
@@ -7694,13 +8046,13 @@ func (a *DefaultAPIService) GetModerators(ctx context.Context) ApiGetModeratorsR
 }
 
 // Execute executes the request
-//  @return GetModeratorsResponse1
-func (a *DefaultAPIService) GetModeratorsExecute(r ApiGetModeratorsRequest) (*GetModeratorsResponse1, *http.Response, error) {
+//  @return GetModeratorsResponse
+func (a *DefaultAPIService) GetModeratorsExecute(r ApiGetModeratorsRequest) (*GetModeratorsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetModeratorsResponse1
+		localVarReturnValue  *GetModeratorsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetModerators")
@@ -7774,6 +8126,14 @@ func (a *DefaultAPIService) GetModeratorsExecute(r ApiGetModeratorsRequest) (*Ge
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -7830,7 +8190,7 @@ func (r ApiGetNotificationCountRequest) Type_(type_ string) ApiGetNotificationCo
 	return r
 }
 
-func (r ApiGetNotificationCountRequest) Execute() (*GetNotificationCountResponse1, *http.Response, error) {
+func (r ApiGetNotificationCountRequest) Execute() (*GetNotificationCountResponse, *http.Response, error) {
 	return r.ApiService.GetNotificationCountExecute(r)
 }
 
@@ -7848,13 +8208,13 @@ func (a *DefaultAPIService) GetNotificationCount(ctx context.Context) ApiGetNoti
 }
 
 // Execute executes the request
-//  @return GetNotificationCountResponse1
-func (a *DefaultAPIService) GetNotificationCountExecute(r ApiGetNotificationCountRequest) (*GetNotificationCountResponse1, *http.Response, error) {
+//  @return GetNotificationCountResponse
+func (a *DefaultAPIService) GetNotificationCountExecute(r ApiGetNotificationCountRequest) (*GetNotificationCountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetNotificationCountResponse1
+		localVarReturnValue  *GetNotificationCountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetNotificationCount")
@@ -7940,6 +8300,14 @@ func (a *DefaultAPIService) GetNotificationCountExecute(r ApiGetNotificationCoun
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8002,7 +8370,7 @@ func (r ApiGetNotificationsRequest) Skip(skip float64) ApiGetNotificationsReques
 	return r
 }
 
-func (r ApiGetNotificationsRequest) Execute() (*GetNotificationsResponse1, *http.Response, error) {
+func (r ApiGetNotificationsRequest) Execute() (*GetNotificationsResponse, *http.Response, error) {
 	return r.ApiService.GetNotificationsExecute(r)
 }
 
@@ -8020,13 +8388,13 @@ func (a *DefaultAPIService) GetNotifications(ctx context.Context) ApiGetNotifica
 }
 
 // Execute executes the request
-//  @return GetNotificationsResponse1
-func (a *DefaultAPIService) GetNotificationsExecute(r ApiGetNotificationsRequest) (*GetNotificationsResponse1, *http.Response, error) {
+//  @return GetNotificationsResponse
+func (a *DefaultAPIService) GetNotificationsExecute(r ApiGetNotificationsRequest) (*GetNotificationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetNotificationsResponse1
+		localVarReturnValue  *GetNotificationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetNotifications")
@@ -8115,6 +8483,14 @@ func (a *DefaultAPIService) GetNotificationsExecute(r ApiGetNotificationsRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8429,7 +8805,7 @@ func (r ApiGetPendingWebhookEventCountRequest) AttemptCountGT(attemptCountGT flo
 	return r
 }
 
-func (r ApiGetPendingWebhookEventCountRequest) Execute() (*GetPendingWebhookEventCountResponse1, *http.Response, error) {
+func (r ApiGetPendingWebhookEventCountRequest) Execute() (*GetPendingWebhookEventCountResponse, *http.Response, error) {
 	return r.ApiService.GetPendingWebhookEventCountExecute(r)
 }
 
@@ -8447,13 +8823,13 @@ func (a *DefaultAPIService) GetPendingWebhookEventCount(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return GetPendingWebhookEventCountResponse1
-func (a *DefaultAPIService) GetPendingWebhookEventCountExecute(r ApiGetPendingWebhookEventCountRequest) (*GetPendingWebhookEventCountResponse1, *http.Response, error) {
+//  @return GetPendingWebhookEventCountResponse
+func (a *DefaultAPIService) GetPendingWebhookEventCountExecute(r ApiGetPendingWebhookEventCountRequest) (*GetPendingWebhookEventCountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetPendingWebhookEventCountResponse1
+		localVarReturnValue  *GetPendingWebhookEventCountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetPendingWebhookEventCount")
@@ -8542,6 +8918,14 @@ func (a *DefaultAPIService) GetPendingWebhookEventCountExecute(r ApiGetPendingWe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8610,7 +8994,7 @@ func (r ApiGetPendingWebhookEventsRequest) Skip(skip float64) ApiGetPendingWebho
 	return r
 }
 
-func (r ApiGetPendingWebhookEventsRequest) Execute() (*GetPendingWebhookEventsResponse1, *http.Response, error) {
+func (r ApiGetPendingWebhookEventsRequest) Execute() (*GetPendingWebhookEventsResponse, *http.Response, error) {
 	return r.ApiService.GetPendingWebhookEventsExecute(r)
 }
 
@@ -8628,13 +9012,13 @@ func (a *DefaultAPIService) GetPendingWebhookEvents(ctx context.Context) ApiGetP
 }
 
 // Execute executes the request
-//  @return GetPendingWebhookEventsResponse1
-func (a *DefaultAPIService) GetPendingWebhookEventsExecute(r ApiGetPendingWebhookEventsRequest) (*GetPendingWebhookEventsResponse1, *http.Response, error) {
+//  @return GetPendingWebhookEventsResponse
+func (a *DefaultAPIService) GetPendingWebhookEventsExecute(r ApiGetPendingWebhookEventsRequest) (*GetPendingWebhookEventsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetPendingWebhookEventsResponse1
+		localVarReturnValue  *GetPendingWebhookEventsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetPendingWebhookEvents")
@@ -8726,6 +9110,14 @@ func (a *DefaultAPIService) GetPendingWebhookEventsExecute(r ApiGetPendingWebhoo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8753,7 +9145,7 @@ func (r ApiGetQuestionConfigRequest) TenantId(tenantId string) ApiGetQuestionCon
 	return r
 }
 
-func (r ApiGetQuestionConfigRequest) Execute() (*GetQuestionConfigResponse1, *http.Response, error) {
+func (r ApiGetQuestionConfigRequest) Execute() (*GetQuestionConfigResponse, *http.Response, error) {
 	return r.ApiService.GetQuestionConfigExecute(r)
 }
 
@@ -8773,13 +9165,13 @@ func (a *DefaultAPIService) GetQuestionConfig(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return GetQuestionConfigResponse1
-func (a *DefaultAPIService) GetQuestionConfigExecute(r ApiGetQuestionConfigRequest) (*GetQuestionConfigResponse1, *http.Response, error) {
+//  @return GetQuestionConfigResponse
+func (a *DefaultAPIService) GetQuestionConfigExecute(r ApiGetQuestionConfigRequest) (*GetQuestionConfigResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetQuestionConfigResponse1
+		localVarReturnValue  *GetQuestionConfigResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetQuestionConfig")
@@ -8851,6 +9243,14 @@ func (a *DefaultAPIService) GetQuestionConfigExecute(r ApiGetQuestionConfigReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -8883,7 +9283,7 @@ func (r ApiGetQuestionConfigsRequest) Skip(skip float64) ApiGetQuestionConfigsRe
 	return r
 }
 
-func (r ApiGetQuestionConfigsRequest) Execute() (*GetQuestionConfigsResponse1, *http.Response, error) {
+func (r ApiGetQuestionConfigsRequest) Execute() (*GetQuestionConfigsResponse, *http.Response, error) {
 	return r.ApiService.GetQuestionConfigsExecute(r)
 }
 
@@ -8901,13 +9301,13 @@ func (a *DefaultAPIService) GetQuestionConfigs(ctx context.Context) ApiGetQuesti
 }
 
 // Execute executes the request
-//  @return GetQuestionConfigsResponse1
-func (a *DefaultAPIService) GetQuestionConfigsExecute(r ApiGetQuestionConfigsRequest) (*GetQuestionConfigsResponse1, *http.Response, error) {
+//  @return GetQuestionConfigsResponse
+func (a *DefaultAPIService) GetQuestionConfigsExecute(r ApiGetQuestionConfigsRequest) (*GetQuestionConfigsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetQuestionConfigsResponse1
+		localVarReturnValue  *GetQuestionConfigsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetQuestionConfigs")
@@ -8981,6 +9381,14 @@ func (a *DefaultAPIService) GetQuestionConfigsExecute(r ApiGetQuestionConfigsReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9008,7 +9416,7 @@ func (r ApiGetQuestionResultRequest) TenantId(tenantId string) ApiGetQuestionRes
 	return r
 }
 
-func (r ApiGetQuestionResultRequest) Execute() (*GetQuestionResultResponse1, *http.Response, error) {
+func (r ApiGetQuestionResultRequest) Execute() (*GetQuestionResultResponse, *http.Response, error) {
 	return r.ApiService.GetQuestionResultExecute(r)
 }
 
@@ -9028,13 +9436,13 @@ func (a *DefaultAPIService) GetQuestionResult(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return GetQuestionResultResponse1
-func (a *DefaultAPIService) GetQuestionResultExecute(r ApiGetQuestionResultRequest) (*GetQuestionResultResponse1, *http.Response, error) {
+//  @return GetQuestionResultResponse
+func (a *DefaultAPIService) GetQuestionResultExecute(r ApiGetQuestionResultRequest) (*GetQuestionResultResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetQuestionResultResponse1
+		localVarReturnValue  *GetQuestionResultResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetQuestionResult")
@@ -9106,6 +9514,14 @@ func (a *DefaultAPIService) GetQuestionResultExecute(r ApiGetQuestionResultReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9168,7 +9584,7 @@ func (r ApiGetQuestionResultsRequest) Skip(skip float64) ApiGetQuestionResultsRe
 	return r
 }
 
-func (r ApiGetQuestionResultsRequest) Execute() (*GetQuestionResultsResponse1, *http.Response, error) {
+func (r ApiGetQuestionResultsRequest) Execute() (*GetQuestionResultsResponse, *http.Response, error) {
 	return r.ApiService.GetQuestionResultsExecute(r)
 }
 
@@ -9186,13 +9602,13 @@ func (a *DefaultAPIService) GetQuestionResults(ctx context.Context) ApiGetQuesti
 }
 
 // Execute executes the request
-//  @return GetQuestionResultsResponse1
-func (a *DefaultAPIService) GetQuestionResultsExecute(r ApiGetQuestionResultsRequest) (*GetQuestionResultsResponse1, *http.Response, error) {
+//  @return GetQuestionResultsResponse
+func (a *DefaultAPIService) GetQuestionResultsExecute(r ApiGetQuestionResultsRequest) (*GetQuestionResultsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetQuestionResultsResponse1
+		localVarReturnValue  *GetQuestionResultsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetQuestionResults")
@@ -9281,6 +9697,14 @@ func (a *DefaultAPIService) GetQuestionResultsExecute(r ApiGetQuestionResultsReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9818,7 +10242,7 @@ func (r ApiGetTenantRequest) TenantId(tenantId string) ApiGetTenantRequest {
 	return r
 }
 
-func (r ApiGetTenantRequest) Execute() (*GetTenantResponse1, *http.Response, error) {
+func (r ApiGetTenantRequest) Execute() (*GetTenantResponse, *http.Response, error) {
 	return r.ApiService.GetTenantExecute(r)
 }
 
@@ -9838,13 +10262,13 @@ func (a *DefaultAPIService) GetTenant(ctx context.Context, id string) ApiGetTena
 }
 
 // Execute executes the request
-//  @return GetTenantResponse1
-func (a *DefaultAPIService) GetTenantExecute(r ApiGetTenantRequest) (*GetTenantResponse1, *http.Response, error) {
+//  @return GetTenantResponse
+func (a *DefaultAPIService) GetTenantExecute(r ApiGetTenantRequest) (*GetTenantResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantResponse1
+		localVarReturnValue  *GetTenantResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenant")
@@ -9916,6 +10340,14 @@ func (a *DefaultAPIService) GetTenantExecute(r ApiGetTenantRequest) (*GetTenantR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -9966,7 +10398,7 @@ func (r ApiGetTenantDailyUsagesRequest) Skip(skip float64) ApiGetTenantDailyUsag
 	return r
 }
 
-func (r ApiGetTenantDailyUsagesRequest) Execute() (*GetTenantDailyUsagesResponse1, *http.Response, error) {
+func (r ApiGetTenantDailyUsagesRequest) Execute() (*GetTenantDailyUsagesResponse, *http.Response, error) {
 	return r.ApiService.GetTenantDailyUsagesExecute(r)
 }
 
@@ -9984,13 +10416,13 @@ func (a *DefaultAPIService) GetTenantDailyUsages(ctx context.Context) ApiGetTena
 }
 
 // Execute executes the request
-//  @return GetTenantDailyUsagesResponse1
-func (a *DefaultAPIService) GetTenantDailyUsagesExecute(r ApiGetTenantDailyUsagesRequest) (*GetTenantDailyUsagesResponse1, *http.Response, error) {
+//  @return GetTenantDailyUsagesResponse
+func (a *DefaultAPIService) GetTenantDailyUsagesExecute(r ApiGetTenantDailyUsagesRequest) (*GetTenantDailyUsagesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantDailyUsagesResponse1
+		localVarReturnValue  *GetTenantDailyUsagesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenantDailyUsages")
@@ -10073,6 +10505,14 @@ func (a *DefaultAPIService) GetTenantDailyUsagesExecute(r ApiGetTenantDailyUsage
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10100,7 +10540,7 @@ func (r ApiGetTenantPackageRequest) TenantId(tenantId string) ApiGetTenantPackag
 	return r
 }
 
-func (r ApiGetTenantPackageRequest) Execute() (*GetTenantPackageResponse1, *http.Response, error) {
+func (r ApiGetTenantPackageRequest) Execute() (*GetTenantPackageResponse, *http.Response, error) {
 	return r.ApiService.GetTenantPackageExecute(r)
 }
 
@@ -10120,13 +10560,13 @@ func (a *DefaultAPIService) GetTenantPackage(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-//  @return GetTenantPackageResponse1
-func (a *DefaultAPIService) GetTenantPackageExecute(r ApiGetTenantPackageRequest) (*GetTenantPackageResponse1, *http.Response, error) {
+//  @return GetTenantPackageResponse
+func (a *DefaultAPIService) GetTenantPackageExecute(r ApiGetTenantPackageRequest) (*GetTenantPackageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantPackageResponse1
+		localVarReturnValue  *GetTenantPackageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenantPackage")
@@ -10198,6 +10638,14 @@ func (a *DefaultAPIService) GetTenantPackageExecute(r ApiGetTenantPackageRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10230,7 +10678,7 @@ func (r ApiGetTenantPackagesRequest) Skip(skip float64) ApiGetTenantPackagesRequ
 	return r
 }
 
-func (r ApiGetTenantPackagesRequest) Execute() (*GetTenantPackagesResponse1, *http.Response, error) {
+func (r ApiGetTenantPackagesRequest) Execute() (*GetTenantPackagesResponse, *http.Response, error) {
 	return r.ApiService.GetTenantPackagesExecute(r)
 }
 
@@ -10248,13 +10696,13 @@ func (a *DefaultAPIService) GetTenantPackages(ctx context.Context) ApiGetTenantP
 }
 
 // Execute executes the request
-//  @return GetTenantPackagesResponse1
-func (a *DefaultAPIService) GetTenantPackagesExecute(r ApiGetTenantPackagesRequest) (*GetTenantPackagesResponse1, *http.Response, error) {
+//  @return GetTenantPackagesResponse
+func (a *DefaultAPIService) GetTenantPackagesExecute(r ApiGetTenantPackagesRequest) (*GetTenantPackagesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantPackagesResponse1
+		localVarReturnValue  *GetTenantPackagesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenantPackages")
@@ -10328,6 +10776,14 @@ func (a *DefaultAPIService) GetTenantPackagesExecute(r ApiGetTenantPackagesReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10355,7 +10811,7 @@ func (r ApiGetTenantUserRequest) TenantId(tenantId string) ApiGetTenantUserReque
 	return r
 }
 
-func (r ApiGetTenantUserRequest) Execute() (*GetTenantUserResponse1, *http.Response, error) {
+func (r ApiGetTenantUserRequest) Execute() (*GetTenantUserResponse, *http.Response, error) {
 	return r.ApiService.GetTenantUserExecute(r)
 }
 
@@ -10375,13 +10831,13 @@ func (a *DefaultAPIService) GetTenantUser(ctx context.Context, id string) ApiGet
 }
 
 // Execute executes the request
-//  @return GetTenantUserResponse1
-func (a *DefaultAPIService) GetTenantUserExecute(r ApiGetTenantUserRequest) (*GetTenantUserResponse1, *http.Response, error) {
+//  @return GetTenantUserResponse
+func (a *DefaultAPIService) GetTenantUserExecute(r ApiGetTenantUserRequest) (*GetTenantUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantUserResponse1
+		localVarReturnValue  *GetTenantUserResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenantUser")
@@ -10453,6 +10909,14 @@ func (a *DefaultAPIService) GetTenantUserExecute(r ApiGetTenantUserRequest) (*Ge
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10485,7 +10949,7 @@ func (r ApiGetTenantUsersRequest) Skip(skip float64) ApiGetTenantUsersRequest {
 	return r
 }
 
-func (r ApiGetTenantUsersRequest) Execute() (*GetTenantUsersResponse1, *http.Response, error) {
+func (r ApiGetTenantUsersRequest) Execute() (*GetTenantUsersResponse, *http.Response, error) {
 	return r.ApiService.GetTenantUsersExecute(r)
 }
 
@@ -10503,13 +10967,13 @@ func (a *DefaultAPIService) GetTenantUsers(ctx context.Context) ApiGetTenantUser
 }
 
 // Execute executes the request
-//  @return GetTenantUsersResponse1
-func (a *DefaultAPIService) GetTenantUsersExecute(r ApiGetTenantUsersRequest) (*GetTenantUsersResponse1, *http.Response, error) {
+//  @return GetTenantUsersResponse
+func (a *DefaultAPIService) GetTenantUsersExecute(r ApiGetTenantUsersRequest) (*GetTenantUsersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantUsersResponse1
+		localVarReturnValue  *GetTenantUsersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenantUsers")
@@ -10583,6 +11047,14 @@ func (a *DefaultAPIService) GetTenantUsersExecute(r ApiGetTenantUsersRequest) (*
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10621,7 +11093,7 @@ func (r ApiGetTenantsRequest) Skip(skip float64) ApiGetTenantsRequest {
 	return r
 }
 
-func (r ApiGetTenantsRequest) Execute() (*GetTenantsResponse1, *http.Response, error) {
+func (r ApiGetTenantsRequest) Execute() (*GetTenantsResponse, *http.Response, error) {
 	return r.ApiService.GetTenantsExecute(r)
 }
 
@@ -10639,13 +11111,13 @@ func (a *DefaultAPIService) GetTenants(ctx context.Context) ApiGetTenantsRequest
 }
 
 // Execute executes the request
-//  @return GetTenantsResponse1
-func (a *DefaultAPIService) GetTenantsExecute(r ApiGetTenantsRequest) (*GetTenantsResponse1, *http.Response, error) {
+//  @return GetTenantsResponse
+func (a *DefaultAPIService) GetTenantsExecute(r ApiGetTenantsRequest) (*GetTenantsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTenantsResponse1
+		localVarReturnValue  *GetTenantsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTenants")
@@ -10722,6 +11194,14 @@ func (a *DefaultAPIService) GetTenantsExecute(r ApiGetTenantsRequest) (*GetTenan
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10755,7 +11235,7 @@ func (r ApiGetTicketRequest) UserId(userId string) ApiGetTicketRequest {
 	return r
 }
 
-func (r ApiGetTicketRequest) Execute() (*GetTicketResponse1, *http.Response, error) {
+func (r ApiGetTicketRequest) Execute() (*GetTicketResponse, *http.Response, error) {
 	return r.ApiService.GetTicketExecute(r)
 }
 
@@ -10775,13 +11255,13 @@ func (a *DefaultAPIService) GetTicket(ctx context.Context, id string) ApiGetTick
 }
 
 // Execute executes the request
-//  @return GetTicketResponse1
-func (a *DefaultAPIService) GetTicketExecute(r ApiGetTicketRequest) (*GetTicketResponse1, *http.Response, error) {
+//  @return GetTicketResponse
+func (a *DefaultAPIService) GetTicketExecute(r ApiGetTicketRequest) (*GetTicketResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTicketResponse1
+		localVarReturnValue  *GetTicketResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTicket")
@@ -10856,6 +11336,14 @@ func (a *DefaultAPIService) GetTicketExecute(r ApiGetTicketRequest) (*GetTicketR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -10906,7 +11394,7 @@ func (r ApiGetTicketsRequest) Limit(limit float64) ApiGetTicketsRequest {
 	return r
 }
 
-func (r ApiGetTicketsRequest) Execute() (*GetTicketsResponse1, *http.Response, error) {
+func (r ApiGetTicketsRequest) Execute() (*GetTicketsResponse, *http.Response, error) {
 	return r.ApiService.GetTicketsExecute(r)
 }
 
@@ -10924,13 +11412,13 @@ func (a *DefaultAPIService) GetTickets(ctx context.Context) ApiGetTicketsRequest
 }
 
 // Execute executes the request
-//  @return GetTicketsResponse1
-func (a *DefaultAPIService) GetTicketsExecute(r ApiGetTicketsRequest) (*GetTicketsResponse1, *http.Response, error) {
+//  @return GetTicketsResponse
+func (a *DefaultAPIService) GetTicketsExecute(r ApiGetTicketsRequest) (*GetTicketsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTicketsResponse1
+		localVarReturnValue  *GetTicketsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetTickets")
@@ -11013,6 +11501,14 @@ func (a *DefaultAPIService) GetTicketsExecute(r ApiGetTicketsRequest) (*GetTicke
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11040,7 +11536,7 @@ func (r ApiGetUserRequest) TenantId(tenantId string) ApiGetUserRequest {
 	return r
 }
 
-func (r ApiGetUserRequest) Execute() (*GetUserResponse1, *http.Response, error) {
+func (r ApiGetUserRequest) Execute() (*GetUserResponse, *http.Response, error) {
 	return r.ApiService.GetUserExecute(r)
 }
 
@@ -11060,13 +11556,13 @@ func (a *DefaultAPIService) GetUser(ctx context.Context, id string) ApiGetUserRe
 }
 
 // Execute executes the request
-//  @return GetUserResponse1
-func (a *DefaultAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUserResponse1, *http.Response, error) {
+//  @return GetUserResponse
+func (a *DefaultAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserResponse1
+		localVarReturnValue  *GetUserResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetUser")
@@ -11138,6 +11634,14 @@ func (a *DefaultAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUserRespons
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11165,7 +11669,7 @@ func (r ApiGetUserBadgeRequest) TenantId(tenantId string) ApiGetUserBadgeRequest
 	return r
 }
 
-func (r ApiGetUserBadgeRequest) Execute() (*GetUserBadgeResponse, *http.Response, error) {
+func (r ApiGetUserBadgeRequest) Execute() (*APIGetUserBadgeResponse, *http.Response, error) {
 	return r.ApiService.GetUserBadgeExecute(r)
 }
 
@@ -11185,13 +11689,13 @@ func (a *DefaultAPIService) GetUserBadge(ctx context.Context, id string) ApiGetU
 }
 
 // Execute executes the request
-//  @return GetUserBadgeResponse
-func (a *DefaultAPIService) GetUserBadgeExecute(r ApiGetUserBadgeRequest) (*GetUserBadgeResponse, *http.Response, error) {
+//  @return APIGetUserBadgeResponse
+func (a *DefaultAPIService) GetUserBadgeExecute(r ApiGetUserBadgeRequest) (*APIGetUserBadgeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserBadgeResponse
+		localVarReturnValue  *APIGetUserBadgeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetUserBadge")
@@ -11263,6 +11767,14 @@ func (a *DefaultAPIService) GetUserBadgeExecute(r ApiGetUserBadgeRequest) (*GetU
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11290,7 +11802,7 @@ func (r ApiGetUserBadgeProgressByIdRequest) TenantId(tenantId string) ApiGetUser
 	return r
 }
 
-func (r ApiGetUserBadgeProgressByIdRequest) Execute() (*GetUserBadgeProgressByIdResponse, *http.Response, error) {
+func (r ApiGetUserBadgeProgressByIdRequest) Execute() (*APIGetUserBadgeProgressResponse, *http.Response, error) {
 	return r.ApiService.GetUserBadgeProgressByIdExecute(r)
 }
 
@@ -11310,13 +11822,13 @@ func (a *DefaultAPIService) GetUserBadgeProgressById(ctx context.Context, id str
 }
 
 // Execute executes the request
-//  @return GetUserBadgeProgressByIdResponse
-func (a *DefaultAPIService) GetUserBadgeProgressByIdExecute(r ApiGetUserBadgeProgressByIdRequest) (*GetUserBadgeProgressByIdResponse, *http.Response, error) {
+//  @return APIGetUserBadgeProgressResponse
+func (a *DefaultAPIService) GetUserBadgeProgressByIdExecute(r ApiGetUserBadgeProgressByIdRequest) (*APIGetUserBadgeProgressResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserBadgeProgressByIdResponse
+		localVarReturnValue  *APIGetUserBadgeProgressResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetUserBadgeProgressById")
@@ -11388,6 +11900,14 @@ func (a *DefaultAPIService) GetUserBadgeProgressByIdExecute(r ApiGetUserBadgePro
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11415,7 +11935,7 @@ func (r ApiGetUserBadgeProgressByUserIdRequest) TenantId(tenantId string) ApiGet
 	return r
 }
 
-func (r ApiGetUserBadgeProgressByUserIdRequest) Execute() (*GetUserBadgeProgressByUserIdResponse, *http.Response, error) {
+func (r ApiGetUserBadgeProgressByUserIdRequest) Execute() (*APIGetUserBadgeProgressResponse, *http.Response, error) {
 	return r.ApiService.GetUserBadgeProgressByUserIdExecute(r)
 }
 
@@ -11435,13 +11955,13 @@ func (a *DefaultAPIService) GetUserBadgeProgressByUserId(ctx context.Context, us
 }
 
 // Execute executes the request
-//  @return GetUserBadgeProgressByUserIdResponse
-func (a *DefaultAPIService) GetUserBadgeProgressByUserIdExecute(r ApiGetUserBadgeProgressByUserIdRequest) (*GetUserBadgeProgressByUserIdResponse, *http.Response, error) {
+//  @return APIGetUserBadgeProgressResponse
+func (a *DefaultAPIService) GetUserBadgeProgressByUserIdExecute(r ApiGetUserBadgeProgressByUserIdRequest) (*APIGetUserBadgeProgressResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserBadgeProgressByUserIdResponse
+		localVarReturnValue  *APIGetUserBadgeProgressResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetUserBadgeProgressByUserId")
@@ -11513,6 +12033,14 @@ func (a *DefaultAPIService) GetUserBadgeProgressByUserIdExecute(r ApiGetUserBadg
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11557,7 +12085,7 @@ func (r ApiGetUserBadgeProgressListRequest) Skip(skip float64) ApiGetUserBadgePr
 	return r
 }
 
-func (r ApiGetUserBadgeProgressListRequest) Execute() (*GetUserBadgeProgressListResponse, *http.Response, error) {
+func (r ApiGetUserBadgeProgressListRequest) Execute() (*APIGetUserBadgeProgressListResponse, *http.Response, error) {
 	return r.ApiService.GetUserBadgeProgressListExecute(r)
 }
 
@@ -11575,13 +12103,13 @@ func (a *DefaultAPIService) GetUserBadgeProgressList(ctx context.Context) ApiGet
 }
 
 // Execute executes the request
-//  @return GetUserBadgeProgressListResponse
-func (a *DefaultAPIService) GetUserBadgeProgressListExecute(r ApiGetUserBadgeProgressListRequest) (*GetUserBadgeProgressListResponse, *http.Response, error) {
+//  @return APIGetUserBadgeProgressListResponse
+func (a *DefaultAPIService) GetUserBadgeProgressListExecute(r ApiGetUserBadgeProgressListRequest) (*APIGetUserBadgeProgressListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserBadgeProgressListResponse
+		localVarReturnValue  *APIGetUserBadgeProgressListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetUserBadgeProgressList")
@@ -11661,6 +12189,14 @@ func (a *DefaultAPIService) GetUserBadgeProgressListExecute(r ApiGetUserBadgePro
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11723,7 +12259,7 @@ func (r ApiGetUserBadgesRequest) Skip(skip float64) ApiGetUserBadgesRequest {
 	return r
 }
 
-func (r ApiGetUserBadgesRequest) Execute() (*GetUserBadgesResponse, *http.Response, error) {
+func (r ApiGetUserBadgesRequest) Execute() (*APIGetUserBadgesResponse, *http.Response, error) {
 	return r.ApiService.GetUserBadgesExecute(r)
 }
 
@@ -11741,13 +12277,13 @@ func (a *DefaultAPIService) GetUserBadges(ctx context.Context) ApiGetUserBadgesR
 }
 
 // Execute executes the request
-//  @return GetUserBadgesResponse
-func (a *DefaultAPIService) GetUserBadgesExecute(r ApiGetUserBadgesRequest) (*GetUserBadgesResponse, *http.Response, error) {
+//  @return APIGetUserBadgesResponse
+func (a *DefaultAPIService) GetUserBadgesExecute(r ApiGetUserBadgesRequest) (*APIGetUserBadgesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserBadgesResponse
+		localVarReturnValue  *APIGetUserBadgesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetUserBadges")
@@ -11836,6 +12372,14 @@ func (a *DefaultAPIService) GetUserBadgesExecute(r ApiGetUserBadgesRequest) (*Ge
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -11868,7 +12412,7 @@ func (r ApiGetVotesRequest) UrlId(urlId string) ApiGetVotesRequest {
 	return r
 }
 
-func (r ApiGetVotesRequest) Execute() (*GetVotesResponse1, *http.Response, error) {
+func (r ApiGetVotesRequest) Execute() (*GetVotesResponse, *http.Response, error) {
 	return r.ApiService.GetVotesExecute(r)
 }
 
@@ -11886,13 +12430,13 @@ func (a *DefaultAPIService) GetVotes(ctx context.Context) ApiGetVotesRequest {
 }
 
 // Execute executes the request
-//  @return GetVotesResponse1
-func (a *DefaultAPIService) GetVotesExecute(r ApiGetVotesRequest) (*GetVotesResponse1, *http.Response, error) {
+//  @return GetVotesResponse
+func (a *DefaultAPIService) GetVotesExecute(r ApiGetVotesRequest) (*GetVotesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetVotesResponse1
+		localVarReturnValue  *GetVotesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetVotes")
@@ -11967,6 +12511,14 @@ func (a *DefaultAPIService) GetVotesExecute(r ApiGetVotesRequest) (*GetVotesResp
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12011,7 +12563,7 @@ func (r ApiGetVotesForUserRequest) AnonUserId(anonUserId string) ApiGetVotesForU
 	return r
 }
 
-func (r ApiGetVotesForUserRequest) Execute() (*GetVotesForUserResponse1, *http.Response, error) {
+func (r ApiGetVotesForUserRequest) Execute() (*GetVotesForUserResponse, *http.Response, error) {
 	return r.ApiService.GetVotesForUserExecute(r)
 }
 
@@ -12029,13 +12581,13 @@ func (a *DefaultAPIService) GetVotesForUser(ctx context.Context) ApiGetVotesForU
 }
 
 // Execute executes the request
-//  @return GetVotesForUserResponse1
-func (a *DefaultAPIService) GetVotesForUserExecute(r ApiGetVotesForUserRequest) (*GetVotesForUserResponse1, *http.Response, error) {
+//  @return GetVotesForUserResponse
+func (a *DefaultAPIService) GetVotesForUserExecute(r ApiGetVotesForUserRequest) (*GetVotesForUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetVotesForUserResponse1
+		localVarReturnValue  *GetVotesForUserResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetVotesForUser")
@@ -12116,6 +12668,14 @@ func (a *DefaultAPIService) GetVotesForUserExecute(r ApiGetVotesForUserRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12285,7 +12845,7 @@ func (r ApiPatchHashTagRequest) UpdateHashTagBody(updateHashTagBody UpdateHashTa
 	return r
 }
 
-func (r ApiPatchHashTagRequest) Execute() (*PatchHashTagResponse, *http.Response, error) {
+func (r ApiPatchHashTagRequest) Execute() (*UpdateHashTagResponse, *http.Response, error) {
 	return r.ApiService.PatchHashTagExecute(r)
 }
 
@@ -12305,13 +12865,13 @@ func (a *DefaultAPIService) PatchHashTag(ctx context.Context, tag string) ApiPat
 }
 
 // Execute executes the request
-//  @return PatchHashTagResponse
-func (a *DefaultAPIService) PatchHashTagExecute(r ApiPatchHashTagRequest) (*PatchHashTagResponse, *http.Response, error) {
+//  @return UpdateHashTagResponse
+func (a *DefaultAPIService) PatchHashTagExecute(r ApiPatchHashTagRequest) (*UpdateHashTagResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PatchHashTagResponse
+		localVarReturnValue  *UpdateHashTagResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.PatchHashTag")
@@ -12384,6 +12944,14 @@ func (a *DefaultAPIService) PatchHashTagExecute(r ApiPatchHashTagRequest) (*Patc
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -12984,7 +13552,7 @@ func (r ApiRenderEmailTemplateRequest) Locale(locale string) ApiRenderEmailTempl
 	return r
 }
 
-func (r ApiRenderEmailTemplateRequest) Execute() (*RenderEmailTemplateResponse1, *http.Response, error) {
+func (r ApiRenderEmailTemplateRequest) Execute() (*RenderEmailTemplateResponse, *http.Response, error) {
 	return r.ApiService.RenderEmailTemplateExecute(r)
 }
 
@@ -13002,13 +13570,13 @@ func (a *DefaultAPIService) RenderEmailTemplate(ctx context.Context) ApiRenderEm
 }
 
 // Execute executes the request
-//  @return RenderEmailTemplateResponse1
-func (a *DefaultAPIService) RenderEmailTemplateExecute(r ApiRenderEmailTemplateRequest) (*RenderEmailTemplateResponse1, *http.Response, error) {
+//  @return RenderEmailTemplateResponse
+func (a *DefaultAPIService) RenderEmailTemplateExecute(r ApiRenderEmailTemplateRequest) (*RenderEmailTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RenderEmailTemplateResponse1
+		localVarReturnValue  *RenderEmailTemplateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.RenderEmailTemplate")
@@ -13087,6 +13655,14 @@ func (a *DefaultAPIService) RenderEmailTemplateExecute(r ApiRenderEmailTemplateR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13120,7 +13696,7 @@ func (r ApiReplaceTenantPackageRequest) ReplaceTenantPackageBody(replaceTenantPa
 	return r
 }
 
-func (r ApiReplaceTenantPackageRequest) Execute() (*ReplaceTenantPackageResponse, *http.Response, error) {
+func (r ApiReplaceTenantPackageRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.ReplaceTenantPackageExecute(r)
 }
 
@@ -13140,13 +13716,13 @@ func (a *DefaultAPIService) ReplaceTenantPackage(ctx context.Context, id string)
 }
 
 // Execute executes the request
-//  @return ReplaceTenantPackageResponse
-func (a *DefaultAPIService) ReplaceTenantPackageExecute(r ApiReplaceTenantPackageRequest) (*ReplaceTenantPackageResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) ReplaceTenantPackageExecute(r ApiReplaceTenantPackageRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ReplaceTenantPackageResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ReplaceTenantPackage")
@@ -13223,6 +13799,14 @@ func (a *DefaultAPIService) ReplaceTenantPackageExecute(r ApiReplaceTenantPackag
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13262,7 +13846,7 @@ func (r ApiReplaceTenantUserRequest) UpdateComments(updateComments string) ApiRe
 	return r
 }
 
-func (r ApiReplaceTenantUserRequest) Execute() (*ReplaceTenantUserResponse, *http.Response, error) {
+func (r ApiReplaceTenantUserRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.ReplaceTenantUserExecute(r)
 }
 
@@ -13282,13 +13866,13 @@ func (a *DefaultAPIService) ReplaceTenantUser(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return ReplaceTenantUserResponse
-func (a *DefaultAPIService) ReplaceTenantUserExecute(r ApiReplaceTenantUserRequest) (*ReplaceTenantUserResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) ReplaceTenantUserExecute(r ApiReplaceTenantUserRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ReplaceTenantUserResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ReplaceTenantUser")
@@ -13368,6 +13952,14 @@ func (a *DefaultAPIService) ReplaceTenantUserExecute(r ApiReplaceTenantUserReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13424,7 +14016,7 @@ func (r ApiSaveCommentRequest) PopulateNotifications(populateNotifications bool)
 	return r
 }
 
-func (r ApiSaveCommentRequest) Execute() (*SaveCommentResponse, *http.Response, error) {
+func (r ApiSaveCommentRequest) Execute() (*APISaveCommentResponse, *http.Response, error) {
 	return r.ApiService.SaveCommentExecute(r)
 }
 
@@ -13442,13 +14034,13 @@ func (a *DefaultAPIService) SaveComment(ctx context.Context) ApiSaveCommentReque
 }
 
 // Execute executes the request
-//  @return SaveCommentResponse
-func (a *DefaultAPIService) SaveCommentExecute(r ApiSaveCommentRequest) (*SaveCommentResponse, *http.Response, error) {
+//  @return APISaveCommentResponse
+func (a *DefaultAPIService) SaveCommentExecute(r ApiSaveCommentRequest) (*APISaveCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SaveCommentResponse
+		localVarReturnValue  *APISaveCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.SaveComment")
@@ -13536,6 +14128,14 @@ func (a *DefaultAPIService) SaveCommentExecute(r ApiSaveCommentRequest) (*SaveCo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13737,7 +14337,7 @@ func (r ApiSendInviteRequest) FromName(fromName string) ApiSendInviteRequest {
 	return r
 }
 
-func (r ApiSendInviteRequest) Execute() (*SendInviteResponse, *http.Response, error) {
+func (r ApiSendInviteRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.SendInviteExecute(r)
 }
 
@@ -13757,13 +14357,13 @@ func (a *DefaultAPIService) SendInvite(ctx context.Context, id string) ApiSendIn
 }
 
 // Execute executes the request
-//  @return SendInviteResponse
-func (a *DefaultAPIService) SendInviteExecute(r ApiSendInviteRequest) (*SendInviteResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) SendInviteExecute(r ApiSendInviteRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SendInviteResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.SendInvite")
@@ -13839,6 +14439,14 @@ func (a *DefaultAPIService) SendInviteExecute(r ApiSendInviteRequest) (*SendInvi
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -13872,7 +14480,7 @@ func (r ApiSendLoginLinkRequest) RedirectURL(redirectURL string) ApiSendLoginLin
 	return r
 }
 
-func (r ApiSendLoginLinkRequest) Execute() (*SendLoginLinkResponse, *http.Response, error) {
+func (r ApiSendLoginLinkRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.SendLoginLinkExecute(r)
 }
 
@@ -13892,13 +14500,13 @@ func (a *DefaultAPIService) SendLoginLink(ctx context.Context, id string) ApiSen
 }
 
 // Execute executes the request
-//  @return SendLoginLinkResponse
-func (a *DefaultAPIService) SendLoginLinkExecute(r ApiSendLoginLinkRequest) (*SendLoginLinkResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) SendLoginLinkExecute(r ApiSendLoginLinkRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SendLoginLinkResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.SendLoginLink")
@@ -13973,6 +14581,14 @@ func (a *DefaultAPIService) SendLoginLinkExecute(r ApiSendLoginLinkRequest) (*Se
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14018,7 +14634,7 @@ func (r ApiUnBlockUserFromCommentRequest) AnonUserId(anonUserId string) ApiUnBlo
 	return r
 }
 
-func (r ApiUnBlockUserFromCommentRequest) Execute() (*UnBlockUserFromCommentResponse, *http.Response, error) {
+func (r ApiUnBlockUserFromCommentRequest) Execute() (*UnblockSuccess, *http.Response, error) {
 	return r.ApiService.UnBlockUserFromCommentExecute(r)
 }
 
@@ -14038,13 +14654,13 @@ func (a *DefaultAPIService) UnBlockUserFromComment(ctx context.Context, id strin
 }
 
 // Execute executes the request
-//  @return UnBlockUserFromCommentResponse
-func (a *DefaultAPIService) UnBlockUserFromCommentExecute(r ApiUnBlockUserFromCommentRequest) (*UnBlockUserFromCommentResponse, *http.Response, error) {
+//  @return UnblockSuccess
+func (a *DefaultAPIService) UnBlockUserFromCommentExecute(r ApiUnBlockUserFromCommentRequest) (*UnblockSuccess, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UnBlockUserFromCommentResponse
+		localVarReturnValue  *UnblockSuccess
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UnBlockUserFromComment")
@@ -14127,6 +14743,14 @@ func (a *DefaultAPIService) UnBlockUserFromCommentExecute(r ApiUnBlockUserFromCo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14166,7 +14790,7 @@ func (r ApiUnFlagCommentRequest) AnonUserId(anonUserId string) ApiUnFlagCommentR
 	return r
 }
 
-func (r ApiUnFlagCommentRequest) Execute() (*UnFlagCommentResponse, *http.Response, error) {
+func (r ApiUnFlagCommentRequest) Execute() (*FlagCommentResponse, *http.Response, error) {
 	return r.ApiService.UnFlagCommentExecute(r)
 }
 
@@ -14186,13 +14810,13 @@ func (a *DefaultAPIService) UnFlagComment(ctx context.Context, id string) ApiUnF
 }
 
 // Execute executes the request
-//  @return UnFlagCommentResponse
-func (a *DefaultAPIService) UnFlagCommentExecute(r ApiUnFlagCommentRequest) (*UnFlagCommentResponse, *http.Response, error) {
+//  @return FlagCommentResponse
+func (a *DefaultAPIService) UnFlagCommentExecute(r ApiUnFlagCommentRequest) (*FlagCommentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UnFlagCommentResponse
+		localVarReturnValue  *FlagCommentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UnFlagComment")
@@ -14270,6 +14894,14 @@ func (a *DefaultAPIService) UnFlagCommentExecute(r ApiUnFlagCommentRequest) (*Un
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14321,7 +14953,7 @@ func (r ApiUpdateCommentRequest) IsLive(isLive bool) ApiUpdateCommentRequest {
 	return r
 }
 
-func (r ApiUpdateCommentRequest) Execute() (*UpdateCommentResponse, *http.Response, error) {
+func (r ApiUpdateCommentRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateCommentExecute(r)
 }
 
@@ -14341,13 +14973,13 @@ func (a *DefaultAPIService) UpdateComment(ctx context.Context, id string) ApiUpd
 }
 
 // Execute executes the request
-//  @return UpdateCommentResponse
-func (a *DefaultAPIService) UpdateCommentExecute(r ApiUpdateCommentRequest) (*UpdateCommentResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateCommentExecute(r ApiUpdateCommentRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateCommentResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateComment")
@@ -14433,6 +15065,14 @@ func (a *DefaultAPIService) UpdateCommentExecute(r ApiUpdateCommentRequest) (*Up
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14466,7 +15106,7 @@ func (r ApiUpdateEmailTemplateRequest) UpdateEmailTemplateBody(updateEmailTempla
 	return r
 }
 
-func (r ApiUpdateEmailTemplateRequest) Execute() (*UpdateEmailTemplateResponse, *http.Response, error) {
+func (r ApiUpdateEmailTemplateRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateEmailTemplateExecute(r)
 }
 
@@ -14486,13 +15126,13 @@ func (a *DefaultAPIService) UpdateEmailTemplate(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return UpdateEmailTemplateResponse
-func (a *DefaultAPIService) UpdateEmailTemplateExecute(r ApiUpdateEmailTemplateRequest) (*UpdateEmailTemplateResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateEmailTemplateExecute(r ApiUpdateEmailTemplateRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateEmailTemplateResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateEmailTemplate")
@@ -14569,6 +15209,14 @@ func (a *DefaultAPIService) UpdateEmailTemplateExecute(r ApiUpdateEmailTemplateR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14602,7 +15250,7 @@ func (r ApiUpdateFeedPostRequest) FeedPost(feedPost FeedPost) ApiUpdateFeedPostR
 	return r
 }
 
-func (r ApiUpdateFeedPostRequest) Execute() (*UpdateFeedPostResponse, *http.Response, error) {
+func (r ApiUpdateFeedPostRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateFeedPostExecute(r)
 }
 
@@ -14622,13 +15270,13 @@ func (a *DefaultAPIService) UpdateFeedPost(ctx context.Context, id string) ApiUp
 }
 
 // Execute executes the request
-//  @return UpdateFeedPostResponse
-func (a *DefaultAPIService) UpdateFeedPostExecute(r ApiUpdateFeedPostRequest) (*UpdateFeedPostResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateFeedPostExecute(r ApiUpdateFeedPostRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateFeedPostResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateFeedPost")
@@ -14705,6 +15353,14 @@ func (a *DefaultAPIService) UpdateFeedPostExecute(r ApiUpdateFeedPostRequest) (*
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14738,7 +15394,7 @@ func (r ApiUpdateModeratorRequest) UpdateModeratorBody(updateModeratorBody Updat
 	return r
 }
 
-func (r ApiUpdateModeratorRequest) Execute() (*UpdateModeratorResponse, *http.Response, error) {
+func (r ApiUpdateModeratorRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateModeratorExecute(r)
 }
 
@@ -14758,13 +15414,13 @@ func (a *DefaultAPIService) UpdateModerator(ctx context.Context, id string) ApiU
 }
 
 // Execute executes the request
-//  @return UpdateModeratorResponse
-func (a *DefaultAPIService) UpdateModeratorExecute(r ApiUpdateModeratorRequest) (*UpdateModeratorResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateModeratorExecute(r ApiUpdateModeratorRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateModeratorResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateModerator")
@@ -14841,6 +15497,14 @@ func (a *DefaultAPIService) UpdateModeratorExecute(r ApiUpdateModeratorRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -14880,7 +15544,7 @@ func (r ApiUpdateNotificationRequest) UserId(userId string) ApiUpdateNotificatio
 	return r
 }
 
-func (r ApiUpdateNotificationRequest) Execute() (*UpdateNotificationResponse, *http.Response, error) {
+func (r ApiUpdateNotificationRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateNotificationExecute(r)
 }
 
@@ -14900,13 +15564,13 @@ func (a *DefaultAPIService) UpdateNotification(ctx context.Context, id string) A
 }
 
 // Execute executes the request
-//  @return UpdateNotificationResponse
-func (a *DefaultAPIService) UpdateNotificationExecute(r ApiUpdateNotificationRequest) (*UpdateNotificationResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateNotificationExecute(r ApiUpdateNotificationRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateNotificationResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateNotification")
@@ -14986,6 +15650,14 @@ func (a *DefaultAPIService) UpdateNotificationExecute(r ApiUpdateNotificationReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15019,7 +15691,7 @@ func (r ApiUpdateQuestionConfigRequest) UpdateQuestionConfigBody(updateQuestionC
 	return r
 }
 
-func (r ApiUpdateQuestionConfigRequest) Execute() (*UpdateQuestionConfigResponse, *http.Response, error) {
+func (r ApiUpdateQuestionConfigRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateQuestionConfigExecute(r)
 }
 
@@ -15039,13 +15711,13 @@ func (a *DefaultAPIService) UpdateQuestionConfig(ctx context.Context, id string)
 }
 
 // Execute executes the request
-//  @return UpdateQuestionConfigResponse
-func (a *DefaultAPIService) UpdateQuestionConfigExecute(r ApiUpdateQuestionConfigRequest) (*UpdateQuestionConfigResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateQuestionConfigExecute(r ApiUpdateQuestionConfigRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateQuestionConfigResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateQuestionConfig")
@@ -15122,6 +15794,14 @@ func (a *DefaultAPIService) UpdateQuestionConfigExecute(r ApiUpdateQuestionConfi
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15155,7 +15835,7 @@ func (r ApiUpdateQuestionResultRequest) UpdateQuestionResultBody(updateQuestionR
 	return r
 }
 
-func (r ApiUpdateQuestionResultRequest) Execute() (*UpdateQuestionResultResponse, *http.Response, error) {
+func (r ApiUpdateQuestionResultRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateQuestionResultExecute(r)
 }
 
@@ -15175,13 +15855,13 @@ func (a *DefaultAPIService) UpdateQuestionResult(ctx context.Context, id string)
 }
 
 // Execute executes the request
-//  @return UpdateQuestionResultResponse
-func (a *DefaultAPIService) UpdateQuestionResultExecute(r ApiUpdateQuestionResultRequest) (*UpdateQuestionResultResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateQuestionResultExecute(r ApiUpdateQuestionResultRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateQuestionResultResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateQuestionResult")
@@ -15258,6 +15938,14 @@ func (a *DefaultAPIService) UpdateQuestionResultExecute(r ApiUpdateQuestionResul
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15436,7 +16124,7 @@ func (r ApiUpdateTenantRequest) UpdateTenantBody(updateTenantBody UpdateTenantBo
 	return r
 }
 
-func (r ApiUpdateTenantRequest) Execute() (*UpdateTenantResponse, *http.Response, error) {
+func (r ApiUpdateTenantRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateTenantExecute(r)
 }
 
@@ -15456,13 +16144,13 @@ func (a *DefaultAPIService) UpdateTenant(ctx context.Context, id string) ApiUpda
 }
 
 // Execute executes the request
-//  @return UpdateTenantResponse
-func (a *DefaultAPIService) UpdateTenantExecute(r ApiUpdateTenantRequest) (*UpdateTenantResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateTenantExecute(r ApiUpdateTenantRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateTenantResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateTenant")
@@ -15539,6 +16227,14 @@ func (a *DefaultAPIService) UpdateTenantExecute(r ApiUpdateTenantRequest) (*Upda
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15572,7 +16268,7 @@ func (r ApiUpdateTenantPackageRequest) UpdateTenantPackageBody(updateTenantPacka
 	return r
 }
 
-func (r ApiUpdateTenantPackageRequest) Execute() (*UpdateTenantPackageResponse, *http.Response, error) {
+func (r ApiUpdateTenantPackageRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateTenantPackageExecute(r)
 }
 
@@ -15592,13 +16288,13 @@ func (a *DefaultAPIService) UpdateTenantPackage(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return UpdateTenantPackageResponse
-func (a *DefaultAPIService) UpdateTenantPackageExecute(r ApiUpdateTenantPackageRequest) (*UpdateTenantPackageResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateTenantPackageExecute(r ApiUpdateTenantPackageRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateTenantPackageResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateTenantPackage")
@@ -15675,6 +16371,14 @@ func (a *DefaultAPIService) UpdateTenantPackageExecute(r ApiUpdateTenantPackageR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15714,7 +16418,7 @@ func (r ApiUpdateTenantUserRequest) UpdateComments(updateComments string) ApiUpd
 	return r
 }
 
-func (r ApiUpdateTenantUserRequest) Execute() (*UpdateTenantUserResponse, *http.Response, error) {
+func (r ApiUpdateTenantUserRequest) Execute() (*APIEmptyResponse, *http.Response, error) {
 	return r.ApiService.UpdateTenantUserExecute(r)
 }
 
@@ -15734,13 +16438,13 @@ func (a *DefaultAPIService) UpdateTenantUser(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-//  @return UpdateTenantUserResponse
-func (a *DefaultAPIService) UpdateTenantUserExecute(r ApiUpdateTenantUserRequest) (*UpdateTenantUserResponse, *http.Response, error) {
+//  @return APIEmptyResponse
+func (a *DefaultAPIService) UpdateTenantUserExecute(r ApiUpdateTenantUserRequest) (*APIEmptyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateTenantUserResponse
+		localVarReturnValue  *APIEmptyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateTenantUser")
@@ -15820,6 +16524,14 @@ func (a *DefaultAPIService) UpdateTenantUserExecute(r ApiUpdateTenantUserRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -15853,7 +16565,7 @@ func (r ApiUpdateUserBadgeRequest) UpdateUserBadgeParams(updateUserBadgeParams U
 	return r
 }
 
-func (r ApiUpdateUserBadgeRequest) Execute() (*UpdateUserBadgeResponse, *http.Response, error) {
+func (r ApiUpdateUserBadgeRequest) Execute() (*APIEmptySuccessResponse, *http.Response, error) {
 	return r.ApiService.UpdateUserBadgeExecute(r)
 }
 
@@ -15873,13 +16585,13 @@ func (a *DefaultAPIService) UpdateUserBadge(ctx context.Context, id string) ApiU
 }
 
 // Execute executes the request
-//  @return UpdateUserBadgeResponse
-func (a *DefaultAPIService) UpdateUserBadgeExecute(r ApiUpdateUserBadgeRequest) (*UpdateUserBadgeResponse, *http.Response, error) {
+//  @return APIEmptySuccessResponse
+func (a *DefaultAPIService) UpdateUserBadgeExecute(r ApiUpdateUserBadgeRequest) (*APIEmptySuccessResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateUserBadgeResponse
+		localVarReturnValue  *APIEmptySuccessResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.UpdateUserBadge")
@@ -15956,6 +16668,14 @@ func (a *DefaultAPIService) UpdateUserBadgeExecute(r ApiUpdateUserBadgeRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

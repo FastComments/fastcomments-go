@@ -52,7 +52,7 @@ Method | HTTP request | Description
 
 ## DeleteModerationVote
 
-> DeleteModerationVoteResponse DeleteModerationVote(ctx, commentId, voteId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> VoteDeleteResponse DeleteModerationVote(ctx, commentId, voteId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -82,7 +82,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.DeleteModerationVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteModerationVote`: DeleteModerationVoteResponse
+	// response from `DeleteModerationVote`: VoteDeleteResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.DeleteModerationVote`: %v\n", resp)
 }
 ```
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteModerationVoteResponse**](DeleteModerationVoteResponse.md)
+[**VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ No authorization required
 
 ## GetApiComments
 
-> GetApiCommentsResponse GetApiComments(ctx).Page(page).Count(count).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIGetCommentsResponse GetApiComments(ctx).Page(page).Count(count).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -164,7 +164,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetApiComments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetApiComments`: GetApiCommentsResponse
+	// response from `GetApiComments`: ModerationAPIGetCommentsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetApiComments`: %v\n", resp)
 }
 ```
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetApiCommentsResponse**](GetApiCommentsResponse.md)
+[**ModerationAPIGetCommentsResponse**](ModerationAPIGetCommentsResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ No authorization required
 
 ## GetApiExportStatus
 
-> GetApiExportStatusResponse GetApiExportStatus(ctx).BatchJobId(batchJobId).TenantId(tenantId).Sso(sso).Execute()
+> ModerationExportStatusResponse GetApiExportStatus(ctx).BatchJobId(batchJobId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -239,7 +239,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetApiExportStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetApiExportStatus`: GetApiExportStatusResponse
+	// response from `GetApiExportStatus`: ModerationExportStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetApiExportStatus`: %v\n", resp)
 }
 ```
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetApiExportStatusResponse**](GetApiExportStatusResponse.md)
+[**ModerationExportStatusResponse**](ModerationExportStatusResponse.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ No authorization required
 
 ## GetApiIds
 
-> GetApiIdsResponse GetApiIds(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).AfterId(afterId).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIGetCommentIdsResponse GetApiIds(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).AfterId(afterId).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -312,7 +312,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetApiIds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetApiIds`: GetApiIdsResponse
+	// response from `GetApiIds`: ModerationAPIGetCommentIdsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetApiIds`: %v\n", resp)
 }
 ```
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetApiIdsResponse**](GetApiIdsResponse.md)
+[**ModerationAPIGetCommentIdsResponse**](ModerationAPIGetCommentIdsResponse.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ No authorization required
 
 ## GetBanUsersFromComment
 
-> GetBanUsersFromCommentResponse GetBanUsersFromComment(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetBannedUsersFromCommentResponse GetBanUsersFromComment(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -385,7 +385,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetBanUsersFromComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetBanUsersFromComment`: GetBanUsersFromCommentResponse
+	// response from `GetBanUsersFromComment`: GetBannedUsersFromCommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetBanUsersFromComment`: %v\n", resp)
 }
 ```
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBanUsersFromCommentResponse**](GetBanUsersFromCommentResponse.md)
+[**GetBannedUsersFromCommentResponse**](GetBannedUsersFromCommentResponse.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ No authorization required
 
 ## GetCommentBanStatus
 
-> GetCommentBanStatusResponse1 GetCommentBanStatus(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetCommentBanStatusResponse GetCommentBanStatus(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -457,7 +457,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetCommentBanStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentBanStatus`: GetCommentBanStatusResponse1
+	// response from `GetCommentBanStatus`: GetCommentBanStatusResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetCommentBanStatus`: %v\n", resp)
 }
 ```
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentBanStatusResponse1**](GetCommentBanStatusResponse1.md)
+[**GetCommentBanStatusResponse**](GetCommentBanStatusResponse.md)
 
 ### Authorization
 
@@ -501,7 +501,7 @@ No authorization required
 
 ## GetCommentChildren
 
-> GetCommentChildrenResponse GetCommentChildren(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIChildCommentsResponse GetCommentChildren(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -529,7 +529,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetCommentChildren``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCommentChildren`: GetCommentChildrenResponse
+	// response from `GetCommentChildren`: ModerationAPIChildCommentsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetCommentChildren`: %v\n", resp)
 }
 ```
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentChildrenResponse**](GetCommentChildrenResponse.md)
+[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
 
 ### Authorization
 
@@ -573,7 +573,7 @@ No authorization required
 
 ## GetCount
 
-> GetCountResponse GetCount(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filter(filter).SearchFilters(searchFilters).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPICountCommentsResponse GetCount(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filter(filter).SearchFilters(searchFilters).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -605,7 +605,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCount`: GetCountResponse
+	// response from `GetCount`: ModerationAPICountCommentsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetCount`: %v\n", resp)
 }
 ```
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCountResponse**](GetCountResponse.md)
+[**ModerationAPICountCommentsResponse**](ModerationAPICountCommentsResponse.md)
 
 ### Authorization
 
@@ -649,7 +649,7 @@ No authorization required
 
 ## GetCounts
 
-> GetCountsResponse GetCounts(ctx).TenantId(tenantId).Sso(sso).Execute()
+> GetBannedUsersCountResponse GetCounts(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -676,7 +676,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetCounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCounts`: GetCountsResponse
+	// response from `GetCounts`: GetBannedUsersCountResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetCounts`: %v\n", resp)
 }
 ```
@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCountsResponse**](GetCountsResponse.md)
+[**GetBannedUsersCountResponse**](GetBannedUsersCountResponse.md)
 
 ### Authorization
 
@@ -715,7 +715,7 @@ No authorization required
 
 ## GetLogs
 
-> GetLogsResponse GetLogs(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIGetLogsResponse GetLogs(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -743,7 +743,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetLogs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetLogs`: GetLogsResponse
+	// response from `GetLogs`: ModerationAPIGetLogsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetLogs`: %v\n", resp)
 }
 ```
@@ -769,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLogsResponse**](GetLogsResponse.md)
+[**ModerationAPIGetLogsResponse**](ModerationAPIGetLogsResponse.md)
 
 ### Authorization
 
@@ -787,7 +787,7 @@ No authorization required
 
 ## GetManualBadges
 
-> GetManualBadgesResponse GetManualBadges(ctx).TenantId(tenantId).Sso(sso).Execute()
+> GetTenantManualBadgesResponse GetManualBadges(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -814,7 +814,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetManualBadges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetManualBadges`: GetManualBadgesResponse
+	// response from `GetManualBadges`: GetTenantManualBadgesResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetManualBadges`: %v\n", resp)
 }
 ```
@@ -835,7 +835,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetManualBadgesResponse**](GetManualBadgesResponse.md)
+[**GetTenantManualBadgesResponse**](GetTenantManualBadgesResponse.md)
 
 ### Authorization
 
@@ -853,7 +853,7 @@ No authorization required
 
 ## GetManualBadgesForUser
 
-> GetManualBadgesForUserResponse GetManualBadgesForUser(ctx).BadgesUserId(badgesUserId).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetUserManualBadgesResponse GetManualBadgesForUser(ctx).BadgesUserId(badgesUserId).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -882,7 +882,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetManualBadgesForUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetManualBadgesForUser`: GetManualBadgesForUserResponse
+	// response from `GetManualBadgesForUser`: GetUserManualBadgesResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetManualBadgesForUser`: %v\n", resp)
 }
 ```
@@ -905,7 +905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetManualBadgesForUserResponse**](GetManualBadgesForUserResponse.md)
+[**GetUserManualBadgesResponse**](GetUserManualBadgesResponse.md)
 
 ### Authorization
 
@@ -923,7 +923,7 @@ No authorization required
 
 ## GetModerationComment
 
-> GetModerationCommentResponse GetModerationComment(ctx, commentId).IncludeEmail(includeEmail).IncludeIP(includeIP).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPICommentResponse GetModerationComment(ctx, commentId).IncludeEmail(includeEmail).IncludeIP(includeIP).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -953,7 +953,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetModerationComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetModerationComment`: GetModerationCommentResponse
+	// response from `GetModerationComment`: ModerationAPICommentResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetModerationComment`: %v\n", resp)
 }
 ```
@@ -981,7 +981,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModerationCommentResponse**](GetModerationCommentResponse.md)
+[**ModerationAPICommentResponse**](ModerationAPICommentResponse.md)
 
 ### Authorization
 
@@ -999,7 +999,7 @@ No authorization required
 
 ## GetModerationCommentText
 
-> GetModerationCommentTextResponse GetModerationCommentText(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetCommentTextResponse GetModerationCommentText(ctx, commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1027,7 +1027,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetModerationCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetModerationCommentText`: GetModerationCommentTextResponse
+	// response from `GetModerationCommentText`: GetCommentTextResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetModerationCommentText`: %v\n", resp)
 }
 ```
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModerationCommentTextResponse**](GetModerationCommentTextResponse.md)
+[**GetCommentTextResponse**](GetCommentTextResponse.md)
 
 ### Authorization
 
@@ -1071,7 +1071,7 @@ No authorization required
 
 ## GetPreBanSummary
 
-> GetPreBanSummaryResponse GetPreBanSummary(ctx, commentId).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
+> PreBanSummary GetPreBanSummary(ctx, commentId).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1102,7 +1102,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetPreBanSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetPreBanSummary`: GetPreBanSummaryResponse
+	// response from `GetPreBanSummary`: PreBanSummary
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetPreBanSummary`: %v\n", resp)
 }
 ```
@@ -1131,7 +1131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPreBanSummaryResponse**](GetPreBanSummaryResponse.md)
+[**PreBanSummary**](PreBanSummary.md)
 
 ### Authorization
 
@@ -1149,7 +1149,7 @@ No authorization required
 
 ## GetSearchCommentsSummary
 
-> GetSearchCommentsSummaryResponse GetSearchCommentsSummary(ctx).Value(value).Filters(filters).SearchFilters(searchFilters).TenantId(tenantId).Sso(sso).Execute()
+> ModerationCommentSearchResponse GetSearchCommentsSummary(ctx).Value(value).Filters(filters).SearchFilters(searchFilters).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1179,7 +1179,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchCommentsSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSearchCommentsSummary`: GetSearchCommentsSummaryResponse
+	// response from `GetSearchCommentsSummary`: ModerationCommentSearchResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetSearchCommentsSummary`: %v\n", resp)
 }
 ```
@@ -1203,7 +1203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchCommentsSummaryResponse**](GetSearchCommentsSummaryResponse.md)
+[**ModerationCommentSearchResponse**](ModerationCommentSearchResponse.md)
 
 ### Authorization
 
@@ -1221,7 +1221,7 @@ No authorization required
 
 ## GetSearchPages
 
-> GetSearchPagesResponse GetSearchPages(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
+> ModerationPageSearchResponse GetSearchPages(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1249,7 +1249,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchPages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSearchPages`: GetSearchPagesResponse
+	// response from `GetSearchPages`: ModerationPageSearchResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetSearchPages`: %v\n", resp)
 }
 ```
@@ -1271,7 +1271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchPagesResponse**](GetSearchPagesResponse.md)
+[**ModerationPageSearchResponse**](ModerationPageSearchResponse.md)
 
 ### Authorization
 
@@ -1289,7 +1289,7 @@ No authorization required
 
 ## GetSearchSites
 
-> GetSearchSitesResponse GetSearchSites(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
+> ModerationSiteSearchResponse GetSearchSites(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1317,7 +1317,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchSites``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSearchSites`: GetSearchSitesResponse
+	// response from `GetSearchSites`: ModerationSiteSearchResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetSearchSites`: %v\n", resp)
 }
 ```
@@ -1339,7 +1339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchSitesResponse**](GetSearchSitesResponse.md)
+[**ModerationSiteSearchResponse**](ModerationSiteSearchResponse.md)
 
 ### Authorization
 
@@ -1357,7 +1357,7 @@ No authorization required
 
 ## GetSearchSuggest
 
-> GetSearchSuggestResponse GetSearchSuggest(ctx).TextSearch(textSearch).TenantId(tenantId).Sso(sso).Execute()
+> ModerationSuggestResponse GetSearchSuggest(ctx).TextSearch(textSearch).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1385,7 +1385,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchSuggest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSearchSuggest`: GetSearchSuggestResponse
+	// response from `GetSearchSuggest`: ModerationSuggestResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetSearchSuggest`: %v\n", resp)
 }
 ```
@@ -1407,7 +1407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchSuggestResponse**](GetSearchSuggestResponse.md)
+[**ModerationSuggestResponse**](ModerationSuggestResponse.md)
 
 ### Authorization
 
@@ -1425,7 +1425,7 @@ No authorization required
 
 ## GetSearchUsers
 
-> GetSearchUsersResponse GetSearchUsers(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
+> ModerationUserSearchResponse GetSearchUsers(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1453,7 +1453,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSearchUsers`: GetSearchUsersResponse
+	// response from `GetSearchUsers`: ModerationUserSearchResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetSearchUsers`: %v\n", resp)
 }
 ```
@@ -1475,7 +1475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchUsersResponse**](GetSearchUsersResponse.md)
+[**ModerationUserSearchResponse**](ModerationUserSearchResponse.md)
 
 ### Authorization
 
@@ -1493,7 +1493,7 @@ No authorization required
 
 ## GetTrustFactor
 
-> GetTrustFactorResponse GetTrustFactor(ctx).UserId(userId).TenantId(tenantId).Sso(sso).Execute()
+> GetUserTrustFactorResponse GetTrustFactor(ctx).UserId(userId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1521,7 +1521,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetTrustFactor``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTrustFactor`: GetTrustFactorResponse
+	// response from `GetTrustFactor`: GetUserTrustFactorResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetTrustFactor`: %v\n", resp)
 }
 ```
@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTrustFactorResponse**](GetTrustFactorResponse.md)
+[**GetUserTrustFactorResponse**](GetUserTrustFactorResponse.md)
 
 ### Authorization
 
@@ -1561,7 +1561,7 @@ No authorization required
 
 ## GetUserBanPreference
 
-> GetUserBanPreferenceResponse GetUserBanPreference(ctx).TenantId(tenantId).Sso(sso).Execute()
+> APIModerateGetUserBanPreferencesResponse GetUserBanPreference(ctx).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1588,7 +1588,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetUserBanPreference``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserBanPreference`: GetUserBanPreferenceResponse
+	// response from `GetUserBanPreference`: APIModerateGetUserBanPreferencesResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetUserBanPreference`: %v\n", resp)
 }
 ```
@@ -1609,7 +1609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBanPreferenceResponse**](GetUserBanPreferenceResponse.md)
+[**APIModerateGetUserBanPreferencesResponse**](APIModerateGetUserBanPreferencesResponse.md)
 
 ### Authorization
 
@@ -1627,7 +1627,7 @@ No authorization required
 
 ## GetUserInternalProfile
 
-> GetUserInternalProfileResponse1 GetUserInternalProfile(ctx).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetUserInternalProfileResponse GetUserInternalProfile(ctx).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1655,7 +1655,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetUserInternalProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserInternalProfile`: GetUserInternalProfileResponse1
+	// response from `GetUserInternalProfile`: GetUserInternalProfileResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.GetUserInternalProfile`: %v\n", resp)
 }
 ```
@@ -1677,7 +1677,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserInternalProfileResponse1**](GetUserInternalProfileResponse1.md)
+[**GetUserInternalProfileResponse**](GetUserInternalProfileResponse.md)
 
 ### Authorization
 
@@ -1695,7 +1695,7 @@ No authorization required
 
 ## PostAdjustCommentVotes
 
-> PostAdjustCommentVotesResponse PostAdjustCommentVotes(ctx, commentId).AdjustCommentVotesParams(adjustCommentVotesParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> AdjustVotesResponse PostAdjustCommentVotes(ctx, commentId).AdjustCommentVotesParams(adjustCommentVotesParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1725,7 +1725,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostAdjustCommentVotes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostAdjustCommentVotes`: PostAdjustCommentVotesResponse
+	// response from `PostAdjustCommentVotes`: AdjustVotesResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostAdjustCommentVotes`: %v\n", resp)
 }
 ```
@@ -1753,7 +1753,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostAdjustCommentVotesResponse**](PostAdjustCommentVotesResponse.md)
+[**AdjustVotesResponse**](AdjustVotesResponse.md)
 
 ### Authorization
 
@@ -1771,7 +1771,7 @@ No authorization required
 
 ## PostApiExport
 
-> PostApiExportResponse PostApiExport(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).TenantId(tenantId).Sso(sso).Execute()
+> ModerationExportResponse PostApiExport(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1803,7 +1803,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostApiExport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostApiExport`: PostApiExportResponse
+	// response from `PostApiExport`: ModerationExportResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostApiExport`: %v\n", resp)
 }
 ```
@@ -1829,7 +1829,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostApiExportResponse**](PostApiExportResponse.md)
+[**ModerationExportResponse**](ModerationExportResponse.md)
 
 ### Authorization
 
@@ -1847,7 +1847,7 @@ No authorization required
 
 ## PostBanUserFromComment
 
-> PostBanUserFromCommentResponse PostBanUserFromComment(ctx, commentId).BanEmail(banEmail).BanEmailDomain(banEmailDomain).BanIP(banIP).DeleteAllUsersComments(deleteAllUsersComments).BannedUntil(bannedUntil).IsShadowBan(isShadowBan).UpdateId(updateId).BanReason(banReason).TenantId(tenantId).Sso(sso).Execute()
+> BanUserFromCommentResult PostBanUserFromComment(ctx, commentId).BanEmail(banEmail).BanEmailDomain(banEmailDomain).BanIP(banIP).DeleteAllUsersComments(deleteAllUsersComments).BannedUntil(bannedUntil).IsShadowBan(isShadowBan).UpdateId(updateId).BanReason(banReason).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1883,7 +1883,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostBanUserFromComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostBanUserFromComment`: PostBanUserFromCommentResponse
+	// response from `PostBanUserFromComment`: BanUserFromCommentResult
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostBanUserFromComment`: %v\n", resp)
 }
 ```
@@ -1917,7 +1917,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostBanUserFromCommentResponse**](PostBanUserFromCommentResponse.md)
+[**BanUserFromCommentResult**](BanUserFromCommentResult.md)
 
 ### Authorization
 
@@ -1935,7 +1935,7 @@ No authorization required
 
 ## PostBanUserUndo
 
-> PostBanUserUndoResponse PostBanUserUndo(ctx).BanUserUndoParams(banUserUndoParams).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostBanUserUndo(ctx).BanUserUndoParams(banUserUndoParams).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -1963,7 +1963,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostBanUserUndo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostBanUserUndo`: PostBanUserUndoResponse
+	// response from `PostBanUserUndo`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostBanUserUndo`: %v\n", resp)
 }
 ```
@@ -1985,7 +1985,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostBanUserUndoResponse**](PostBanUserUndoResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2003,7 +2003,7 @@ No authorization required
 
 ## PostBulkPreBanSummary
 
-> PostBulkPreBanSummaryResponse PostBulkPreBanSummary(ctx).BulkPreBanParams(bulkPreBanParams).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
+> BulkPreBanSummary PostBulkPreBanSummary(ctx).BulkPreBanParams(bulkPreBanParams).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2034,7 +2034,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostBulkPreBanSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostBulkPreBanSummary`: PostBulkPreBanSummaryResponse
+	// response from `PostBulkPreBanSummary`: BulkPreBanSummary
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostBulkPreBanSummary`: %v\n", resp)
 }
 ```
@@ -2059,7 +2059,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostBulkPreBanSummaryResponse**](PostBulkPreBanSummaryResponse.md)
+[**BulkPreBanSummary**](BulkPreBanSummary.md)
 
 ### Authorization
 
@@ -2077,7 +2077,7 @@ No authorization required
 
 ## PostCommentsByIds
 
-> PostCommentsByIdsResponse PostCommentsByIds(ctx).CommentsByIdsParams(commentsByIdsParams).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIChildCommentsResponse PostCommentsByIds(ctx).CommentsByIdsParams(commentsByIdsParams).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2105,7 +2105,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostCommentsByIds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostCommentsByIds`: PostCommentsByIdsResponse
+	// response from `PostCommentsByIds`: ModerationAPIChildCommentsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostCommentsByIds`: %v\n", resp)
 }
 ```
@@ -2127,7 +2127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCommentsByIdsResponse**](PostCommentsByIdsResponse.md)
+[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
 
 ### Authorization
 
@@ -2145,7 +2145,7 @@ No authorization required
 
 ## PostFlagComment
 
-> PostFlagCommentResponse PostFlagComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostFlagComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2174,7 +2174,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostFlagComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostFlagComment`: PostFlagCommentResponse
+	// response from `PostFlagComment`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostFlagComment`: %v\n", resp)
 }
 ```
@@ -2201,7 +2201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostFlagCommentResponse**](PostFlagCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2293,7 +2293,7 @@ No authorization required
 
 ## PostRestoreDeletedComment
 
-> PostRestoreDeletedCommentResponse PostRestoreDeletedComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostRestoreDeletedComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2322,7 +2322,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostRestoreDeletedComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostRestoreDeletedComment`: PostRestoreDeletedCommentResponse
+	// response from `PostRestoreDeletedComment`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostRestoreDeletedComment`: %v\n", resp)
 }
 ```
@@ -2349,7 +2349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostRestoreDeletedCommentResponse**](PostRestoreDeletedCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2367,7 +2367,7 @@ No authorization required
 
 ## PostSetCommentApprovalStatus
 
-> PostSetCommentApprovalStatusResponse PostSetCommentApprovalStatus(ctx, commentId).Approved(approved).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> SetCommentApprovedResponse PostSetCommentApprovalStatus(ctx, commentId).Approved(approved).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2397,7 +2397,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentApprovalStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostSetCommentApprovalStatus`: PostSetCommentApprovalStatusResponse
+	// response from `PostSetCommentApprovalStatus`: SetCommentApprovedResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostSetCommentApprovalStatus`: %v\n", resp)
 }
 ```
@@ -2425,7 +2425,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentApprovalStatusResponse**](PostSetCommentApprovalStatusResponse.md)
+[**SetCommentApprovedResponse**](SetCommentApprovedResponse.md)
 
 ### Authorization
 
@@ -2443,7 +2443,7 @@ No authorization required
 
 ## PostSetCommentReviewStatus
 
-> PostSetCommentReviewStatusResponse PostSetCommentReviewStatus(ctx, commentId).Reviewed(reviewed).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostSetCommentReviewStatus(ctx, commentId).Reviewed(reviewed).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2473,7 +2473,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentReviewStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostSetCommentReviewStatus`: PostSetCommentReviewStatusResponse
+	// response from `PostSetCommentReviewStatus`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostSetCommentReviewStatus`: %v\n", resp)
 }
 ```
@@ -2501,7 +2501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentReviewStatusResponse**](PostSetCommentReviewStatusResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2519,7 +2519,7 @@ No authorization required
 
 ## PostSetCommentSpamStatus
 
-> PostSetCommentSpamStatusResponse PostSetCommentSpamStatus(ctx, commentId).Spam(spam).PermNotSpam(permNotSpam).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostSetCommentSpamStatus(ctx, commentId).Spam(spam).PermNotSpam(permNotSpam).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2550,7 +2550,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentSpamStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostSetCommentSpamStatus`: PostSetCommentSpamStatusResponse
+	// response from `PostSetCommentSpamStatus`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostSetCommentSpamStatus`: %v\n", resp)
 }
 ```
@@ -2579,7 +2579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentSpamStatusResponse**](PostSetCommentSpamStatusResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2597,7 +2597,7 @@ No authorization required
 
 ## PostSetCommentText
 
-> PostSetCommentTextResponse PostSetCommentText(ctx, commentId).SetCommentTextParams(setCommentTextParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> SetCommentTextResponse PostSetCommentText(ctx, commentId).SetCommentTextParams(setCommentTextParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2627,7 +2627,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostSetCommentText`: PostSetCommentTextResponse
+	// response from `PostSetCommentText`: SetCommentTextResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostSetCommentText`: %v\n", resp)
 }
 ```
@@ -2655,7 +2655,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentTextResponse**](PostSetCommentTextResponse.md)
+[**SetCommentTextResponse**](SetCommentTextResponse.md)
 
 ### Authorization
 
@@ -2673,7 +2673,7 @@ No authorization required
 
 ## PostUnFlagComment
 
-> PostUnFlagCommentResponse PostUnFlagComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostUnFlagComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2702,7 +2702,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostUnFlagComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostUnFlagComment`: PostUnFlagCommentResponse
+	// response from `PostUnFlagComment`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostUnFlagComment`: %v\n", resp)
 }
 ```
@@ -2729,7 +2729,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostUnFlagCommentResponse**](PostUnFlagCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2747,7 +2747,7 @@ No authorization required
 
 ## PostVote
 
-> PostVoteResponse PostVote(ctx, commentId).Direction(direction).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> VoteResponse PostVote(ctx, commentId).Direction(direction).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2777,7 +2777,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostVote`: PostVoteResponse
+	// response from `PostVote`: VoteResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostVote`: %v\n", resp)
 }
 ```
@@ -2805,7 +2805,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostVoteResponse**](PostVoteResponse.md)
+[**VoteResponse**](VoteResponse.md)
 
 ### Authorization
 
@@ -2823,7 +2823,7 @@ No authorization required
 
 ## PutAwardBadge
 
-> PutAwardBadgeResponse PutAwardBadge(ctx).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> AwardUserBadgeResponse PutAwardBadge(ctx).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2854,7 +2854,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutAwardBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PutAwardBadge`: PutAwardBadgeResponse
+	// response from `PutAwardBadge`: AwardUserBadgeResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PutAwardBadge`: %v\n", resp)
 }
 ```
@@ -2879,7 +2879,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutAwardBadgeResponse**](PutAwardBadgeResponse.md)
+[**AwardUserBadgeResponse**](AwardUserBadgeResponse.md)
 
 ### Authorization
 
@@ -2897,7 +2897,7 @@ No authorization required
 
 ## PutCloseThread
 
-> PutCloseThreadResponse PutCloseThread(ctx).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PutCloseThread(ctx).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2925,7 +2925,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutCloseThread``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PutCloseThread`: PutCloseThreadResponse
+	// response from `PutCloseThread`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PutCloseThread`: %v\n", resp)
 }
 ```
@@ -2947,7 +2947,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutCloseThreadResponse**](PutCloseThreadResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2965,7 +2965,7 @@ No authorization required
 
 ## PutRemoveBadge
 
-> PutRemoveBadgeResponse PutRemoveBadge(ctx).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> RemoveUserBadgeResponse PutRemoveBadge(ctx).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -2996,7 +2996,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutRemoveBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PutRemoveBadge`: PutRemoveBadgeResponse
+	// response from `PutRemoveBadge`: RemoveUserBadgeResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PutRemoveBadge`: %v\n", resp)
 }
 ```
@@ -3021,7 +3021,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutRemoveBadgeResponse**](PutRemoveBadgeResponse.md)
+[**RemoveUserBadgeResponse**](RemoveUserBadgeResponse.md)
 
 ### Authorization
 
@@ -3039,7 +3039,7 @@ No authorization required
 
 ## PutReopenThread
 
-> PutReopenThreadResponse PutReopenThread(ctx).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PutReopenThread(ctx).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -3067,7 +3067,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutReopenThread``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PutReopenThread`: PutReopenThreadResponse
+	// response from `PutReopenThread`: APIEmptyResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PutReopenThread`: %v\n", resp)
 }
 ```
@@ -3089,7 +3089,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutReopenThreadResponse**](PutReopenThreadResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3107,7 +3107,7 @@ No authorization required
 
 ## SetTrustFactor
 
-> SetTrustFactorResponse SetTrustFactor(ctx).UserId(userId).TrustFactor(trustFactor).TenantId(tenantId).Sso(sso).Execute()
+> SetUserTrustFactorResponse SetTrustFactor(ctx).UserId(userId).TrustFactor(trustFactor).TenantId(tenantId).Sso(sso).Execute()
 
 
 
@@ -3136,7 +3136,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.SetTrustFactor``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SetTrustFactor`: SetTrustFactorResponse
+	// response from `SetTrustFactor`: SetUserTrustFactorResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.SetTrustFactor`: %v\n", resp)
 }
 ```
@@ -3159,7 +3159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SetTrustFactorResponse**](SetTrustFactorResponse.md)
+[**SetUserTrustFactorResponse**](SetUserTrustFactorResponse.md)
 
 ### Authorization
 

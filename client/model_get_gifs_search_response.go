@@ -18,7 +18,6 @@ import (
 
 // GetGifsSearchResponse struct for GetGifsSearchResponse
 type GetGifsSearchResponse struct {
-	APIError *APIError
 	GifSearchInternalError *GifSearchInternalError
 	GifSearchResponse *GifSearchResponse
 }
@@ -26,19 +25,6 @@ type GetGifsSearchResponse struct {
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *GetGifsSearchResponse) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into APIError
-	err = json.Unmarshal(data, &dst.APIError);
-	if err == nil {
-		jsonAPIError, _ := json.Marshal(dst.APIError)
-		if string(jsonAPIError) == "{}" { // empty struct
-			dst.APIError = nil
-		} else {
-			return nil // data stored in dst.APIError, return on the first match
-		}
-	} else {
-		dst.APIError = nil
-	}
-
 	// try to unmarshal JSON data into GifSearchInternalError
 	err = json.Unmarshal(data, &dst.GifSearchInternalError);
 	if err == nil {
@@ -70,10 +56,6 @@ func (dst *GetGifsSearchResponse) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src GetGifsSearchResponse) MarshalJSON() ([]byte, error) {
-	if src.APIError != nil {
-		return json.Marshal(&src.APIError)
-	}
-
 	if src.GifSearchInternalError != nil {
 		return json.Marshal(&src.GifSearchInternalError)
 	}

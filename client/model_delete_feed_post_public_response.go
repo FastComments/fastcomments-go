@@ -12,61 +12,112 @@ package client
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
+// checks if the DeleteFeedPostPublicResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeleteFeedPostPublicResponse{}
 
 // DeleteFeedPostPublicResponse struct for DeleteFeedPostPublicResponse
 type DeleteFeedPostPublicResponse struct {
-	APIError *APIError
-	DeleteFeedPostPublicResponseAnyOf *DeleteFeedPostPublicResponseAnyOf
+	Status APIStatus `json:"status"`
 }
 
-// Unmarshal JSON data into any of the pointers in the struct
-func (dst *DeleteFeedPostPublicResponse) UnmarshalJSON(data []byte) error {
-	var err error
-	// try to unmarshal JSON data into APIError
-	err = json.Unmarshal(data, &dst.APIError);
-	if err == nil {
-		jsonAPIError, _ := json.Marshal(dst.APIError)
-		if string(jsonAPIError) == "{}" { // empty struct
-			dst.APIError = nil
-		} else {
-			return nil // data stored in dst.APIError, return on the first match
+type _DeleteFeedPostPublicResponse DeleteFeedPostPublicResponse
+
+// NewDeleteFeedPostPublicResponse instantiates a new DeleteFeedPostPublicResponse object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewDeleteFeedPostPublicResponse(status APIStatus) *DeleteFeedPostPublicResponse {
+	this := DeleteFeedPostPublicResponse{}
+	this.Status = status
+	return &this
+}
+
+// NewDeleteFeedPostPublicResponseWithDefaults instantiates a new DeleteFeedPostPublicResponse object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewDeleteFeedPostPublicResponseWithDefaults() *DeleteFeedPostPublicResponse {
+	this := DeleteFeedPostPublicResponse{}
+	return &this
+}
+
+// GetStatus returns the Status field value
+func (o *DeleteFeedPostPublicResponse) GetStatus() APIStatus {
+	if o == nil {
+		var ret APIStatus
+		return ret
+	}
+
+	return o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value
+// and a boolean to check if the value has been set.
+func (o *DeleteFeedPostPublicResponse) GetStatusOk() (*APIStatus, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Status, true
+}
+
+// SetStatus sets field value
+func (o *DeleteFeedPostPublicResponse) SetStatus(v APIStatus) {
+	o.Status = v
+}
+
+func (o DeleteFeedPostPublicResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o DeleteFeedPostPublicResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["status"] = o.Status
+	return toSerialize, nil
+}
+
+func (o *DeleteFeedPostPublicResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
-	} else {
-		dst.APIError = nil
 	}
 
-	// try to unmarshal JSON data into DeleteFeedPostPublicResponseAnyOf
-	err = json.Unmarshal(data, &dst.DeleteFeedPostPublicResponseAnyOf);
-	if err == nil {
-		jsonDeleteFeedPostPublicResponseAnyOf, _ := json.Marshal(dst.DeleteFeedPostPublicResponseAnyOf)
-		if string(jsonDeleteFeedPostPublicResponseAnyOf) == "{}" { // empty struct
-			dst.DeleteFeedPostPublicResponseAnyOf = nil
-		} else {
-			return nil // data stored in dst.DeleteFeedPostPublicResponseAnyOf, return on the first match
-		}
-	} else {
-		dst.DeleteFeedPostPublicResponseAnyOf = nil
+	varDeleteFeedPostPublicResponse := _DeleteFeedPostPublicResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDeleteFeedPostPublicResponse)
+
+	if err != nil {
+		return err
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(DeleteFeedPostPublicResponse)")
+	*o = DeleteFeedPostPublicResponse(varDeleteFeedPostPublicResponse)
+
+	return err
 }
-
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src DeleteFeedPostPublicResponse) MarshalJSON() ([]byte, error) {
-	if src.APIError != nil {
-		return json.Marshal(&src.APIError)
-	}
-
-	if src.DeleteFeedPostPublicResponseAnyOf != nil {
-		return json.Marshal(&src.DeleteFeedPostPublicResponseAnyOf)
-	}
-
-	return nil, nil // no data in anyOf schemas
-}
-
 
 type NullableDeleteFeedPostPublicResponse struct {
 	value *DeleteFeedPostPublicResponse
