@@ -211,10 +211,11 @@ func (a *DefaultAPIService) AddHashTagExecute(r ApiAddHashTagRequest) (*CreateHa
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.tenantId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -347,10 +348,11 @@ func (a *DefaultAPIService) AddHashTagsBulkExecute(r ApiAddHashTagsBulkRequest) 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.tenantId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -4005,8 +4007,8 @@ func (a *DefaultAPIService) DeleteEmailTemplateRenderErrorExecute(r ApiDeleteEma
 type ApiDeleteHashTagRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	tag string
 	tenantId *string
+	tag string
 	deleteHashTagRequestBody *DeleteHashTagRequestBody
 }
 
@@ -4060,10 +4062,11 @@ func (a *DefaultAPIService) DeleteHashTagExecute(r ApiDeleteHashTagRequest) (*AP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.tenantId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -12830,8 +12833,8 @@ func (a *DefaultAPIService) PatchDomainConfigExecute(r ApiPatchDomainConfigReque
 type ApiPatchHashTagRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	tag string
 	tenantId *string
+	tag string
 	updateHashTagBody *UpdateHashTagBody
 }
 
@@ -12885,10 +12888,11 @@ func (a *DefaultAPIService) PatchHashTagExecute(r ApiPatchHashTagRequest) (*Upda
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.tenantId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

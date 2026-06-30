@@ -206,7 +206,7 @@ import (
 )
 
 func main() {
-	tenantId := "tenantId_example" // string |  (optional)
+	tenantId := "tenantId_example" // string | 
 	createHashTagBody := *openapiclient.NewCreateHashTagBody("Tag_example") // CreateHashTagBody |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -272,7 +272,7 @@ import (
 )
 
 func main() {
-	tenantId := "tenantId_example" // string |  (optional)
+	tenantId := "tenantId_example" // string | 
 	bulkCreateHashTagsBody := *openapiclient.NewBulkCreateHashTagsBody([]openapiclient.BulkCreateHashTagsBodyTagsInner{*openapiclient.NewBulkCreateHashTagsBodyTagsInner("Tag_example")}) // BulkCreateHashTagsBody |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2014,8 +2014,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	tag := "tag_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	deleteHashTagRequestBody := *openapiclient.NewDeleteHashTagRequestBody() // DeleteHashTagRequestBody |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2045,8 +2045,8 @@ Other parameters are passed through a pointer to a apiDeleteHashTagRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **deleteHashTagRequestBody** | [**DeleteHashTagRequestBody**](DeleteHashTagRequestBody.md) |  | 
 
 ### Return type
@@ -6324,8 +6324,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	tag := "tag_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	updateHashTagBody := *openapiclient.NewUpdateHashTagBody() // UpdateHashTagBody |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -6355,8 +6355,8 @@ Other parameters are passed through a pointer to a apiPatchHashTagRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **updateHashTagBody** | [**UpdateHashTagBody**](UpdateHashTagBody.md) |  | 
 
 ### Return type

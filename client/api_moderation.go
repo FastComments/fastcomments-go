@@ -26,9 +26,21 @@ type ModerationAPIService service
 type ApiDeleteModerationVoteRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	voteId string
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiDeleteModerationVoteRequest) TenantId(tenantId string) ApiDeleteModerationVoteRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiDeleteModerationVoteRequest) BroadcastId(broadcastId string) ApiDeleteModerationVoteRequest {
+	r.broadcastId = &broadcastId
+	return r
 }
 
 func (r ApiDeleteModerationVoteRequest) Sso(sso string) ApiDeleteModerationVoteRequest {
@@ -72,14 +84,21 @@ func (a *ModerationAPIService) DeleteModerationVoteExecute(r ApiDeleteModeration
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/vote/{commentId}/{voteId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"voteId"+"}", url.PathEscape(parameterValueToString(r.voteId, "voteId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -148,6 +167,7 @@ func (a *ModerationAPIService) DeleteModerationVoteExecute(r ApiDeleteModeration
 type ApiGetApiCommentsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	page *float64
 	count *float64
 	textSearch *string
@@ -157,6 +177,11 @@ type ApiGetApiCommentsRequest struct {
 	sorts *string
 	demo *bool
 	sso *string
+}
+
+func (r ApiGetApiCommentsRequest) TenantId(tenantId string) ApiGetApiCommentsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetApiCommentsRequest) Page(page float64) ApiGetApiCommentsRequest {
@@ -236,12 +261,16 @@ func (a *ModerationAPIService) GetApiCommentsExecute(r ApiGetApiCommentsRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/api/comments"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/api/comments"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.page != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
@@ -334,8 +363,14 @@ func (a *ModerationAPIService) GetApiCommentsExecute(r ApiGetApiCommentsRequest)
 type ApiGetApiExportStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	batchJobId *string
 	sso *string
+}
+
+func (r ApiGetApiExportStatusRequest) TenantId(tenantId string) ApiGetApiExportStatusRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetApiExportStatusRequest) BatchJobId(batchJobId string) ApiGetApiExportStatusRequest {
@@ -380,12 +415,16 @@ func (a *ModerationAPIService) GetApiExportStatusExecute(r ApiGetApiExportStatus
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/api/export/status"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/api/export/status"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.batchJobId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "batchJobId", r.batchJobId, "form", "")
 	}
@@ -457,6 +496,7 @@ func (a *ModerationAPIService) GetApiExportStatusExecute(r ApiGetApiExportStatus
 type ApiGetApiIdsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	textSearch *string
 	byIPFromComment *string
 	filters *string
@@ -464,6 +504,11 @@ type ApiGetApiIdsRequest struct {
 	afterId *string
 	demo *bool
 	sso *string
+}
+
+func (r ApiGetApiIdsRequest) TenantId(tenantId string) ApiGetApiIdsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetApiIdsRequest) TextSearch(textSearch string) ApiGetApiIdsRequest {
@@ -533,12 +578,16 @@ func (a *ModerationAPIService) GetApiIdsExecute(r ApiGetApiIdsRequest) (*Moderat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/api/ids"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/api/ids"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.textSearch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "text-search", r.textSearch, "form", "")
 	}
@@ -625,8 +674,14 @@ func (a *ModerationAPIService) GetApiIdsExecute(r ApiGetApiIdsRequest) (*Moderat
 type ApiGetBanUsersFromCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	sso *string
+}
+
+func (r ApiGetBanUsersFromCommentRequest) TenantId(tenantId string) ApiGetBanUsersFromCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetBanUsersFromCommentRequest) Sso(sso string) ApiGetBanUsersFromCommentRequest {
@@ -668,13 +723,17 @@ func (a *ModerationAPIService) GetBanUsersFromCommentExecute(r ApiGetBanUsersFro
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/ban-users/from-comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -743,8 +802,14 @@ func (a *ModerationAPIService) GetBanUsersFromCommentExecute(r ApiGetBanUsersFro
 type ApiGetCommentBanStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	sso *string
+}
+
+func (r ApiGetCommentBanStatusRequest) TenantId(tenantId string) ApiGetCommentBanStatusRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCommentBanStatusRequest) Sso(sso string) ApiGetCommentBanStatusRequest {
@@ -786,13 +851,17 @@ func (a *ModerationAPIService) GetCommentBanStatusExecute(r ApiGetCommentBanStat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/get-comment-ban-status/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -861,8 +930,14 @@ func (a *ModerationAPIService) GetCommentBanStatusExecute(r ApiGetCommentBanStat
 type ApiGetCommentChildrenRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	sso *string
+}
+
+func (r ApiGetCommentChildrenRequest) TenantId(tenantId string) ApiGetCommentChildrenRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCommentChildrenRequest) Sso(sso string) ApiGetCommentChildrenRequest {
@@ -904,13 +979,17 @@ func (a *ModerationAPIService) GetCommentChildrenExecute(r ApiGetCommentChildren
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/comment-children/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/comment-children/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -979,12 +1058,18 @@ func (a *ModerationAPIService) GetCommentChildrenExecute(r ApiGetCommentChildren
 type ApiGetCountRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	textSearch *string
 	byIPFromComment *string
 	filter *string
 	searchFilters *string
 	demo *bool
 	sso *string
+}
+
+func (r ApiGetCountRequest) TenantId(tenantId string) ApiGetCountRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCountRequest) TextSearch(textSearch string) ApiGetCountRequest {
@@ -1049,12 +1134,16 @@ func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*Moderatio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/count"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/count"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.textSearch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "text-search", r.textSearch, "form", "")
 	}
@@ -1138,7 +1227,13 @@ func (a *ModerationAPIService) GetCountExecute(r ApiGetCountRequest) (*Moderatio
 type ApiGetCountsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetCountsRequest) TenantId(tenantId string) ApiGetCountsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetCountsRequest) Sso(sso string) ApiGetCountsRequest {
@@ -1178,12 +1273,16 @@ func (a *ModerationAPIService) GetCountsExecute(r ApiGetCountsRequest) (*GetBann
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/banned-users/counts"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/banned-users/mod_api/counts"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1252,8 +1351,14 @@ func (a *ModerationAPIService) GetCountsExecute(r ApiGetCountsRequest) (*GetBann
 type ApiGetLogsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	sso *string
+}
+
+func (r ApiGetLogsRequest) TenantId(tenantId string) ApiGetLogsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetLogsRequest) Sso(sso string) ApiGetLogsRequest {
@@ -1295,13 +1400,17 @@ func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*ModerationA
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/logs/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/logs/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1370,7 +1479,13 @@ func (a *ModerationAPIService) GetLogsExecute(r ApiGetLogsRequest) (*ModerationA
 type ApiGetManualBadgesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetManualBadgesRequest) TenantId(tenantId string) ApiGetManualBadgesRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetManualBadgesRequest) Sso(sso string) ApiGetManualBadgesRequest {
@@ -1410,12 +1525,16 @@ func (a *ModerationAPIService) GetManualBadgesExecute(r ApiGetManualBadgesReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/get-manual-badges"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/get-manual-badges"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1484,9 +1603,15 @@ func (a *ModerationAPIService) GetManualBadgesExecute(r ApiGetManualBadgesReques
 type ApiGetManualBadgesForUserRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	badgesUserId *string
 	commentId *string
 	sso *string
+}
+
+func (r ApiGetManualBadgesForUserRequest) TenantId(tenantId string) ApiGetManualBadgesForUserRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetManualBadgesForUserRequest) BadgesUserId(badgesUserId string) ApiGetManualBadgesForUserRequest {
@@ -1536,12 +1661,16 @@ func (a *ModerationAPIService) GetManualBadgesForUserExecute(r ApiGetManualBadge
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/get-manual-badges-for-user"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.badgesUserId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "badgesUserId", r.badgesUserId, "form", "")
 	}
@@ -1616,10 +1745,16 @@ func (a *ModerationAPIService) GetManualBadgesForUserExecute(r ApiGetManualBadge
 type ApiGetModerationCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	includeEmail *bool
 	includeIP *bool
 	sso *string
+}
+
+func (r ApiGetModerationCommentRequest) TenantId(tenantId string) ApiGetModerationCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetModerationCommentRequest) IncludeEmail(includeEmail bool) ApiGetModerationCommentRequest {
@@ -1671,13 +1806,17 @@ func (a *ModerationAPIService) GetModerationCommentExecute(r ApiGetModerationCom
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.includeEmail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeEmail", r.includeEmail, "form", "")
 	}
@@ -1752,8 +1891,14 @@ func (a *ModerationAPIService) GetModerationCommentExecute(r ApiGetModerationCom
 type ApiGetModerationCommentTextRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	sso *string
+}
+
+func (r ApiGetModerationCommentTextRequest) TenantId(tenantId string) ApiGetModerationCommentTextRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetModerationCommentTextRequest) Sso(sso string) ApiGetModerationCommentTextRequest {
@@ -1795,13 +1940,17 @@ func (a *ModerationAPIService) GetModerationCommentTextExecute(r ApiGetModeratio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/get-comment-text/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -1870,11 +2019,17 @@ func (a *ModerationAPIService) GetModerationCommentTextExecute(r ApiGetModeratio
 type ApiGetPreBanSummaryRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	includeByUserIdAndEmail *bool
 	includeByIP *bool
 	includeByEmailDomain *bool
 	sso *string
+}
+
+func (r ApiGetPreBanSummaryRequest) TenantId(tenantId string) ApiGetPreBanSummaryRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetPreBanSummaryRequest) IncludeByUserIdAndEmail(includeByUserIdAndEmail bool) ApiGetPreBanSummaryRequest {
@@ -1931,13 +2086,17 @@ func (a *ModerationAPIService) GetPreBanSummaryExecute(r ApiGetPreBanSummaryRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/pre-ban-summary/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.includeByUserIdAndEmail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeByUserIdAndEmail", r.includeByUserIdAndEmail, "form", "")
 	}
@@ -2015,10 +2174,16 @@ func (a *ModerationAPIService) GetPreBanSummaryExecute(r ApiGetPreBanSummaryRequ
 type ApiGetSearchCommentsSummaryRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	value *string
 	filters *string
 	searchFilters *string
 	sso *string
+}
+
+func (r ApiGetSearchCommentsSummaryRequest) TenantId(tenantId string) ApiGetSearchCommentsSummaryRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetSearchCommentsSummaryRequest) Value(value string) ApiGetSearchCommentsSummaryRequest {
@@ -2073,12 +2238,16 @@ func (a *ModerationAPIService) GetSearchCommentsSummaryExecute(r ApiGetSearchCom
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/search/comments/summary"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/search/comments/summary"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
 	}
@@ -2156,8 +2325,14 @@ func (a *ModerationAPIService) GetSearchCommentsSummaryExecute(r ApiGetSearchCom
 type ApiGetSearchPagesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	value *string
 	sso *string
+}
+
+func (r ApiGetSearchPagesRequest) TenantId(tenantId string) ApiGetSearchPagesRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetSearchPagesRequest) Value(value string) ApiGetSearchPagesRequest {
@@ -2202,12 +2377,16 @@ func (a *ModerationAPIService) GetSearchPagesExecute(r ApiGetSearchPagesRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/search/pages"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/search/pages"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
 	}
@@ -2279,8 +2458,14 @@ func (a *ModerationAPIService) GetSearchPagesExecute(r ApiGetSearchPagesRequest)
 type ApiGetSearchSitesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	value *string
 	sso *string
+}
+
+func (r ApiGetSearchSitesRequest) TenantId(tenantId string) ApiGetSearchSitesRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetSearchSitesRequest) Value(value string) ApiGetSearchSitesRequest {
@@ -2325,12 +2510,16 @@ func (a *ModerationAPIService) GetSearchSitesExecute(r ApiGetSearchSitesRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/search/sites"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/search/sites"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
 	}
@@ -2402,8 +2591,14 @@ func (a *ModerationAPIService) GetSearchSitesExecute(r ApiGetSearchSitesRequest)
 type ApiGetSearchSuggestRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	textSearch *string
 	sso *string
+}
+
+func (r ApiGetSearchSuggestRequest) TenantId(tenantId string) ApiGetSearchSuggestRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetSearchSuggestRequest) TextSearch(textSearch string) ApiGetSearchSuggestRequest {
@@ -2448,12 +2643,16 @@ func (a *ModerationAPIService) GetSearchSuggestExecute(r ApiGetSearchSuggestRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/search/suggest"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/search/suggest"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.textSearch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "text-search", r.textSearch, "form", "")
 	}
@@ -2525,8 +2724,14 @@ func (a *ModerationAPIService) GetSearchSuggestExecute(r ApiGetSearchSuggestRequ
 type ApiGetSearchUsersRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	value *string
 	sso *string
+}
+
+func (r ApiGetSearchUsersRequest) TenantId(tenantId string) ApiGetSearchUsersRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetSearchUsersRequest) Value(value string) ApiGetSearchUsersRequest {
@@ -2571,12 +2776,16 @@ func (a *ModerationAPIService) GetSearchUsersExecute(r ApiGetSearchUsersRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/search/users"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/search/users"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.value != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
 	}
@@ -2648,8 +2857,14 @@ func (a *ModerationAPIService) GetSearchUsersExecute(r ApiGetSearchUsersRequest)
 type ApiGetTrustFactorRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	userId *string
 	sso *string
+}
+
+func (r ApiGetTrustFactorRequest) TenantId(tenantId string) ApiGetTrustFactorRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetTrustFactorRequest) UserId(userId string) ApiGetTrustFactorRequest {
@@ -2694,12 +2909,16 @@ func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/get-trust-factor"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/get-trust-factor"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.userId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
 	}
@@ -2771,7 +2990,13 @@ func (a *ModerationAPIService) GetTrustFactorExecute(r ApiGetTrustFactorRequest)
 type ApiGetUserBanPreferenceRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	sso *string
+}
+
+func (r ApiGetUserBanPreferenceRequest) TenantId(tenantId string) ApiGetUserBanPreferenceRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetUserBanPreferenceRequest) Sso(sso string) ApiGetUserBanPreferenceRequest {
@@ -2811,12 +3036,16 @@ func (a *ModerationAPIService) GetUserBanPreferenceExecute(r ApiGetUserBanPrefer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/user-ban-preference"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/user-ban-preference"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -2885,8 +3114,14 @@ func (a *ModerationAPIService) GetUserBanPreferenceExecute(r ApiGetUserBanPrefer
 type ApiGetUserInternalProfileRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId *string
 	sso *string
+}
+
+func (r ApiGetUserInternalProfileRequest) TenantId(tenantId string) ApiGetUserInternalProfileRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiGetUserInternalProfileRequest) CommentId(commentId string) ApiGetUserInternalProfileRequest {
@@ -2931,12 +3166,16 @@ func (a *ModerationAPIService) GetUserInternalProfileExecute(r ApiGetUserInterna
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/get-user-internal-profile"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/get-user-internal-profile"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.commentId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "commentId", r.commentId, "form", "")
 	}
@@ -3008,13 +3247,25 @@ func (a *ModerationAPIService) GetUserInternalProfileExecute(r ApiGetUserInterna
 type ApiPostAdjustCommentVotesRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	adjustCommentVotesParams *AdjustCommentVotesParams
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostAdjustCommentVotesRequest) TenantId(tenantId string) ApiPostAdjustCommentVotesRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostAdjustCommentVotesRequest) AdjustCommentVotesParams(adjustCommentVotesParams AdjustCommentVotesParams) ApiPostAdjustCommentVotesRequest {
 	r.adjustCommentVotesParams = &adjustCommentVotesParams
+	return r
+}
+
+func (r ApiPostAdjustCommentVotesRequest) BroadcastId(broadcastId string) ApiPostAdjustCommentVotesRequest {
+	r.broadcastId = &broadcastId
 	return r
 }
 
@@ -3057,16 +3308,23 @@ func (a *ModerationAPIService) PostAdjustCommentVotesExecute(r ApiPostAdjustComm
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/adjust-comment-votes/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.adjustCommentVotesParams == nil {
 		return localVarReturnValue, nil, reportError("adjustCommentVotesParams is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3137,12 +3395,18 @@ func (a *ModerationAPIService) PostAdjustCommentVotesExecute(r ApiPostAdjustComm
 type ApiPostApiExportRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	textSearch *string
 	byIPFromComment *string
 	filters *string
 	searchFilters *string
 	sorts *string
 	sso *string
+}
+
+func (r ApiPostApiExportRequest) TenantId(tenantId string) ApiPostApiExportRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostApiExportRequest) TextSearch(textSearch string) ApiPostApiExportRequest {
@@ -3207,12 +3471,16 @@ func (a *ModerationAPIService) PostApiExportExecute(r ApiPostApiExportRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/api/export"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/api/export"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.textSearch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "text-search", r.textSearch, "form", "")
 	}
@@ -3296,6 +3564,7 @@ func (a *ModerationAPIService) PostApiExportExecute(r ApiPostApiExportRequest) (
 type ApiPostBanUserFromCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	banEmail *bool
 	banEmailDomain *bool
@@ -3306,6 +3575,11 @@ type ApiPostBanUserFromCommentRequest struct {
 	updateId *string
 	banReason *string
 	sso *string
+}
+
+func (r ApiPostBanUserFromCommentRequest) TenantId(tenantId string) ApiPostBanUserFromCommentRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostBanUserFromCommentRequest) BanEmail(banEmail bool) ApiPostBanUserFromCommentRequest {
@@ -3387,13 +3661,17 @@ func (a *ModerationAPIService) PostBanUserFromCommentExecute(r ApiPostBanUserFro
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/ban-user/from-comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.banEmail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "banEmail", r.banEmail, "form", "")
 	}
@@ -3486,8 +3764,14 @@ func (a *ModerationAPIService) PostBanUserFromCommentExecute(r ApiPostBanUserFro
 type ApiPostBanUserUndoRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	banUserUndoParams *BanUserUndoParams
 	sso *string
+}
+
+func (r ApiPostBanUserUndoRequest) TenantId(tenantId string) ApiPostBanUserUndoRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostBanUserUndoRequest) BanUserUndoParams(banUserUndoParams BanUserUndoParams) ApiPostBanUserUndoRequest {
@@ -3532,15 +3816,19 @@ func (a *ModerationAPIService) PostBanUserUndoExecute(r ApiPostBanUserUndoReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/ban-user/undo"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/ban-user/undo"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.banUserUndoParams == nil {
 		return localVarReturnValue, nil, reportError("banUserUndoParams is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3611,11 +3899,17 @@ func (a *ModerationAPIService) PostBanUserUndoExecute(r ApiPostBanUserUndoReques
 type ApiPostBulkPreBanSummaryRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	bulkPreBanParams *BulkPreBanParams
 	includeByUserIdAndEmail *bool
 	includeByIP *bool
 	includeByEmailDomain *bool
 	sso *string
+}
+
+func (r ApiPostBulkPreBanSummaryRequest) TenantId(tenantId string) ApiPostBulkPreBanSummaryRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostBulkPreBanSummaryRequest) BulkPreBanParams(bulkPreBanParams BulkPreBanParams) ApiPostBulkPreBanSummaryRequest {
@@ -3675,15 +3969,19 @@ func (a *ModerationAPIService) PostBulkPreBanSummaryExecute(r ApiPostBulkPreBanS
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/bulk-pre-ban-summary"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.bulkPreBanParams == nil {
 		return localVarReturnValue, nil, reportError("bulkPreBanParams is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.includeByUserIdAndEmail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeByUserIdAndEmail", r.includeByUserIdAndEmail, "form", "")
 	}
@@ -3763,8 +4061,14 @@ func (a *ModerationAPIService) PostBulkPreBanSummaryExecute(r ApiPostBulkPreBanS
 type ApiPostCommentsByIdsRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentsByIdsParams *CommentsByIdsParams
 	sso *string
+}
+
+func (r ApiPostCommentsByIdsRequest) TenantId(tenantId string) ApiPostCommentsByIdsRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostCommentsByIdsRequest) CommentsByIdsParams(commentsByIdsParams CommentsByIdsParams) ApiPostCommentsByIdsRequest {
@@ -3809,15 +4113,19 @@ func (a *ModerationAPIService) PostCommentsByIdsExecute(r ApiPostCommentsByIdsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/comments-by-ids"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/comments-by-ids"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.commentsByIdsParams == nil {
 		return localVarReturnValue, nil, reportError("commentsByIdsParams is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -3888,8 +4196,20 @@ func (a *ModerationAPIService) PostCommentsByIdsExecute(r ApiPostCommentsByIdsRe
 type ApiPostFlagCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostFlagCommentRequest) TenantId(tenantId string) ApiPostFlagCommentRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPostFlagCommentRequest) BroadcastId(broadcastId string) ApiPostFlagCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
 }
 
 func (r ApiPostFlagCommentRequest) Sso(sso string) ApiPostFlagCommentRequest {
@@ -3931,13 +4251,20 @@ func (a *ModerationAPIService) PostFlagCommentExecute(r ApiPostFlagCommentReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/flag-comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/flag-comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4006,8 +4333,20 @@ func (a *ModerationAPIService) PostFlagCommentExecute(r ApiPostFlagCommentReques
 type ApiPostRemoveCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostRemoveCommentRequest) TenantId(tenantId string) ApiPostRemoveCommentRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPostRemoveCommentRequest) BroadcastId(broadcastId string) ApiPostRemoveCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
 }
 
 func (r ApiPostRemoveCommentRequest) Sso(sso string) ApiPostRemoveCommentRequest {
@@ -4015,7 +4354,7 @@ func (r ApiPostRemoveCommentRequest) Sso(sso string) ApiPostRemoveCommentRequest
 	return r
 }
 
-func (r ApiPostRemoveCommentRequest) Execute() (*PostRemoveCommentResponse, *http.Response, error) {
+func (r ApiPostRemoveCommentRequest) Execute() (*PostRemoveCommentApiResponse, *http.Response, error) {
 	return r.ApiService.PostRemoveCommentExecute(r)
 }
 
@@ -4035,13 +4374,13 @@ func (a *ModerationAPIService) PostRemoveComment(ctx context.Context, commentId 
 }
 
 // Execute executes the request
-//  @return PostRemoveCommentResponse
-func (a *ModerationAPIService) PostRemoveCommentExecute(r ApiPostRemoveCommentRequest) (*PostRemoveCommentResponse, *http.Response, error) {
+//  @return PostRemoveCommentApiResponse
+func (a *ModerationAPIService) PostRemoveCommentExecute(r ApiPostRemoveCommentRequest) (*PostRemoveCommentApiResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PostRemoveCommentResponse
+		localVarReturnValue  *PostRemoveCommentApiResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModerationAPIService.PostRemoveComment")
@@ -4049,13 +4388,20 @@ func (a *ModerationAPIService) PostRemoveCommentExecute(r ApiPostRemoveCommentRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/remove-comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/remove-comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4124,8 +4470,20 @@ func (a *ModerationAPIService) PostRemoveCommentExecute(r ApiPostRemoveCommentRe
 type ApiPostRestoreDeletedCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostRestoreDeletedCommentRequest) TenantId(tenantId string) ApiPostRestoreDeletedCommentRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPostRestoreDeletedCommentRequest) BroadcastId(broadcastId string) ApiPostRestoreDeletedCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
 }
 
 func (r ApiPostRestoreDeletedCommentRequest) Sso(sso string) ApiPostRestoreDeletedCommentRequest {
@@ -4167,13 +4525,20 @@ func (a *ModerationAPIService) PostRestoreDeletedCommentExecute(r ApiPostRestore
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/restore-deleted-comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4242,13 +4607,25 @@ func (a *ModerationAPIService) PostRestoreDeletedCommentExecute(r ApiPostRestore
 type ApiPostSetCommentApprovalStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	approved *bool
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostSetCommentApprovalStatusRequest) TenantId(tenantId string) ApiPostSetCommentApprovalStatusRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostSetCommentApprovalStatusRequest) Approved(approved bool) ApiPostSetCommentApprovalStatusRequest {
 	r.approved = &approved
+	return r
+}
+
+func (r ApiPostSetCommentApprovalStatusRequest) BroadcastId(broadcastId string) ApiPostSetCommentApprovalStatusRequest {
+	r.broadcastId = &broadcastId
 	return r
 }
 
@@ -4291,15 +4668,22 @@ func (a *ModerationAPIService) PostSetCommentApprovalStatusExecute(r ApiPostSetC
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/set-comment-approval-status/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.approved != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "approved", r.approved, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4369,13 +4753,25 @@ func (a *ModerationAPIService) PostSetCommentApprovalStatusExecute(r ApiPostSetC
 type ApiPostSetCommentReviewStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	reviewed *bool
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostSetCommentReviewStatusRequest) TenantId(tenantId string) ApiPostSetCommentReviewStatusRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostSetCommentReviewStatusRequest) Reviewed(reviewed bool) ApiPostSetCommentReviewStatusRequest {
 	r.reviewed = &reviewed
+	return r
+}
+
+func (r ApiPostSetCommentReviewStatusRequest) BroadcastId(broadcastId string) ApiPostSetCommentReviewStatusRequest {
+	r.broadcastId = &broadcastId
 	return r
 }
 
@@ -4418,15 +4814,22 @@ func (a *ModerationAPIService) PostSetCommentReviewStatusExecute(r ApiPostSetCom
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/set-comment-review-status/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.reviewed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "reviewed", r.reviewed, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4496,10 +4899,17 @@ func (a *ModerationAPIService) PostSetCommentReviewStatusExecute(r ApiPostSetCom
 type ApiPostSetCommentSpamStatusRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	spam *bool
 	permNotSpam *bool
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostSetCommentSpamStatusRequest) TenantId(tenantId string) ApiPostSetCommentSpamStatusRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostSetCommentSpamStatusRequest) Spam(spam bool) ApiPostSetCommentSpamStatusRequest {
@@ -4509,6 +4919,11 @@ func (r ApiPostSetCommentSpamStatusRequest) Spam(spam bool) ApiPostSetCommentSpa
 
 func (r ApiPostSetCommentSpamStatusRequest) PermNotSpam(permNotSpam bool) ApiPostSetCommentSpamStatusRequest {
 	r.permNotSpam = &permNotSpam
+	return r
+}
+
+func (r ApiPostSetCommentSpamStatusRequest) BroadcastId(broadcastId string) ApiPostSetCommentSpamStatusRequest {
+	r.broadcastId = &broadcastId
 	return r
 }
 
@@ -4551,18 +4966,25 @@ func (a *ModerationAPIService) PostSetCommentSpamStatusExecute(r ApiPostSetComme
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/set-comment-spam-status/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.spam != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "spam", r.spam, "form", "")
 	}
 	if r.permNotSpam != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "permNotSpam", r.permNotSpam, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -4632,13 +5054,25 @@ func (a *ModerationAPIService) PostSetCommentSpamStatusExecute(r ApiPostSetComme
 type ApiPostSetCommentTextRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	setCommentTextParams *SetCommentTextParams
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostSetCommentTextRequest) TenantId(tenantId string) ApiPostSetCommentTextRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostSetCommentTextRequest) SetCommentTextParams(setCommentTextParams SetCommentTextParams) ApiPostSetCommentTextRequest {
 	r.setCommentTextParams = &setCommentTextParams
+	return r
+}
+
+func (r ApiPostSetCommentTextRequest) BroadcastId(broadcastId string) ApiPostSetCommentTextRequest {
+	r.broadcastId = &broadcastId
 	return r
 }
 
@@ -4681,16 +5115,23 @@ func (a *ModerationAPIService) PostSetCommentTextExecute(r ApiPostSetCommentText
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/set-comment-text/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.setCommentTextParams == nil {
 		return localVarReturnValue, nil, reportError("setCommentTextParams is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4761,8 +5202,20 @@ func (a *ModerationAPIService) PostSetCommentTextExecute(r ApiPostSetCommentText
 type ApiPostUnFlagCommentRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostUnFlagCommentRequest) TenantId(tenantId string) ApiPostUnFlagCommentRequest {
+	r.tenantId = &tenantId
+	return r
+}
+
+func (r ApiPostUnFlagCommentRequest) BroadcastId(broadcastId string) ApiPostUnFlagCommentRequest {
+	r.broadcastId = &broadcastId
+	return r
 }
 
 func (r ApiPostUnFlagCommentRequest) Sso(sso string) ApiPostUnFlagCommentRequest {
@@ -4804,13 +5257,20 @@ func (a *ModerationAPIService) PostUnFlagCommentExecute(r ApiPostUnFlagCommentRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/un-flag-comment/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
+	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
 	}
@@ -4879,13 +5339,25 @@ func (a *ModerationAPIService) PostUnFlagCommentExecute(r ApiPostUnFlagCommentRe
 type ApiPostVoteRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	commentId string
 	direction *string
+	broadcastId *string
 	sso *string
+}
+
+func (r ApiPostVoteRequest) TenantId(tenantId string) ApiPostVoteRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPostVoteRequest) Direction(direction string) ApiPostVoteRequest {
 	r.direction = &direction
+	return r
+}
+
+func (r ApiPostVoteRequest) BroadcastId(broadcastId string) ApiPostVoteRequest {
+	r.broadcastId = &broadcastId
 	return r
 }
 
@@ -4928,15 +5400,22 @@ func (a *ModerationAPIService) PostVoteExecute(r ApiPostVoteRequest) (*VoteRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/vote/{commentId}"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/vote/{commentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.direction != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
+	}
+	if r.broadcastId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcastId", r.broadcastId, "form", "")
 	}
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -5006,11 +5485,17 @@ func (a *ModerationAPIService) PostVoteExecute(r ApiPostVoteRequest) (*VoteRespo
 type ApiPutAwardBadgeRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	badgeId *string
 	userId *string
 	commentId *string
 	broadcastId *string
 	sso *string
+}
+
+func (r ApiPutAwardBadgeRequest) TenantId(tenantId string) ApiPutAwardBadgeRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPutAwardBadgeRequest) BadgeId(badgeId string) ApiPutAwardBadgeRequest {
@@ -5070,15 +5555,19 @@ func (a *ModerationAPIService) PutAwardBadgeExecute(r ApiPutAwardBadgeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/award-badge"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/award-badge"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.badgeId == nil {
 		return localVarReturnValue, nil, reportError("badgeId is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "badgeId", r.badgeId, "form", "")
 	if r.userId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
@@ -5157,8 +5646,14 @@ func (a *ModerationAPIService) PutAwardBadgeExecute(r ApiPutAwardBadgeRequest) (
 type ApiPutCloseThreadRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	urlId *string
 	sso *string
+}
+
+func (r ApiPutCloseThreadRequest) TenantId(tenantId string) ApiPutCloseThreadRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPutCloseThreadRequest) UrlId(urlId string) ApiPutCloseThreadRequest {
@@ -5203,15 +5698,19 @@ func (a *ModerationAPIService) PutCloseThreadExecute(r ApiPutCloseThreadRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/close-thread"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/close-thread"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.urlId == nil {
 		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -5281,11 +5780,17 @@ func (a *ModerationAPIService) PutCloseThreadExecute(r ApiPutCloseThreadRequest)
 type ApiPutRemoveBadgeRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	badgeId *string
 	userId *string
 	commentId *string
 	broadcastId *string
 	sso *string
+}
+
+func (r ApiPutRemoveBadgeRequest) TenantId(tenantId string) ApiPutRemoveBadgeRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPutRemoveBadgeRequest) BadgeId(badgeId string) ApiPutRemoveBadgeRequest {
@@ -5345,15 +5850,19 @@ func (a *ModerationAPIService) PutRemoveBadgeExecute(r ApiPutRemoveBadgeRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/remove-badge"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/remove-badge"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.badgeId == nil {
 		return localVarReturnValue, nil, reportError("badgeId is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "badgeId", r.badgeId, "form", "")
 	if r.userId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
@@ -5432,8 +5941,14 @@ func (a *ModerationAPIService) PutRemoveBadgeExecute(r ApiPutRemoveBadgeRequest)
 type ApiPutReopenThreadRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	urlId *string
 	sso *string
+}
+
+func (r ApiPutReopenThreadRequest) TenantId(tenantId string) ApiPutReopenThreadRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiPutReopenThreadRequest) UrlId(urlId string) ApiPutReopenThreadRequest {
@@ -5478,15 +5993,19 @@ func (a *ModerationAPIService) PutReopenThreadExecute(r ApiPutReopenThreadReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/reopen-thread"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/reopen-thread"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 	if r.urlId == nil {
 		return localVarReturnValue, nil, reportError("urlId is required and must be specified")
 	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "urlId", r.urlId, "form", "")
 	if r.sso != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sso", r.sso, "form", "")
@@ -5556,9 +6075,15 @@ func (a *ModerationAPIService) PutReopenThreadExecute(r ApiPutReopenThreadReques
 type ApiSetTrustFactorRequest struct {
 	ctx context.Context
 	ApiService *ModerationAPIService
+	tenantId *string
 	userId *string
 	trustFactor *string
 	sso *string
+}
+
+func (r ApiSetTrustFactorRequest) TenantId(tenantId string) ApiSetTrustFactorRequest {
+	r.tenantId = &tenantId
+	return r
 }
 
 func (r ApiSetTrustFactorRequest) UserId(userId string) ApiSetTrustFactorRequest {
@@ -5608,12 +6133,16 @@ func (a *ModerationAPIService) SetTrustFactorExecute(r ApiSetTrustFactorRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/my-account/moderate-comments/set-trust-factor"
+	localVarPath := localBasePath + "/auth/my-account/moderate-comments/mod_api/set-trust-factor"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.tenantId == nil {
+		return localVarReturnValue, nil, reportError("tenantId is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "tenantId", r.tenantId, "form", "")
 	if r.userId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
 	}
