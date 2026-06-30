@@ -16,14 +16,14 @@ import (
 )
 
 
-// PostRemoveCommentResponse struct for PostRemoveCommentResponse
-type PostRemoveCommentResponse struct {
+// PostRemoveCommentApiResponse struct for PostRemoveCommentApiResponse
+type PostRemoveCommentApiResponse struct {
 	DeleteCommentResult *DeleteCommentResult
 	RemoveCommentActionResponse *RemoveCommentActionResponse
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
-func (dst *PostRemoveCommentResponse) UnmarshalJSON(data []byte) error {
+func (dst *PostRemoveCommentApiResponse) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into DeleteCommentResult
 	err = json.Unmarshal(data, &dst.DeleteCommentResult);
@@ -51,11 +51,11 @@ func (dst *PostRemoveCommentResponse) UnmarshalJSON(data []byte) error {
 		dst.RemoveCommentActionResponse = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(PostRemoveCommentResponse)")
+	return fmt.Errorf("data failed to match schemas in anyOf(PostRemoveCommentApiResponse)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src PostRemoveCommentResponse) MarshalJSON() ([]byte, error) {
+func (src PostRemoveCommentApiResponse) MarshalJSON() ([]byte, error) {
 	if src.DeleteCommentResult != nil {
 		return json.Marshal(&src.DeleteCommentResult)
 	}
@@ -68,38 +68,38 @@ func (src PostRemoveCommentResponse) MarshalJSON() ([]byte, error) {
 }
 
 
-type NullablePostRemoveCommentResponse struct {
-	value *PostRemoveCommentResponse
+type NullablePostRemoveCommentApiResponse struct {
+	value *PostRemoveCommentApiResponse
 	isSet bool
 }
 
-func (v NullablePostRemoveCommentResponse) Get() *PostRemoveCommentResponse {
+func (v NullablePostRemoveCommentApiResponse) Get() *PostRemoveCommentApiResponse {
 	return v.value
 }
 
-func (v *NullablePostRemoveCommentResponse) Set(val *PostRemoveCommentResponse) {
+func (v *NullablePostRemoveCommentApiResponse) Set(val *PostRemoveCommentApiResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostRemoveCommentResponse) IsSet() bool {
+func (v NullablePostRemoveCommentApiResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostRemoveCommentResponse) Unset() {
+func (v *NullablePostRemoveCommentApiResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostRemoveCommentResponse(val *PostRemoveCommentResponse) *NullablePostRemoveCommentResponse {
-	return &NullablePostRemoveCommentResponse{value: val, isSet: true}
+func NewNullablePostRemoveCommentApiResponse(val *PostRemoveCommentApiResponse) *NullablePostRemoveCommentApiResponse {
+	return &NullablePostRemoveCommentApiResponse{value: val, isSet: true}
 }
 
-func (v NullablePostRemoveCommentResponse) MarshalJSON() ([]byte, error) {
+func (v NullablePostRemoveCommentApiResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostRemoveCommentResponse) UnmarshalJSON(src []byte) error {
+func (v *NullablePostRemoveCommentApiResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

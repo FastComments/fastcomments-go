@@ -4,55 +4,55 @@ All URIs are relative to *https://fastcomments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteModerationVote**](ModerationAPI.md#DeleteModerationVote) | **Delete** /auth/my-account/moderate-comments/vote/{commentId}/{voteId} | 
-[**GetApiComments**](ModerationAPI.md#GetApiComments) | **Get** /auth/my-account/moderate-comments/api/comments | 
-[**GetApiExportStatus**](ModerationAPI.md#GetApiExportStatus) | **Get** /auth/my-account/moderate-comments/api/export/status | 
-[**GetApiIds**](ModerationAPI.md#GetApiIds) | **Get** /auth/my-account/moderate-comments/api/ids | 
-[**GetBanUsersFromComment**](ModerationAPI.md#GetBanUsersFromComment) | **Get** /auth/my-account/moderate-comments/ban-users/from-comment/{commentId} | 
-[**GetCommentBanStatus**](ModerationAPI.md#GetCommentBanStatus) | **Get** /auth/my-account/moderate-comments/get-comment-ban-status/{commentId} | 
-[**GetCommentChildren**](ModerationAPI.md#GetCommentChildren) | **Get** /auth/my-account/moderate-comments/comment-children/{commentId} | 
-[**GetCount**](ModerationAPI.md#GetCount) | **Get** /auth/my-account/moderate-comments/count | 
-[**GetCounts**](ModerationAPI.md#GetCounts) | **Get** /auth/my-account/moderate-comments/banned-users/counts | 
-[**GetLogs**](ModerationAPI.md#GetLogs) | **Get** /auth/my-account/moderate-comments/logs/{commentId} | 
-[**GetManualBadges**](ModerationAPI.md#GetManualBadges) | **Get** /auth/my-account/moderate-comments/get-manual-badges | 
-[**GetManualBadgesForUser**](ModerationAPI.md#GetManualBadgesForUser) | **Get** /auth/my-account/moderate-comments/get-manual-badges-for-user | 
-[**GetModerationComment**](ModerationAPI.md#GetModerationComment) | **Get** /auth/my-account/moderate-comments/comment/{commentId} | 
-[**GetModerationCommentText**](ModerationAPI.md#GetModerationCommentText) | **Get** /auth/my-account/moderate-comments/get-comment-text/{commentId} | 
-[**GetPreBanSummary**](ModerationAPI.md#GetPreBanSummary) | **Get** /auth/my-account/moderate-comments/pre-ban-summary/{commentId} | 
-[**GetSearchCommentsSummary**](ModerationAPI.md#GetSearchCommentsSummary) | **Get** /auth/my-account/moderate-comments/search/comments/summary | 
-[**GetSearchPages**](ModerationAPI.md#GetSearchPages) | **Get** /auth/my-account/moderate-comments/search/pages | 
-[**GetSearchSites**](ModerationAPI.md#GetSearchSites) | **Get** /auth/my-account/moderate-comments/search/sites | 
-[**GetSearchSuggest**](ModerationAPI.md#GetSearchSuggest) | **Get** /auth/my-account/moderate-comments/search/suggest | 
-[**GetSearchUsers**](ModerationAPI.md#GetSearchUsers) | **Get** /auth/my-account/moderate-comments/search/users | 
-[**GetTrustFactor**](ModerationAPI.md#GetTrustFactor) | **Get** /auth/my-account/moderate-comments/get-trust-factor | 
-[**GetUserBanPreference**](ModerationAPI.md#GetUserBanPreference) | **Get** /auth/my-account/moderate-comments/user-ban-preference | 
-[**GetUserInternalProfile**](ModerationAPI.md#GetUserInternalProfile) | **Get** /auth/my-account/moderate-comments/get-user-internal-profile | 
-[**PostAdjustCommentVotes**](ModerationAPI.md#PostAdjustCommentVotes) | **Post** /auth/my-account/moderate-comments/adjust-comment-votes/{commentId} | 
-[**PostApiExport**](ModerationAPI.md#PostApiExport) | **Post** /auth/my-account/moderate-comments/api/export | 
-[**PostBanUserFromComment**](ModerationAPI.md#PostBanUserFromComment) | **Post** /auth/my-account/moderate-comments/ban-user/from-comment/{commentId} | 
-[**PostBanUserUndo**](ModerationAPI.md#PostBanUserUndo) | **Post** /auth/my-account/moderate-comments/ban-user/undo | 
-[**PostBulkPreBanSummary**](ModerationAPI.md#PostBulkPreBanSummary) | **Post** /auth/my-account/moderate-comments/bulk-pre-ban-summary | 
-[**PostCommentsByIds**](ModerationAPI.md#PostCommentsByIds) | **Post** /auth/my-account/moderate-comments/comments-by-ids | 
-[**PostFlagComment**](ModerationAPI.md#PostFlagComment) | **Post** /auth/my-account/moderate-comments/flag-comment/{commentId} | 
-[**PostRemoveComment**](ModerationAPI.md#PostRemoveComment) | **Post** /auth/my-account/moderate-comments/remove-comment/{commentId} | 
-[**PostRestoreDeletedComment**](ModerationAPI.md#PostRestoreDeletedComment) | **Post** /auth/my-account/moderate-comments/restore-deleted-comment/{commentId} | 
-[**PostSetCommentApprovalStatus**](ModerationAPI.md#PostSetCommentApprovalStatus) | **Post** /auth/my-account/moderate-comments/set-comment-approval-status/{commentId} | 
-[**PostSetCommentReviewStatus**](ModerationAPI.md#PostSetCommentReviewStatus) | **Post** /auth/my-account/moderate-comments/set-comment-review-status/{commentId} | 
-[**PostSetCommentSpamStatus**](ModerationAPI.md#PostSetCommentSpamStatus) | **Post** /auth/my-account/moderate-comments/set-comment-spam-status/{commentId} | 
-[**PostSetCommentText**](ModerationAPI.md#PostSetCommentText) | **Post** /auth/my-account/moderate-comments/set-comment-text/{commentId} | 
-[**PostUnFlagComment**](ModerationAPI.md#PostUnFlagComment) | **Post** /auth/my-account/moderate-comments/un-flag-comment/{commentId} | 
-[**PostVote**](ModerationAPI.md#PostVote) | **Post** /auth/my-account/moderate-comments/vote/{commentId} | 
-[**PutAwardBadge**](ModerationAPI.md#PutAwardBadge) | **Put** /auth/my-account/moderate-comments/award-badge | 
-[**PutCloseThread**](ModerationAPI.md#PutCloseThread) | **Put** /auth/my-account/moderate-comments/close-thread | 
-[**PutRemoveBadge**](ModerationAPI.md#PutRemoveBadge) | **Put** /auth/my-account/moderate-comments/remove-badge | 
-[**PutReopenThread**](ModerationAPI.md#PutReopenThread) | **Put** /auth/my-account/moderate-comments/reopen-thread | 
-[**SetTrustFactor**](ModerationAPI.md#SetTrustFactor) | **Put** /auth/my-account/moderate-comments/set-trust-factor | 
+[**DeleteModerationVote**](ModerationAPI.md#DeleteModerationVote) | **Delete** /auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId} | 
+[**GetApiComments**](ModerationAPI.md#GetApiComments) | **Get** /auth/my-account/moderate-comments/mod_api/api/comments | 
+[**GetApiExportStatus**](ModerationAPI.md#GetApiExportStatus) | **Get** /auth/my-account/moderate-comments/mod_api/api/export/status | 
+[**GetApiIds**](ModerationAPI.md#GetApiIds) | **Get** /auth/my-account/moderate-comments/mod_api/api/ids | 
+[**GetBanUsersFromComment**](ModerationAPI.md#GetBanUsersFromComment) | **Get** /auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId} | 
+[**GetCommentBanStatus**](ModerationAPI.md#GetCommentBanStatus) | **Get** /auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId} | 
+[**GetCommentChildren**](ModerationAPI.md#GetCommentChildren) | **Get** /auth/my-account/moderate-comments/mod_api/comment-children/{commentId} | 
+[**GetCount**](ModerationAPI.md#GetCount) | **Get** /auth/my-account/moderate-comments/mod_api/count | 
+[**GetCounts**](ModerationAPI.md#GetCounts) | **Get** /auth/my-account/moderate-comments/banned-users/mod_api/counts | 
+[**GetLogs**](ModerationAPI.md#GetLogs) | **Get** /auth/my-account/moderate-comments/mod_api/logs/{commentId} | 
+[**GetManualBadges**](ModerationAPI.md#GetManualBadges) | **Get** /auth/my-account/moderate-comments/mod_api/get-manual-badges | 
+[**GetManualBadgesForUser**](ModerationAPI.md#GetManualBadgesForUser) | **Get** /auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user | 
+[**GetModerationComment**](ModerationAPI.md#GetModerationComment) | **Get** /auth/my-account/moderate-comments/mod_api/comment/{commentId} | 
+[**GetModerationCommentText**](ModerationAPI.md#GetModerationCommentText) | **Get** /auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId} | 
+[**GetPreBanSummary**](ModerationAPI.md#GetPreBanSummary) | **Get** /auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId} | 
+[**GetSearchCommentsSummary**](ModerationAPI.md#GetSearchCommentsSummary) | **Get** /auth/my-account/moderate-comments/mod_api/search/comments/summary | 
+[**GetSearchPages**](ModerationAPI.md#GetSearchPages) | **Get** /auth/my-account/moderate-comments/mod_api/search/pages | 
+[**GetSearchSites**](ModerationAPI.md#GetSearchSites) | **Get** /auth/my-account/moderate-comments/mod_api/search/sites | 
+[**GetSearchSuggest**](ModerationAPI.md#GetSearchSuggest) | **Get** /auth/my-account/moderate-comments/mod_api/search/suggest | 
+[**GetSearchUsers**](ModerationAPI.md#GetSearchUsers) | **Get** /auth/my-account/moderate-comments/mod_api/search/users | 
+[**GetTrustFactor**](ModerationAPI.md#GetTrustFactor) | **Get** /auth/my-account/moderate-comments/mod_api/get-trust-factor | 
+[**GetUserBanPreference**](ModerationAPI.md#GetUserBanPreference) | **Get** /auth/my-account/moderate-comments/mod_api/user-ban-preference | 
+[**GetUserInternalProfile**](ModerationAPI.md#GetUserInternalProfile) | **Get** /auth/my-account/moderate-comments/mod_api/get-user-internal-profile | 
+[**PostAdjustCommentVotes**](ModerationAPI.md#PostAdjustCommentVotes) | **Post** /auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId} | 
+[**PostApiExport**](ModerationAPI.md#PostApiExport) | **Post** /auth/my-account/moderate-comments/mod_api/api/export | 
+[**PostBanUserFromComment**](ModerationAPI.md#PostBanUserFromComment) | **Post** /auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId} | 
+[**PostBanUserUndo**](ModerationAPI.md#PostBanUserUndo) | **Post** /auth/my-account/moderate-comments/mod_api/ban-user/undo | 
+[**PostBulkPreBanSummary**](ModerationAPI.md#PostBulkPreBanSummary) | **Post** /auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary | 
+[**PostCommentsByIds**](ModerationAPI.md#PostCommentsByIds) | **Post** /auth/my-account/moderate-comments/mod_api/comments-by-ids | 
+[**PostFlagComment**](ModerationAPI.md#PostFlagComment) | **Post** /auth/my-account/moderate-comments/mod_api/flag-comment/{commentId} | 
+[**PostRemoveComment**](ModerationAPI.md#PostRemoveComment) | **Post** /auth/my-account/moderate-comments/mod_api/remove-comment/{commentId} | 
+[**PostRestoreDeletedComment**](ModerationAPI.md#PostRestoreDeletedComment) | **Post** /auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId} | 
+[**PostSetCommentApprovalStatus**](ModerationAPI.md#PostSetCommentApprovalStatus) | **Post** /auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId} | 
+[**PostSetCommentReviewStatus**](ModerationAPI.md#PostSetCommentReviewStatus) | **Post** /auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId} | 
+[**PostSetCommentSpamStatus**](ModerationAPI.md#PostSetCommentSpamStatus) | **Post** /auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId} | 
+[**PostSetCommentText**](ModerationAPI.md#PostSetCommentText) | **Post** /auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId} | 
+[**PostUnFlagComment**](ModerationAPI.md#PostUnFlagComment) | **Post** /auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId} | 
+[**PostVote**](ModerationAPI.md#PostVote) | **Post** /auth/my-account/moderate-comments/mod_api/vote/{commentId} | 
+[**PutAwardBadge**](ModerationAPI.md#PutAwardBadge) | **Put** /auth/my-account/moderate-comments/mod_api/award-badge | 
+[**PutCloseThread**](ModerationAPI.md#PutCloseThread) | **Put** /auth/my-account/moderate-comments/mod_api/close-thread | 
+[**PutRemoveBadge**](ModerationAPI.md#PutRemoveBadge) | **Put** /auth/my-account/moderate-comments/mod_api/remove-badge | 
+[**PutReopenThread**](ModerationAPI.md#PutReopenThread) | **Put** /auth/my-account/moderate-comments/mod_api/reopen-thread | 
+[**SetTrustFactor**](ModerationAPI.md#SetTrustFactor) | **Put** /auth/my-account/moderate-comments/mod_api/set-trust-factor | 
 
 
 
 ## DeleteModerationVote
 
-> VoteDeleteResponse DeleteModerationVote(ctx, commentId, voteId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> VoteDeleteResponse DeleteModerationVote(ctx, commentId, voteId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -69,15 +69,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	voteId := "voteId_example" // string | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.DeleteModerationVote(context.Background(), commentId, voteId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.DeleteModerationVote(context.Background(), commentId, voteId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.DeleteModerationVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -103,10 +103,10 @@ Other parameters are passed through a pointer to a apiDeleteModerationVoteReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -129,7 +129,7 @@ No authorization required
 
 ## GetApiComments
 
-> ModerationAPIGetCommentsResponse GetApiComments(ctx).Page(page).Count(count).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIGetCommentsResponse GetApiComments(ctx).TenantId(tenantId).Page(page).Count(count).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Demo(demo).Sso(sso).Execute()
 
 
 
@@ -146,6 +146,7 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	page := float64(1.2) // float64 |  (optional)
 	count := float64(1.2) // float64 |  (optional)
 	textSearch := "textSearch_example" // string |  (optional)
@@ -154,12 +155,11 @@ func main() {
 	searchFilters := "searchFilters_example" // string |  (optional)
 	sorts := "sorts_example" // string |  (optional)
 	demo := true // bool |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetApiComments(context.Background()).Page(page).Count(count).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetApiComments(context.Background()).TenantId(tenantId).Page(page).Count(count).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Demo(demo).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetApiComments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -180,6 +180,7 @@ Other parameters are passed through a pointer to a apiGetApiCommentsRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **page** | **float64** |  | 
  **count** | **float64** |  | 
  **textSearch** | **string** |  | 
@@ -188,7 +189,6 @@ Name | Type | Description  | Notes
  **searchFilters** | **string** |  | 
  **sorts** | **string** |  | 
  **demo** | **bool** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -211,7 +211,7 @@ No authorization required
 
 ## GetApiExportStatus
 
-> ModerationExportStatusResponse GetApiExportStatus(ctx).BatchJobId(batchJobId).TenantId(tenantId).Sso(sso).Execute()
+> ModerationExportStatusResponse GetApiExportStatus(ctx).TenantId(tenantId).BatchJobId(batchJobId).Sso(sso).Execute()
 
 
 
@@ -228,13 +228,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	batchJobId := "batchJobId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetApiExportStatus(context.Background()).BatchJobId(batchJobId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetApiExportStatus(context.Background()).TenantId(tenantId).BatchJobId(batchJobId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetApiExportStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -255,8 +255,8 @@ Other parameters are passed through a pointer to a apiGetApiExportStatusRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batchJobId** | **string** |  | 
  **tenantId** | **string** |  | 
+ **batchJobId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -279,7 +279,7 @@ No authorization required
 
 ## GetApiIds
 
-> ModerationAPIGetCommentIdsResponse GetApiIds(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).AfterId(afterId).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIGetCommentIdsResponse GetApiIds(ctx).TenantId(tenantId).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).AfterId(afterId).Demo(demo).Sso(sso).Execute()
 
 
 
@@ -296,18 +296,18 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	textSearch := "textSearch_example" // string |  (optional)
 	byIPFromComment := "byIPFromComment_example" // string |  (optional)
 	filters := "filters_example" // string |  (optional)
 	searchFilters := "searchFilters_example" // string |  (optional)
 	afterId := "afterId_example" // string |  (optional)
 	demo := true // bool |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetApiIds(context.Background()).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).AfterId(afterId).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetApiIds(context.Background()).TenantId(tenantId).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).AfterId(afterId).Demo(demo).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetApiIds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -328,13 +328,13 @@ Other parameters are passed through a pointer to a apiGetApiIdsRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **textSearch** | **string** |  | 
  **byIPFromComment** | **string** |  | 
  **filters** | **string** |  | 
  **searchFilters** | **string** |  | 
  **afterId** | **string** |  | 
  **demo** | **bool** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -374,8 +374,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -405,8 +405,8 @@ Other parameters are passed through a pointer to a apiGetBanUsersFromCommentRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **sso** | **string** |  | 
 
 ### Return type
@@ -446,8 +446,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -477,8 +477,8 @@ Other parameters are passed through a pointer to a apiGetCommentBanStatusRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **sso** | **string** |  | 
 
 ### Return type
@@ -518,8 +518,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -549,8 +549,8 @@ Other parameters are passed through a pointer to a apiGetCommentChildrenRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **sso** | **string** |  | 
 
 ### Return type
@@ -573,7 +573,7 @@ No authorization required
 
 ## GetCount
 
-> ModerationAPICountCommentsResponse GetCount(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filter(filter).SearchFilters(searchFilters).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPICountCommentsResponse GetCount(ctx).TenantId(tenantId).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filter(filter).SearchFilters(searchFilters).Demo(demo).Sso(sso).Execute()
 
 
 
@@ -590,17 +590,17 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	textSearch := "textSearch_example" // string |  (optional)
 	byIPFromComment := "byIPFromComment_example" // string |  (optional)
 	filter := "filter_example" // string |  (optional)
 	searchFilters := "searchFilters_example" // string |  (optional)
 	demo := true // bool |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetCount(context.Background()).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filter(filter).SearchFilters(searchFilters).Demo(demo).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetCount(context.Background()).TenantId(tenantId).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filter(filter).SearchFilters(searchFilters).Demo(demo).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -621,12 +621,12 @@ Other parameters are passed through a pointer to a apiGetCountRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **textSearch** | **string** |  | 
  **byIPFromComment** | **string** |  | 
  **filter** | **string** |  | 
  **searchFilters** | **string** |  | 
  **demo** | **bool** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -666,7 +666,7 @@ import (
 )
 
 func main() {
-	tenantId := "tenantId_example" // string |  (optional)
+	tenantId := "tenantId_example" // string | 
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -732,8 +732,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -763,8 +763,8 @@ Other parameters are passed through a pointer to a apiGetLogsRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **sso** | **string** |  | 
 
 ### Return type
@@ -804,7 +804,7 @@ import (
 )
 
 func main() {
-	tenantId := "tenantId_example" // string |  (optional)
+	tenantId := "tenantId_example" // string | 
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -853,7 +853,7 @@ No authorization required
 
 ## GetManualBadgesForUser
 
-> GetUserManualBadgesResponse GetManualBadgesForUser(ctx).BadgesUserId(badgesUserId).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetUserManualBadgesResponse GetManualBadgesForUser(ctx).TenantId(tenantId).BadgesUserId(badgesUserId).CommentId(commentId).Sso(sso).Execute()
 
 
 
@@ -870,14 +870,14 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	badgesUserId := "badgesUserId_example" // string |  (optional)
 	commentId := "commentId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetManualBadgesForUser(context.Background()).BadgesUserId(badgesUserId).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetManualBadgesForUser(context.Background()).TenantId(tenantId).BadgesUserId(badgesUserId).CommentId(commentId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetManualBadgesForUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -898,9 +898,9 @@ Other parameters are passed through a pointer to a apiGetManualBadgesForUserRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **badgesUserId** | **string** |  | 
  **commentId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -923,7 +923,7 @@ No authorization required
 
 ## GetModerationComment
 
-> ModerationAPICommentResponse GetModerationComment(ctx, commentId).IncludeEmail(includeEmail).IncludeIP(includeIP).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPICommentResponse GetModerationComment(ctx, commentId).TenantId(tenantId).IncludeEmail(includeEmail).IncludeIP(includeIP).Sso(sso).Execute()
 
 
 
@@ -940,15 +940,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	includeEmail := true // bool |  (optional)
 	includeIP := true // bool |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetModerationComment(context.Background(), commentId).IncludeEmail(includeEmail).IncludeIP(includeIP).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetModerationComment(context.Background(), commentId).TenantId(tenantId).IncludeEmail(includeEmail).IncludeIP(includeIP).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetModerationComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -973,10 +973,10 @@ Other parameters are passed through a pointer to a apiGetModerationCommentReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **includeEmail** | **bool** |  | 
  **includeIP** | **bool** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1016,8 +1016,8 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1047,8 +1047,8 @@ Other parameters are passed through a pointer to a apiGetModerationCommentTextRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **tenantId** | **string** |  | 
+
  **sso** | **string** |  | 
 
 ### Return type
@@ -1071,7 +1071,7 @@ No authorization required
 
 ## GetPreBanSummary
 
-> PreBanSummary GetPreBanSummary(ctx, commentId).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
+> PreBanSummary GetPreBanSummary(ctx, commentId).TenantId(tenantId).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).Sso(sso).Execute()
 
 
 
@@ -1088,16 +1088,16 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	includeByUserIdAndEmail := true // bool |  (optional)
 	includeByIP := true // bool |  (optional)
 	includeByEmailDomain := true // bool |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetPreBanSummary(context.Background(), commentId).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetPreBanSummary(context.Background(), commentId).TenantId(tenantId).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetPreBanSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1122,11 +1122,11 @@ Other parameters are passed through a pointer to a apiGetPreBanSummaryRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **includeByUserIdAndEmail** | **bool** |  | 
  **includeByIP** | **bool** |  | 
  **includeByEmailDomain** | **bool** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1149,7 +1149,7 @@ No authorization required
 
 ## GetSearchCommentsSummary
 
-> ModerationCommentSearchResponse GetSearchCommentsSummary(ctx).Value(value).Filters(filters).SearchFilters(searchFilters).TenantId(tenantId).Sso(sso).Execute()
+> ModerationCommentSearchResponse GetSearchCommentsSummary(ctx).TenantId(tenantId).Value(value).Filters(filters).SearchFilters(searchFilters).Sso(sso).Execute()
 
 
 
@@ -1166,15 +1166,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	value := "value_example" // string |  (optional)
 	filters := "filters_example" // string |  (optional)
 	searchFilters := "searchFilters_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetSearchCommentsSummary(context.Background()).Value(value).Filters(filters).SearchFilters(searchFilters).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetSearchCommentsSummary(context.Background()).TenantId(tenantId).Value(value).Filters(filters).SearchFilters(searchFilters).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchCommentsSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1195,10 +1195,10 @@ Other parameters are passed through a pointer to a apiGetSearchCommentsSummaryRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **value** | **string** |  | 
  **filters** | **string** |  | 
  **searchFilters** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1221,7 +1221,7 @@ No authorization required
 
 ## GetSearchPages
 
-> ModerationPageSearchResponse GetSearchPages(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
+> ModerationPageSearchResponse GetSearchPages(ctx).TenantId(tenantId).Value(value).Sso(sso).Execute()
 
 
 
@@ -1238,13 +1238,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	value := "value_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetSearchPages(context.Background()).Value(value).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetSearchPages(context.Background()).TenantId(tenantId).Value(value).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchPages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1265,8 +1265,8 @@ Other parameters are passed through a pointer to a apiGetSearchPagesRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **value** | **string** |  | 
  **tenantId** | **string** |  | 
+ **value** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1289,7 +1289,7 @@ No authorization required
 
 ## GetSearchSites
 
-> ModerationSiteSearchResponse GetSearchSites(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
+> ModerationSiteSearchResponse GetSearchSites(ctx).TenantId(tenantId).Value(value).Sso(sso).Execute()
 
 
 
@@ -1306,13 +1306,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	value := "value_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetSearchSites(context.Background()).Value(value).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetSearchSites(context.Background()).TenantId(tenantId).Value(value).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchSites``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1333,8 +1333,8 @@ Other parameters are passed through a pointer to a apiGetSearchSitesRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **value** | **string** |  | 
  **tenantId** | **string** |  | 
+ **value** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1357,7 +1357,7 @@ No authorization required
 
 ## GetSearchSuggest
 
-> ModerationSuggestResponse GetSearchSuggest(ctx).TextSearch(textSearch).TenantId(tenantId).Sso(sso).Execute()
+> ModerationSuggestResponse GetSearchSuggest(ctx).TenantId(tenantId).TextSearch(textSearch).Sso(sso).Execute()
 
 
 
@@ -1374,13 +1374,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	textSearch := "textSearch_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetSearchSuggest(context.Background()).TextSearch(textSearch).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetSearchSuggest(context.Background()).TenantId(tenantId).TextSearch(textSearch).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchSuggest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1401,8 +1401,8 @@ Other parameters are passed through a pointer to a apiGetSearchSuggestRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **textSearch** | **string** |  | 
  **tenantId** | **string** |  | 
+ **textSearch** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1425,7 +1425,7 @@ No authorization required
 
 ## GetSearchUsers
 
-> ModerationUserSearchResponse GetSearchUsers(ctx).Value(value).TenantId(tenantId).Sso(sso).Execute()
+> ModerationUserSearchResponse GetSearchUsers(ctx).TenantId(tenantId).Value(value).Sso(sso).Execute()
 
 
 
@@ -1442,13 +1442,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	value := "value_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetSearchUsers(context.Background()).Value(value).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetSearchUsers(context.Background()).TenantId(tenantId).Value(value).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetSearchUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1469,8 +1469,8 @@ Other parameters are passed through a pointer to a apiGetSearchUsersRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **value** | **string** |  | 
  **tenantId** | **string** |  | 
+ **value** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1493,7 +1493,7 @@ No authorization required
 
 ## GetTrustFactor
 
-> GetUserTrustFactorResponse GetTrustFactor(ctx).UserId(userId).TenantId(tenantId).Sso(sso).Execute()
+> GetUserTrustFactorResponse GetTrustFactor(ctx).TenantId(tenantId).UserId(userId).Sso(sso).Execute()
 
 
 
@@ -1510,13 +1510,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	userId := "userId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetTrustFactor(context.Background()).UserId(userId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetTrustFactor(context.Background()).TenantId(tenantId).UserId(userId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetTrustFactor``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1537,8 +1537,8 @@ Other parameters are passed through a pointer to a apiGetTrustFactorRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string** |  | 
  **tenantId** | **string** |  | 
+ **userId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1578,7 +1578,7 @@ import (
 )
 
 func main() {
-	tenantId := "tenantId_example" // string |  (optional)
+	tenantId := "tenantId_example" // string | 
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1627,7 +1627,7 @@ No authorization required
 
 ## GetUserInternalProfile
 
-> GetUserInternalProfileResponse GetUserInternalProfile(ctx).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
+> GetUserInternalProfileResponse GetUserInternalProfile(ctx).TenantId(tenantId).CommentId(commentId).Sso(sso).Execute()
 
 
 
@@ -1644,13 +1644,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.GetUserInternalProfile(context.Background()).CommentId(commentId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.GetUserInternalProfile(context.Background()).TenantId(tenantId).CommentId(commentId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.GetUserInternalProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1671,8 +1671,8 @@ Other parameters are passed through a pointer to a apiGetUserInternalProfileRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **commentId** | **string** |  | 
  **tenantId** | **string** |  | 
+ **commentId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1695,7 +1695,7 @@ No authorization required
 
 ## PostAdjustCommentVotes
 
-> AdjustVotesResponse PostAdjustCommentVotes(ctx, commentId).AdjustCommentVotesParams(adjustCommentVotesParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> AdjustVotesResponse PostAdjustCommentVotes(ctx, commentId).TenantId(tenantId).AdjustCommentVotesParams(adjustCommentVotesParams).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -1712,15 +1712,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	adjustCommentVotesParams := *openapiclient.NewAdjustCommentVotesParams(float64(123)) // AdjustCommentVotesParams | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostAdjustCommentVotes(context.Background(), commentId).AdjustCommentVotesParams(adjustCommentVotesParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostAdjustCommentVotes(context.Background(), commentId).TenantId(tenantId).AdjustCommentVotesParams(adjustCommentVotesParams).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostAdjustCommentVotes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1745,10 +1745,10 @@ Other parameters are passed through a pointer to a apiPostAdjustCommentVotesRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **adjustCommentVotesParams** | [**AdjustCommentVotesParams**](AdjustCommentVotesParams.md) |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1771,7 +1771,7 @@ No authorization required
 
 ## PostApiExport
 
-> ModerationExportResponse PostApiExport(ctx).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).TenantId(tenantId).Sso(sso).Execute()
+> ModerationExportResponse PostApiExport(ctx).TenantId(tenantId).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Sso(sso).Execute()
 
 
 
@@ -1788,17 +1788,17 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	textSearch := "textSearch_example" // string |  (optional)
 	byIPFromComment := "byIPFromComment_example" // string |  (optional)
 	filters := "filters_example" // string |  (optional)
 	searchFilters := "searchFilters_example" // string |  (optional)
 	sorts := "sorts_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostApiExport(context.Background()).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostApiExport(context.Background()).TenantId(tenantId).TextSearch(textSearch).ByIPFromComment(byIPFromComment).Filters(filters).SearchFilters(searchFilters).Sorts(sorts).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostApiExport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1819,12 +1819,12 @@ Other parameters are passed through a pointer to a apiPostApiExportRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **textSearch** | **string** |  | 
  **byIPFromComment** | **string** |  | 
  **filters** | **string** |  | 
  **searchFilters** | **string** |  | 
  **sorts** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1847,7 +1847,7 @@ No authorization required
 
 ## PostBanUserFromComment
 
-> BanUserFromCommentResult PostBanUserFromComment(ctx, commentId).BanEmail(banEmail).BanEmailDomain(banEmailDomain).BanIP(banIP).DeleteAllUsersComments(deleteAllUsersComments).BannedUntil(bannedUntil).IsShadowBan(isShadowBan).UpdateId(updateId).BanReason(banReason).TenantId(tenantId).Sso(sso).Execute()
+> BanUserFromCommentResult PostBanUserFromComment(ctx, commentId).TenantId(tenantId).BanEmail(banEmail).BanEmailDomain(banEmailDomain).BanIP(banIP).DeleteAllUsersComments(deleteAllUsersComments).BannedUntil(bannedUntil).IsShadowBan(isShadowBan).UpdateId(updateId).BanReason(banReason).Sso(sso).Execute()
 
 
 
@@ -1864,6 +1864,7 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	banEmail := true // bool |  (optional)
 	banEmailDomain := true // bool |  (optional)
@@ -1873,12 +1874,11 @@ func main() {
 	isShadowBan := true // bool |  (optional)
 	updateId := "updateId_example" // string |  (optional)
 	banReason := "banReason_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostBanUserFromComment(context.Background(), commentId).BanEmail(banEmail).BanEmailDomain(banEmailDomain).BanIP(banIP).DeleteAllUsersComments(deleteAllUsersComments).BannedUntil(bannedUntil).IsShadowBan(isShadowBan).UpdateId(updateId).BanReason(banReason).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostBanUserFromComment(context.Background(), commentId).TenantId(tenantId).BanEmail(banEmail).BanEmailDomain(banEmailDomain).BanIP(banIP).DeleteAllUsersComments(deleteAllUsersComments).BannedUntil(bannedUntil).IsShadowBan(isShadowBan).UpdateId(updateId).BanReason(banReason).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostBanUserFromComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1903,6 +1903,7 @@ Other parameters are passed through a pointer to a apiPostBanUserFromCommentRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **banEmail** | **bool** |  | 
  **banEmailDomain** | **bool** |  | 
@@ -1912,7 +1913,6 @@ Name | Type | Description  | Notes
  **isShadowBan** | **bool** |  | 
  **updateId** | **string** |  | 
  **banReason** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -1935,7 +1935,7 @@ No authorization required
 
 ## PostBanUserUndo
 
-> APIEmptyResponse PostBanUserUndo(ctx).BanUserUndoParams(banUserUndoParams).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostBanUserUndo(ctx).TenantId(tenantId).BanUserUndoParams(banUserUndoParams).Sso(sso).Execute()
 
 
 
@@ -1952,13 +1952,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	banUserUndoParams := *openapiclient.NewBanUserUndoParams(*openapiclient.NewAPIBanUserChangeLog()) // BanUserUndoParams | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostBanUserUndo(context.Background()).BanUserUndoParams(banUserUndoParams).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostBanUserUndo(context.Background()).TenantId(tenantId).BanUserUndoParams(banUserUndoParams).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostBanUserUndo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1979,8 +1979,8 @@ Other parameters are passed through a pointer to a apiPostBanUserUndoRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **banUserUndoParams** | [**BanUserUndoParams**](BanUserUndoParams.md) |  | 
  **tenantId** | **string** |  | 
+ **banUserUndoParams** | [**BanUserUndoParams**](BanUserUndoParams.md) |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2003,7 +2003,7 @@ No authorization required
 
 ## PostBulkPreBanSummary
 
-> BulkPreBanSummary PostBulkPreBanSummary(ctx).BulkPreBanParams(bulkPreBanParams).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
+> BulkPreBanSummary PostBulkPreBanSummary(ctx).TenantId(tenantId).BulkPreBanParams(bulkPreBanParams).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).Sso(sso).Execute()
 
 
 
@@ -2020,16 +2020,16 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	bulkPreBanParams := *openapiclient.NewBulkPreBanParams([]string{"CommentIds_example"}) // BulkPreBanParams | 
 	includeByUserIdAndEmail := true // bool |  (optional)
 	includeByIP := true // bool |  (optional)
 	includeByEmailDomain := true // bool |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostBulkPreBanSummary(context.Background()).BulkPreBanParams(bulkPreBanParams).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostBulkPreBanSummary(context.Background()).TenantId(tenantId).BulkPreBanParams(bulkPreBanParams).IncludeByUserIdAndEmail(includeByUserIdAndEmail).IncludeByIP(includeByIP).IncludeByEmailDomain(includeByEmailDomain).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostBulkPreBanSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2050,11 +2050,11 @@ Other parameters are passed through a pointer to a apiPostBulkPreBanSummaryReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **bulkPreBanParams** | [**BulkPreBanParams**](BulkPreBanParams.md) |  | 
  **includeByUserIdAndEmail** | **bool** |  | 
  **includeByIP** | **bool** |  | 
  **includeByEmailDomain** | **bool** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2077,7 +2077,7 @@ No authorization required
 
 ## PostCommentsByIds
 
-> ModerationAPIChildCommentsResponse PostCommentsByIds(ctx).CommentsByIdsParams(commentsByIdsParams).TenantId(tenantId).Sso(sso).Execute()
+> ModerationAPIChildCommentsResponse PostCommentsByIds(ctx).TenantId(tenantId).CommentsByIdsParams(commentsByIdsParams).Sso(sso).Execute()
 
 
 
@@ -2094,13 +2094,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentsByIdsParams := *openapiclient.NewCommentsByIdsParams([]string{"Ids_example"}) // CommentsByIdsParams | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostCommentsByIds(context.Background()).CommentsByIdsParams(commentsByIdsParams).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostCommentsByIds(context.Background()).TenantId(tenantId).CommentsByIdsParams(commentsByIdsParams).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostCommentsByIds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2121,8 +2121,8 @@ Other parameters are passed through a pointer to a apiPostCommentsByIdsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **commentsByIdsParams** | [**CommentsByIdsParams**](CommentsByIdsParams.md) |  | 
  **tenantId** | **string** |  | 
+ **commentsByIdsParams** | [**CommentsByIdsParams**](CommentsByIdsParams.md) |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2145,7 +2145,7 @@ No authorization required
 
 ## PostFlagComment
 
-> APIEmptyResponse PostFlagComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostFlagComment(ctx, commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2162,14 +2162,14 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostFlagComment(context.Background(), commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostFlagComment(context.Background(), commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostFlagComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2194,9 +2194,9 @@ Other parameters are passed through a pointer to a apiPostFlagCommentRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2219,7 +2219,7 @@ No authorization required
 
 ## PostRemoveComment
 
-> PostRemoveCommentResponse PostRemoveComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> PostRemoveCommentApiResponse PostRemoveComment(ctx, commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2236,19 +2236,19 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostRemoveComment(context.Background(), commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostRemoveComment(context.Background(), commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostRemoveComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostRemoveComment`: PostRemoveCommentResponse
+	// response from `PostRemoveComment`: PostRemoveCommentApiResponse
 	fmt.Fprintf(os.Stdout, "Response from `ModerationAPI.PostRemoveComment`: %v\n", resp)
 }
 ```
@@ -2268,14 +2268,14 @@ Other parameters are passed through a pointer to a apiPostRemoveCommentRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
 
-[**PostRemoveCommentResponse**](PostRemoveCommentResponse.md)
+[**PostRemoveCommentApiResponse**](PostRemoveCommentApiResponse.md)
 
 ### Authorization
 
@@ -2293,7 +2293,7 @@ No authorization required
 
 ## PostRestoreDeletedComment
 
-> APIEmptyResponse PostRestoreDeletedComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostRestoreDeletedComment(ctx, commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2310,14 +2310,14 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostRestoreDeletedComment(context.Background(), commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostRestoreDeletedComment(context.Background(), commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostRestoreDeletedComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2342,9 +2342,9 @@ Other parameters are passed through a pointer to a apiPostRestoreDeletedCommentR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2367,7 +2367,7 @@ No authorization required
 
 ## PostSetCommentApprovalStatus
 
-> SetCommentApprovedResponse PostSetCommentApprovalStatus(ctx, commentId).Approved(approved).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> SetCommentApprovedResponse PostSetCommentApprovalStatus(ctx, commentId).TenantId(tenantId).Approved(approved).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2384,15 +2384,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	approved := true // bool |  (optional)
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostSetCommentApprovalStatus(context.Background(), commentId).Approved(approved).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostSetCommentApprovalStatus(context.Background(), commentId).TenantId(tenantId).Approved(approved).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentApprovalStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2417,10 +2417,10 @@ Other parameters are passed through a pointer to a apiPostSetCommentApprovalStat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **approved** | **bool** |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2443,7 +2443,7 @@ No authorization required
 
 ## PostSetCommentReviewStatus
 
-> APIEmptyResponse PostSetCommentReviewStatus(ctx, commentId).Reviewed(reviewed).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostSetCommentReviewStatus(ctx, commentId).TenantId(tenantId).Reviewed(reviewed).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2460,15 +2460,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	reviewed := true // bool |  (optional)
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostSetCommentReviewStatus(context.Background(), commentId).Reviewed(reviewed).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostSetCommentReviewStatus(context.Background(), commentId).TenantId(tenantId).Reviewed(reviewed).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentReviewStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2493,10 +2493,10 @@ Other parameters are passed through a pointer to a apiPostSetCommentReviewStatus
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **reviewed** | **bool** |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2519,7 +2519,7 @@ No authorization required
 
 ## PostSetCommentSpamStatus
 
-> APIEmptyResponse PostSetCommentSpamStatus(ctx, commentId).Spam(spam).PermNotSpam(permNotSpam).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostSetCommentSpamStatus(ctx, commentId).TenantId(tenantId).Spam(spam).PermNotSpam(permNotSpam).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2536,16 +2536,16 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	spam := true // bool |  (optional)
 	permNotSpam := true // bool |  (optional)
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostSetCommentSpamStatus(context.Background(), commentId).Spam(spam).PermNotSpam(permNotSpam).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostSetCommentSpamStatus(context.Background(), commentId).TenantId(tenantId).Spam(spam).PermNotSpam(permNotSpam).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentSpamStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2570,11 +2570,11 @@ Other parameters are passed through a pointer to a apiPostSetCommentSpamStatusRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **spam** | **bool** |  | 
  **permNotSpam** | **bool** |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2597,7 +2597,7 @@ No authorization required
 
 ## PostSetCommentText
 
-> SetCommentTextResponse PostSetCommentText(ctx, commentId).SetCommentTextParams(setCommentTextParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> SetCommentTextResponse PostSetCommentText(ctx, commentId).TenantId(tenantId).SetCommentTextParams(setCommentTextParams).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2614,15 +2614,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	setCommentTextParams := *openapiclient.NewSetCommentTextParams("Comment_example") // SetCommentTextParams | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostSetCommentText(context.Background(), commentId).SetCommentTextParams(setCommentTextParams).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostSetCommentText(context.Background(), commentId).TenantId(tenantId).SetCommentTextParams(setCommentTextParams).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostSetCommentText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2647,10 +2647,10 @@ Other parameters are passed through a pointer to a apiPostSetCommentTextRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **setCommentTextParams** | [**SetCommentTextParams**](SetCommentTextParams.md) |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2673,7 +2673,7 @@ No authorization required
 
 ## PostUnFlagComment
 
-> APIEmptyResponse PostUnFlagComment(ctx, commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PostUnFlagComment(ctx, commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2690,14 +2690,14 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostUnFlagComment(context.Background(), commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostUnFlagComment(context.Background(), commentId).TenantId(tenantId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostUnFlagComment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2722,9 +2722,9 @@ Other parameters are passed through a pointer to a apiPostUnFlagCommentRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2747,7 +2747,7 @@ No authorization required
 
 ## PostVote
 
-> VoteResponse PostVote(ctx, commentId).Direction(direction).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> VoteResponse PostVote(ctx, commentId).TenantId(tenantId).Direction(direction).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2764,15 +2764,15 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	commentId := "commentId_example" // string | 
 	direction := "direction_example" // string |  (optional)
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PostVote(context.Background(), commentId).Direction(direction).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PostVote(context.Background(), commentId).TenantId(tenantId).Direction(direction).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PostVote``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2797,10 +2797,10 @@ Other parameters are passed through a pointer to a apiPostVoteRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
 
  **direction** | **string** |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2823,7 +2823,7 @@ No authorization required
 
 ## PutAwardBadge
 
-> AwardUserBadgeResponse PutAwardBadge(ctx).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> AwardUserBadgeResponse PutAwardBadge(ctx).TenantId(tenantId).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2840,16 +2840,16 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	badgeId := "badgeId_example" // string | 
 	userId := "userId_example" // string |  (optional)
 	commentId := "commentId_example" // string |  (optional)
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PutAwardBadge(context.Background()).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PutAwardBadge(context.Background()).TenantId(tenantId).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutAwardBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2870,11 +2870,11 @@ Other parameters are passed through a pointer to a apiPutAwardBadgeRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **badgeId** | **string** |  | 
  **userId** | **string** |  | 
  **commentId** | **string** |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2897,7 +2897,7 @@ No authorization required
 
 ## PutCloseThread
 
-> APIEmptyResponse PutCloseThread(ctx).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PutCloseThread(ctx).TenantId(tenantId).UrlId(urlId).Sso(sso).Execute()
 
 
 
@@ -2914,13 +2914,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	urlId := "urlId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PutCloseThread(context.Background()).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PutCloseThread(context.Background()).TenantId(tenantId).UrlId(urlId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutCloseThread``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2941,8 +2941,8 @@ Other parameters are passed through a pointer to a apiPutCloseThreadRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **urlId** | **string** |  | 
  **tenantId** | **string** |  | 
+ **urlId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -2965,7 +2965,7 @@ No authorization required
 
 ## PutRemoveBadge
 
-> RemoveUserBadgeResponse PutRemoveBadge(ctx).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+> RemoveUserBadgeResponse PutRemoveBadge(ctx).TenantId(tenantId).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 
 
 
@@ -2982,16 +2982,16 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	badgeId := "badgeId_example" // string | 
 	userId := "userId_example" // string |  (optional)
 	commentId := "commentId_example" // string |  (optional)
 	broadcastId := "broadcastId_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PutRemoveBadge(context.Background()).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PutRemoveBadge(context.Background()).TenantId(tenantId).BadgeId(badgeId).UserId(userId).CommentId(commentId).BroadcastId(broadcastId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutRemoveBadge``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3012,11 +3012,11 @@ Other parameters are passed through a pointer to a apiPutRemoveBadgeRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **badgeId** | **string** |  | 
  **userId** | **string** |  | 
  **commentId** | **string** |  | 
  **broadcastId** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -3039,7 +3039,7 @@ No authorization required
 
 ## PutReopenThread
 
-> APIEmptyResponse PutReopenThread(ctx).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
+> APIEmptyResponse PutReopenThread(ctx).TenantId(tenantId).UrlId(urlId).Sso(sso).Execute()
 
 
 
@@ -3056,13 +3056,13 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	urlId := "urlId_example" // string | 
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.PutReopenThread(context.Background()).UrlId(urlId).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.PutReopenThread(context.Background()).TenantId(tenantId).UrlId(urlId).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.PutReopenThread``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3083,8 +3083,8 @@ Other parameters are passed through a pointer to a apiPutReopenThreadRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **urlId** | **string** |  | 
  **tenantId** | **string** |  | 
+ **urlId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type
@@ -3107,7 +3107,7 @@ No authorization required
 
 ## SetTrustFactor
 
-> SetUserTrustFactorResponse SetTrustFactor(ctx).UserId(userId).TrustFactor(trustFactor).TenantId(tenantId).Sso(sso).Execute()
+> SetUserTrustFactorResponse SetTrustFactor(ctx).TenantId(tenantId).UserId(userId).TrustFactor(trustFactor).Sso(sso).Execute()
 
 
 
@@ -3124,14 +3124,14 @@ import (
 )
 
 func main() {
+	tenantId := "tenantId_example" // string | 
 	userId := "userId_example" // string |  (optional)
 	trustFactor := "trustFactor_example" // string |  (optional)
-	tenantId := "tenantId_example" // string |  (optional)
 	sso := "sso_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ModerationAPI.SetTrustFactor(context.Background()).UserId(userId).TrustFactor(trustFactor).TenantId(tenantId).Sso(sso).Execute()
+	resp, r, err := apiClient.ModerationAPI.SetTrustFactor(context.Background()).TenantId(tenantId).UserId(userId).TrustFactor(trustFactor).Sso(sso).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ModerationAPI.SetTrustFactor``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3152,9 +3152,9 @@ Other parameters are passed through a pointer to a apiSetTrustFactorRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenantId** | **string** |  | 
  **userId** | **string** |  | 
  **trustFactor** | **string** |  | 
- **tenantId** | **string** |  | 
  **sso** | **string** |  | 
 
 ### Return type

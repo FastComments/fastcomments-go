@@ -269,7 +269,7 @@ docs/PatchDomainConfigResponse.md
 docs/PatchPageAPIResponse.md
 docs/PatchSSOUserAPIResponse.md
 docs/PendingCommentToSyncOutbound.md
-docs/PostRemoveCommentResponse.md
+docs/PostRemoveCommentApiResponse.md
 docs/PreBanSummary.md
 docs/PubSubComment.md
 docs/PubSubCommentBase.md
@@ -634,7 +634,7 @@ model_patch_domain_config_response.go
 model_patch_page_api_response.go
 model_patch_sso_user_api_response.go
 model_pending_comment_to_sync_outbound.go
-model_post_remove_comment_response.go
+model_post_remove_comment_api_response.go
 model_pre_ban_summary.go
 model_pub_sub_comment.go
 model_pub_sub_comment_base.go
